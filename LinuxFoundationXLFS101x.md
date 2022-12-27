@@ -3287,4 +3287,208 @@ The table lists some of the key combinations used for changing, adding, and dele
 
 </center>
 
+### Chapter Summary
 
+You have completed Chapter 11. Let’s summarize the key concepts covered:
+
+- Text editors (rather than word processing programs) are used quite often in Linux, for tasks such as creating or modifying system configuration files, writing scripts, developing source code, etc.
+- nano is an easy-to-use text-based editor that utilizes on-screen prompts.
+- gedit is a graphical editor, very similar to Notepad in Windows.
+- The vi editor is available on all Linux systems and is very widely used. Graphical extension versions of vi are widely available as well.
+- emacs is available on all Linux systems as a popular alternative to vi. emacs can support both a graphical user interface and a text mode interface.
+- To access the vi tutorial, type vimtutor at a command line window.
+- To access the emacs tutorial type Ctl-h and then t from within emacs.
+- vi has three modes: Command, Insert, and Line. emacs has only one, but requires use of special keys, such as Control and Escape.
+- Both editors use various combinations of keystrokes to accomplish tasks. The learning curve to master these can be long, but once mastered using either editor is extremely efficient.
+
+### Identifying the Current User
+
+As you know, Linux is a multi-user operating system, meaning more than one user can log on at the same time.
+
+- To identify the current user, type whoami.
+- To list the currently logged-on users, type who.
+
+Giving who the -a option will give more detailed information.
+
+### User Startup Files
+
+In Linux, the command shell program (generally bash) uses one or more startup files to configure the user environment. Files in the /etc directory define global settings for all users, while initialization files in the user's home directory can include and/or override the global settings.
+
+<center>
+
+![User Startup Files](userstartup.png)
+
+</center>
+
+The startup files can do anything the user would like to do in every command shell, such as:
+
+- Customizing the prompt
+- Defining command line shortcuts and aliases
+- Setting the default text editor
+- Setting the path for where to find executable programs
+
+### Order of the Startup Files
+
+The standard prescription is that when you first login to Linux, /etc/profile is read and evaluated, after which the following files are searched (if they exist) in the listed order:
+
+            ~/.bash_profile
+            ~/.bash_login
+            ~/.profile 
+
+where ~/. denotes the user's home directory. The Linux login shell evaluates whatever startup file that it comes across first and ignores the rest. This means that if it finds ~/.bash_profile, it ignores ~/.bash_login and ~/.profile. Different distributions may use different startup files.
+
+However, every time you create a new shell, or terminal window, etc., you do not perform a full system login; only a file named ~/.bashrc file is read and evaluated. Although this file is not read and evaluated along with the login shell, most distributions and/or users include the ~/.bashrc file from within one of the three user-owned startup files.
+
+Most commonly, users only fiddle with ~/.bashrc, as it is invoked every time a new command line shell initiates, or another program is launched from a terminal window, while the other files are read and executed only when the user first logs onto the system.
+
+Recent distributions sometimes do not even have .bash_profile and/or .bash_login, and some just do little more than include .bashrc.
+
+<center>
+
+![Order of the Startup Files](orderof.png)
+
+</center>
+
+### Creating Aliases
+
+You can create customized commands or modify the behavior of already existing ones by creating aliases. Most often, these aliases are placed in your ~/.bashrc file so they are available to any command shells you create. unalias removes an alias.
+
+Typing alias with no arguments will list currently defined aliases.
+
+Please note there should not be any spaces on either side of the equal sign and the alias definition needs to be placed within either single or double quotes if it contains any spaces.
+
+<center>
+
+![Creating Aliases](aliases.png)
+
+</center>
+
+### Basics of Users and Groups
+
+All Linux users are assigned a unique user ID (uid), which is just an integer; normal users start with a uid of 1000 or greater.
+
+Linux uses groups for organizing users. Groups are collections of accounts with certain shared permissions. Control of group membership is administered through the /etc/group file, which shows a list of groups and their members. By default, every user belongs to a default or primary group. When a user logs in, the group membership is set for their primary group and all the members enjoy the same level of access and privilege. Permissions on various files and directories can be modified at the group level.
+
+Users also have one or more group IDs (gid), including a default one which is the same as the user ID. These numbers are associated with names through the files /etc/passwd and /etc/group. Groups are used to establish a set of users who have common interests for the purposes of access rights, privileges, and security considerations. Access rights to files (and devices) are granted on the basis of the user and the group they belong to.
+
+For example, /etc/passwd might contain `george:x:1002:1002:George Metesky:/home/george:/bin/bash` and /etc/group might contain `george:x:1002`.
+
+<center>
+
+![Basics of Users and Groups](basics.png)
+
+</center>
+
+### Adding and Removing Users
+
+Distributions have straightforward graphical interfaces for creating and removing users and groups and manipulating group membership. However, it is often useful to do it from the command line or from within shell scripts. Only the root user can add and remove users and groups.
+
+Adding a new user is done with useradd and removing an existing user is done with userdel. In the simplest form, an account for the new user bjmoose would be done with:
+
+`$ sudo useradd bjmoose`
+
+which, by default, sets the home directory to /home/bjmoose, populates it with some basic files (copied from /etc/skel) and adds a line to /etc/passwd such as:
+
+`bjmoose:x:1002:1002::/home/bjmoose:/bin/bash`
+
+and sets the default shell to /bin/bash. Removing a user account is as easy as typing userdel bjmoose. However, this will leave the /home/bjmoose directory intact. This might be useful if it is a temporary inactivation. To remove the home directory while removing the account one needs to use the -r option to userdel.
+
+Typing id with no argument gives information about the current user, as in:
+
+$ id
+uid=1002(bjmoose) gid=1002(bjmoose) groups=106(fuse),1002(bjmoose)
+
+If given the name of another user as an argument, id will report information about that other user.
+
+### Adding and Removing Groups
+
+Adding a new group is done with groupadd:
+
+`$ sudo /usr/sbin/groupadd anewgroup`
+
+The group can be removed with:
+
+`$ sudo /usr/sbin/groupdel anewgroup`
+
+Adding a user to an already existing group is done with usermod. For example, you would first look at what groups the user already belongs to:
+
+`$ groups rjsquirrel`
+
+        rjsquirrel : rjsquirrel
+
+and then add the new group:
+
+`$ sudo /usr/sbin/usermod -a -G anewgroup rjsquirrel`
+
+`$ groups rjsquirrel`
+
+        rjsquirrel: rjsquirrel anewgroup
+
+These utilities update /etc/group as necessary. Make sure to use the -a option, for append, so as to avoid removing already existing groups. groupmod can be used to change group properties, such as the Group ID (gid) with the -g option or its name with then -n option.
+
+Removing a user from the group is somewhat trickier. The -G option to usermod must give a complete list of groups. Thus, if you do:
+
+`$ sudo /usr/sbin/usermod -G rjsquirrel rjsquirrel`
+
+`$ groups rjsquirrel`
+
+        rjsquirrel : rjsquirrel
+
+only the rjsquirrel group will be left.
+
+### The root Account
+
+The root account is very powerful and has full access to the system. Other operating systems often call this the administrator account; in Linux, it is often called the superuser account. You must be extremely cautious before granting full root access to a user; it is rarely, if ever, justified. External attacks often consist of tricks used to elevate to the root account.
+
+However, you can use sudo to assign more limited privileges to user accounts:
+
+            Only on a temporary basis
+            Only for a specific subset of commands.
+
+### su and sudo
+
+When assigning elevated privileges, you can use the command su (switch or substitute user) to launch a new shell running as another user (you must type the password of the user you are becoming). Most often, this other user is root, and the new shell allows the use of elevated privileges until it is exited. It is almost always a bad (dangerous for both security and stability) practice to use su to become root. Resulting errors can include deletion of vital files from the system and security breaches.
+
+Granting privileges using sudo is less dangerous and is preferred. By default, sudo must be enabled on a per-user basis. However, some distributions (such as Ubuntu) enable it by default for at least one main user, or give this as an installation option.
+
+In the Local Security Principles chapter we will describe and compare su and sudo in detail.
+
+### Elevating to root Account
+
+To temporarily become the superuser for a series of commands, you can type su and then be prompted for the root password.
+
+To execute just one command with root privilege type sudo <command>. When the command is complete, you will return to being a normal unprivileged user.
+
+sudo configuration files are stored in the /etc/sudoers file and in the /etc/sudoers.d/ directory. By default, the sudoers.d directory is empty.
+
+### Deploying aliases
+
+Typing long commands and file names over and over again gets rather tedious, and leads to a lot of trivial errors, such as typos.
+
+Deploying aliases allows us to define shortcuts to alleviate the pain of all of this typing.
+
+Suppose you are a member of a project team that works in a common, shared directory for your project. This directory is located in /home/staff/RandD/projects/projectX/src.
+
+When you are working on Project X, you often need to create and modify your files in this directory. It does not take too long before typing in: 
+
+cd /home/staff/RandD/projects/projectX/src
+
+gets tedious.
+
+Define and use an alias named "projx" to do the above cd command for you.
+
+The alias line would look like this:
+
+`student:/tmp> alias projx='cd /home/staff/RandD/projects/projectX/src'`
+
+Note you can use double quotes instead of single quotes, or use no quotes at all since there is no white space in your defined alias. All you have to do now to change to the directory is
+
+`student:/tmp> projx`
+
+To make the alias persistent, just place it in your $HOME/.bashrc file.
+
+### Environment Variables
+
+Environment variables are quantities that have specific values which may be utilized by the command shell, such as bash, or other utilities and applications. Some environment variables are given preset values by the system (which can usually be overridden), while others are set directly by the user, either at the command line or within startup and other scripts. 
+
+An environment variable is actually just a character string that contains information used by one or more applications. There are a number of ways to view the values of currently set environment variables; one can type set, env, or export. Depending on the state of your system, set may print out many more lines than the other two methods.

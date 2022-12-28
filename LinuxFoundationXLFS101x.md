@@ -3492,3 +3492,178 @@ To make the alias persistent, just place it in your $HOME/.bashrc file.
 Environment variables are quantities that have specific values which may be utilized by the command shell, such as bash, or other utilities and applications. Some environment variables are given preset values by the system (which can usually be overridden), while others are set directly by the user, either at the command line or within startup and other scripts. 
 
 An environment variable is actually just a character string that contains information used by one or more applications. There are a number of ways to view the values of currently set environment variables; one can type set, env, or export. Depending on the state of your system, set may print out many more lines than the other two methods.
+
+### Setting Environment Variables
+
+By default, variables created within a script are only available to the current shell; child processes (sub-shells) will not have access to values that have been set or modified. Allowing child processes to see the values requires use of the export command.
+
+<center>
+
+![Setting Environment Variables](settingenvironment.png)
+
+</center>
+
+You can also set environment variables to be fed as a one shot to a command as in:
+
+`$ SDIRS=s_0* KROOT=/lib/modules/$(uname -r)/build make modules_install`
+
+which feeds the values of the SDIRS and KROOT environment variables to the command make modules_install.
+
+### The HOME Variable
+
+HOME is an environment variable that represents the home (or login) directory of the user. cd without arguments will change the current working directory to the value of HOME. Note the tilde character (~) is often used as an abbreviation for \$HOME. Thus, cd $HOME and cd ~ are completely equivalent statements.
+
+<center>
+
+![The HOME Variable](home1.png)
+
+</center>
+
+The screenshot demonstrates this. 
+
+<center>
+
+![The HOME Variable](home2.png)
+
+</center>
+
+### The PATH Variable
+
+PATH is an ordered list of directories (the path) which is scanned when a command is given to find the appropriate program or script to run. Each directory in the path is separated by colons `(:)`. A null (empty) directory name (or ./) indicates the current directory at any given time.
+
+- :path1:path2
+- path1::path2
+
+In the example :path1:path2, there is a null directory before the first colon `(:)`. Similarly, for path1::path2 there is a null directory between path1 and path2.
+
+To prefix a private bin directory to your path:
+
+`$ export PATH=$HOME/bin:$PATH`
+`$ echo $PATH`
+
+    /home/student/bin:/usr/local/bin:/usr/bin:/bin/usr
+
+<center>
+
+![The PATH Variable](path.png)
+
+</center>
+
+### The SHELL Variable
+
+The environment variable SHELL points to the user's default command shell (the program that is handling whatever you type in a command window, usually bash) and contains the full pathname to the shell:
+
+`$ echo $SHELL`
+/bin/bash
+`$`
+
+### The PS1 Variable and the Command Line Prompt
+
+Prompt Statement (PS) is used to customize your prompt string in your terminal windows to display the information you want. 
+
+PS1 is the primary prompt variable which controls what your command line prompt looks like. The following special characters can be included in PS1:
+
+\u - User name
+\h - Host name
+\w - Current working directory
+\! - History number of this command
+\d - Date
+
+They must be surrounded in single quotes when they are used, as in the following example:
+
+`$ echo $PS1`
+`$`
+`$ export PS1='\u@\h:\w$'`
+
+student@example.com:~$ # new prompt
+
+To revert the changes:
+
+`student@example.com:~$ export PS1='$ '`
+`$`
+
+An even better practice would be to save the old prompt first and then restore, as in:
+
+`$ OLD_PS1=$PS1`
+
+change the prompt, and eventually change it back with:
+
+`$ PS1=$OLD_PS1`
+`$`
+
+### Adding /tmp to Your Path
+
+Create a small file /tmp/ls, which contains just the line:
+
+`echo HELLO, this is the phony ls program.`
+
+Then, make it executable by doing:
+
+`$ chmod +x /tmp/ls`
+
+1. Append /tmp to your path, so it is searched only after your usual path is considered. Type ls and see which program is run: /bin/ls or /tmp/ls?
+2. Pre-pend /tmp to your path, so it is searched before your usual path is considered. Once again, type ls and see which program is run: /bin/ls or /tmp/ls?
+
+What are the security considerations in altering the path this way?
+
+First, create the phony ls program using an editor or just simply doing:
+
+`student:/tmp>echo "echo HELLO, this is the phony ls program." > /tmp/ls`
+`student:/tmp>chmod +x /tmp/ls`
+
+For the next two steps, it is a good idea to work in another terminal window, or just start a new shell, so the changes do not persist on later issued commands. You can start a new shell by just typing bash.
+
+1. ` student:/tmp>bash`
+    `student:/tmp>PATH=$PATH:/tmp`
+    `student:/tmp>ls /usr`
+
+        bin etc games include lib lib64 libexec local sbin share src tmp
+
+   ` student:/tmp>exit`
+<br/>
+
+2.   `student:/tmp>bash`
+     `student:/tmp>PATH=/tmp:$PATH`
+     `student:/tmp>ls /usr`
+
+            HELLO, this is the phony ls program.
+
+    `student:/tmp>exit`
+
+Note the second form is a very dangerous thing to do, and is a trivial way to insert a Trojan Horse program; if someone can put a malicious program in /tmp, they can trick you into running it accidentally.
+
+### Changing the Command Line Prompt
+
+It is nice to have your current working directory as part of your prompt so that a quick glance will give you some information without typing pwd every time.
+
+If you often work on multiple computers, especially if you network from one into another with ssh, it is very convenient to have the computer name be part of your prompt.
+
+1. Put your current working directory in your command line prompt.
+2. Put your computer (machine) name in your prompt.
+3. Put both your current directory and computer name in your prompt.
+
+How can you make this persistent, so that whenever you start a bash command shell, this is your prompt? 
+
+
+1. `$ echo $PWD`
+   
+    /tmp
+
+    `$ PS1='\w>'`
+
+    /tmp>
+
+2. `PS1='\h>'`
+   
+    student>
+
+3. `PS1='\h:\w>'`
+    student:/tmp>
+
+### Recalling Previous Commands
+
+bash keeps track of previously entered commands and statements in a history buffer. You can recall previously used commands simply by using the Up and Down cursor keys. To view the list of previously executed commands, you can just type history at the command line.
+
+The list of commands is displayed with the most recent command appearing last in the list. This information is stored in ~/.bash_history. If you have multiple terminals open, the commands typed in each session are not saved until the session terminates.
+
+

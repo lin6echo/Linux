@@ -3666,4 +3666,79 @@ bash keeps track of previously entered commands and statements in a history buff
 
 The list of commands is displayed with the most recent command appearing last in the list. This information is stored in ~/.bash_history. If you have multiple terminals open, the commands typed in each session are not saved until the session terminates.
 
+### Using History Environment Variables
 
+Several associated environment variables can be used to get information about the history file.
+
+- HISTFILE
+            The location of the history file.
+- HISTFILESIZE
+            The maximum number of lines in the history file (default 500).
+- HISTSIZE
+            The maximum number of commands in the history file.
+- HISTCONTROL
+            How commands are stored.
+- HISTIGNORE
+            Which command lines can be unsaved.
+
+For a complete description of the use of these environment variables, see man bash.
+
+<center>
+
+![Using History Environment Variables](hist.png)
+
+</center>
+
+### Finding and Using Previous Commands
+
+Specific keys to perform various tasks:
+
+<center>
+
+![Finding and Using Previous Commands](previouscommand.png)
+
+</center>
+
+If you want to recall a command in the history list, but do not want to press the arrow key repeatedly, you can press CTRL-R to do a reverse intelligent search.
+
+As you start typing, the search goes back in reverse order to the first command that matches the letters you have typed. By typing more successive letters, you make the match more and more specific.
+
+The following is an example of how you can use the CTRL-R command to search through the command history:
+
+`$^R `                                                           (This all happens on 1 line)
+`(reverse-i-search)'s': sleep 1000`         (Searched for 's'; matched "sleep")
+`$ sleep 1000`                                                     (Pressed Enter to execute the searched command)
+`$`
+
+### Executing Previous Commands
+
+The table describes the syntax used to execute previously used commands:
+
+<center>
+
+![Executing Previous Commands](executingpreviouscommand.png)
+
+</center>
+
+All history substitutions start with !. When typing the command: ls -l /bin /etc /var, !$ will refer to /var, the last argument to the command.
+
+Here are more examples:
+
+`$ history`
+
+1. `echo $SHELL`
+2. `echo $HOME`
+3. `echo $PS1`
+4. `ls -a`
+5. `ls -l /etc/ passwd`
+6. `sleep 1000`
+7. `history`
+
+`$ !1`                              (Execute command #1 above)
+
+echo $SHELL
+/bin/bash
+
+`$ !sl`                           (Execute the command beginning with "sl")
+sleep 1000
+`$`

@@ -3742,3 +3742,121 @@ echo $SHELL
 `$ !sl`                           (Execute the command beginning with "sl")
 sleep 1000
 `$`
+
+### Keyboard Shortcuts
+
+You can use keyboard shortcuts to perform different tasks quickly. The table lists some of these keyboard shortcuts and their uses. Note the case of the "hotkey" does not matter, e.g. doing CTRL-a is the same as doing CTRL-A .
+
+<center>
+
+![Keyboard Shortcuts](shortcuts.png)
+
+</center>
+
+### Command History
+
+You have been busy working with your Linux workstation long enough to have typed in about 100 commands in one particular bash command shell.
+
+At some point earlier, you used a new command, but the exact name has slipped your mind.
+
+Or perhaps it was a pretty complicated command, with a bunch of options and arguments, and you do not want to go through the error prone process of figuring out what to type again.
+
+How do you ascertain what the command was?
+
+Once you find the command in your history, how do you easily issue the command again without having to type it all in at the prompt?
+
+The history command is the way to display the commands you have typed in:
+
+`student:/tmp> history`
+
+1 cd /
+2 ls
+3 cd
+4 pwd
+5 echo $SHELL
+6 ls /var/
+7 ls /usr/bin
+8 ls /usr/local/bin
+9 man fstab
+10 ls
+. . .
+
+In order to re-run a previous command, you have a few choices. Let's say that you wanted to re-run the man command you ran way back when you first logged in. You could type:
+
+`student:/tmp> !9`
+
+to re-run the command listed as #9. If this was the only man command that you typed in, you could also type:
+
+`student:/tmp> !man`
+
+now that you remember the command name that you typed. Finally, if you had typed a few man commands, you could use CTRL-R to search backward in your history to find the specific man command that you want to re-run and then just hit Return to execute it.
+
+### File Ownership
+
+In Linux and other UNIX-based operating systems, every file is associated with a user who is the owner. Every file is also associated with a group (a subset of all users) which has an interest in the file and certain rights, or permissions: read, write, and execute.
+
+The following utility programs involve user and group ownership and permission setting: 
+
+<center>
+
+![File Ownership](ownership.png)
+
+</center>
+
+### File Permission Modes and chmod
+
+Files have three kinds of permissions: read (r), write (w), execute (x). These are generally represented as in rwx. These permissions affect three groups of owners: user/owner (u), group (g), and others (o).
+
+As a result, you have the following three groups of three permissions:
+
+rwx:u    rwx:g  rwx:o
+
+
+There are a number of different ways to use chmod. For instance, to give the owner and others execute permission and remove the group write permission:
+
+`$ ls -l somefile`
+
+-rw-rw-r-- 1 student student 1601 Mar 9 15:04 somefile
+
+`$ chmod uo+x,g-w somefile`
+
+`$ ls -l somefile`
+
+-rwxr--r-x 1 student student 1601 Mar 9 15:04 somefile
+
+where u stands for user (owner), o stands for other (world), and g stands for group.
+
+This kind of syntax can be difficult to type and remember, so one often uses a shorthand which lets you set all the permissions in one step. This is done with a simple algorithm, and a single digit suffices to specify all three permission bits for each entity. This digit is the sum of:
+
+            4 if read permission is desired
+            2 if write permission is desired
+            1 if execute permission is desired
+
+Thus, 7 means read/write/execute, 6 means read/write, and 5 means read/execute.
+
+When you apply this to the chmod command, you have to give three digits for each degree of freedom, such as in:
+
+`$ chmod 755 somefile`
+`$ ls -l somefile`
+
+-rwxr-xr-x 1 student student 1601 Mar 9 15:04 somefile
+
+<center>
+
+![File Permission Modes and chmod](filepermission.png)
+
+</center>
+
+### Example of chown
+
+Let's see an example of changing file ownership using chown, as shown in the screenshot to the right. First, we create two empty files using touch.
+
+Notice it requires sudo to change the owner of file2 to root. The second chown command changes both owner and group at the same time!
+
+Finally, only the superuser can remove the files. 
+
+<center>
+
+![Example of chown](chown.png)
+
+</center>

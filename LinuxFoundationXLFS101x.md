@@ -3860,3 +3860,50 @@ Finally, only the superuser can remove the files.
 ![Example of chown](chown.png)
 
 </center>
+
+### Example of chgrp
+
+Now, let’s see an example of changing the group ownership using chgrp:
+
+<center>
+
+![Example of chgrp](chgrp.png)
+
+</center>
+
+### Chapter Summary
+
+You have completed Chapter 12. Let's summarize the key concepts covered:
+
+- Linux is a multi-user system.
+- To find the currently logged on users, you can use the who command.
+- To find the current user ID, you can use the whoami command.
+- The root account has full access to the system. It is never sensible to grant full root access to a user.
+- You can assign root privileges to regular user accounts on a temporary basis using the sudo command.
+- The shell program (bash) uses multiple startup files to create the user environment. Each file affects the interactive environment in a different way. /etc/profile provides the global settings.
+- Advantages of startup files include that they customize the user's prompt, set the user's terminal type, set the command-line shortcuts and aliases, and set the default text editor, etc.
+- An environment variable is a character string that contains data used by one or more applications. The built-in shell variables can be customized to suit your requirements.
+- The history command recalls a list of previous commands, which can be edited and recycled.
+- In Linux, various keyboard shortcuts can be used at the command prompt instead of long actual commands.
+- You can customize commands by creating aliases. Adding an alias to ~/.bashrc will make it available for other shells.
+- File permissions can be changed by typing chmod permissions filename.
+- File ownership is changed by typing chown owner filename.
+- File group ownership is changed by typing chgrp group filename.
+
+### Command Line Tools for Manipulating Text Files
+
+Irrespective of the role you play with Linux (system administrator, developer or user), you often need to browse through and parse text files, and/or extract data from them. These are file manipulation operations. Thus, it is essential for the Linux user to become adept at performing certain operations on files.
+
+Most of the time, such file manipulation is done at the command line, which allows users to perform tasks more efficiently than while using a GUI. Furthermore, the command line is more suitable for automating often executed tasks.
+
+Indeed, experienced system administrators write customized scripts to accomplish such repetitive tasks, standardized for each particular environment. We will discuss such scripting later in much detail.
+
+In this section, we will concentrate on command line file and text manipulation-related utilities.
+
+<center>
+
+![Command Line Tools for Manipulating Text Files](manipulating.png)
+
+</center>
+
+

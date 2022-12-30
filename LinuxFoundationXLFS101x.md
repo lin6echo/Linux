@@ -4034,3 +4034,89 @@ Here is a table listing some z family commands:
 </center>
 
 Note that if you run zless on an uncompressed file, it will still work and ignore the decompression stage. There are also equivalent utility programs for other compression methods besides gzip, for example, we have bzcat and bzless associated with bzip2, and xzcat and xzless associated with xz.
+
+### Introduction to sed and awk
+
+It is very common to create and then repeatedly edit and/or extract contents from a file. Let’s learn how to use sed and awk to easily perform such operations.
+
+Note that many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl, rather than use sed and awk (and some other utilities we will discuss later). Using such utilities is certainly fine in most circumstances; one should always feel free to use the tools one is experienced with. However, the utilities that are described here are much lighter; i.e. they use fewer system resources, and execute faster. There are situations (such as during booting the system) where a lot of time would be wasted using the more complicated tools, and the system may not even be able to run them. So, the simpler tools will always be needed.
+
+### sed
+
+sed is a powerful text processing tool and is one of the oldest, earliest and most popular UNIX utilities. It is used to modify the contents of a file or input stream, usually placing the contents into a new file or output stream. Its name is an abbreviation for stream editor.
+
+<center>
+
+![sed](sed.png)
+
+</center>
+
+sed can filter text, as well as perform substitutions in data streams.
+
+Data from an input source/file (or stream) is taken and moved to a working space. The entire list of operations/modifications is applied over the data in the working space and the final contents are moved to the standard output space (or stream).
+
+### sed Command Syntax
+
+You can invoke sed using commands like those listed in the accompanying table.
+
+<center>
+
+![sed Command Syntax](sedcommandsyntax.png)
+
+</center>
+
+The -e option allows you to specify multiple editing commands simultaneously at the command line. It is unnecessary if you only have one operation invoked.
+
+<center>
+
+![sed Command Syntax](sedcommandsyntax1.png)
+
+</center>
+
+### sed Basic Operations
+
+Now that you know that you can perform multiple editing and filtering operations with sed, let’s explain some of them in more detail. The table explains some basic operations, where pattern is the current string and replace_string is the new string:
+
+<center>
+
+![sed Basic Operations](sedbasic.png)
+
+</center>
+
+You must use the -i option with care, because the action is not reversible. It is always safer to use sed without the –i option and then replace the file yourself, as shown in the following example:
+
+`$ sed s/pattern/replace_string/g file1 > file2`
+
+The above command will replace all occurrences of pattern with replace_string in file1 and move the contents to file2. The contents of file2 can be viewed with cat file2. If you approve, you can then overwrite the original file with mv file2 file1.
+
+Example: To convert 01/02/… to JAN/FEB/…
+
+sed     -e 's/01/JAN/' -e 's/02/FEB/' -e 's/03/MAR/' -e 's/04/APR/' -e 's/05/MAY/' \
+        -e 's/06/JUN/' -e 's/07/JUL/' -e 's/08/AUG/' -e 's/09/SEP/' -e 's/10/OCT/' \
+        -e 's/11/NOV/' -e 's/12/DEC/'
+
+### awk
+
+awk is used to extract and then print specific contents of a file and is often used to construct reports. It was created at Bell Labs in the 1970s and derived its name from the last names of its authors: Alfred Aho, Peter Weinberger, and Brian Kernighan.
+
+awk has the following features:
+
+- It is a powerful utility and interpreted programming language.
+- It is used to manipulate data files, and for retrieving and processing text.
+- It works well with fields (containing a single piece of data, essentially a column) and records (a collection of fields, essentially a line in a file).
+
+awk is invoked as shown in the following:
+
+<center>
+
+![awk](awk1.png)
+
+</center>
+
+s with sed, short awk commands can be specified directly at the command line, but a more complex script can be saved in a file that you can specify using the -f option.
+
+<center>
+
+![awk](awk2.png)
+
+</center>

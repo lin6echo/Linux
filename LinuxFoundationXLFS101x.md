@@ -3997,4 +3997,40 @@ You can also just say:
 
 </center>
 
+### tail
 
+tail prints the last few lines of each named file and displays it on standard output. By default, it displays the last 10 lines. You can give a different number of lines as an option. tail is especially useful when you are troubleshooting any issue using log files, as you probably want to see the most recent lines of output.
+
+For example, to display the last 15 lines of somefile.log, use the following command:
+
+`$ tail -n 15 somefile.log`
+
+You can also just say:
+
+`tail -15 somefile.log`
+
+To continually monitor new output in a growing log file:
+
+`$ tail -f somefile.log`
+
+This command will continuously display any new lines of output in somefile.log as soon as they appear. Thus, it enables you to monitor any current activity that is being reported and recorded.
+
+<center>
+
+![tail](tail.png)
+
+</center>
+
+### Viewing Compressed Files
+
+When working with compressed files, many standard commands cannot be used directly. For many commonly-used file and text manipulation programs, there is also a version especially designed to work directly with compressed files. These associated utilities have the letter "z" prefixed to their name. For example, we have utility programs such as zcat, zless, zdiff and zgrep.
+
+Here is a table listing some z family commands:
+
+<center>
+
+![Viewing Compressed Files](zcommand.png)
+
+</center>
+
+Note that if you run zless on an uncompressed file, it will still work and ignore the decompression stage. There are also equivalent utility programs for other compression methods besides gzip, for example, we have bzcat and bzless associated with bzip2, and xzcat and xzless associated with xz.

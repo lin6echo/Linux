@@ -4120,3 +4120,49 @@ s with sed, short awk commands can be specified directly at the command line, bu
 ![awk](awk2.png)
 
 </center>
+
+### awk Basic Operations
+
+The table explains the basic tasks that can be performed using awk. The input file is read one line at a time, and, for each line, awk matches the given pattern in the given order and performs the requested action. The -F option allows you to specify a particular field separator character. For example, the /etc/passwd file uses ":" to separate the fields, so the -F: option is used with the /etc/passwd file.
+
+The command/action in awk needs to be surrounded with apostrophes (or single-quote (')). awk can be used as follows:
+
+<center>
+
+![awk Basic Operations](awkbasic.png)
+
+</center>
+
+### Using sed
+
+Search for all instances of the user command interpreter (shell) equal to /sbin/nologin in /etc/passwd and replace them with /bin/bash.
+
+To get output on standard out (terminal screen):
+
+`student:/tmp> sed s/'\/sbin\/nologin'/'\/bin\/bash'/g /etc/passwd`
+
+or to direct to a file:
+
+`student:/tmp> sed s/'\/sbin\/nologin'/'\/bin\/bash'/g /etc/passwd > passwd_new`
+
+Note this is kind of painful and obscure because we are trying to use the forward slash ( / ) as both a string and a delimiter between fields. One can do instead:
+
+`student:/tmp> sed s:'/sbin/nologin':'/bin/bash':g /etc/passwd`
+
+where we have used the colon ( : ) as the delimiter instead. (You are free to choose your delimiting character!) In fact when doing this, we do not even need the single quotes:
+
+`student:/tmp> sed s:/sbin/nologin:/bin/bash:g /etc/passwd` 
+
+works just fine.
+
+### File Manipulation Utilities
+
+In managing your files, you may need to perform tasks such as sorting data and copying data from one location to another. Linux provides numerous file manipulation utilities that you can use while working with text files. In this section, you will learn about the following file manipulation programs:
+
+- sort
+- uniq
+- paste
+- join
+- split.
+
+You will also learn about regular expressions and search patterns.

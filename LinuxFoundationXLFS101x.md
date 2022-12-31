@@ -4458,3 +4458,138 @@ For example, to print only the number of lines contained in a file, type wc -l f
 ![wc](wc1.png)
 
 </center>
+
+### cut
+
+cut is used for manipulating column-based files and is designed to extract specific columns. The default column separator is the tab character. A different delimiter can be given as a command option.
+
+For example, to display the third column delimited by a blank space, at the command prompt type ls -l | cut -d" " -f3 and press the Enter key.
+
+<center>
+
+![cut](cut.png)
+
+</center>
+
+### Using tee
+
+The tee utility is very useful for saving a copy of your output while you are watching it being generated.
+
+Execute a command such as doing a directory listing of the /etc directory:
+
+`student:/tmp> ls -l /etc`
+
+while both saving the output in a file and displaying it at your terminal.
+
+`student:/tmp> ls -l /etc | tee /tmp/ls-output`
+`student:/tmp> less /tmp/ls-output`
+
+total 2948
+drwxr-xr-x.  3 root root     4096 Nov  3 07:27 abrt
+-rw-r--r--.  1 root root       16 Jan 15  2015 adjtime
+-rw-r--r--   1 root root     1518 Jun  7  2013 aliases
+-rw-r--r--.  1 root root    12288 Nov  3 07:49 aliases.db
+drwxr-xr-x.  2 root root     4096 Nov  3 07:26 alsa
+drwxr-xr-x.  2 root root     4096 Jan 20 07:28 alternatives
+-rw-------   1 root root      541 Feb 23  2016 anacrontab
+-rw-r--r--   1 root root       55 Jun  6  2016 asound.conf
+-rw-r--r--   1 root root        1 May 23  2016 at.deny
+drwxr-xr-x.  2 root root     4096 Nov  3 07:26 at-spi2
+drwxr-x---.  3 root root     4096 Nov  3 07:26 audisp
+drwxr-x---.  3 root root     4096 Nov  3 07:26 audit
+drwxr-xr-x.  4 root root     4096 Nov  3 07:32 avahi
+drwxr-xr-x.  2 root root     4096 Jan 18 06:59 bash_completion.d
+-rw-r--r--   1 root root     2853 May  4  2016 bashrc
+drwxr-xr-x.  2 root root     4096 Nov  7 10:20 binfmt.d
+drwxr-xr-x   2 root root     4096 Nov  3 07:26 bluetooth
+drwxr-xr-x.  2 root root     4096 Apr  9  2015 bonobo-activation
+drwxr-xr-x   2 root root    12288 Nov  3 07:26 brltty
+-rw-r--r--   1 root root    21929 May  6  2016 brltty.conf
+-rw-r--r--   1 root root      676 Jun 23  2016 cgconfig.conf
+:
+
+### Using wc
+
+Using wc (word count), find out how many lines, words, and characters there are in all the files in /var/log that have the .log extension.
+
+s`tudent:/tmp> wc /var/log/*.log`
+
+    325    2204   18114 /var/log/boot.log
+      0       0       0 /var/log/pm-powersave.log
+   3098   17871  125630 /var/log/systemtap.log
+   5234  251967 4889056 /var/log/vbox-install.log
+wc: /var/log/wpa_supplicant.log: Permission denied
+   1313   15374   99968 /var/log/Xorg.0.log
+    150    1185    8520 /var/log/Xorg.1.log
+    318    2851   20868 /var/log/Xorg.9.log
+wc: /var/log/yum.log: Permission denied
+  10438  291452 5162156 total
+
+### Chapter Summary
+
+You have completed Chapter 13. Let’s summarize the key concepts covered:
+
+- The command line often allows the users to perform tasks more efficiently than the GUI.
+- cat, short for concatenate, is used to read, print, and combine files.
+- echo displays a line of text either on standard output or to place in a file.
+- sed is a popular stream editor often used to filter and perform substitutions on files and text data streams.
+- awk is an interpreted programming language, typically used as a data extraction and reporting tool.
+- sort is used to sort text files and output streams in either ascending or descending order.
+- uniq eliminates duplicate entries in a text file.
+- paste combines fields from different files. It can also extract and combine lines from multiple sources.
+- join combines lines from two files based on a common field. It works only if files share a common field.
+- split breaks up a large file into equal-sized segments.
+- Regular expressions are text strings used for pattern matching. The pattern can be used to search for a specific location, such as the start or end of a line or a word.
+- grep searches text files and data streams for patterns and can be used with regular expressions.
+- tr translates characters, copies standard input to standard output, and handles special characters.
+- tee saves a copy of standard output to a file while still displaying at the terminal.
+- wc (word count) displays the number of lines, words, and characters in a file or group of files.
+- cut extracts columns from a file.
+- less views files a page at a time and allows scrolling in both directions.
+- head displays the first few lines of a file or data stream on standard output. By default, it displays 10 lines.
+- tail displays the last few lines of a file or data stream on standard output. By default, it displays 10 lines.
+- strings extracts printable character strings from binary files.
+- The z command family is used to read and work with compressed files.
+
+### Introduction to Networking
+
+A network is a group of computers and computing devices connected together through communication channels, such as cables or wireless media. The computers connected over a network may be located in the same geographical area or spread across the world.
+
+A network is used to:
+
+- Allow the connected devices to communicate with each other
+- Enable multiple users to share devices over the network, such as music and video servers, printers and scanners.
+- Share and manage information across computers easily.
+
+Most organizations have both an internal network and an Internet connection for users to communicate with machines and people outside the organization. The Internet is the largest network in the world and can be called "the network of networks".
+
+### IP Addresses
+
+Devices attached to a network must have at least one unique network address identifier known as the IP (Internet Protocol) address. The address is essential for routing packets of information through the network.
+
+Exchanging information across the network requires using streams of small packets, each of which contains a piece of the information going from one machine to another. These packets contain data buffers, together with headers which contain information about where the packet is going to and coming from, and where it fits in the sequence of packets that constitute the stream. Networking protocols and software are rather complicated due to the diversity of machines and operating systems they must deal with, as well as the fact that even very old standards must be supported.
+
+<center>
+
+![IP Addresses](IPaddresses.png)
+
+</center>
+
+### IPv4 and IPv6
+
+There are two different types of IP addresses available: IPv4 (version 4) and IPv6 (version 6). IPv4 is older and by far the more widely used, while IPv6 is newer and is designed to get past limitations inherent in the older standard and furnish many more possible addresses.
+
+IPv4 uses 32-bits for addresses; there are only 4.3 billion unique addresses available. Furthermore, many addresses are allotted and reserved, but not actually used. IPv4 is considered inadequate for meeting future needs because the number of devices available on the global network has increased enormously in recent years.
+
+IPv6 uses 128-bits for addresses; this allows for 3.4 X 1038 unique addresses. If you have a larger network of computers and want to add more, you may want to move to IPv6, because it provides more unique addresses. However, it can be complex to migrate to IPv6; the two protocols do not always inter-operate well. Thus, moving equipment and addresses to IPv6 requires significant effort and has not been quite as fast as was originally intended. We will discuss IPv4 more than IPv6 as you are more likely to deal with it.
+
+One reason IPv4 has not disappeared is there are ways to effectively make many more addresses available by methods such as NAT (Network Address Translation).  NAT enables sharing one IP address among many locally connected computers, each of which has a unique address only seen on the local network. While this is used in organizational settings, it is also used in simple home networks. For example, if you have a router hooked up to your Internet Provider (such as a cable system) it gives you one externally visible address, but issues each device in your home an individual local address.
+
+<center>
+
+![IPv4 and IPv6](ipv4.png)
+
+</center>
+
+
+

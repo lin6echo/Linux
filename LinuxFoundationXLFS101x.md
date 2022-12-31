@@ -4166,3 +4166,295 @@ In managing your files, you may need to perform tasks such as sorting data and c
 - split.
 
 You will also learn about regular expressions and search patterns.
+
+### sort
+
+sort is used to rearrange the lines of a text file, in either ascending or descending order according to a sort key. You can also sort with respect to particular fields (columns) in a file. The default sort key is the order of the ASCII characters (i.e. essentially alphabetically).
+
+sort can be used as follows:
+
+<center>
+
+![sort](sort.png)
+
+</center>
+
+When used with the -u option, sort checks for unique values after sorting the records (lines). It is equivalent to running uniq (which we shall discuss) on the output of sort.
+
+<center>
+
+![sort](sort1.png)
+
+</center>
+
+### uniq
+
+niq removes duplicate consecutive lines in a text file and is useful for simplifying the text display.
+
+Because uniq requires that the duplicate entries must be consecutive, one often runs sort first and then pipes the output into uniq; if sort is used with the -u option, it can do all this in one step.
+
+To remove duplicate entries from multiple files at once, use the following command:
+
+`sort file1 file2 | uniq > file3`
+
+or
+
+`sort -u file1 file2 > file3`
+
+To count the number of duplicate entries, use the following command:
+
+`uniq -c filename`
+
+<center>
+
+![uniq](uniq.png)
+
+</center>
+
+### paste
+
+Suppose you have a file that contains the full name of all employees and another file that lists their phone numbers and Employee IDs. You want to create a new file that contains all the data listed in three columns: name, employee ID, and phone number. How can you do this effectively without investing too much time?
+
+paste can be used to create a single file containing all three columns. The different columns are identified based on delimiters (spacing used to separate two fields). For example, delimiters can be a blank space, a tab, or an Enter. In the image provided, a single space is used as the delimiter in all files.
+
+paste accepts the following options:
+
+- -d delimiters, which specify a list of delimiters to be used instead of tabs for separating consecutive values on a single line. Each delimiter is used in turn; when the list has been exhausted, paste begins again at the first delimiter.
+- -s, which causes paste to append the data in series rather than in parallel; that is, in a horizontal rather than vertical fashion.
+
+<center>
+
+![paste](paste.png)
+
+</center>
+
+### Using paste 
+
+paste can be used to combine fields (such as name or phone number) from different files, as well as combine lines from multiple files. For example, line one from file1 can be combined with line one of file2, line two from file1 can be combined with line two of file2, and so on.
+
+To paste contents from two files one can do:
+
+`$ paste file1 file2`
+
+The syntax to use a different delimiter is as follows:
+
+`$ paste -d, file1 file2`
+
+Common delimiters are 'space', 'tab', '|', 'comma', etc.
+
+<center>
+
+![Using paste](usingpaste.png)
+
+</center>
+
+### join
+
+Suppose you have two files with some similar columns. You have saved employees’ phone numbers in two files, one with their first name and the other with their last name. You want to combine the files without repeating the data of common columns. How do you achieve this?
+
+The above task can be achieved using join, which is essentially an enhanced version of paste. It first checks whether the files share common fields, such as names or phone numbers, and then joins the lines in two files based on a common field.
+
+<center>
+
+![join](join.png)
+
+</center>
+
+### Using join
+
+To combine two files on a common field, at the command prompt type join file1 file2 and press the Enter key.
+
+For example, the common field (i.e. it contains the same values) among the phonebook and cities files is the phone number, and the result of joining these two files is shown in the screen capture.
+
+ <center>
+
+![Using join](usingjoin.png)
+
+</center>
+
+### split
+
+split is used to break up (or split) a file into equal-sized segments for easier viewing and manipulation, and is generally used only on relatively large files. By default, split breaks up a file into 1000-line segments. The original file remains unchanged, and a set of new files with the same name plus an added prefix is created. By default, the x prefix is added. To split a file into segments, use the command split infile.
+
+To split a file into segments using a different prefix, use the command split infile \<Prefix>.
+
+<center>
+
+![split](split.png)
+
+</center>
+
+### Using split
+
+We will apply split to an American-English dictionary file of over 99,000 lines:
+
+`$ wc -l american-english`
+99171 american-english
+
+where we have used wc (word count, soon to be discussed) to report on the number of lines in the file. Then, typing:
+
+`$ split american-english dictionary`
+
+will split the American-English file into 100 equal-sized segments named dictionaryxx. The last one will of course be somewhat smaller.
+
+<center>
+
+![Using split](usingsplit.png)
+
+</center>
+
+### Regular Expressions and Search Patterns
+
+Regular expressions are text strings used for matching a specific pattern, or to search for a specific location, such as the start or end of a line or a word. Regular expressions can contain both normal characters or so-called meta-characters, such as * and $.
+
+Many text editors and utilities such as vi, sed, awk, find and grep work extensively with regular expressions. Some of the popular computer languages that use regular expressions include Perl, Python and Ruby. It can get rather complicated and there are whole books written about regular expressions; thus, we will do no more than skim the surface here.
+
+These regular expressions are different from the wildcards (or meta-characters) used in filename matching in command shells such as bash (which were covered in the Command-Line Operations chapter). The table lists search patterns and their usage.
+
+<center>
+
+![Regular Expressions and Search Patterns](regular.png)
+
+</center>
+
+### Using Regular Expressions and Search Patterns
+
+For example, consider the following sentence: the quick brown fox jumped over the lazy dog.
+
+Some of the patterns that can be applied to this sentence are as follows:
+
+<center>
+
+![Using Regular Expressions and Search Patterns](usingregular.png)
+
+</center>
+
+### Parsing Files with awk (and sort and uniq)
+
+Generate a column containing a unique list of all the shells used for users in /etc/passwd.
+
+You may need to consult the manual page for /etc/passwd as in:
+
+`student:/tmp> man 5 passwd`
+
+Which field in /etc/passwd holds the account’s default shell (user command interpreter)?
+
+How do you make a list of unique entries (with no repeats)?
+
+The field in /etc/passwd that holds the shell is number 7. To display the field holding the shell in /etc/passwd using awk and produce a unique list, do:
+
+`$ awk -F: '{print $7}' /etc/passwd | sort -u`
+
+or
+
+`$ awk -F: '{print $7}' /etc/passwd | sort | uniq`
+
+For example:
+
+`$ awk -F: '{print $7}' /etc/passwd | sort -u`
+
+/bin/bash
+/bin/sync
+/sbin/halt
+/sbin/nologin
+/sbin/shutdown
+
+### grep
+
+grep is extensively used as a primary text searching tool. It scans files for specified patterns and can be used with regular expressions, as well as simple strings, as shown in the table:
+
+<center>
+
+![grep](grep.png)
+
+</center>
+
+### strings
+
+strings is used to extract all printable character strings found in the file or files given as arguments. It is useful in locating human-readable content embedded in binary files; for text files one can just use grep.
+
+For example, to search for the string my_string in a spreadsheet:
+
+`$ strings book1.xls | grep my_string`
+
+The screenshot shows a search of a number of programs to see which ones have GPL licenses of various versions.
+
+<center>
+
+![strings](strings.png)
+
+</center>
+
+### Using grep
+
+In the following we give some examples of things you can do with the grep command; your task is to experiment with these examples and extend them.
+
+1. Search for your username in file /etc/passwd .
+2. Find all entries in /etc/services that include the string ftp:
+3. Restrict to those that use the tcp protocol.
+4. Now restrict to those that do not use the tcp protocol, while printing out the line number
+5. Get all strings that start with ts or end with st.
+---
+1. `student:/tmp> grep student /etc/passwd`
+2. `student:/tmp> grep ftp /etc/services`
+3. `student:/tmp> grep ftp /etc/services | grep tcp`
+4. `student:/tmp> grep -n ftp /etc/services | grep -v tcp`
+5. `student:/tmp> grep -e ^ts -e st$ /etc/services`
+
+### tr
+
+In this section, you will learn about some additional text utilities that you can use for performing various actions on your Linux files, such as changing the case of letters or determining the count of words, lines, and characters in a file.
+
+<center>
+
+![tr](tr.png)
+
+</center>
+
+The tr utility is used to translate specified characters into other characters or to delete them. The general syntax is as follows:
+
+`$ tr [options] set1 [set2]`
+
+The items in the square brackets are optional. tr requires at least one argument and accepts a maximum of two. The first, designated set1 in the example, lists the characters in the text to be replaced or removed. The second, set2, lists the characters that are to be substituted for the characters listed in the first argument. Sometimes these sets need to be surrounded by apostrophes (or single-quotes (')) in order to have the shell ignore that they mean something special to the shell. It is usually safe (and may be required) to use the single-quotes around each of the sets as you will see in the examples below.
+
+For example, suppose you have a file named city containing several lines of text in mixed case. To translate all lower case characters to upper case, at the command prompt type cat city | tr a-z A-Z and press the Enter key.
+
+<center>
+
+![tr](tr1.png)
+
+</center>
+
+### tee
+
+tee takes the output from any command, and, while sending it to standard output, it also saves it to a file. In other words, it tees the output stream from the command: one stream is displayed on the standard output and the other is saved to a file.
+
+For example, to list the contents of a directory on the screen and save the output to a file, at the command prompt type ls -l | tee newfile and press the Enter key.
+
+Typing cat newfile will then display the output of ls –l.
+
+<center>
+
+![tee](tee.png)
+
+</center>
+
+### wc
+
+wc (word count) counts the number of lines, words, and characters in a file or list of files. Options are given in the table below.
+
+<center>
+
+![wc](wc.png)
+
+</center>
+
+By default, all three of these options are active.
+
+For example, to print only the number of lines contained in a file, type wc -l filename and press the Enter key.
+
+<center>
+
+![wc](wc1.png)
+
+</center>

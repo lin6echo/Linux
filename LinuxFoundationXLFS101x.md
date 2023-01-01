@@ -5235,3 +5235,359 @@ Most Linux users use the default bash shell, but those with long UNIX background
 ![Command Shell Choices](shellchoices.png)
 
 </center>
+
+### History of Command Shells
+
+To learn more about the UNIX shell, you can read this short article below.
+
+sh was written by Steve Bourne at AT&T in 1977, and is often known as the Bourne Shell. All
+other shells are descended from it in some fashion and it is available on all systems that have a
+UNIX bloodline.
+csh was written by Bill Joy at UC Berkeley and released in 1978. The internal syntax is quite
+different than sh and is designed to resemble the C programming language, and hence the
+name.
+tcsh was originally developed by Ken Greer at Carnegie Mellon University in the late 1970's;
+the t in tcsh stands for TENEX, an operating system that was used on some DEC PDP-10's. It
+has many additional features as compared with csh and on virtually all modern systems csh is
+just a link to tcsh.
+ksh was written by David Korn at AT&T and appeared in 1982, and is often known as the Korn
+shell. It was designed to be a major upgrade to sh and is backward compatible with it, and
+brings in some of the features of tcsh, such as command line history recall. This shell has long
+been a favorite of many system administrators.
+bash is a product of the GNU project and was created in 1987. It was designed as a major
+upgrade of sh; the name stands for Bourne Again Shell. It has full backward compatibility with
+sh and partial compatibility with ksh.
+On all Linux systems sh is just a link to bash, but scripts which are invoked as sh will only work
+without the bash extensions. A similar relationship exists between csh and tcsh.
+
+### Shell Scripts
+
+Remember from our earlier discussion, a shell is a command line interpreter which provides the user interface for terminal windows. It can also be used to run scripts, even in non-interactive sessions without a terminal window, as if the commands were being directly typed in. For example, typing `find . -name "*.c" -ls` at the command line accomplishes the same thing as executing a script file containing the lines:
+
+`#!/bin/bash`
+`find . -name "*.c" -ls`
+
+The first line of the script, which starts with #!, contains the full path of the command interpreter (in this case /bin/bash) that is to be used on the file. As we have noted, you have quite a few choices for the scripting language you can use, such as /usr/bin/perl, /bin/csh, /usr/bin/python, etc.
+
+<center>
+
+![Shell Scripts](shellscript.png)
+
+</center>
+
+### A Simple bash Script
+
+Let's write a simple bash script that displays a one line message on the screen. Either type:
+
+`$ cat > hello.sh`
+
+        #!/bin/bash
+        echo "Hello Linux Foundation Student"
+
+and press ENTER and CTRL-D to save the file, or just create hello.sh in your favorite text editor. Then, type `chmod +x hello.sh` to make the file executable by all users.
+
+You can then run the script by typing `./hello.sh` or by doing:
+
+`$ bash hello.sh`
+
+        Hello Linux Foundation Student
+
+NOTE: If you use the second form, you do not have to make the file executable.
+
+<center>
+
+![A Simple bash Script](bashscript.png)
+
+</center>
+
+### Interactive Example Using bash Scripts
+
+Now, let's see how to create a more interactive example using a bash script. The user will be prompted to enter a value, which is then displayed on the screen. The value is stored in a temporary variable, name. We can reference the value of a shell variable by using a $ in front of the variable name, such as \$name. To create this script, you need to create a file named getname.sh in your favorite editor with the following content:
+
+`#!/bin/bash`
+`# Interactive reading of a variable`
+`echo "ENTER YOUR NAME"`
+`read name`
+`# Display variable input`
+`echo The name given was :$name`
+
+Once again, make it executable by doing `chmod +x getname.sh.`
+
+In the above example, when the user types `./getname.sh` and the script is executed, the user is prompted with the string ENTER YOUR NAME. The user then needs to enter a value and press the Enter key. The value will then be printed out.
+
+NOTE: The hash-tag/pound-sign/number-sign (#) is used to start comments in the script and can be placed anywhere in the line (the rest of the line is considered a comment). However, note the special magic combination of #!, used on the first line, is a unique exception to this rule.
+
+<center>
+
+![Interactive Example Using bash Scripts](interactivebash.png)
+
+</center>
+
+### Return Values
+
+All shell scripts generate a return value upon finishing execution, which can be explicitly set with the exit statement. Return values permit a process to monitor the exit state of another process, often in a parent-child relationship. Knowing how the process terminates enables taking any appropriate steps which are necessary or contingent on success or failure.
+
+<center>
+
+![Return Values](returnvalues.png)
+
+</center>
+
+### Viewing Return Values
+
+As a script executes, one can check for a specific value or condition and return success or failure as the result. By convention, success is returned as 0, and failure is returned as a non-zero value. An easy way to demonstrate success and failure completion is to execute ls on a file that exists as well as one that does not, the return value is stored in the environment variable represented by $?:
+
+`$ ls /etc/logrotate.conf`
+
+        /etc/logrotate.conf
+
+`$ echo $?`
+
+        0
+
+In this example, the system is able to locate the file /etc/logrotate.conf and ls returns a value of 0 to indicate success. When run on a non-existing file, it returns 2. Applications often translate these return values into meaningful messages easily understood by the user.
+
+<center>
+
+![Viewing Return Values](viewingreturnvalues.png)
+
+</center>
+
+### Exit Status Codes
+
+Write a script which:
+
+1. Does ls for a non-existent file, and then displays the resulting exit status.
+2. Creates a file and does ls for it, and then once again displays the resulting exit status.
+
+Create a file named testls.sh, with the content below:
+
+`#!/bin/bash`
+`#`
+`# check for non-existent file, exit status will be 2`
+`#`
+`ls SoMeFiLe.ext  `
+`echo "status: $?"`
+
+`# create file, and do again, exit status will be 0`
+`touch SoMeFiLe.ext`
+`ls SoMeFiLe.ext  `
+`echo "status: $?"`
+
+`# remove the file to clean up`
+`rm SoMeFiLe.ext`
+
+Make it executable and run it:
+
+`student:/tmp> chmod +x testls.sh `
+`student:/tmp> ./testls.sh`
+
+        ls: cannot access SoMeFiLe.ext: No such file or directory
+        status: 2
+        SoMeFiLe.ext
+        status: 0
+
+### Basic Syntax and Special Characters
+
+Scripts require you to follow a standard language syntax. Rules delineate how to define variables and how to construct and format allowed statements, etc. The table lists some special character usages within bash scripts:
+
+<center>
+
+![Basic Syntax and Special Characters](basicsyntax.png)
+
+</center>
+
+There are other special characters and character combinations and constructs that scripts understand, such as (..), {..}, [..], &&, ||, ', ", $((...)), some of which we will discuss later.
+
+### Splitting Long Commands Over Multiple Lines
+
+Sometimes, commands are too long to either easily type on one line, or to grasp and understand (even though there is no real practical limit to the length of a command line).  
+
+In this case, the concatenation operator (\), the backslash character, is used to continue long commands over several lines.
+
+Here is an example of a command installing a long list of packages on a system using Debian package management:
+
+`$~/> cd $HOME`
+`$~/> sudo apt-get install autoconf automake bison build-essential \`
+    `chrpath curl diffstat emacs flex gcc-multilib g++-multilib \ `
+    `libsdl1.2-dev libtool lzop make mc patch \`
+    `screen socat sudo tar texinfo tofrodos u-boot-tools unzip \`
+    `vim wget xterm zip`
+
+The command is divided into multiple lines to make it look readable and easier to understand. The \ operator at the end of each line causes the shell to combine (concatenate) multiple lines and executes them as one single command.
+
+<center>
+
+![Splitting Long Commands Over Multiple Lines](splitting.png)
+
+</center>
+
+### Putting Multiple Commands on a Single Line
+
+Users sometimes need to combine several commands and statements and even conditionally execute them based on the behavior of operators used in between them. This method is called chaining of commands.
+
+There are several different ways to do this, depending on what you want to do. The ; (semicolon) character is used to separate these commands and execute them sequentially, as if they had been typed on separate lines. Each ensuing command is executed whether or not the preceding one succeeded.
+
+Thus, the three commands in the following example will all execute, even if the ones preceding them fail:
+
+`$ make ; make install ; make clean`
+
+However, you may want to abort subsequent commands when an earlier one fails. You can do this using the && (and) operator as in:
+
+`$ make && make install && make clean`
+
+If the first command fails, the second one will never be executed. A final refinement is to use the || (or) operator, as in:
+
+`$ cat file1 || cat file2 || cat file3`
+
+In this case, you proceed until something succeeds and then you stop executing any further steps.
+
+Chaining commands is not the same as piping them; in the later case succeeding commands begin operating on data streams produced by earlier ones before they complete, while in chaining each step exits before the next one starts.
+
+<center>
+
+![Putting Multiple Commands on a Single Line](putting.png)
+
+</center>
+
+### Output Redirection
+
+Most operating systems accept input from the keyboard and display the output on the terminal. However, in shell scripting you can send the output to a file. The process of diverting the output to a file is called output redirection. We have already used this facility in our earlier sections on how to use the command line.
+
+The > character is used to write output to a file. For example, the following command sends the output of free to /tmp/free.out:
+
+`$ free > /tmp/free.out`
+
+To check the contents of /tmp/free.out, at the command prompt type cat /tmp/free.out.
+
+Two > characters (>>) will append output to a file if it exists, and act just like > if the file does not already exist.
+
+<center>
+
+![Output Redirection](output.png)
+
+</center>
+
+### Input Redirection
+
+Just as the output can be redirected to a file, the input of a command can be read from a file. The process of reading input from a file is called input redirection and uses the < character.
+
+The following three commands (using wc to count the number of lines, words and characters in a file) are entirely equivalent and involve input redirection, and a command operating on the contents of a file:
+
+`$ wc < /etc/passwd`
+49  105 2678 /etc/passwd
+
+`$ wc /etc/passwd`
+49  105 2678 /etcpasswd
+
+`$ cat /etc/passwd | wc`
+49  105 2678
+
+### Built-In Shell Commands
+
+Shell scripts execute sequences of commands and other types of statements. These commands can be: 
+
+- Compiled applications
+- Built-in bash commands
+- Shell scripts or scripts from other interpreted languages, such as perl and Python.
+
+Compiled applications are binary executable files, generally residing on the filesystem in well-known directories such as /usr/bin. Shell scripts always have access to applications such as rm, ls, df, vi, and gzip, which are programs compiled from lower level programming languages such as C.
+
+In addition, bash has many built-in commands, which can only be used to display the output within a terminal shell or shell script. Sometimes, these commands have the same name as executable programs on the system, such as echo, which can lead to subtle problems. bash built-in commands include cd, pwd, echo, read, logout, printf, let, and ulimit. Thus, slightly different behavior can be expected from the built-in version of a command such as echo as compared to /bin/echo.
+
+A complete list of bash built-in commands can be found in the bash man page, or by simply typing help, as we review on the next page.
+
+<center>
+
+![Built-In Shell Commands](builtin.png)
+
+</center>
+
+### 
+
+We already enumerated which commands have versions built in to bash, in our earlier discussion of how to get help on Linux systems. Once again, here is a screenshot listing exactly which commands are available.
+
+<center>
+
+![Commands Built in to bash](builtinbash.png)
+
+</center>
+
+### Script Parameters
+
+Users often need to pass parameter values to a script, such as a filename, date, etc. Scripts will take different paths or arrive at different values according to the parameters (command arguments) that are passed to them. These values can be text or numbers as in:
+
+`$ ./script.sh /tmp`
+`$ ./script.sh 100 200`
+
+Within a script, the parameter or an argument is represented with a $ and a number or special character. The table lists some of these parameters.
+
+<center>
+
+![Script Parameters](scriptparameters.png)
+
+</center>
+
+### Using Script Parameters
+
+If you type in the script shown in the figure, make the script executable with chmod +x param.sh. Then, run the script giving it several arguments, as shown. The script is processed as follows:
+
+$0 prints the script name: param.sh
+
+$1 prints the first parameter: one
+
+$2 prints the second parameter: two
+
+$3 prints the third parameter: three
+
+$* prints all parameters: one two three four five
+
+The final statement becomes: All done with param.sh
+
+<center>
+
+![Using Script Parameters](usingscriptparameters.png)
+
+</center>
+
+### Command Substitution
+
+At times, you may need to substitute the result of a command as a portion of another command. It can be done in two ways:
+
+- By enclosing the inner command in $( )
+- By enclosing the inner command with backticks (`)
+
+The second, backticks form, is deprecated in new scripts and commands. No matter which method is used, the specified command will be executed in a newly launched shell environment, and the standard output of the shell will be inserted where the command substitution is done.
+
+Virtually any command can be executed this way. While both of these methods enable command substitution, the $( ) method allows command nesting. New scripts should always use this more modern method. For example:
+
+`$ ls /lib/modules/$(uname -r)/`
+
+In the above example, the output of the command uname –r (which will be something like 5.13.3), is inserted into the argument for the ls command.
+
+<center>
+
+![Command Substitution](commandsubtitution.png)
+
+</center>
+
+### Environment Variables
+
+Most scripts use variables containing a value, which can be used anywhere in the script. These variables can either be user or system-defined. Many applications use such environment variables (already covered in some detail in the User Environment chapter) for supplying inputs, validation, and controlling behavior.
+
+As we discussed earlier, some examples of standard environment variables are HOME, PATH, and HOST. When referenced, environment variables must be prefixed with the \$ symbol, as in \$HOME. You can view and set the value of environment variables. For example, the following command displays the value stored in the PATH variable:
+
+`$ echo $PATH`
+
+However, no prefix is required when setting or modifying the variable value. For example, the following command sets the value of the MYCOLOR variable to blue:
+
+`$ MYCOLOR=blue`
+
+You can get a list of environment variables with the env, set, or printenv commands.
+
+<center>
+
+![Environment Variables](environmentvariables.png)
+
+</center>
+

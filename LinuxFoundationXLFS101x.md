@@ -4755,5 +4755,483 @@ One can use the route utility or the newer ip route command to view or change th
 
 </center>
 
+### traceroute
+
+traceroute is used to inspect the route which the data packet takes to reach the destination host, which makes it quite useful for troubleshooting network delays and errors. By using traceroute, you can isolate connectivity issues between hops, which helps resolve them faster.
+
+To print the route taken by the packet to reach the network host, at the command prompt, type traceroute \<address>.
+
+<center>
+
+![traceroute](traceroute.png)
+
+</center>
+
+### More Networking Tools
+
+Now, let’s learn about some additional networking tools. Networking tools are very useful for monitoring and debugging network problems, such as network connectivity and network traffic.
+
+<center>
+
+![More Networking Tools](othernetworking.png)
+
+</center>
+
+### Graphical and Non-Graphical Browsers
+
+Browsers are used to retrieve, transmit, and explore information resources, usually on the World Wide Web. Linux users commonly use both graphical and non-graphical browser applications.
+
+The common graphical browsers used in Linux are:
+
+            Firefox
+            Google Chrome
+            Chromium
+            Konqueror
+            Opera
+
+Sometimes, you either do not have a graphical environment to work in (or have reasons not to use it) but still need to access web resources. In such a case, you can use non-graphical browsers, such as the following:
+
+<center>
+
+![Graphical and Non-Graphical Browsers](browser.png)
+
+</center>
+
+### wget
+
+Sometimes, you need to download files and information, but a browser is not the best choice, either because you want to download multiple files and/or directories, or you want to perform the action from a command line or a script. wget is a command line utility that can capably handle the following types of downloads:
+
+- Large file downloads
+- Recursive downloads, where a web page refers to other web pages and all are downloaded at once
+- Password-required downloads
+- Multiple file downloads.
+
+To download a web page, you can simply type wget <url>, and then you can read the downloaded page as a local file using a graphical or non-graphical browser.
+
+<center>
+
+![wget](wget.png)
+
+</center>
+
+### curl
+
+Besides downloading, you may want to obtain information about a URL, such as the source code being used. curl can be used from the command line or a script to read such information. curl also allows you to save the contents of a web page to a file, as does wget.
+
+You can read a URL using `curl <URL>`. For example, if you want to read http://www.linuxfoundation.org, type `curl http://www.linuxfoundation.org`.
+
+To get the contents of a web page and store it to a file, type `curl -o saved.html http://www.mysite.com`. The contents of the main index file at the website will be saved in saved.html.
+
+<center>
+
+![curl](curl.png)
+
+</center>
+
+### FTP (File Transfer Protocol)
+
+When you are connected to a network, you may need to transfer files from one machine to another. File Transfer Protocol (FTP) is a well-known and popular method for transferring files between computers using the Internet. This method is built on a client-server model. FTP can be used within a browser or with stand-alone client programs.
+
+<center>
+
+![FTP (File Transfer Protocol)](ftp.png)
+
+</center>
+
+FTP is one of the oldest methods of network data transfer, dating back to the early 1970s. As such, it is considered inadequate for modern needs, as well as being intrinsically insecure. However, it is still in use and when security is not a concern (such as with so-called anonymous FTP) it can make sense. However, many websites, such as kernel.org, have abandoned its use.
+
+### FTP Clients
+
+FTP clients enable you to transfer files with remote computers using the FTP protocol. These clients can be either graphical or command line tools. Filezilla, for example, allows use of the drag-and-drop approach to transfer files between hosts. All web browsers support FTP, all you have to do is give a URL like ftp://ftp.kernel.org where the usual http:// becomes ftp://.
+
+Some command line FTP clients are:
+
+- ftp
+- sftp
+- ncftp
+- yafc (Yet Another FTP Client).
+
+FTP has fallen into disfavor on modern systems, as it is intrinsically insecure, since passwords are user credentials that can be transmitted without encryption and are thus prone to interception. Thus, it was removed in favor of using rsync and web browser https access for example. As an alternative, sftp is a very secure mode of connection, which uses the Secure Shell (ssh) protocol, which we will discuss shortly. sftp encrypts its data and thus sensitive information is transmitted more securely. However, it does not work with so-called anonymous FTP (guest user credentials).
+
+<center>
+
+![FTP Clients](ftpclients.png)
+
+</center>
+
+### SSH: Executing Commands Remotely
+
+Secure Shell (SSH) is a cryptographic network protocol used for secure data communication. It is also used for remote services and other secure services between two devices on the network and is very useful for administering systems which are not easily available to physically work on, but to which you have remote access.
+
+<center>
+
+![SSH: Executing Commands Remotely](ssh.png)
+
+</center>
+
+To login to a remote system using your same user name you can just type ssh some_system and press Enter. ssh then prompts you for the remote password. You can also configure ssh to securely allow your remote access without typing a password each time.
+
+If you want to run as another user, you can do either ssh -l someone some_system or ssh someone@some_system. To run a command on a remote system via SSH, at the command prompt, you can type ssh some_system my_command.
+
+### Copying Files Securely with scp
+
+We can also move files securely using Secure Copy (scp) between two networked hosts. scp uses the SSH protocol for transferring data.
+
+To copy a local file to a remote system, at the command prompt, type scp \<localfile> <user@remotesystem>:/home/user/ and press Enter.
+
+You will receive a prompt for the remote password. You can also configure scp so that it does not prompt for a password for each transfer.
 
 
+<center>
+
+![Copying Files Securely with scp](scp.png)
+
+</center>
+
+### Network Troubleshooting
+
+Troubleshooting network problems is something that you will often encounter if you haven't already. We are going to practice some of the previously discussed tools, that can help you isolate, troubleshoot and fix problems in your network.
+
+The solution file contains a step-by-step procedure for exercising many of the tools we have studied. Please repeat the steps, substituting your actual network interface names, alternative network addresses, and websites, etc.
+
+Troubleshooting network problems is something that you will often encounter if you haven't already. We are going to practice some of the previously discussed tools that can help you isolate, troubleshoot, and fix problems in your network.
+
+Suppose you need to perform an Internet search, but your web browser cannot find google.com, saying the host is unknown. Let's proceed step by step to fix this.
+
+1. First, make certain your network is properly configured. If your Ethernet device is up and running, running ifconfig should display something like:
+
+`student:/tmp> /sbin/ifconfig`
+
+    eno167777 Link encap:Ethernet  HWaddr 00:0C:29:BB:92:C2
+          inet addr:192.168.1.14  Bcast:192.168.1.255 
+    Mask:255.255.255.0
+          inet6 addr: fe80::20c:29ff:febb:92c2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:3244 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2006 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:4343606 (4.1 Mb)  TX bytes:169082 (165.1 Kb)
+
+    lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b) 
+
+On older systems, you probably will see a less cryptic name than eno167777, like eth0, or for a wireless connection, you might see something like wlan0 or wlp3s0. You can also show your IP address with:
+
+`student:/tmp> ip addr show`
+
+    1: lo:  mtu 65536 qdisc noqueue state UNKNOWN group default
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        net 127.0.0.1/8 scope host lo
+            valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+            valid_lft forever preferred_lft forever
+    2: eno16777736:  mtu 1500 qdisc pfifo_fast state \
+        UP group default qlen 1000
+        link/ether 00:0c:29:bb:92:c2 brd ff:ff:ff:ff:ff:ff
+    p    inet 192.168.1.14/24 brd 192.168.1.255 scope global dynamic
+    eno16777736
+       valid_lft 84941sec preferred_lft 84941sec
+        inet 192.168.1.15/24 brd 192.168.1.255 scope global secondary
+    dynamic eno16777736
+       valid_lft 85909sec preferred_lft 85909sec
+    inet6 fe80::20c:29ff:febb:92c2/64 scope link
+       valid_lft forever preferred_lft forever      
+
+Does the IP address look valid? Depending on where you are using this from, it is most likely a Class C IP address; in the above example, this is 192.168.1.14.
+
+If it does not show a device with an IP address, you may need to start or restart the network and/or NetworkManager. Exactly how you do this depends on your system. For most distributions, one of the following commands will accomplish this:
+
+`student:/tmp> sudo systemctl restart NetworkManager`
+`student:/tmp> sudo systemctl restart network`
+`student:/tmp> sudo service NetworkManager restart`
+`student:/tmp> sudo service network restart     ` 
+
+If your device was up but had no IP address, the above should have helped fix it, but you can try to get a fresh address with:
+
+`student:/tmp> sudo dhclient eth0`
+
+substituting the right name for the Ethernet device.
+
+2. If your interface is up and running with an assigned IP address and you still cannot reach google.com, we should make sure you have a valid hostname assigned to your machine, with hostname:
+
+`student:/tmp> hostname`
+
+    openSUSE
+
+It is rare you would have a problem here, as there is probably always at least a default hostname, such as localhost.
+
+3. When you type in a name of a site such as google.com, that name needs to be connected to a known IP address. This is usually done employing the DNS server (Domain Name System)
+
+First, see if the site is up and reachable with ping:
+
+`student:/tmp> sudo ping -c 3 google.com`
+
+    PING google.com (216.58.216.238) 56(84) bytes of data.
+    64 bytes from ord31s22-in-f14.1e100.net (216.58.216.238): icmp_seq=1 ttl=51 time=21.7 ms
+    64 bytes from ord31s22-in-f14.1e100.net (216.58.216.238): icmp_seq=2 ttl=51 time=23.8 ms
+    64 bytes from ord31s22-in-f14.1e100.net (216.58.216.238): icmp_seq=3 ttl=51 time=21.3 ms
+
+    --- google.com ping statistics —
+    3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+    rtt min/avg/max/mdev = 21.388/22.331/23.813/1.074 ms
+
+Note:
+
+- We have used sudo for ping; recent Linux distributions have required this to avoid clueless or malicious users from flooding systems with such queries.
+- We have used -c 3 to limit to 3 packets; otherwise ping would run forever until forcibly terminated, say with CTRL-C.
+
+If the result was:
+
+    ping: unknown host google.com
+
+It is likely that something is wrong with your DNS setup. Note on some systems, you will never see the unknown host message, but you will get a suspicious result like:
+
+`student:/tmp> sudo ping l89xl28vkjs.com`
+
+    PING l89xl28vkjs.com.site (127.0.53.53) 56(84) bytes of data.
+    64 bytes from 127.0.53.53: icmp_seq=1 ttl=64 time=0.016 ms
+    ...      
+
+where the 127.0.x.x address is a loop feeding back to the host machine you are on. You can eliminate this as being a valid address by doing:
+
+`student:/tmp> host l89xl28vkjs.com`
+
+        Host l89xl28vkjs.com not found: 3(NXDOMAIN)      
+
+whereas a correct result would look like:
+
+`student:/tmp> host google.com`
+
+        google.com has address 216.58.216.206
+        google.com has IPv6 address 2607:f8b0:4009:80b::200e
+        google.com mail is handled by 20 alt1.aspmx.l.google.com.
+        google.com mail is handled by 10 aspmx.l.google.com.
+        google.com mail is handled by 30 alt2.aspmx.l.google.com.
+        google.com mail is handled by 40 alt3.aspmx.l.google.com.
+        google.com mail is handled by 50 alt4.aspmx.l.google.com.
+
+The above command utilizes the DNS server configured in /etc/resolv.conf on your machine. If you wanted to override that, you could do:
+
+`host 8.8.8.8`
+
+        8.8.8.8.in-addr.arpa domain name pointer google-public-dns-a.google.com.
+        student@linux:~> host google.com 8.8.8.8
+        Using domain server:
+        Name: 8.8.8.8
+        Address: 8.8.8.8#53
+        Aliases:
+
+        google.com has address 216.58.216.110
+        google.com has IPv6 address 2607:f8b0:4009:804::1002
+        ...\
+
+where we have used the publicly available DNS server provided by Google itself. (Using this or another public server can be a good trick sometimes if your network is up but DNS is ill; in that case you can also enter it in resolv.conf.)
+
+Note that there is another file, /etc/hosts, where you can associate names with IP addresses, which is used before the DNS server is consulted. This is most useful for specifying nodes on your local network.
+
+You could also use the dig utility if you prefer:
+
+`student:/tmp> dig google.com`
+
+        ; <<>> DiG 9.9.5-rpz2+rl.14038.05-P1 <<>> google.com
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29613
+        ;; flags: qr rd ra; QUERY: 1, ANSWER: 11, AUTHORITY: 0, ADDITIONAL: 1
+        ;; OPT PSEUDOSECTION:
+        ; EDNS: version: 0, flags:; MBZ: 1c20 , udp: 1280
+        ;; QUESTION SECTION:
+        ;google.com.                    IN      A
+        ;; ANSWER SECTION:
+        google.com.             244     IN      A       173.194.46.67
+        google.com.             244     IN      A       173.194.46.65
+        google.com.             244     IN      A       173.194.46.71
+        google.com.             244     IN      A       173.194.46.73
+        google.com.             244     IN      A       173.194.46.69
+        google.com.             244     IN      A       173.194.46.68
+        google.com.             244     IN      A       173.194.46.64
+        google.com.             244     IN      A       173.194.46.72
+        google.com.             244     IN      A       173.194.46.70
+        google.com.             244     IN      A       173.194.46.66
+        google.com.             244     IN      A       173.194.46.78
+
+        ;; Query time: 22 msec
+        ;; SERVER: 192.168.1.1#53(192.168.1.1)
+        ;; WHEN: Mon Apr 20 08:58:58 CDT 2015
+        ;; MSG SIZE  rcvd: 215      
+
+4. Suppose host or dig fail to connect the name to an IP address. There are many reasons DNS can fail, some of which are:
+
+- The DNS server is down. In this case try pinging it to see if it is alive (you should have the IP address in /etc/resolv.conf).
+- The server can be up and running, but DNS may not be currently available on the machine.
+- Your route to the DNS server may not be correct.
+
+How can we test the route? Tracing the route to one of the public name server we mentioned before:
+
+`student@linux:~> sudo traceroute 8.8.8.8`
+
+        traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets
+        1  192.168.1.1 (192.168.1.1)  0.405 ms  0.494 ms  0.556 ms
+        2  10.132.4.1 (10.132.4.1)  15.127 ms  15.107 ms  15.185 ms
+        3  dtr02ftbgwi-tge-0-6-0-3.ftbg.wi.charter.com (96.34.24.122)
+                                                                15.243 ms 15.327 ms  17.878 ms
+        4  crr02ftbgwi-bue-3.ftbg.wi.charter.com (96.34.18.116)  17.667 ms  17.734 ms  20.016 ms
+        5  crr01ftbgwi-bue-4.ftbg.wi.charter.com (96.34.18.108)  22.017 ms 
+        22.359 ms  22.052 ms
+        6  crr01euclwi-bue-1.eucl.wi.charter.com (96.34.16.77)  29.430 ms 22.705 ms  22.076 ms
+        7  bbr01euclwi-bue-4.eucl.wi.charter.com (96.34.2.4)  17.795 ms 
+        25.542 ms  25.600 ms
+        8  bbr02euclwi-bue-5.eucl.wi.charter.com (96.34.0.7)  28.227 ms 28.270 ms  28.303 ms
+        9  bbr01chcgil-bue-1.chcg.il.charter.com (96.34.0.9)  33.114 ms 
+        33.072 ms  33.175 ms
+        10  prr01chcgil-bue-2.chcg.il.charter.com (96.34.3.9)  36.882 ms 
+        36.794 ms  36.895 ms
+        11  96-34-152-30.static.unas.mo.charter.com (96.34.152.30)  42.585 ms 
+        42.326 ms  42.401 ms
+        12  216.239.43.111 (216.239.43.111)  28.737 ms 216.239.43.113
+        (216.239.43.113)
+                                                                    24.558 ms  23.941 ms
+        13  209.85.243.115 (209.85.243.115)  24.269 ms 209.85.247.17
+        (209.85.247.17)
+        25.758 ms 216.239.50.123 (216.239.50.123)  25.433 ms
+        14  google-public-dns-a.google.com (8.8.8.8)  25.239 ms  24.003 ms  23.795 ms
+
+Again, this should likely work for you, but what if you only got the first line in the traceroute output?
+
+If this happens, most likely your default route is wrong. Try:
+
+`student:/tmp> ip route show`
+
+        efault via 192.168.1.1 dev eno16777736  proto static  metric 1024
+        192.168.1.0/24 dev eno16777736  proto kernel  scope link  src 192.168.1.14
+
+Most likely this is set to your network interface and the IP address of your router, DSL, or Cable Modem. Let's say that it is blank or simply points to your own machine. Here's your problem! At this point, you would need to add a proper default route and run some of the same tests we just did.
+
+Note, an enhanced version of traceroute is supplied by mtr, which runs continuously (like top). Running it with the --report-cycles option to limit how long it runs:
+
+`student:/tmp> sudo mtr --report-cycles 3 8.8.8.8`
+
+                                    My traceroute  [v0.85]
+        c7 (0.0.0.0)                                           Mon Apr 20 09:30:41 2015
+        Unable to allocate IPv6 socket for nameserver communication: Address family not supported
+                    by protocol                  Packets               Pings
+        Host                                Loss%   Snt   Last   Avg  Best  Wrst StDev
+                                            0.0%     3    0.3   0.3   0.2   0.3   0.0
+        2. 10.132.4.1                        0.0%     3    6.3   7.1   6.3   8.4   0.7
+        3. dtr02ftbgwi-tge-0-6-0-3.ftbg.wi.  0.0%     3    6.2   7.5   6.2  10.0   2.1
+        4. dtr01ftbgwi-bue-1.ftbg.wi.charte  0.0%     3    8.9   8.5   6.2  10.4   2.0
+        5. crr01ftbgwi-bue-4.ftbg.wi.charte  0.0%     3    8.9   9.7   8.9  10.4   0.0
+        6. crr01euclwi-bue-1.eucl.wi.charte  0.0%     3   16.5  17.4  14.2  21.5   3.7
+        7. bbr01euclwi-bue-4.eucl.wi.charte  0.0%     3   23.5  22.0  18.2  24.2   3.2
+        8. bbr02euclwi-bue-5.eucl.wi.charte  0.0%     3   18.9  22.7  18.1  31.1   7.2
+        9. bbr01chcgil-bue-1.chcg.il.charte  0.0%     3   22.9  23.0  22.9  23.1   0.0
+        10. prr01chcgil-bue-2.chcg.il.charte  0.0%     3   21.4  24.1  20.8  30.2   5.2
+        11. 96-34-152-30.static.unas.mo.char  0.0%     3   22.6  21.9  20.0  23.3   1.6
+        12. 216.239.43.111                    0.0%     3   21.2  21.7  21.2  22.0   0.0
+        13. 72.14.237.35                      0.0%     3   21.2  21.0  19.8  21.9   1.0
+        14. google-public-dns-a.google.com    0.0%     3   26.7  23.0  21.0  26.7   3.2
+
+Hopefully, running through some of these commands helped. It actually helps to see what the correct output for your system looks like. Practice using these commands; it is very likely that you will need them someday.
+
+### Non-Graphical Browsers
+
+There are times when a graphical browser is not available, but you need to look up or download a resource. In this exercise, we are going to experiment with using non-graphical web browsers. 
+
+The solution file contains a step-by-step procedure for exercising the tools discussed. Please repeat the steps, substituting websites, etc.
+
+We have discussed non-graphical browsers:
+
+            lynx
+            links and elinks
+            w3m
+
+There are times when you will not have a graphical window interface running on your Linux machine and you need to look something up on the web or download a driver (like a graphics driver in order to bring up a graphical window interface). So, it is a good idea to practice using a non-graphical web browser to do some work.
+
+With links, you can use your mouse to click on the top line of the screen to get a menu. In this case, we want to go to google.com (or your favorite search engine), so you can just type g to go to a typed-in URL.
+
+Pressing the TAB key will move your cursor to the OK button. You can then press the ENTER key.
+
+You should now be at google.com (or your favorite search engine). Use the down-arrow key to move through the choices until you reach the blank line used to enter your search query. Now type Intel Linux graphics drivers in the search box. Use the down arrow key to move you to the Google Search button. With that highlighted, press the ENTER key.
+
+Use your down arrow key to move to the entry: Intel(R) Graphics Drivers for Linux - Download Center. It may take several presses of the down arrow key. You can press the space bar to move down the page or the B key to move back up the page if needed. Once this line is highlighted, press the ENTER key. You will now go to the Intel Graphics Driver for Linux page. If you want, you can read the page. Remember, the space bar will page you down the page while the B key will move you back up the page. The Page Down and Page Up keys will do the same thing if you prefer. Find the URL under the line:
+
+URL Location:      
+
+Position your cursor at this line using the up arrow or down arrow key. Press the ENTER key to go to this location.
+
+Page Down this page until you see the line:
+
+Latest Releases
+
+If you move your cursor with the arrow keys, find the latest version (with the most recent release date) under this section. If using your arrow keys, you should highlight Release Notes. Press the ENTER key.
+
+This has installers for versions of Ubuntu and Fedora, along with the source code. You will need to page down a page or two, depending on the size of your screen.
+
+Select one of the installers, perhaps for the version of Linux that you are running, or just a random one, and press the ENTER key.
+
+You should see a text dialog box with choices of what to do. Save the package wherever you want to.
+
+You can now quit your non-graphical browser. If you used links, then click on the top line of the screen, select the File drop-down menu item, and click on Exit. Confirm that you really want to exit Links. You should now see your shell prompt.
+
+### Chapter Summary
+
+You have completed Chapter 14. Let’s summarize the key concepts covered:
+
+- The IP (Internet Protocol) address is a unique logical network address that is assigned to a device on a network.
+- IPv4 uses 32-bits for addresses and IPv6 uses 128-bits for addresses.
+- Every IP address contains both a network and a host address field.
+- There are five classes of network addresses available: A, B, C, D & E.
+- DNS (Domain Name System) is used for converting Internet domain and host names to IP addresses.
+- The ifconfig program is used to display current active network interfaces.
+- The commands ip addr show and ip route show can be used to view IP address and routing information.
+- You can use ping to check if the remote host is alive and responding.
+- You can use the route utility program to manage IP routing.
+- You can monitor and debug network problems using networking tools.
+- Firefox, Google Chrome, Chromium, and Epiphany are the main graphical browsers used in Linux.
+- Non-graphical or text browsers used in Linux are Lynx, Links, and w3m.
+- You can use wget to download webpages.
+- You can use curl to obtain information about URLs.
+- FTP (File Transfer Protocol) is used to transfer files over a network.
+- ftp, sftp, ncftp, and yafc are command line FTP clients used in Linux.
+                You can use ssh to run commands on remote systems.
+
+### Shell Scripting
+
+Suppose you want to look up a filename, check if the associated file exists, and then respond accordingly, displaying a message confirming or not confirming the file's existence. If you only need to do it once, you can just type a sequence of commands at a terminal. However, if you need to do this multiple times, automation is the way to go. In order to automate sets of commands, you will need to learn how to write shell scripts. Most commonly in Linux, these scripts are developed to be run under the bash command shell interpreter. The graphic illustrates several of the benefits of deploying scripts.
+
+<center>
+
+![Shell Scripting](shellscripting.png)
+
+</center>
+
+NOTE: Many of the topics discussed in this and the next chapter have already been introduced earlier, while discussing things that can be done at the command line. We have elected to repeat some of that discussion in order to make the sections on scripting stand on their own, so the repetition is intentional.
+
+### Command Shell Choices
+
+The command interpreter is tasked with executing statements that follow it in the script. Commonly used interpreters include: /usr/bin/perl, /bin/bash, /bin/csh, /usr/bin/python and /bin/sh.
+
+Typing a long sequence of commands at a terminal window can be complicated, time consuming, and error prone. By deploying shell scripts, using the command line becomes an efficient and quick way to launch complex sequences of steps. The fact that shell scripts are saved in a file also makes it easy to use them to create new script variations and share standard procedures with several users.
+
+Linux provides a wide choice of shells; exactly what is available on the system is listed in /etc/shells. Typical choices are:
+
+    /bin/sh
+    /bin/bash
+    /bin/tcsh
+    /bin/csh
+    /bin/ksh
+    /bin/zsh
+
+Most Linux users use the default bash shell, but those with long UNIX backgrounds with other shells may want to override the default.
+
+<center>
+
+![Command Shell Choices](shellchoices.png)
+
+</center>

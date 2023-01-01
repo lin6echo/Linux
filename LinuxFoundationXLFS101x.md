@@ -5591,3 +5591,388 @@ You can get a list of environment variables with the env, set, or printenv comma
 
 </center>
 
+### Exporting Environment Variables
+
+While we discussed the export of environment variables in the section on the "User Environment", it is worth reviewing this topic in the context of writing bash scripts.
+
+By default, the variables created within a script are available only to the subsequent steps of that script. Any child processes (sub-shells) do not have automatic access to the values of these variables. To make them available to child processes, they must be promoted to environment variables using the export statement, as in:
+
+`export VAR=value`
+
+or
+
+`VAR=value ; export VAR`
+
+While child processes are allowed to modify the value of exported variables, the parent will not see any changes; exported variables are not shared, they are only copied and inherited.
+
+Typing export with no arguments will give a list of all currently exported environment variables.
+
+<center>
+
+![Exporting Environment Variables](exportingvariables.png)
+
+</center>
+
+### Functions
+
+A function is a code block that implements a set of operations. Functions are useful for executing procedures multiple times, perhaps with varying input variables. Functions are also often called subroutines. Using functions in scripts requires two steps:
+
+1. Declaring a function
+2. Calling a function
+
+The function declaration requires a name which is used to invoke it. The proper syntax is:
+
+        function_name () {
+        command...
+        }
+
+For example, the following function is named display:
+
+        display () {
+        echo "This is a sample function"
+        }
+
+The function can be as long as desired and have many statements. Once defined, the function can be called later as many times as necessary. In the full example shown in the figure, we are also showing an often-used refinement: how to pass an argument to the function. The first argument can be referred to as \$1, the second as \$2, etc.
+
+<center>
+
+![Functions](functions.png)
+
+</center>
+
+### Working with Files and Directories in a Script
+
+Write a script which:
+
+1. Prompts the user for a directory name and then creates it with mkdir.
+2. Changes to the new directory and prints out where it is using pwd.
+3. Using touch, creates several empty files and runs ls on them to verify they are empty.
+4. Puts some content in them using echo and redirection.
+5. Displays their content using cat.
+6. Says goodbye to the user and cleans up after itself.
+
+Create a file named testfile.sh, with the content below:
+
+`#!/bin/bash`
+
+`# Prompts the user for a directory name and then creates it  with mkdir.`
+
+`echo "Give a directory name to create:" `
+`read NEW_DIR`
+
+`# Save original directory so we can return to it (could also just use pushd, popd)`
+
+`ORIG_DIR=$(pwd)`
+
+`# check to make sure it doesn't already exist!`
+
+`[[ -d $NEW_DIR ]] && echo $NEW_DIR already exists, aborting && exit `
+`mkdir $NEW_DIR`
+
+`# Changes to the new directory and prints out where it is using pwd.  `
+
+`cd $NEW_DIR`
+`pwd`
+
+`# Using touch, creates several empty files and runs ls on them to verify they are empty.`
+
+`for n in 1 2 3 4`
+`do `
+    `touch file$n `
+`done`
+
+`ls file?`
+
+`# (Could have just done touch file1 file2 file3 file4, just want to show do loop!)`
+
+`# Puts some content in them using echo and redirection.`
+
+`for names in file? ` 
+`do `
+    `echo This file is named $names > $names`
+`done`
+
+`# Displays their content using cat`
+
+`cat file?`
+
+`# Says goodbye to the user and cleans up after itself `
+
+`cd $ORIG_DIR `
+`rm -rf $NEW_DIR `
+`echo "Goodbye My Friend!"`
+
+Make it executable and run it:
+
+`$ chmod +x testfile.sh`
+`./testfile.sh`
+
+Give a directory name to create:
+
+`/tmp/SOME_DIR`
+
+`/tmp/SOME_DIR`
+
+        file1  file2  file3  file4
+        This file is named file1
+        This file is named file2
+        This file is named file3
+        This file is named file4
+        Goodbye My Friend
+
+### Passing Arguments
+
+Write a script that takes exactly one argument, and prints it back out to standard output. Make sure the script generates a usage message if it is run without giving an argument.
+
+Create a file named testarg.sh, with the content below:
+
+`#!/bin/bash`
+`#`
+`# check for an argument, print a usage message if not supplied.`
+`#`
+`if [ $# -eq 0 ] ; then`
+
+      echo "Usage: $0 argument"
+      exit 1
+`fi`
+`echo $1`
+`exit 0`
+
+Make it executable and run it:
+
+`student:/tmp> chmod +x testarg.sh `
+`student:/tmp> ./testarg.sh Hello`
+
+        Hello
+
+`student:/tmp>./testarg.sh `
+
+        Usage: ./testarg.sh argument
+        student:/tmp>
+
+### Environment Variables
+
+Write a script which:
+
+1. Asks the user for a number, which should be "1" or "2". Any other input should lead to an error report.
+2. Sets an environmental variable to be "Yes" if it is "1", and "No" if it is "2".
+3. Exports the environmental variable and displays it.
+
+Create a file named testenv.sh, with the content below:
+
+`#!/bin/bash`
+
+`echo "Enter 1 or 2, to set the environmental variable EVAR to Yes or No"
+read ans`
+
+`# Set up a return code`
+`RC=0`
+
+`if [ $ans -eq 1 ]  `
+`then `
+
+    `export EVAR="Yes"`
+`else`
+
+    `if [ $ans -eq 2 ]`
+    `then`
+	`export EVAR="No"`
+    `else`
+`# can only reach here with a bad answer`
+
+	`export EVAR="Unknown"`
+	`RC=1`
+    `fi`  
+`fi`
+`echo "The value of EVAR is: $EVAR"`
+`exit $RC`
+
+Make it executable and run it:
+
+`student:/tmp> chmod +x testenv.sh `
+`student:/tmp> ./testenv.sh`
+
+Enter 1 or 2, to set the environmental variable EVAR to Yes or No
+
+1
+
+The value of EVAR is: Yes
+
+`student:/tmp> ./testenv.sh `
+
+Enter 1 or 2, to set the environmental variable EVAR to Yes or No
+
+2
+
+The value of EVAR is: No
+
+`student:/tmp> ./testenv.sh `
+
+Enter 1 or 2, to set the environmental variable EVAR to Yes or No
+
+3
+
+The value of EVAR is: Unknown
+
+### Working with Functions
+
+Write a script which:
+
+1. Asks the user for a number (1, 2 or 3).
+2. Calls a function with that number in its name. The function should display a message with its name included.
+
+Create a file named testfun.sh, with the content below:
+
+`#!/bin/bash`
+
+`# Functions (must be defined before use)`
+
+    func1() {
+    echo " This message is from function 1"
+    }
+
+    func2() {
+    echo " This message is from function 2" 
+    }
+
+    func3() { 
+    echo " This message is from function 3" 
+    }
+
+`# Beginning of the main script`
+
+`# prompt the user to get their choice`
+
+    echo "Enter a number from 1 to 3"
+    read n
+
+`# Call the chosen function`
+
+    func$n
+
+Make it executable and run it:
+
+`student:/tmp> chmod +x testfun.sh `
+`student:/tmp> ./testfun.sh`
+
+Enter a number from 1 to 3
+
+2
+
+ This message is from function 2
+
+`$ ./testfun.sh`
+
+Enter a number from 1 to 3
+
+7
+
+./testfun.sh: line 21: func7: command not found
+
+### The if Statement
+
+Conditional decision making, using an if statement, is a basic construct that any useful programming or scripting language must have.
+
+When an if statement is used, the ensuing actions depend on the evaluation of specified conditions, such as:
+
+- Numerical or string comparisons
+- Return value of a command (0 for success)
+- File existence or permissions
+
+In compact form, the syntax of an if statement is:
+
+`if TEST-COMMANDS; then CONSEQUENT-COMMANDS; fi`
+
+A more general definition is:
+
+if condition
+
+then
+
+       statements
+else
+
+       statements
+fi
+
+<center>
+
+![The if Statement](ifstatement.png)
+
+</center>
+
+### Using the if Statement
+
+In the following example, an if statement checks to see if a certain file exists, and if the file is found, it displays a message indicating success or failure:
+
+`if [ -f "$1" ]`
+
+`then`
+
+    echo file "$1 exists" 
+`else`
+
+    echo file "$1" does not exist
+`fi`
+
+We really should also check first that there is an argument passed to the script ($1) and abort if not.
+
+Notice the use of the square brackets ([]) to delineate the test condition. There are many other kinds of tests you can perform, such as checking whether two numbers are equal to, greater than, or less than each other and make a decision accordingly; we will discuss these other tests.
+
+In modern scripts, you may see doubled brackets as in \[[ -f /etc/passwd ]]. This is not an error. It is never wrong to do so and it avoids some subtle problems, such as referring to an empty environment variable without surrounding it in double quotes; we will not talk about this here.
+
+### The elif Statement
+
+You can use the elif statement to perform more complicated tests, and take action appropriate actions. The basic syntax is:
+
+if [ sometest ] ; then
+
+    echo Passed test1 
+elif [ somothertest ] ; then
+
+    echo Passed test2 
+fi
+
+In the example shown we use strings tests which we will explain shortly, and show how to pull in an environment variable with the read statement. 
+
+<center>
+
+![The elif Statement](elif.png)
+
+</center>
+
+### Testing for Files
+
+bash provides a set of file conditionals, that can be used with the if statement, including those in the table.
+
+You can use the if statement to test for file attributes, such as:
+
+- File or directory existence
+- Read or write permission
+- Executable permission.
+
+For example, in the following example:
+
+if [ -x /etc/passwd ] ; then
+
+    ACTION
+fi
+
+the if statement checks if the file /etc/passwd is executable, which it is not. Note the very common practice of putting:
+
+; then
+
+on the same line as the if statement.
+
+You can view the full list of file conditions typing:
+
+man 1 test.
+
+<center>
+
+![Testing for Files](testing.png)
+
+</center>
+
+
+

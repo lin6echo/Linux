@@ -5974,5 +5974,391 @@ man 1 test.
 
 </center>
 
+### Boolean Expressions
+
+Boolean expressions evaluate to either TRUE or FALSE, and results are obtained using the various Boolean operators listed in the table.
+
+<center>
+
+![Boolean Expressions](boolean.png)
+
+</center>
+
+Note that if you have multiple conditions strung together with the && operator, processing stops as soon as a condition evaluates to false. For example, if you have A && B && C and A is true but B is false, C will never be executed.
+
+Likewise, if you are using the || operator, processing stops as soon as anything is true. For example, if you have A || B || C and A is false and B is true, you will also never execute C.
+
+### Tests in Boolean Expressions
+
+Boolean expressions return either TRUE or FALSE. We can use such expressions when working with multiple data types, including strings or numbers, as well as with files. For example, to check if a file exists, use the following conditional test:
+
+[ -e \<filename> ]
+
+Similarly, to check if the value of number1 is greater than the value of number2, use the following conditional test:
+
+[ $number1 -gt \$number2 ]
+
+The operator -gt returns TRUE if number1 is greater than number2.
+
+### Example of Testing of Strings
+
+You can use the if statement to compare strings using the operator == (two equal signs). The syntax is as follows:
+
+    if [ string1 == string2 ] ; then
+    ACTION
+    fi
+
+Note that using one = sign will also work, but some consider it deprecated usage. Let’s now consider an example of testing strings.
+
+In the example illustrated here, the if statement is used to compare the input provided by the user and accordingly display the result.
+
+<center>
+
+![Example of Testing of Strings](examplestrings.png)
+
+</center>
+
+### Numerical Tests
+
+You can use specially defined operators with the if statement to compare numbers. The various operators that are available are listed in the table:
+
+<center>
+
+![Numerical Tests](numerical.png)
+
+</center>
+
+The syntax for comparing numbers is as follows:
+
+    exp1 -op exp2
+
+### Example of Testing for Numbers
+
+Let us now consider an example of comparing numbers using the various operators:
+
+<center>
+
+![Example of Testing for Numbers](testingfornumber.png)
+
+</center>
+
+### Arithmetic Expressions
+
+Arithmetic expressions can be evaluated in the following three ways (spaces are important!):
+
+- Using the expr utility
+expr is a standard but somewhat deprecated program. The syntax is as follows:
+
+            expr 8 + 8
+            echo $(expr 8 + 8)
+
+- Using the $((...)) syntax
+            This is the built-in shell format. The syntax is as follows:
+
+            echo $((x+1))
+
+- Using the built-in shell command let. The syntax is as follows:
+
+            let x=( 1 + 2 ); echo $x
+
+In modern shell scripts, the use of expr is better replaced with var=$((...)).
+
+<center>
+
+![Arithmetic Expressions](arithmetic.png)
+
+</center>
+
+### Arithmetic and Functions
+
+Write a script that will act as a simple calculator for add, subtract, multiply and divide.
+
+1. Each operation should have its own function.
+2. Any of the three methods for bash arithmetic, ($((..)), let, or expr) may be used.
+3. The user should give 3 arguments when executing the script:
+            - The first should be one of the letters a, s, m, or d to specify which math operation.
+            - The second and third arguments should be the numbers that are being operated on.
+4. The script should detect for bad or missing input values and display the results when done.
+
+Create a file named testmath.sh, with the content below:
+
+`#!/bin/bash`
+
+`# Functions.  must be before the main part of the script`
+
+`# in each case method 1 uses $((..))`
+`#              method 2 uses let`
+`#              method 3 uses expr`
+
+    add() {
+        answer1=$(($1 + $2))
+        let answer2=($1 + $2)
+        answer3=`expr $1 + $2`
+    }
+    sub() {
+        answer1=$(($1 - $2))
+        let answer2=($1 - $2)
+        answer3=`expr $1 - $2`
+    }
+    mult() {
+        answer1=$(($1 * $2))
+        let answer2=($1 * $2)
+        answer3=`expr $1 \* $2`
+    }
+    div() {
+        answer1=$(($1 / $2))
+        let answer2=($1 / $2)
+        answer3=`expr $1 / $2`
+    }
+
+`# End of functions`
+`#`
+`# Main part of the script`
+`# need 3 arguments, and parse to make sure they are valid types`
+
+    op=$1 ; arg1=$2 ; arg2=$3
+    [[ $# -lt 3 ]] && \
+        echo "Usage: Provide an operation (a,s,m,d) and two numbers" && exit 1
+    [[ $op != a ]] && [[ $op != s ]] && [[ $op != d ]] && [[ $op != m ]] && \
+        echo operator must be a, s, m, or d, not $op as supplied
+
+`# ok, do the work!`
+
+    if [[ $op == a ]] ; then add $arg1 $arg2
+    elif [[ $op == s ]] ; then sub $arg1 $arg2
+    elif [[ $op == m ]] ; then mult $arg1 $arg2
+    elif [[ $op == d ]] ; then div $arg1 $arg2
+    else
+    echo $op is not a, s, m, or d, aborting ; exit 2 
+    fi
+
+`# Show the answers`
+
+    echo $arg1 $op $arg2 :
+    echo 'Method 1, $((..)),' Answer is  $answer1
+    echo 'Method 2, let,    ' Answer is  $answer2
+    echo 'Method 3, expr,   ' Answer is  $answer3
+
+Make it executable and run it:
+
+`student:/tmp> chmod +x testmath.sh `
+`student:/tmp> ./testmath.sh`
+`student:/tmp> for n in a s m d x ; do ./testmath.sh $n 21 7 ; done`
+
+    21 a 7 :
+    Method 1, $((..)), Answer is 28
+    Method 2, let,
+    Answer is 28
+    Method 3, expr,
+    Answer is 28
+    21 s 7 :
+    Method 1, $((..)), Answer is 14
+    Method 2, let,
+    Answer is 14
+    Method 3, expr,
+    Answer is 14
+    21 m 7 :
+    Method 1, $((..)), Answer is 147
+    Method 2, let,
+    Answer is 147
+    Method 3, expr,
+    Answer is 147
+    21 d 7 :
+    Method 1, $((..)), Answer is 3
+    Method 2, let,
+    Answer is 3
+    Method 3, expr,
+    Answer is 3
+    operator must be a, s, m, or d, not x as supplied
+    x is not a, s, m, or d, aborting
+
+### Chapter Summary
+
+You have completed Chapter 15. Let’s summarize the key concepts covered:
+
+- Scripts are a sequence of statements and commands stored in a file that can be executed by a shell. The most commonly used shell in Linux is bash.
+- Command substitution allows you to substitute the result of a command as a portion of another command.
+- Functions or routines are a group of commands that are used for execution.
+- Environmental variables are quantities either preassigned by the shell or defined and modified by the user.
+- To make environment variables visible to child processes, they need to be exported.
+- Scripts can behave differently based on the parameters (values) passed to them.
+- The process of writing the output to a file is called output redirection.
+- The process of reading input from a file is called input redirection.
+- The if statement is used to select an action based on a condition.
+- Arithmetic expressions consist of numbers and arithmetic operators, such as +, -, and *.
+
+### String Manipulation
+
+Let’s go deeper and find out how to work with strings in scripts.
+
+A string variable contains a sequence of text characters. It can include letters, numbers, symbols and punctuation marks. Some examples include: abcde, 123, abcde 123, abcde-123, &acbde=%123.
+
+String operators include those that do comparison, sorting, and finding the length. The following table demonstrates the use of some basic string operators:
+
+<center>
+
+![String Manipulation](stringmanipulation.png)
+
+</center>
+
+### Example of String Manipulation
+
+In the first example, we compare the first string with the second string and display an appropriate message using the if statement.
+
+<center>
+
+![Example of String Manipulation](comparingstrings.png)
+
+</center>
+
+In the second example, we pass in a file name and see if that file exists in the current directory or not.
+
+<center>
+
+![Example of String Manipulation](passing.png)
+
+</center>
+
+### Parts of a String
+
+At times, you may not need to compare or use an entire string. To extract the first n characters of a string we can specify: ${string:0:n}. Here, 0 is the offset in the string (i.e. which character to begin from) where the extraction needs to start and n is the number of characters to be extracted.
+
+To extract all characters in a string after a dot (.), use the following expression: ${string#*.}.
+
+<center>
+
+![Parts of a String](partsofastring.png)
+
+</center>
+
+### String Tests and Operations
+
+Write a script which reads two strings as arguments and then:
+
+1. Tests to see if the first string is of zero length, and if the other is of non-zero length, telling the user of both results.
+2. Determines the length of each string, and reports on which one is longer or if they are of equal length.
+3. Compares the strings to see if they are the same, and reports on the result.
+
+Create a file named teststrings.sh, with the content below:
+
+`#!/bin/bash`
+
+`# check two string arguments were given`
+
+    [[ $# -lt 2 ]] && \
+        echo "Usage: Give two strings as arguments" && exit 1
+    str1=$1
+    str2=$2
+
+------------------------------------
+`## test command`
+
+    echo "Is string 1 zero length? Value of 1 means FALSE"
+    [ -z "$str1" ]
+    echo $?
+    # note if $str1 is empty, the test [ -z $str1 ] would fail
+    #                              but [[ -z $str1 ]] succeeds
+    #         i.e., with [[ ]] it works even without the quotes
+    echo "Is string 2 nonzero length? Value of 0 means TRUE;"
+    [ -n $str2 ]
+    echo $?
+
+`## comparing the lengths of two string`
+
+    len1=${#str1}
+    len2=${#str2}
+    echo length of string1 = $len1, length of string2 = $len2
+
+    if [ $len1 -gt $len2 ]
+    then
+        echo "String 1 is longer than string 2"
+    else
+        if [ $len2 -gt $len1 ]
+        then
+        echo "String 2 is longer than string 1"
+        else
+        echo "String 1 is the same length as string 2"
+        fi
+    fi
+
+`## compare the two strings to see if they are the same`
+
+    if [[ $str1 == $str2 ]]
+    then
+        echo "String 1 is the same as string 2"
+    else
+        if [[ $str1 != $str2 ]]
+        then
+        echo "String 1 is not the same as string 2"
+        fi
+    fi
+
+`student:/tmp> chmod +x teststrings.sh `
+`student:/tmp> ./teststrings.sh str1 str2`
+
+    Is string 1 zero length? Value of 1 means FALSE
+    1
+    Is string 2 nonzero length? Value of 0 means TRUE;
+    0
+    length of string1 = 4, length of string2 = 4
+    String 1 is the same length as string 2
+    String 1 is not the same as string 2
+
+`student:/tmp>./teststrings.sh str1 str2long`
+
+    Is string 1 zero length? Value of 1 means FALSE
+    1
+    Is string 2 nonzero length? Value of 0 means TRUE;
+    0
+    length of string1 = 4, length of string2 = 8
+    String 2 is longer than string 1
+    String 1 is not the same as string 2
+
+`student:/tmp>`
+
+### The case Statement
+
+The case statement is used in scenarios where the actual value of a variable can lead to different execution paths. case statements are often used to handle command-line options.
+
+Below are some of the advantages of using the case statement:
+
+- It is easier to read and write.
+- It is a good alternative to nested, multi-level if-then-else-fi code blocks.
+- It enables you to compare a variable against several values at once.
+- It reduces the complexity of a program.
+
+<center>
+
+![The case Statement](casestatement.png)
+
+</center>
+
+### Structure of the case Statement
+
+Here is the basic structure of the case statement:
+
+    case expression in
+        pattern1) execute commands;;
+        pattern2) execute commands;;
+        pattern3) execute commands;;
+        pattern4) execute commands;;
+        * )       execute some default commands or nothing ;;
+    esac
+
+<center>
+
+![Structure of the case Statement](structure.png)
+
+</center>
+
+### Example of Use of the case Construct
+
+Here is an example of the use of a case construct. Note you can have multiple possibilities for each case value that take the same action.
+
+<center>
+
+![Example of Use of the case Construct](casestructure.png)
+
+</center>
 
 

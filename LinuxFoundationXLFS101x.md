@@ -6958,5 +6958,509 @@ The commands that can be used with enscript are listed in the table below (for a
 </center>
 </div>
 
+### Converting between PostScript and PDF
+
+Most users today are far more accustomed to working with files in PDF format, viewing them easily either on the Internet through their browser or locally on their machine. The PostScript format is still important for various technical reasons that the general user will rarely have to deal with.
+
+From time to time, you may need to convert files from one format to the other, and there are very simple utilities for accomplishing that task. ps2pdf and pdf2ps are part of the ghostscript package installed on or available on all Linux distributions. As an alternative, there are pstopdf and pdftops which are usually part of the poppler package, which may need to be added through your package manager. Unless you are doing a lot of conversions or need some of the fancier options (which you can read about in the man pages for these utilities), it really does not matter which ones you use.
+
+Another possibility is to use the very powerful convert program, which is part of the ImageMagick package. Some newer distributions have replaced this with Graphics Magick, and the command to use is gm convert.
+
+Some usage examples:
+
+<div>
+<center>
+<img src="postscriptandpdf.png" width="400"/>
+</center>
+</div>
+
+### Viewing PDF Content
+
+Linux has many standard programs that can read PDF files, as well as many applications that can easily create them, including all available office suites, such as LibreOffice.
+
+The most common Linux PDF readers are:
+
+1. evince is available on virtually all distributions and is the most widely used program.
+2. okular is based on the older kpdf and is available on any distribution that provides the KDE environment.
+
+These open source PDF readers support and can read files following the PostScript standard. The proprietary Adobe Acrobat Reader, which was once widely used on Linux systems, is fortunately no longer available, as it did defective rendering and was unstable and poorly maintained.
+
+### Manipulating PDFs
+
+At times, you may want to merge, split, or rotate PDF files; not all of these operations can be achieved while using a PDF viewer. Some of these operations include:
+
+- Merging/splitting/rotating PDF documents
+- Repairing corrupted PDF pages
+- Pulling single pages from a file
+- Encrypting and decrypting PDF files
+- Adding, updating, and exporting a PDF’s metadata
+- Exporting bookmarks to a text file
+- Filling out PDF forms.
+
+In order to accomplish these tasks there are several programs available:
+
+- qpdf
+- pdftk
+- ghostscript.
+
+qpdf is widely available on Linux distributions and is very full-featured. pdftk was once very popular but depends on an obsolete unmaintained package (libgcj) and a number of distributions have dropped it; thus we recommend avoiding it. Ghostscript (often invoked using gs) is widely available and well-maintained. However, its usage is a little complex.
+
+### Using qpdf
+
+You can accomplish a wide variety of tasks using qpdf including:
+
+<div>
+<center>
+<img src="gpdf1.png" width="400"/>
+</center>
+</div>
+
+<div>
+<center>
+<img src="gpdf2.png" width="300"/>
+</center>
+</div>
+
+### Using pdftk
+
+pdftk has now been ported to Java! Marc Vinyals has developed and maintained a port to Java for pdftk which can be found here, together with instructions for installation. Some distributions such as Ubuntu, may install this version only. 
+
+You can accomplish a wide variety of tasks using pdftk including:
+
+<div>
+<center>
+<img src="pdftk.png" width="400"/>
+</center>
+</div>
+
+### Encrypting PDF Files with pdftk
+
+If you’re working with PDF files that contain confidential information and you want to ensure that only certain people can view the PDF file, you can apply a password to it using the user_pw option. One can do this by issuing a command such as:
+
+`$ pdftk public.pdf output private.pdf user_pw PROMPT`
+
+When you run this command, you will receive a prompt to set the required password, which can have a maximum of 32 characters. A new file, private.pdf, will be created with the identical content as public.pdf, but anyone will need to type the password to be able to view it.
+
+<div>
+<center>
+<img src="encrypted.png" width="300"/>
+</center>
+</div>
+
+### Using Ghostscript
+
+Ghostscript is widely available as an interpreter for the Postscript and PDF languages. The executable program associated with it is abbreviated to gs.
+
+This utility can do most of the operations pdftk can, as well as many others; see man gs for details. Use is somewhat complicated by the rather long nature of the options. For example:
+
+- Combine three PDF files into one:
+
+    `$ gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite  -sOutputFile=all.pdf file1.pdf file2.pdf file3.pdf`
+
+- Split pages 10 to 20 out of a PDF file:
+
+    `$ gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dDOPDFMARKS=false -dFirstPage=10 -dLastPage=20\
+            -sOutputFile=split.pdf file.pdf`
+
+### Using Additional Tools
+
+You can use other tools to work with PDF files, such as:
+
+- pdfinfo 
+            It can extract information about PDF files, especially when the files are very large or when a graphical interface is not available.
+- flpsed 
+            It can add data to a PostScript document. This tool is specifically useful for filling in forms or adding short comments into the document.
+- pdfmod 
+            It is a simple application that provides a graphical interface for modifying PDF documents. Using this tool, you can reorder, rotate, and remove pages; export images from a document; edit the title, subject, and author; add keywords; and combine documents using drag-and-drop action.
+
+For example, to collect the details of a document, you can use the following command:
+
+`$ pdfinfo /usr/share/doc/readme.pdf`
+
+<div>
+<center>
+<img src="additional.png" width="300"/>
+</center>
+</div>
+
+### Creating PostScript and PDF from Text Files
+
+1. Check to see if the enscript package has been installed on your system, and if not, install it.
+2. Using enscript, convert the text file /var/dmesg to PostScript format and name the result /tmp/dmesg.ps. As an alternative, you can use any large text file on your system. Make sure you can read the PostScript file (for example with evince) and compare to the original file. NOTE: On some systems, evince may have problems with the PostScript file, but the PDF file you produce from it will be fine for viewing.
+3. Convert the PostScript document to PDF format, using ps2pdf. Make sure you can read the resulting PDF file. Does it look identical to the PostScript version?
+4. Is there a way you can go straight to the PDF file without producing a PostScript file on the disk along the way?
+5. Using pdfinfo, determine what is the PDF version used to encode the file, the number of pages, the page size, and other metadata about the file. If you do not have pdfinfo you probably need to install the poppler-utils package.
+
+-------------------------------------------------------------------------
+
+1. Try
+
+    `which enscript   `
+
+        /usr/bin/enscript
+
+    If you do not get a positive result, install with whichever command is appropriate for your Linux distribution:
+
+        apt-get install enscript
+        yum install enscript
+        zypper install enscript
+
+2. `enscript -p /tmp/dmesg.ps /var/log/dmesg`
+    `evince /tmp/dmesg.ps`
+    </br>
+
+3. `ps2pdf /tmp/dmesg.ps`
+    `ls -lh /var/log/dmesg /tmp/dmesg.ps /tmp/dmesg.pdf`
+
+        -rw-rw-r-- 1 coop coop 28K Apr 22 13:00 /tmp/dmesg.pdf
+        -rw-rw-r-- 1 coop coop 80K Apr 22 12:59 /tmp/dmesg.ps
+        -rw-r--r-- 1 root root 53K Apr 22 11:48 /var/log/dmesg
+
+    `evince /tmp/dmesg.ps /tmp/dmesg.pdf`
+
+    Note the difference in sizes. PostScript files tend to be large, while PDF is a compressed format.
+    </br>
+
+4. You may want to scan the man pages for enscript and ps2pdf to figure out how to use standard input or standard output instead of files.
+
+    `student:/tmp> enscript -p - /var/log/dmesg  | ps2pdf -  dmesg_direct.pdf`         
+
+        [ 15 pages * 1 copy ] left in -
+        85 lines were wrapped
+
+    `student:/tmp> ls -l dmesg*pdf  ` 
+
+        -rw-rw-r-- 1 coop coop 28177 Apr 22 13:20 dmesg_direct.pdf
+        -rw-rw-r-- 1 coop coop 28177 Apr 22 13:00 dmesg.pdf
+
+5. `student:/tmp> pdfinfo dmesg.pdf  `
+     
+        Title:          Enscript Output
+        Author:         Theodore Cleaver
+        Creator:        GNU Enscript 1.6.6
+        Producer:       GPL Ghostscript 9.07
+        CreationDate:   Wed Apr 22 13:00:26 2015
+        ModDate:        Wed Apr 22 13:00:26 2015
+        Tagged:         no
+        Form:           none
+        Pages:          15
+        Encrypted:      no
+        Page size:      612 x 792 pts (letter)
+        Page rot:       0
+        File size:      28177 bytes
+
+### Combining PDFs
+
+You can convert two text files (you can create them or use ones that already exist since this is non-destructive) into PDFs, or you can use two pre-existing ones. Combine them into one PDF, and view the result.
+
+If pdftk is not installed, you can try to install. However, if you are on a system for which it is not available (such as RHEL7/CentOS7 or OpenSUSE), you will have to use qpdf or gs.
+
+First, we can create two PDFs to play with, using enscript and then ps2pdf:
+
+    cd /var/log
+    enscript -p dmesg.ps /var/log/dmesg
+    enscript -p boot.ps /var/log/boot.log
+    ps2dpf dmesg.ps
+    ps2dpf boot.ps 
+
+Of course, you may use two pre-existing PDF files and substitute their names below.
+
+- Method 1: Using qpdf:
+  
+    `qpdf --empty --pages dmesg.pdf boot.pdf -- method1.pdf`
+
+- Method 2: Using pdftk:
+  
+    `pdftk dmesg.pdf boot.pdf cat output method2.pdf`
+
+- Method 3: Using gs:
+
+    `gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=method3.pdf dmesg.pdf boot.pdf`
+
+Now view them:
+
+`ls -l method1.pdf method2.pdf`
+`evince method1.pdf method2.pdf`
+
+How do the files compare?
+
+### Chapter Summary
+
+You have completed Chapter 17. Let’s summarize the key concepts covered:
+
+- CUPS provides two command-line interfaces: the System V and BSD.
+- The CUPS interface is available at http://localhost:631.
+- lp and lpr are used to submit a document to CUPS directly from the command line.
+- lpoptions can be used to set printer options and defaults.
+- PostScript effectively manages scaling of fonts and vector graphics to provide quality prints.
+- enscript is used to convert a text file to PostScript and other formats.
+- Portable Document Format (PDF) is the standard format used to exchange documents while ensuring a certain level of consistency in the way the documents are viewed.
+- pdftk joins and splits PDFs; pulls single pages from a file; encrypts and decrypts PDF files; adds, updates, and exports a PDF’s metadata; exports bookmarks to a text file; adds or removes attachments to a PDF; fixes a damaged PDF; and fills out PDF forms.
+- pdfinfo can extract information about PDF documents.
+- flpsed can add data to a PostScript document.
+- pdfmod is a simple application with a graphical interface that you can use to modify PDF documents.
+
+### User Accounts
+
+The Linux kernel allows properly authenticated users to access files and applications. While each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID. Upon account creation, new user information is added to the user database and the user's home directory must be created and populated with some essential files. Command line programs such as useradd and userdel as well as GUI tools are used for creating and removing accounts. 
+
+<div>
+<center>
+<img src="useraccount1.png" width="400"/>
+</center>
+</div>
+
+For each user, the following seven fields are maintained in the /etc/passwd file: 
+
+<div>
+<center>
+<img src="useraccount2.png" width="400"/>
+</center>
+</div>
+
+### Types of Accounts
+
+By default, Linux distinguishes between several account types in order to isolate processes and workloads. Linux has four types of accounts:
+
+- root
+- System
+- Normal
+- Network
+
+For a safe working environment, it is advised to grant the minimum privileges possible and necessary to accounts, and remove inactive accounts. The last utility, which shows the last time each user logged into the system, can be used to help identify potentially inactive accounts which are candidates for system removal.
+
+Keep in mind that practices you use on multi-user business systems are more strict than practices you can use on personal desktop systems that only affect the casual user. This is especially true with security. We hope to show you practices applicable to enterprise servers that you can use on all systems, but understand that you may choose to relax these rules on your own personal system.
+
+<div>
+<center>
+<img src="lastutility.png" width="400"/>
+</center>
+</div>
+
+### Understanding the root Account
+
+root is the most privileged account on a Linux/UNIX system. This account has the ability to carry out all facets of system administration, including adding accounts, changing user passwords, examining log files, installing software, etc. Utmost care must be taken when using this account. It has no security restrictions imposed upon it.
+
+When you are signed in as, or acting as root, the shell prompt displays '#' (if you are using bash and you have not customized the prompt, as we have discussed previously). This convention is intended to serve as a warning to you of the absolute power of this account.
+
+### Operations Requiring root Privileges
+
+root privileges are required to perform operations such as:
+
+- Creating, removing and managing user accounts
+- Managing software packages
+- Removing or modifying system files
+- Restarting system services.
+
+Regular account users of Linux distributions might be allowed to install software packages, update some settings, use some peripheral devices, and apply various kinds of changes to the system. However, root privilege is required for performing administration tasks such as restarting most services, manually installing packages and managing parts of the filesystem that are outside the normal user’s directories.
+
+<div>
+<center>
+<img src="operations.png" width="300"/>
+</center>
+</div>
+
+### Operations Not Requiring root Privileges
+
+A regular account user can perform some operations requiring special permissions; however, the system configuration must allow such abilities to be exercised.
+
+SUID (Set owner User ID upon execution - similar to the Windows "run as" feature) is a special kind of file permission given to a file. Use of SUID provides temporary permissions to a user to run a program with the permissions of the file owner (which may be root) instead of the permissions held by the user.
+
+The table provides examples of operations which do not require root privileges:
+
+<div>
+<center>
+<img src="notrequire.png" width="400"/>
+</center>
+</div>
+
+### Comparing sudo and su
+
+In Linux you can use either su or sudo to temporarily grant root access to a normal user. However, these methods are actually quite different. Listed below are the differences between the two commands:
+
+<div>
+<center>
+<img src="sudoandsu.png" width="400"/>
+</center>
+</div>
+
+### sudo Features
+
+sudo has the ability to keep track of unsuccessful attempts at gaining root access. Users' authorization for using sudo is based on configuration information stored in the /etc/sudoers file and in the /etc/sudoers.d directory.
+
+A message such as the following would appear in a system log file (usually /var/log/secure) when trying to execute sudo for badperson without successfully authenticating the user:
+
+`badperson : user NOT in sudoers ; TTY=pts/4 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/tail secure`
+
+<div>
+<center>
+<img src="sudofeatures.png" width="300"/>
+</center>
+</div>
+
+### The sudoers File
+
+Whenever sudo is invoked, a trigger will look at /etc/sudoers and the files in /etc/sudoers.d to determine if the user has the right to use sudo and what the scope of their privilege is. Unknown user requests and requests to do operations not allowed to the user even with sudo are reported. The basic structure of entries in these files is:
+
+`who where = (as_whom) what`
+
+/etc/sudoers contains a lot of documentation in it about how to customize. Most Linux distributions now prefer you add a file in the directory /etc/sudoers.d with a name the same as the user. This file contains the individual user's sudo configuration, and one should leave the master configuration file untouched except for changes that affect all users.
+
+You should edit any of these configuration files by using visudo, which ensures that only one person is editing the file at a time, has the proper permissions, and refuses to write out the file and exit if there are syntax errors in the changes made. The editing can be accomplished by doing a command such as the following ones:
+
+`# visudo /etc/sudoers`
+`# visudo -f /etc/sudoers.d/student`
+
+The actual specific editor invoked will depend on the setting of your EDITOR environment variable.
+
+<div>
+<center>
+<img src="sudoers.png" width="400"/>
+</center>
+</div>
+
+### Command Logging
+
+By default, sudo commands and any failures are logged in /var/log/auth.log under the Debian distribution family, and in /var/log/messages and/or /var/log/secure on other systems. This is an important safeguard to allow for tracking and accountability of sudo use. A typical entry of the message contains:
+
+- Calling username
+- Terminal info
+- Working directory
+- User account invoked
+- Command with arguments
+
+Running a command such as sudo whoami results in a log file entry such as:
+
+`Dec 8 14:20:47 server1 sudo: op : TTY=pts/6 PWD=/var/log USER=root COMMAND=/usr/bin/whoami`
+
+<div>
+<center>
+<img src="commandlogging.png" width="400"/>
+</center>
+</div>
+
+### Process Isolation
+
+Linux is considered to be more secure than many other operating systems because processes are naturally isolated from each other. One process normally cannot access the resources of another process, even when that process is running with the same user privileges. Linux thus makes it difficult (though certainly not impossible) for viruses and security exploits to access and attack random resources on a system.
+
+More recent additional security mechanisms that limit risks even further include:
+
+- Control Groups (cgroups)
+            Allows system administrators to group processes and associate finite resources to each cgroup.
+- Containers
+            Makes it possible to run multiple isolated Linux systems (containers) on a single system by relying on cgroups.
+- Virtualization
+            Hardware is emulated in such a way that not only processes can be isolated, but entire systems are run simultaneously as isolated and insulated guests (virtual machines) on one physical host.
+
+<div>
+<center>
+<img src="processisolation.png" width="300"/>
+</center>
+</div>
+
+### Hardware Device Access
+
+Linux limits user access to non-networking hardware devices in a manner that is extremely similar to regular file access. Applications interact by engaging the filesystem layer (which is independent of the actual device or hardware the file resides on). This layer will then open a device special file (often called a device node) under the /dev directory that corresponds to the device being accessed. Each device special file has standard owner, group and world permission fields. Security is naturally enforced just as it is when standard files are accessed.
+
+Hard disks, for example, are represented as /dev/sd*. While a root user can read and write to the disk in a raw fashion, for example, by doing something like:
+
+`# echo hello world > /dev/sda1`
+
+The standard permissions as shown in the figure, make it impossible for regular users to do so. Writing to a device in this fashion can easily obliterate the filesystem stored on it in a way that cannot be repaired without great effort, if at all. The normal reading and writing of files on the hard disk by applications is done at a higher level through the filesystem, and never through direct access to the device node.
+
+<div>
+<center>
+<img src="hardwaredevice.png" width="400"/>
+</center>
+</div>
+
+### Keeping Current
+
+When security problems in either the Linux kernel or applications and libraries are discovered, Linux distributions have a good record of reacting quickly and pushing out fixes to all systems by updating their software repositories and sending notifications to update immediately. The same thing is true with bug fixes and performance improvements that are not security related.
+
+<div>
+<center>
+<img src="timely.png" width="100"/>
+</center>
+</div>
+
+However, it is well known that many systems do not get updated frequently enough and problems which have already been cured are allowed to remain on computers for a long time; this is particularly true with proprietary operating systems where users are either uninformed or distrustful of the vendor's patching policy as sometimes updates can cause new problems and break existing operations. Many of the most successful attack vectors come from exploiting security holes for which fixes are already known but not universally deployed.
+
+So the best practice is to take advantage of your Linux distribution's mechanism for automatic updates and never postpone them. It is extremely rare that such an update will cause new problems.
+
+### sudo
 
 
+- Create a new user, using useradd, and give the user an initial password with passwd.
+- Configure this user to be able to use sudo.
+- Login as or switch to this new user and make sure you can execute a command that requires root privilege.
+
+For example, a trivial command requiring root privilege could be:
+
+`$ ls /root`
+
+
+1. `sudo useradd newuser`
+`sudo passwd newuser`
+
+    (give the password for this user when prompted)
+
+2. With root privilege, (use sudo visudo) add this line to /etc/sudoers:
+
+        newuser      ALL=(ALL)     ALL
+
+    Alternatively, create a file named /etc/sudoers.d/newuser with just that one line as content.
+
+3. You can login by doing:
+
+`sudo su newuser`
+
+    or
+
+`ssh newuser@localhost`
+
+which will require giving newuser's password, and is probably a better solution. Instead of localhost you can give your hostname, IP address or 127.0.0.1. Then as newuser just type:
+
+`sudo ls /root`
+
+### How Passwords Are Stored
+
+The system verifies authenticity and identity using user credentials.
+
+Originally, encrypted passwords were stored in the /etc/passwd file, which was readable by everyone. This made it rather easy for passwords to be cracked.
+
+<div>
+<center>
+<img src="pwdstored.png" width="200"/>
+</center>
+</div>
+
+On modern systems, passwords are actually stored in an encrypted format in a secondary file named /etc/shadow. Only those with root access can read or modify this file.
+
+### Password Algorithm
+
+Protecting passwords has become a crucial element of security. Most Linux distributions rely on a modern password encryption algorithm called SHA-512 (Secure Hashing Algorithm 512 bits), developed by the U.S. National Security Agency (NSA) to encrypt passwords.
+
+The SHA-512 algorithm is widely used for security applications and protocols. These security applications and protocols include TLS, SSL, PHP, SSH, S/MIME and IPSec. SHA-512 is one of the most tested hashing algorithms.
+
+For example, if you wish to experiment with SHA-512 encoding, the word "test" can be encoded using the program sha512sum to produce the SHA-512 form (see graphic):
+
+<div>
+<center>
+<img src="pwdencryption.png" width="400"/>
+</center>
+</div>
+
+### Good Password Practices
+
+IT professionals follow several good practices for securing the data and the password of every user.
+
+- Password aging is a method to ensure that users get prompts that remind them to create a new password after a specific period. This can ensure that passwords, if cracked, will only be usable for a limited amount of time. This feature is implemented using chage, which configures the password expiry information for a user.
+- Another method is to force users to set strong passwords using Pluggable Authentication Modules (PAM). PAM can be configured to automatically verify that a password created or modified using the passwd utility is sufficiently strong. PAM configuration is implemented using a library called pam_cracklib.so, which can also be replaced by pam_passwdqc.so to take advantage of more options.
+- One can also install password cracking programs, such as John The Ripper, to secure the password file and detect weak password entries. It is recommended that written authorization be obtained before installing such tools on any system that you do not own.
+
+<div>
+<center>
+<img src="chage.png" width="400"/>
+</center>
+</div>

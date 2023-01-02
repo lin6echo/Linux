@@ -6361,4 +6361,113 @@ Here is an example of the use of a case construct. Note you can have multiple po
 
 </center>
 
+### Using the case Statement
 
+Write a script that takes as an argument a month in numerical form (i.e. between 1 and 12), and translates this to the month name and displays the result on standard out (the terminal).
+
+If no argument is given, or a bad number is given, the script should report the error and exit.
+
+Create a file named testcase.sh, with the content below:
+
+`#!/bin/bash`
+
+`# Accept a number between 1 and 12 as`
+`# an argument to this script, then return the`
+`# the name of the month that corresponds to that number.`
+
+`# Check to see if the user passed a parameter.`
+
+    if [ $# -eq 0 ]
+    then
+    echo "Error. Give as an argument a number between 1 and 12."
+    exit 1
+    fi
+
+`# set month equal to argument passed for use in the script`
+
+    month=$1
+
+################################################
+`# The example of a case statement:`
+
+    case $month in
+
+      1)  echo "January"   ;;
+      2)  echo "February"  ;;
+      3)  echo "March"     ;;
+      4)  echo "April"     ;;
+      5)  echo "May"       ;;
+      6)  echo "June"      ;;
+      7)  echo "July"      ;;
+      8)  echo "August"    ;;
+      9)  echo "September" ;;
+      10) echo "October"   ;;
+      11) echo "November"  ;;
+      12) echo "December"  ;;
+      *)
+          echo "Error. No month matches: $month"
+          echo "Please pass a number between 1 and 12."
+          exit 2
+          ;;
+    esac
+    exit 0
+
+Make it executable and run it:
+
+`student:/tmp> chmod +x testcase.sh `
+`student:/tmp> ./testcase.sh 5`
+
+    May
+
+`student:/tmp> ./testcase.sh 12`
+
+    December
+
+`student:/tmp> ./testcase.sh 99`
+
+    Error. No month matches: 99
+    Please pass a number between 1 and 12
+    student:/tmp> 
+
+### Looping Constructs
+
+By using looping constructs, you can execute one or more lines of code repetitively, usually on a selection of values of data such as individual files. Usually, you do this until a conditional test returns either true or false, as is required.
+
+<center>
+
+![Looping Constructs](looping.png)
+
+</center>
+
+Three types of loops are often used in most programming languages:
+
+- for
+- while
+- until
+
+All these loops are easily used for repeating a set of statements until the exit condition is true.
+
+### The for Loop
+
+The for loop operates on each element of a list of items. The syntax for the for loop is:
+
+    for variable-name in list
+    do
+        execute one iteration for each item in the list until the list is finished
+    done
+
+In this case, variable-name and list are substituted by you as appropriate (see examples). As with other looping constructs, the statements that are repeated should be enclosed by do and done.
+
+The screenshot here shows an example of the for loop to print the sum of numbers 1 to 10.
+
+<center>
+
+![The for Loop](forloop.png)
+
+</center>
+
+<div>
+<center>
+<img src="forloop.png" width="400" height="400"/>
+</center>
+</div>

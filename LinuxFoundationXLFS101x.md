@@ -6460,14 +6460,503 @@ In this case, variable-name and list are substituted by you as appropriate (see 
 
 The screenshot here shows an example of the for loop to print the sum of numbers 1 to 10.
 
+<div>
 <center>
-
-![The for Loop](forloop.png)
-
+<img src="forloop.png" width="400"/>
 </center>
+</div>
+
+### The while Loop
+
+The while loop repeats a set of statements as long as the control command returns true. The syntax is:
+
+    while condition is true
+    do
+        Commands for execution
+        ----
+    done
+
+The set of commands that need to be repeated should be enclosed between do and done. You can use any command or operator as the condition. Often, it is enclosed within square brackets ([]).
+
+The screenshot here shows an example of the while loop that calculates the factorial of a number. Do you know why the computation of 21! gives a bad result?
 
 <div>
 <center>
-<img src="forloop.png" width="400" height="400"/>
+<img src="whileloop.png" width="400"/>
 </center>
 </div>
+
+### The until Loop
+
+The until loop repeats a set of statements as long as the control command is false. Thus, it is essentially the opposite of the while loop. The syntax is:
+
+    until condition is false
+    do
+        Commands for execution
+        ----
+    done
+
+Similar to the while loop, the set of commands that need to be repeated should be enclosed between do and done. You can use any command or operator as the condition.
+
+The screenshot here shows an example of the until loop that once again computes factorials; it is only slightly different than the test case for the while loop.
+
+<div>
+<center>
+<img src="untilloop.png" width="400"/>
+</center>
+</div>
+
+### Debugging bash Scripts
+
+While working with scripts and commands, you may run into errors. These may be due to an error in the script, such as an incorrect syntax, or other ingredients, such as a missing file or insufficient permission to do an operation. These errors may be reported with a specific error code, but often just yield incorrect or confusing output. So, how do you go about identifying and fixing an error?
+
+Debugging helps you troubleshoot and resolve such errors, and is one of the most important tasks a system administrator performs.
+
+### Script Debug Mode
+
+You can run a bash script in debug mode either by doing bash –x ./script_file, or bracketing parts of the script with set -x and set +x. The debug mode helps identify the error because:
+
+- It traces and prefixes each command with the + character.
+- It displays each command before executing it.
+- It can debug only selected parts of a script (if desired) with:
+
+            set -x    # turns on debugging
+            ...
+            set +x    # turns off debugging
+
+The screenshot shown here demonstrates a script which runs in debug mode if run with any argument on the command line.
+
+<div>
+<center>
+<img src="scriptdebug.png" width="400"/>
+</center>
+</div>
+
+### Redirecting Errors to File and Screen
+
+In UNIX/Linux, all programs that run are given three open file streams when they are started as listed in the table: 
+
+<div>
+<center>
+<img src="redirecting1.png" width="400"/>
+</center>
+</div>
+
+Using redirection, we can save the stdout and stderr output streams to one file or two separate files for later analysis after a program or command is executed.
+
+The screenshot shows a shell script with a simple bug, which is then run and the error output is diverted to error.log. Using cat to display the contents of the error log adds in debugging. Do you see how to fix the script?
+
+<div>
+<center>
+<img src="redirecting2.png" width="400"/>
+</center>
+</div>
+
+### Creating Temporary Files and Directories
+
+Consider a situation where you want to retrieve 100 records from a file with 10,000 records. You will need a place to store the extracted information, perhaps in a temporary file, while you do further processing on it.
+
+Temporary files (and directories) are meant to store data for a short time. Usually, one arranges it so that these files disappear when the program using them terminates. While you can also use touch to create a temporary file, in some circumstances this may make it easy for hackers to gain access to your data. This is particularly true if the name and the file location of the temporary file are predictable.
+
+The best practice is to create random and unpredictable filenames for temporary storage. One way to do this is with the mktemp utility, as in the following examples.
+
+The XXXXXXXX is replaced by mktemp with random characters to ensure the name of the temporary file cannot be easily predicted and is only known within your program.
+
+<div>
+<center>
+<img src="creatingtemp.png" width="400"/>
+</center>
+</div>
+
+### Example of Creating a Temporary File and Directory
+
+Sloppiness in creation of temporary files can lead to real damage, either by accident or if there is a malicious actor. For example, if someone were to create a symbolic link from a known temporary file used by root to the /etc/passwd file, like this:
+
+`$ ln -s /etc/passwd /tmp/tempfile`
+
+There could be a big problem if a script run by root has a line in it like this:
+
+`echo $VAR > /tmp/tempfile`
+
+The password file will be overwritten by the temporary file contents.
+
+To prevent such a situation, make sure you randomize your temporary file names by replacing the above line with the following lines:
+
+`TEMP=$(mktemp /tmp/tempfile.XXXXXXXX)`
+`echo $VAR > $TEMP`
+
+Note the screen capture shows similarly named temporary files from different days, but with randomly generated characters in them.
+
+<div>
+<center>
+<img src="exampletemp.png" width="400"/>
+</center>
+</div>
+
+### Discarding Output with /dev/null
+
+Certain commands (like find) will produce voluminous amounts of output, which can overwhelm the console. To avoid this, we can redirect the large output to a special file (a device node) called /dev/null. This pseudofile is also called the bit bucket or black hole.
+
+All data written to it is discarded and write operations never return a failure condition. Using the proper redirection operators, it can make the output disappear from commands that would normally generate output to stdout and/or stderr:
+
+`$ ls -lR /tmp > /dev/null`
+
+In the above command, the entire standard output stream is ignored, but any errors will still appear on the console. However, if one does:
+
+`$ ls -lR /tmp >& /dev/null`
+
+both stdout and stderr will be dumped into /dev/null.
+
+<div>
+<center>
+<img src="devnull.png" width="400"/>
+</center>
+</div>
+
+### Random Numbers and Data
+
+It is often useful to generate random numbers and other random data when performing tasks such as:
+
+- Performing security-related tasks
+- Reinitializing storage devices
+- Erasing and/or obscuring existing data
+- Generating meaningless data to be used for tests
+
+Such random numbers can be generated by using the $RANDOM environment variable, which is derived from the Linux kernel’s built-in random number generator, or by the OpenSSL library function, which uses the FIPS140 (Federal Information Processing Standard) algorithm to generate random numbers for encryption
+
+To learn about FIPS140, read Wikipedia's "FIPS 140-2" article.
+
+The example shows you how to easily use the environmental variable method to generate random numbers.
+
+<div>
+<center>
+<img src="randomnumbers.png" width="200"/>
+</center>
+</div>
+
+### How the Kernel Generates Random Numbers
+
+Some servers have hardware random number generators that take as input different types of noise signals, such as thermal noise and photoelectric effect. A transducer converts this noise into an electric signal, which is again converted into a digital number by an A-D converter. This number is considered random. However, most common computers do not contain such specialized hardware and, instead, rely on events created during booting to create the raw data needed.
+
+Regardless of which of these two sources is used, the system maintains a so-called entropy pool of these digital numbers/random bits. Random numbers are created from this entropy pool.
+
+The Linux kernel offers the /dev/random and /dev/urandom device nodes, which draw on the entropy pool to provide random numbers which are drawn from the estimated number of bits of noise in the entropy pool.
+
+/dev/random is used where very high quality randomness is required, such as one-time pad or key generation, but it is relatively slow to provide values. /dev/urandom is faster and suitable (good enough) for most cryptographic purposes.
+
+Furthermore, when the entropy pool is empty, /dev/random is blocked and does not generate any number until additional environmental noise (network traffic, mouse movement, etc.) is gathered, whereas /dev/urandom reuses the internal pool to produce more pseudo-random bits.
+
+<div>
+<center>
+<img src="kernelrandom.png" width="300"/>
+</center>
+</div>
+
+### Using Random Numbers
+
+Write a script which:
+
+1. Takes a word as an argument.
+2. Appends a random number to it.
+3. Displays the answer.
+
+Create a file named testrandom.sh, with the content below:
+
+`#!/bin/bash`
+`##`
+`# check to see if the user supplied in the parameter.`
+
+`[[ $# -eq 0 ]] && echo "Usage: $0 word" && exit 1`
+
+`echo "$1-$RANDOM`
+`exit 0`
+
+Make it executable and run it:
+
+`student:/tmp> chmod +x testrandom.sh `
+`student:/tmp> ./testrandom.sh strA`
+
+    strA-29294
+
+`student:/tmp>./testrandom.sh strB`
+
+    strB-23911
+
+`student:/tmp>./testrandom.sh strC`
+
+    strC-27782
+    student:/tmp>
+
+### Chapter Summary
+
+You have completed Chapter 16. Let’s summarize the key concepts covered:
+
+- You can manipulate strings to perform actions such as comparison, sorting, and finding length.
+- You can use Boolean expressions  when working with multiple data types, including strings or numbers, as well as files.
+- The output of a Boolean expression is either true or false.
+- Operators used in Boolean expressions include the && (AND), || (OR), and ! (NOT) operators.
+- We looked at the advantages of using the case statement in scenarios where the value of a variable can lead to different execution paths.
+- Script debugging methods help troubleshoot and resolve errors.
+- The standard and error outputs from a script or shell commands can easily be redirected into the same file or separate files to aid in debugging and saving results.
+- Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security.
+- Linux provides several different ways of generating random numbers, which are widely used.
+
+### Printing on Linux
+
+To manage printers and print directly from a computer or across a networked environment, you need to know how to configure and install a printer. Printing itself requires software that converts information from the application you are using to a language your printer can understand. The Linux standard for printing software is the Common UNIX Printing System (CUPS).
+
+Modern Linux desktop systems make installing and administering printers pretty simple and intuitive, and not unlike how it is done on other operating systems. Nevertheless, it is instructive to understand the underpinnings of how it is done in Linux.
+
+### CUPS Overview
+
+CUPS is the underlying software almost all Linux systems use to print from applications like a web browser or LibreOffice. It converts page descriptions produced by your application (put a paragraph here, draw a line there, and so forth) and then sends the information to the printer. It acts as a print server for both local and network printers.
+
+Printers manufactured by different companies may use their own particular print languages and formats. CUPS uses a modular printing system which accommodates a wide variety of printers and also processes various data formats. This makes the printing process simpler; you can concentrate more on printing and less on how to print.
+
+Generally, the only time you should need to configure your printer is when you use it for the first time. In fact, CUPS often figures things out on its own by detecting and configuring any printers it locates.
+
+### How Does CUPS Work? 
+
+CUPS carries out the printing process with the help of its various components:
+
+- Configuration files
+- Scheduler
+- Job files
+- Log files
+- Filter
+- Printer drivers
+- Backend.
+
+You will learn about each of these components on the next few pages.
+
+<div>
+<center>
+<img src="cups.png" width="400"/>
+</center>
+</div>
+
+### Scheduler
+
+CUPS is designed around a print scheduler that manages print jobs, handles administrative commands, allows users to query the printer status, and manages the flow of data through all CUPS components.
+
+<div>
+<center>
+<img src="scheduler.png" width="400"/>
+</center>
+</div>
+
+We will look at the browser-based interface that can be used with CUPS,  which allows you to view and manipulate the order and status of pending print jobs.
+
+### Configuration Files
+
+The print scheduler reads server settings from several configuration files, the two most important of which are cupsd.conf and printers.conf. These and all other CUPS related configuration files are stored under the /etc/cups/ directory.
+
+cupsd.conf is where most system-wide settings are located; it does not contain any printer-specific details. Most of the settings available in this file relate to network security, i.e. which systems can access CUPS network capabilities, how printers are advertised on the local network, what management features are offered, and so on.
+
+printers.conf is where you will find the printer-specific settings. For every printer connected to the system, a corresponding section describes the printer’s status and capabilities. This file is generated or modified only after adding a printer to the system, and should not be modified by hand.
+
+You can view the full list of configuration files by typing ls -lF /etc/cups.
+
+<div>
+<center>
+<img src="etccups.png" width="400"/>
+</center>
+</div>
+
+### Job Files
+
+CUPS stores print requests as files under the /var/spool/cups directory (these can actually be accessed before a document is sent to a printer). Data files are prefixed with the letter d while control files are prefixed with the letter c.
+
+<div>
+<center>
+<img src="varspool.png" width="400"/>
+</center>
+</div>
+
+After a printer successfully handles a job, data files are automatically removed. These data files belong to what is commonly known as the print queue.
+
+<div>
+<center>
+<img src="printqueue.png" width="300"/>
+</center>
+</div>
+
+### Log Files
+
+Log files are placed in /var/log/cups and are used by the scheduler to record activities that have taken place. These files include access, error, and page records.
+
+To view what log files exist, type:
+
+`$ sudo ls -l /var/log/cups`
+
+<div>
+<center>
+<img src="logfiles.png" width="400"/>
+</center>
+</div>
+
+Note on some distributions permissions are set such that you do not need to use sudo. You can view the log files with the usual tools.
+
+<div>
+<center>
+<img src="sudols.png" width="300"/>
+</center>
+</div>
+
+### Filters, Printer Drivers, and Backends
+
+CUPS uses filters to convert job file formats to printable formats. Printer drivers contain descriptions for currently connected and configured printers, and are usually stored under /etc/cups/ppd/. The print data is then sent to the printer through a filter, and via a backend that helps to locate devices connected to the system.
+
+<div>
+<center>
+<img src="filterprinter.png" width="300"/>
+</center>
+</div>
+
+So, in short, when you execute a print command, the scheduler validates the command and processes the print job, creating job files according to the settings specified in the configuration files. Simultaneously, the scheduler records activities in the log files. Job files are processed with the help of the filter, printer driver, and backend, and then sent to the printer.
+
+### Managing CUPS
+
+Assuming CUPS has been installed you'll need to start and manage the CUPS daemon so that CUPS is ready for configuring a printer. Managing the CUPS daemon is simple; all management features can be done with the systemctl utility:
+
+`$ systemctl status cups`
+
+`$ sudo systemctl [enable|disable] cups`
+
+`$ sudo systemctl [start|stop|restart] cups`
+
+NOTE: The next screen demonstrates this on Ubuntu, but is the same for all major current Linux distributions. 
+
+### Configuring a Printer from the GUI
+
+Each Linux distribution has a GUI application that lets you add, remove, and configure local or remote printers. Using this application, you can easily set up the system to use both local and network printers. The following screens show how to find and use the appropriate application in each of the distribution families covered in this course.
+
+When configuring a printer, make sure the device is currently turned on and connected to the system; if so it should show up in the printer selection menu. If the printer is not visible, you may want to troubleshoot using tools that will determine if the printer is connected. For common USB printers, for example, the lsusb utility will show a line for the printer. Some printer manufacturers also require some extra software to be installed in order to make the printer visible to CUPS, however, due to the standardization these days, this is rarely required.
+
+<div>
+<center>
+<img src="configuring.png" width="400"/>
+</center>
+</div>
+
+### Adding Printers from the CUPS Web Interface
+
+A fact that few people know is that CUPS also comes with its own web server, which makes a configuration interface available via a set of CGI scripts.
+
+This web interface allows you to:
+
+- Add and remove local/remote printers
+- Configure printers:
+
+        – Local/remote printers 
+
+        – Share a printer as a CUPS server 
+
+- Control print jobs:
+  
+        – Monitor jobs 
+
+        – Show completed or pending jobs 
+
+        – Cancel or move jobs. 
+
+The CUPS web interface is available on your browser at: http://localhost:631.
+
+Some pages require a username and password to perform certain actions, for example to add a printer. For most Linux distributions, you must use the root password to add, modify, or delete printers or classes.
+
+<div>
+<center>
+<img src="cupswebsite.png" width="400"/>
+</center>
+</div>
+
+### Printing from the Graphical Interface
+
+Many graphical applications allow users to access printing features using the CTRL-P shortcut. To print a file, you first need to specify the printer (or a file name and location if you are printing to a file instead) you want to use; and then select the page setup, quality, and color options. After selecting the required options, you can submit the document for printing. The document is then submitted to CUPS. You can use your browser to access the CUPS web interface at http://localhost:631/ to monitor the status of the printing job. Now that you have configured the printer, you can print using either the Graphical or Command Line interfaces.
+
+The screenshot shows the GUI interface for CTRL-P for CentOS, other Linux distributions appear virtually identical.
+
+<div>
+<center>
+<img src="gui.png" width="400"/>
+</center>
+</div>
+
+### Printing from the Command-Line Interface
+
+CUPS provides two command-line interfaces, descended from the System V and BSD flavors of UNIX. This means that you can use either lp (System V) or lpr (BSD) to print. You can use these commands to print text, PostScript, PDF, and image files.
+
+These commands are useful in cases where printing operations must be automated (from shell scripts, for instance, which contain multiple commands in one file). 
+
+lp is just a command line front-end to the lpr utility that passes input to lpr. Thus, we will discuss only lp in detail. In the example shown here, the task is to print $HOME/.emacs.
+
+<div>
+<center>
+<img src="printingcommandline.png" width="400"/>
+</center>
+</div>
+
+### Using lp
+
+lp and lpr accept command line options that help you perform all operations that the GUI can accomplish. lp is typically used with a file name as an argument.
+
+Some lp commands and other printing utilities you can use are listed in the table:
+
+<div>
+<center>
+<img src="lp.png" width="400"/>
+</center>
+</div>
+
+lpoptions can be used to set printer options and defaults. Each printer has a set of tags associated with it, such as the default number of copies and authentication requirements. You can type lpoptions help to obtain a list of supported options. lpoptions can also be used to set system-wide values, such as the default printer.
+
+### Managing Print Jobs
+
+You send a file to the shared printer. But when you go there to collect the printout, you discover another user has just started a 200 page job that is not time sensitive. Your file cannot be printed until this print job is complete. What do you do now?
+
+In Linux, command line print job management commands allow you to monitor the job state as well as managing the listing of all printers and checking their status, and canceling or moving print jobs to another printer.
+
+Some of these commands are listed in the table. 
+
+<div>
+<center>
+<img src="lpcommand.png" width="400"/>
+</center>
+</div>
+
+### Working with PostScript and PDF
+
+PostScript is a standard  page description language. It effectively manages scaling of fonts and vector graphics to provide quality printouts. It is purely a text format that contains the data fed to a PostScript interpreter. The format itself is a language that was developed by Adobe in the early 1980s to enable the transfer of data to printers.
+
+<div>
+<center>
+<img src="postscript.png" width="300"/>
+</center>
+</div>
+
+Features of PostScript are:
+
+- It can be used on any printer that is PostScript-compatible; i.e. any modern printer
+- Any program that understands the PostScript specification can print to it
+- Information about page appearance, etc. is embedded in the page.
+
+Postscript has been for the most part superseded by the PDF format (Portable Document Format) which produces far smaller files in a compressed format for which support has been integrated into many applications. However, one still has to deal with postscript documents, often as an intermediate format on the way to producing final documents.
+
+### Working with enscript
+
+enscript is a tool that is used to convert a text file to PostScript and other formats. It also supports Rich Text Format (RTF) and HyperText Markup Language (HTML). For example, you can convert a text file to two columns (-2) formatted PostScript using the command:
+
+`$ enscript -2 -r -p psfile.ps textfile.txt`
+
+This command will also rotate (-r) the output to print so the width of the paper is greater than the height (aka landscape mode) thereby reducing the number of pages required for printing.
+
+The commands that can be used with enscript are listed in the table below (for a file called textfile.txt).
+
+<div>
+<center>
+<img src="enscript.png" width="400"/>
+</center>
+</div>
+
+
+

@@ -2,11 +2,11 @@
 
 So, what is a Linux distribution and how does it relate to the Linux kernel?
 
+<div>
 <center>
-
-![Distribution Roles](Distributionroles.png)
-
+<img src="Distributionroles.png" width="400"/>
 </center>
+</div>
 
 
 The Linux kernel is the core of the operating system. A full Linux distribution consists of the kernel plus a number of other software tools for file-related operations, user management, and software package management. Each of these tools provides a part of the complete system. Each tool is often its own separate project, with its own developers working to perfect that piece of the system.
@@ -27,11 +27,11 @@ Many commercial distributors, including Red Hat, Ubuntu, SUSE, and Oracle, provi
 
 <h3>The Boot Process</h3>
 
+<div>
 <center>
-
-![The Boot process](TheBootprocess.png)
-
+<img src="TheBootprocess.png" width="200"/>
 </center>
+</div>
 
 
 The Linux boot process is the procedure for initializing the system. It consists of everything that happens from when the computer power is first switched on until the user interface is fully operational.
@@ -44,12 +44,11 @@ On the other hand, the boot process can be rather technical, and you can start u
 
 <h3>BIOS - The First Step</h3>
 
+<div>
 <center>
-
-![BIOS](BIOS.png)
-
+<img src="BIOS.png" width="200"/>
 </center>
-
+</div>
 
 Starting an x86-based Linux system involves a number of steps. When the computer is powered on, the Basic Input/Output System (BIOS) initializes the hardware, including the screen and keyboard, and tests the main memory. This process is also called POST (Power On Self Test).
 
@@ -57,12 +56,11 @@ The BIOS software is stored on a ROM chip on the motherboard. After this, the re
 
 <h3>Master Boot Record (MBR) and Boot Loader</h3>
 
+<div>
 <center>
-
-![Master Boot Record](MasterBootRecord.png)
-
+<img src="MasterBootRecord.png" width="200"/>
 </center>
-
+</div>
 
 Once the POST is completed, the system control passes from the BIOS to the boot loader. The boot loader is usually stored on one of the hard disks in the system, either in the boot sector (for traditional BIOS/MBR systems) or the EFI partition (for more recent (Unified) Extensible Firmware Interface or EFI/UEFI systems). Up to this stage, the machine does not access any mass storage media. Thereafter, information on date, time, and the most important peripherals are loaded from the CMOS values (after a technology used for the battery-powered memory store which allows the system to keep track of the date and time even when it is powered off).
 
@@ -72,12 +70,11 @@ A number of boot loaders exist for Linux; the most common ones are GRUB (for GRa
 
 The boot loader has two distinct stages:
 
+<div>
 <center>
-
-![Bootloader](Bootloader.png)
-
+<img src="Bootloader.png" width="200"/>
 </center>
-
+</div>
 
 For systems using the BIOS/MBR method, the boot loader resides at the first sector of the hard disk, also known as the Master Boot Record (MBR). The size of the MBR is just 512 bytes. In this stage, the boot loader examines the partition table and finds a bootable partition. Once it finds a bootable partition, it then searches for the second stage boot loader, for example GRUB, and loads it into RAM (Random Access Memory). For systems using the EFI/UEFI method, UEFI firmware reads its Boot Manager data to determine which UEFI application is to be launched and from where (i.e. from which disk and partition the EFI partition can be found). The firmware then launches the UEFI application, for example GRUB, as defined in the boot entry in the firmware's boot manager. This procedure is more complicated, but more versatile than the older MBR methods.
 
@@ -85,12 +82,12 @@ For systems using the BIOS/MBR method, the boot loader resides at the first sect
 
 The initramfs filesystem image contains programs and binary files that perform all actions needed to mount the proper root filesystem, like providing kernel functionality for the needed filesystem and device drivers for mass storage controllers with a facility called udev (for user device), which is responsible for figuring out which devices are present, locating the device drivers they need to operate properly, and loading them. After the root filesystem has been found, it is checked for errors and mounted.
 
+
+<div>
 <center>
-
-![The initial ram disk](Theinitialramdisk.png)
-
+<img src="Theinitialramdisk.png" width="200"/>
 </center>
-
+</div>
 
 The mount program instructs the operating system that a filesystem is ready for use, and associates it with a particular point in the overall hierarchy of the filesystem (the mount point). If this is successful, the initramfs is cleared from RAM and the init program on the root filesystem (/sbin/init) is executed.
 
@@ -100,12 +97,11 @@ init handles the mounting and pivoting over to the final real root filesystem. I
 
 Near the end of the boot process, init starts a number of text-mode login prompts. These enable you to type your username, followed by your password, and to eventually get a command shell. However, if you are running a system with a graphical login interface, you will not see these at first.
 
+<div>
 <center>
-
-![Text-mode logins](Text-modelogins.png)
-
+<img src="Text-modelogins.png" width="200"/>
 </center>
-
+</div>
 
 As you will learn in Chapter 7: Command Line Operations, the terminals which run the command shells can be accessed using the ALT key plus a function key. Most distributions start six text terminals and one graphics terminal starting with F1 or F2. Within a graphical environment, switching to a text console requires pressing CTRL-ALT + the appropriate function key (with F7 or F1 leading to the GUI).
 
@@ -115,11 +111,11 @@ Usually, the default command shell is bash (the GNU Bourne Again Shell), but the
 
 The boot loader loads both the kernel and an initial RAM–based file system (initramfs) into memory, so it can be used directly by the kernel.
 
+<div>
 <center>
-
-![The linux kernel](Thelinuxkernel.png)
-
+<img src="Thelinuxkernel.png" width="200"/>
 </center>
+</div>
 
 When the kernel is loaded in RAM, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system. This includes all processors, I/O subsystems, storage devices, etc. The kernel also loads some necessary user space applications.
 
@@ -127,12 +123,11 @@ When the kernel is loaded in RAM, it immediately initializes and configures the 
 
 Once the kernel has set up all its hardware and mounted the root filesystem, the kernel runs /sbin/init. This then becomes the initial process, which then starts other processes to get the system running. Most other processes on the system trace their origin ultimately to init; exceptions include the so-called kernel processes. These are started by the kernel directly, and their job is to manage internal operating system details.
 
+<div>
 <center>
-
-![sbin-init-services](sbin-init-services.png)
-
+<img src="sbin-init-services.png" width="200"/>
 </center>
-
+</div>
 
 Besides starting the system, init is responsible for keeping the system running and for shutting it down cleanly. One of its responsibilities is to act when necessary as a manager for all non-kernel processes; it cleans up after them upon completion, and restarts user login services as needed when users log in and out, and does the same for other background system services.
 
@@ -165,13 +160,6 @@ Systems with systemd start up faster than those with earlier init methods. This 
 
 Complicated startup shell scripts are replaced with simpler configuration files, which enumerate what has to be done before a service is started, how to execute service startup, and what conditions the service should indicate have been accomplished when startup is finished. One thing to note is that /sbin/init now just points to /lib/systemd/systemd; i.e. systemd takes over the init process.
 
-<center>
-
-![Systemd](Systemd.png)
-
-</center>
-
-
 One systemd command (systemctl) is used for most basic tasks. While we have not yet talked about working at the command line, here is a brief listing of its use:
 
 - Starting, stopping, restarting a service (using httpd, the Apache web server, as an example) on a currently running system:
@@ -198,34 +186,31 @@ This section will describe the standard filesystem layout shared by most Linux d
 
 A partition is a physically contiguous section of a disk, or what appears to be so in some advanced setups.
 
+<div>
 <center>
-
-![Partitions in the linux system](Partitionsinthelinuxsystem.png)
-
+<img src="Partitionsinthelinuxsystem.png" width="200"/>
 </center>
-
+</div>
 
 A filesystem is a method of storing/finding files on a hard disk (usually in a partition).
 
 One can think of a partition as a container in which a filesystem resides, although in some circumstances, a filesystem can span more than one partition if one uses symbolic links, which we will discuss much later.
 
+<div>
 <center>
-
-![Comparison](Comparison.png)
-
+<img src="Comparison.png" width="400"/>
 </center>
-
+</div>
 
 <h3>The Filesystem Hierarchy Standard</h3>
 
 Linux systems store their important files according to a standard layout called the Filesystem Hierarchy Standard (FHS), which has long been maintained by the Linux Foundation. For more information, take a look at the following document: "Filesystem Hierarchy Standard" created by LSB Workgroup. Having a standard is designed to ensure that users, administrators, and developers can move between distributions without having to re-learn how the system is organized.
 
+<div>
 <center>
-
-![Filesystem Hierarchy](Filesystemhierarchy.png)
-
+<img src="Filesystemhierarchy.png" width="400"/>
 </center>
-
+</div>
 
 Linux uses the ‘/’ character to separate paths (unlike Windows, which uses ‘\’), and does not have drive letters. Multiple drives and/or partitions are mounted as directories in the single filesystem. Removable media such as USB drives and CDs and DVDs will show up as mounted at /run/media/yourusername/disklabel for recent Linux systems, or under /media for older distributions. For example, if your username is student a USB pen drive labeled FEDORA might end up being found at /run/media/student/FEDORA, and a file README.txt on that disc would be at /run/media/student/FEDORA/README.txt.
 
@@ -246,12 +231,12 @@ Some questions worth thinking about before deciding on a distribution include:
 - What hardware are you running on? For example, it might be X86, ARM, PPC, etc.
 - Do you need long-term stability? Can you accept (or need) a more volatile cutting edge system running the latest software?
 
+
+<div>
 <center>
-
-![Choosing a linux](Choosingalinuxdistribution.png)
-
+<img src="Choosingalinuxdistribution.png" width="200"/>
 </center>
-
+</div>
 
 <h3>Linux Installation: Planning</h3>
 
@@ -265,12 +250,11 @@ All installations include the bare minimum software for running a Linux distribu
 
 Most installers also provide options for adding categories of software. Common applications (such as the Firefox web browser and LibreOffice office suite), developer tools (like the vi and emacs text editors, which we will explore later in this course), and other popular services, (such as the Apache web server tools or MySQL database) are usually included. In addition, for any system with a graphical desktop, a chosen desktop (such as GNOME or KDE) is installed by default.
 
+<div>
 <center>
-
-![Linux installation](Linuxinstallationsoftwarechoice.png)
-
+<img src="Linuxinstallationsoftwarechoice.png" width="300"/>
 </center>
-
+</div>
 
 
 All installers set up some initial security features on the new system. One basic step consists of setting the password for the superuser (root) and setting up an initial user. In some cases (such as Ubuntu), only an initial user is set up; direct root login is not configured and root access requires logging in first as a normal user and then using sudo, as we will describe later. Some distributions will also install more advanced security frameworks, such as SELinux or AppArmor. For example, all Red Hat-based systems including Fedora and CentOS always use SELinux by default, and Ubuntu comes with AppArmor up and running.
@@ -345,12 +329,12 @@ Generally, in a Linux desktop system, the X Window System is loaded as one of th
 
 A service called the Display Manager keeps track of the displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients). The display manager also handles graphical logins and starts the appropriate desktop environment after a user logs in.
 
+
+<div>
 <center>
-
-![Display Manager](Display_manager.png)
-
+<img src="Display_manager.png" width="200"/>
 </center>
-
+</div>
 
 
 X is rather old software; it dates back to the mid 1980s and, as such, has certain deficiencies on modern systems (for example, with security), as it has been stretched rather far from its original purposes. A newer system, known as Wayland, is gradually superseding it and is the default display system for Fedora, RHEL 8, and other recent distributions.  For the most part, it looks just like X to the user, although under the hood it is quite different.
@@ -359,12 +343,11 @@ X is rather old software; it dates back to the mid 1980s and, as such, has certa
 
 A desktop environment consists of a session manager, which starts and maintains the components of the graphical session, and the window manager, which controls the placement and movement of windows, window title-bars, and controls.
 
+<div>
 <center>
-
-![Desktop environment](Desktop_environment.png)
-
+<img src="Desktop_environment.png" width="200"/>
 </center>
-
+</div>
 
 
 Although these can be mixed, generally a set of utilities, session manager, and window manager are used together as a unit, and together provide a seamless desktop environment.
@@ -380,12 +363,6 @@ The default display manager for GNOME is called gdm. Other popular display manag
 ### GNOME Desktop Environment
 
 GNOME is a popular desktop environment with an easy-to-use graphical user interface. It is bundled as the default desktop environment for most Linux distributions, including Red Hat Enterprise Linux (RHEL), Fedora, CentOS, SUSE Linux Enterprise, Ubuntu and Debian. GNOME has menu-based navigation and is sometimes an easy transition to accomplish for Windows users. However, as you will see, the look and feel can be quite different across distributions, even if they are all using GNOME.
-
-<center>
-
-![gnome icon](gnomeicon.png)
-
-</center>
 
 
 Another common desktop environment very important in the history of Linux and also widely used is KDE, which has often been used in conjunction with SUSE and openSUSE. Other alternatives for a desktop environment include Unity (present on older Ubuntu, but still based on GNOME), XFCE and LXDE. As previously mentioned, most desktop environments follow a similar structure to GNOME, and we will restrict ourselves mostly to it to keep things less complex.
@@ -411,13 +388,6 @@ Fortunately, there is a standard utility, gnome-tweaks, which exposes many more 
 As discussed in the next chapter, some recent distributions have taken most of the functionality out of this tool and placed it in a new one, called gnome-extensions-app.
 
 In the screenshot below, the keyboard mapping is being adjusted so the useless CapsLock key can be used as an additional Ctrl key; this saves users who use Ctrl a lot (such as emacs aficionados) from getting physically damaged by pinkie strain.
-
-<center>
-
-![gnome tweaks](gnometweaks.png)
-
-</center>
-
 
 ### Changing the Theme
 
@@ -543,18 +513,6 @@ By default, files the user saves will be placed in a directory tree starting the
 
 In the screenshot shown for Ubuntu, we have chosen the list format and are also showing hidden files (those starting with a period). See if you can do the same on your distribution.
 
-<center>
-
-![Home directories](Home%20directories%201)
-
-</center>
-
-<center>
-
-![Other Location](OtherLocation.png)
-
-</center>
-
 
 ### Viewing Files
 
@@ -567,13 +525,6 @@ In addition, you can also arrange the files and directories by name, size, type,
 Another useful option is to show hidden files (sometimes imprecisely called system files), which are usually configuration files that are hidden by default and whose name starts with a dot. To show hidden files, select Show Hidden Files from the menu or press CTRL-H.
 
 The file browser provides multiple ways to customize your window view to facilitate easy drag and drop file operations. You can also alter the size of the icons by selecting Zoom In and Zoom Out under the View menu.
-
-<center>
-
-![Viewing Files](ViewingFiles.png)
-
-</center>
-
 
 ### Searching for Files
 
@@ -598,11 +549,6 @@ You can refine your search beyond the initial keyword by providing dropdown menu
 
 For example, if you want to find a PDF file containing the word Linux in your home directory, navigate to your home directory and search for the word “Linux”. You should see that the default search criterion limits the search to your home directory already. To finish the job, click the + button to add another search criterion, select File Type for the type of criterion, and select PDF under the File Type dropdown.
 
-<center>
-
-![Searching for Files](SearchingforFiles.png)
-
-</center>
 
 ### Editing a File
 
@@ -716,12 +662,11 @@ NOTE: You can also ascertain your current resolution by typing at the command li
 
 All Linux distributions have network configuration files, but file formats and locations can differ from one distribution to another. Hand editing of these files can handle quite complicated setups, but is not very dynamic or easy to learn and use. Network Manager was developed to make things easier and more uniform across distributions. It can list all available networks (both wired and wireless), allow the choice of a wired, wireless, or mobile broadband network, handle passwords, and set up Virtual Private Networks (VPNs). Except for unusual situations, it is generally best to let Network Manager establish your connections and keep track of your settings.
 
+<div>
 <center>
-
-![Network Configuration](NetworkConfiguration.png)
-
+<img src="NetworkConfiguration.png" width="200"/>
 </center>
-
+</div>
 
 ### Wired and Wireless Connections
 
@@ -729,11 +674,11 @@ Wired connections usually do not require complicated or manual configuration. Th
 
 For static configurations that do not use DHCP, manual setup can also be done easily through Network Manager. You can also change the Ethernet Media Access Control (MAC) address if your hardware supports it. The MAC address is a unique hexadecimal number of your network card.
 
+<div>
 <center>
-
-![Computer Network](ComputerNetwork.png)
-
+<img src="ComputerNetwork.png" width="200"/>
 </center>
+</div>
 
 Wireless networks are usually not connected by default. You can view the list of available wireless networks and see which one (if any) you are currently connected to by using Network Manager. You can then add, edit, or remove known wireless networks, and also specify which ones you want connected by default when present.
 
@@ -777,11 +722,11 @@ Let’s look at the Package Management for the Debian family system.
 
 dpkg is the underlying package manager for these systems. It can install, remove, and build packages. Unlike higher-level package management systems, it does not automatically download and install packages and satisfy their dependencies.
 
+<div>
 <center>
-
-![Package Management](Package_Management.png)
-
+<img src="Package_Management.png" width="200"/>
 </center>
+</div>
 
 For Debian-based systems, the higher-level package management system is the Advanced Package Tool (APT) system of utilities. Generally, while each distribution within the Debian family uses APT, it creates its own user interface on top of it (for example, apt and apt-get, synaptic, gnome-software, Ubuntu Software Center, etc). Although apt repositories are generally compatible with each other, the software they contain generally is not. Therefore, most repositories target a particular distribution (like Ubuntu), and often software distributors ship with multiple repositories to support multiple distributions. Demonstrations are shown later in this section.
 
@@ -789,12 +734,11 @@ For Debian-based systems, the higher-level package management system is the Adva
 
 Red Hat Package Manager (RPM) is the other package management system popular on Linux distributions. It was developed by Red Hat, and adopted by a number of other distributions, including SUSE/openSUSE, Mageia, CentOS, Oracle Linux, and others.
 
+<div>
 <center>
-
-![Red Hat Package Manager](Red_Hat_Package_Manager.png)
-
+<img src="Red_Hat_Package_Manager.png" width="100"/>
 </center>
-
+</div>
 
 The higher-level package manager differs between distributions. Red Hat family distributions historically use RHEL/CentOS and Fedora uses dnf, while retaining good backwards compatibility with the older yum program. SUSE family distributions such as openSUSE also use RPM, but use the zypper interface.
 
@@ -809,12 +753,11 @@ The Yet another Setup Tool (YaST) software manager is similar to other graphical
 
 You can also find YaST by clicking on Applications > Other-YaST, which is a strange place to put it.
 
+<div>
 <center>
-
-![openSUSE's_Software_Management](openSUSE.png)
-
+<img src="openSUSE.png" width="150"/>
 </center>
-
+</div>
 
 
 openSUSE’s YaST software management application is similar to the graphical package managers in other distributions. A demonstration of the YaST software manager is shown later in this section.
@@ -842,12 +785,11 @@ he Internet is a global network that allows users around the world to perform mu
 - Internet Relay Chats
 - Conferencing software
 
+<div>
 <center>
-
-![Internet Application](Internet%20Application.png)
-
+<img src="Internet%20Application.png" width="200"/>
 </center>
-
+</div>
 ### Web Browsers
 
 As discussed in the Graphical Interface chapter, Linux offers a wide variety of web browsers, both graphical and text-based, including:
@@ -872,21 +814,20 @@ Linux supports the following types of email applications:
 - Text mode email clients, such as Mutt and mail.
 - All web browser-based clients, such as Gmail, Yahoo Mail, and Office 365.
 
+<div>
 <center>
-
-![Email Application](email.png)
-
+<img src="email.png" width="200"/>
 </center>
-
+</div>
 ### Other Internet Applications
 
 Linux systems provide many other applications for performing Internet-related tasks. These include:
 
+<div>
 <center>
-
-![Other Internet Application](OtherApp.png)
-
+<img src="OtherApp.png" width="400"/>
 </center>
+</div>
 
 ### Office Applications
 
@@ -901,11 +842,6 @@ Most Linux distributions offer LibreOffice, an open source office suite that sta
 
 In addition, Linux users have full access to Internet-based office suites such as Google Docs and Microsoft Office 365.
 
-<center>
-
-![Libre Office](LibreOffice.png)
-
-</center>
 
 ### LibreOffice Components
 
@@ -932,39 +868,22 @@ These tools are tightly integrated and include:
 
 On other operating systems, these tools have to be obtained and installed separately, often at a high cost, while on Linux they are all available at no cost through standard package installation systems.
 
-<center>
-
-![Development Application](Development.png)
-
-</center>
-
 ### Sound Players
 
 Multimedia applications are used to listen to music, watch videos, etc., as well as to present and view text and graphics. Linux systems offer a number of sound player applications, including:
 
+<div>
 <center>
-
-![Sound Player](Sound.png)
-
+<img src="Sound.png" width="400"/>
 </center>
+</div>
 
 Of course, Linux systems can also connect with commercial online music streaming services, such as Pandora and Spotify through web browsers.
-
-<center>
-
-![Sound Player](Sound2.png)
-
-</center>
 
 ### Movie Players
 
 Movie (video) players can portray input from many different sources, either local to the machine or on the Internet.
 
-<center>
-
-![Movie Player](Movie.png)
-
-</center>
 
 Linux systems offer a number of movie players, including:
 
@@ -977,12 +896,11 @@ Linux systems offer a number of movie players, including:
 
 Movie editors are used to edit videos or movies. Linux systems offer a number of movie editors, including: 
 
+<div>
 <center>
-
-![Movie Editors](MovieEditors.png)
-
+<img src="MovieEditors.png" width="400"/>
 </center>
-
+</div>
 ### GIMP (GNU Image Manipulation Program)
 
 Graphic editors allow you to create, edit, view, and organize images of various formats, like Joint Photographic Experts Group (JPEG or JPG), Portable Network Graphics (PNG), Graphics Interchange Format (GIF), and Tagged Image File Format (TIFF).
@@ -997,12 +915,12 @@ The GNU Image Manipulation Program (GIMP) is a feature-rich image retouching and
 
 In addition to GIMP, there are other graphics utilities that help perform various image-related tasks, including:
 
+
+<div>
 <center>
-
-![Graphics Utilitie](GraphicsUtilities.png)
-
+<img src="GraphicsUtilities.png" width="400"/>
 </center>
-
+</div>
 ### Chapter Summary
 
 You have completed Chapter 6. Let’s summarize the key concepts covered:
@@ -1083,12 +1001,11 @@ On your own systems, you may need to set up and enable sudo to work correctly. T
 
 Next, you will learn the steps to set up and run sudo on your system.
 
+<div>
 <center>
-
-![sudo](sudo.png)
-
+<img src="sudo.png" width="400"/>
 </center>
-
+</div>
 ### Steps for Setting Up and Running sudo
 
 If your system does not already have sudo set up and enabled, you need to do the following steps:
@@ -1103,12 +1020,6 @@ If your system does not already have sudo set up and enabled, you need to do the
 
 That should be it. For the rest of this course, if you use sudo you should be properly set up. When using sudo, by default you will be prompted to give a password (your own user password) at least the first time you do it within a specified time interval. It is possible (though very insecure) to configure sudo to not require a password or change the time window in which the password does not have to be repeated with every sudo command.
 
-<center>
-
-![sandwich](sandwich.png)
-
-</center>
-
 ### Switching Between the GUI and the Command Line
 
 The customizable nature of Linux allows you to drop the graphical interface (temporarily or permanently) or to start it up after the system has been running.
@@ -1117,11 +1028,11 @@ Most Linux distributions give an option during installation (or have more than o
 
 Linux production servers are usually installed without the GUI, and even if it is installed, usually do not launch it during system startup. Removing the graphical interface from a production server can be very helpful in maintaining a lean system, which can be easier to support and keep secure.
 
+<div>
 <center>
-
-![Switching between the GUI and the Command Line ](switching.png)
-
+<img src="switching.png" width="400"/>
 </center>
+</div>
 
 ### Virtual Terminals
 
@@ -1133,11 +1044,12 @@ An example of a situation where using VTs is helpful is when you run into proble
 
 To switch between VTs, press CTRL-ALT-function key for the VT. For example, press CTRL-ALT-F6 for VT 6. Actually, you only have to press the ALT-F6 key combination if you are in a VT and want to switch to another VT.
 
+
+<div>
 <center>
-
-![Switching between Virtual Terminals](virtual.png)
-
+<img src="virtual.png" width="200"/>
 </center>
+</div>
 
 ### Turning Off the Graphical Desktop
 

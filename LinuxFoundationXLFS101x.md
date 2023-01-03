@@ -7464,3 +7464,77 @@ IT professionals follow several good practices for securing the data and the pas
 <img src="chage.png" width="400"/>
 </center>
 </div>
+
+### Password Aging
+
+With the newly created user from the previous exercise, look at the password aging for the user.
+
+Modify the expiration date for the user, setting it to be something that has passed, and check to see what has changed.
+
+When you are finished and wish to delete the newly created account, use userdel, as in:
+
+`$ sudo userdel newuser`
+
+`chage --list newuser`
+`sudo chage -E 2014-31-12 newuser`
+`chage --list newuser`
+`sudo userdel newuser  ` 
+
+Note: The example solution works in the US. chage -E uses the default date format for the local keyboard setting.
+
+### Requiring Boot Loader Passwords
+
+You can secure the boot process with a secure password to prevent someone from bypassing the user authentication step. This can work in conjunction with password protection for the BIOS. Note that while using a bootloader password alone will stop a user from editing the bootloader configuration during the boot process, it will not prevent a user from booting from an alternative boot media such as optical disks or pen drives. Thus, it should be used with a BIOS password for full protection.
+
+For the older GRUB 1 boot method, it was relatively easy to set a password for grub. However, for the GRUB 2 version, things became more complicated. However, you have more flexibility, and can take advantage of more advanced features, such as user-specific passwords (which can be their normal login ones).
+
+Furthermore, you never edit grub.cfg directly; instead, you can modify the configuration files in /etc/grub.d and /etc/defaults/grub, and then run update-grub, or grub2-mkconfig and save the new configuration file.
+
+### Hardware Vulnerability
+
+When hardware is physically accessible, security can be compromised by:
+
+- Key logging
+            Recording the real time activity of a computer user including the keys they press. The captured data can either be stored locally or transmitted to remote machines.
+- Network sniffing
+            Capturing and viewing the network packet level data on your network.
+- Booting with a live or rescue disk
+- Remounting and modifying disk content.
+
+Your IT security policy should start with requirements on how to properly secure physical access to servers and workstations. Physical access to a system makes it possible for attackers to easily leverage several attack vectors, in a way that makes all operating system level recommendations irrelevant.
+
+The guidelines of security are:
+
+- Lock down workstations and servers.
+- Protect your network links such that it cannot be accessed by people you do not trust.
+- Protect your keyboards where passwords are entered to ensure the keyboards cannot be tampered with.
+- Ensure a password protects the BIOS in such a way that the system cannot be booted with a live or rescue DVD or USB key.
+
+For single user computers and those in a home environment some of the above features (like preventing booting from removable media) can be excessive, and you can avoid implementing them. However, if sensitive information is on your system that requires careful protection, either it shouldn't be there or it should be better protected by following the above guidelines.
+
+<div>
+<center>
+<img src="vulnerability.png" width="200"/>
+</center>
+</div>
+
+### Software Vulnerability
+
+Like all software, hackers occasionally find weaknesses in the Linux ecosystem. The strength of the Linux (and open source community in general) is the speed with which such vulnerabilities are exposed and remediated. Specific coverage of vulnerabilities is beyond the scope of this course, but the Discussion Board can be used to carry out further discussion.
+
+### Chapter Summary
+
+You have completed Chapter 18. Let’s summarize the key concepts covered:
+
+- The root account has authority over the entire system.
+- root privileges may be required for tasks, such as restarting services, manually installing packages and managing parts of the filesystem that are outside your home directory.
+- In order to perform any privileged operations such as system-wide changes, you need to use either su or sudo.
+- Calls to sudo trigger a lookup in the /etc/sudoers file, or in the /etc/sudoers.d directory, which first validates that the calling user is allowed to use sudo and that it is being used within permitted scope.
+- One of the most powerful features of sudo is its ability to log unsuccessful attempts at gaining root access. By default, sudo commands and failures are logged in /var/log/auth.log under the Debian family and /var/log/messages in other distribution families.
+- One process cannot access another process’ resources, even when that process is running with the same user privileges.
+- Using the user credentials, the system verifies the authenticity and identity.
+- The SHA-512 algorithm is typically used to encode passwords. They can be encrypted, but not decrypted.
+- Pluggable Authentication Modules (PAM) can be configured to automatically verify that passwords created or modified using the passwd utility are strong enough (what is considered strong enough can also be configured).
+- Your IT security policy should start with requirements on how to properly secure physical access to servers and workstations.
+- Keeping your systems updated is an important step in avoiding security attacks.
+

@@ -1063,11 +1063,11 @@ and restart it (after logging into the console) with:
 
 On Ubuntu versions before 18.04 LTS, substitute lightdm for gdm.
 
+<div>
 <center>
-
-![Turning Off the Graphical Desktop](Turningoff.png)
-
+<img src="Turningoff.png" width="400"/>
 </center>
+</div>
 
 ### Killing the Graphical User Interface
 
@@ -1087,24 +1087,22 @@ Methods of bringing the GUI back up:
 
 In this section, we will discuss how to accomplish basic operations from the command line. These include how to log in and log out from the system, restart or shut down the system, locate applications, access directories, identify absolute and relative paths, and explore the filesystem.
 
+<div>
 <center>
-
-![Basic Operations](basic.png)
-
+<img src="basic.png" width="200"/>
 </center>
-
+</div>
 ### Logging In and Out
 
 An available text terminal will prompt for a username (with the string login:) and password. When typing your password, nothing is displayed on the terminal (not even a * to indicate that you typed in something), to prevent others from seeing your password. After you have logged into the system, you can perform basic operations.
 
 Once your session is started (either by logging into a text terminal or via a graphical terminal program), you can also connect and log into remote systems by using Secure SHell (SSH). For example, by typing ssh student@remote-server.com, SSH would connect securely to the remote machine (remote-server.com) and give student a command line terminal window, using either a password (as with regular logins) or cryptographic key to sign in without providing a password to verify the identity.
 
+<div>
 <center>
-
-![Logging In and Out](logging.png)
-
+<img src="logging.png" width="400"/>
 </center>
-
+</div>
 ### Rebooting and Shutting Down
 
 The preferred method to shut down or reboot the system is to use the shutdown command. This sends a warning message, and then prevents further users from logging in. The init process will then control shutting down or rebooting the system. It is important to always shut down properly; failure to do so can result in damage to the system and/or loss of data.
@@ -1117,12 +1115,11 @@ When administering a multi-user system, you have the option of notifying all use
 
 NOTE: On recent Wayland-based Linux distributions, broadcast messages do not appear on terminal emulation sessions running on the desktop; they appear only on the VT console displays.
 
+<div>
 <center>
-
-![Rebooting and Shutting Down](rebooting.png)
-
+<img src="rebooting.png" width="400"/>
 </center>
-
+</div>
 ### Locating Applications
 
 Depending on the specifics of your particular distribution's policy, programs and software packages can be installed in various directories. In general, executable programs and scripts should live in the /bin, /usr/bin, /sbin, /usr/sbin directories, or somewhere under /opt. They can also appear in /usr/local/bin and /usr/local/sbin, or in a directory in a user's account space, such as /home/student/bin.
@@ -1143,12 +1140,11 @@ as well as locating source and man files packaged with the program.
 
 When you first log into a system or open a terminal, the default directory should be your home directory. You can print the exact path of this by typing echo $HOME. Many Linux distributions actually open new graphical terminals in \$HOME/Desktop. The following commands are useful for directory navigation:
 
+<div>
 <center>
-
-![Accessing Directories](accessing.png)
-
+<img src="accessing.png" width="400"/>
 </center>
-
+</div>
 ### Understanding Absolute and Relative Paths
 
 There are two ways to identify paths:
@@ -1171,24 +1167,22 @@ For example, suppose you are currently working in your home directory and wish t
 
 In this case, the absolute pathname method requires less typing.
 
+<div>
 <center>
-
-![Understanding Absolute and Relative Paths](understanding.png)
-
+<img src="understanding.png" width="400"/>
 </center>
-
+</div>
 ### Exploring the Filesystem
 
 Traversing up and down the filesystem tree can get tedious. The tree command is a good way to get a bird’s-eye view of the filesystem tree. Use tree -d to view just the directories and to suppress listing file names.
 
 The following commands can help in exploring the filesystem:
 
+<div>
 <center>
-
-![Commands](commands.png)
-
+<img src="commands.png" width="400"/>
 </center>
-
+</div>
 ### Hard Links
 
 he ln utility is used to create hard links and (with the -s option) soft links, also known as symbolic links or symlinks. These two kinds of links are very useful in UNIX-based operating systems.
@@ -1231,12 +1225,11 @@ Unlike hard links, soft links can point to objects even on different filesystems
 
 The `cd` command remembers where you were last, and lets you get back there with `cd` -. For remembering more than just the last directory visited, use `pushd` to change the directory instead of `cd`; this pushes your starting directory onto a list. Using `popd` will then send you back to those directories, walking in reverse order (the most recent directory will be the first one retrieved with `popd`). The list of directories is displayed with the `dirs` command.
 
+<div>
 <center>
-
-![Navigating Through Directory History](navigating.png)
-
+<img src="navigating.png" width="400"/>
 </center>
-
+</div>
 ### Working with Files
 
 Linux provides many commands that help you with viewing the contents of a file, creating a new file or an empty file, changing the timestamp of a file, and moving, removing and renaming a file or directory. These commands help you in managing your data and files and in ensuring that the correct data is available at the correct location.
@@ -1245,12 +1238,11 @@ Linux provides many commands that help you with viewing the contents of a file, 
 
 You can use the following command line utilities to view files:
 
+<div>
 <center>
-
-![Working with files](workingwithfiles.png)
-
+<img src="workingwithfiles.png" width="400"/>
 </center>
-
+</div>
 ### touch
 
 touch is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time.
@@ -1267,12 +1259,11 @@ touch provides several useful options. For example, the -t option allows you to 
 
 This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
 
+<div>
 <center>
-
-![touch](touch.png)
-
+<img src="touch.png" width="400"/>
 </center>
-
+</div>
 ### mkdir and rmdir
 
 mkdir is used to create a directory:
@@ -1284,12 +1275,11 @@ mkdir is used to create a directory:
 
 Removing a directory is done with rmdir. The directory must be empty or the command will fail. To remove a directory and all of its contents you have to do rm -rf.
 
+<div>
 <center>
-
-![mkdir](mkdir.png)
-
+<img src="mkdir.png" width="400"/>
 </center>
-
+</div>
 ### Moving, Renaming or Removing a File
 
 Note that mv does double duty, in that it can:
@@ -1299,24 +1289,22 @@ Note that mv does double duty, in that it can:
 
 If you are not certain about removing files that match a pattern you supply, it is always good to run rm interactively (rm –i) to prompt before every removal.
 
+<div>
 <center>
-
-![Removing a file](remove.png)
-
+<img src="remove.png" width="400"/>
 </center>
-
+</div>
 ### Renaming or Removing a Directory
 
 `rmdir` works only on empty directories; otherwise you get an error. 
 
 While typing `rm –rf` is a fast and easy way to remove a whole filesystem tree recursively, it is extremely dangerous and should be used with the utmost care, especially when used by root (recall that recursive means drilling down through all sub-directories, all the way down a tree).
 
+<div>
 <center>
-
-![Renaming or Removing a Directory](removedir.png)
-
+<img src="removedir.png" width="400"/>
 </center>
-
+</div>
 ### Modifying the Command Line Prompt
 
 The PS1 variable is the character string that is displayed as the prompt on the command line. Most distributions set PS1 to a known default value, which is suitable in most cases. However, users may want custom information to show on the command line. For example, some system administrators require the user and the host system name to show up on the command line as in:
@@ -1340,12 +1328,11 @@ By convention, most systems are set up so that the root user has a pound sign (#
 
 When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or stdin), standard output (standard out or stdout) and standard error (or stderr).
 
+<div>
 <center>
-
-![Standard File Streams](standard.png)
-
+<img src="standard.png" width="400"/>
 </center>
-
+</div>
 Usually, stdin is your keyboard, and stdout and stderr are printed on your terminal. stderr is often redirected to an error logging file, while stdin is supplied by directing input to come from a file or from the output of a previous command through a pipe. stdout is also often redirected into a file. Since stderr is where error messages are written, usually nothing will go there.
 
 In Linux, all open files are represented internally by what are called file descriptors. Simply put, these are represented by numbers starting at zero. stdin is file descriptor 0, stdout is file descriptor 1, and stderr is file descriptor 2. Typically, if other files are opened in addition to these three, which are opened by default, they will start at file descriptor 3 and increase from there.
@@ -1392,11 +1379,11 @@ The above represents what we often call a pipeline, and allows Linux to combine 
 
 Furthermore, there is no need to save output in (temporary) files between the stages in the pipeline, which saves disk space and reduces reading and writing from disk, which is often the slowest bottleneck in getting something done.
 
+<div>
 <center>
-
-![Pipe](pipeline.png)
-
+<img src="pipeline.png" width="200"/>
 </center>
+</div>
 
 ### Searching for Files
 
@@ -1418,11 +1405,11 @@ locate utilizes a database created by a related utility, updatedb. Most Linux sy
 
 ### Wildcards and Matching File Names
 
+<div>
 <center>
-
-![Wildcards](wildcards.png)
-
+<img src="wildcards.png" width="400"/>
 </center>
+</div>
 
 To search for files using the ? wildcard, replace each unknown character with ?. For example, if you know only the first two letters are 'ba' of a three-letter filename with an extension of .out, type ls ba?.out.
 
@@ -1466,12 +1453,11 @@ Please note that you have to end the command with either ‘;’ (including the 
 
 One can also use the -ok option, which behaves the same as -exec, except that find will prompt you for permission before executing the command. This makes it a good way to test your results before blindly executing any potentially dangerous commands.
 
+<div>
 <center>
-
-![Finding and Removing Files that End with .swp](finding.png)
-
+<img src="finding.png" width="300"/>
 </center>
-
+</div>
 ### Finding Files Based on Time and Size
 
 It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size. It is easy to perform such searches.
@@ -1518,34 +1504,32 @@ Both package management systems operate on two distinct levels: a low-level tool
 
 Most of the time users need to work only with the high-level tool, which will take care of calling the low-level tool as needed. Dependency resolution is a particularly important feature of the high-level tool, as it handles the details of finding and installing each dependency for you. Be careful, however, as installing a single package could result in many dozens or even hundreds of dependent packages being installed.
 
+<div>
 <center>
-
-![Package Managers: Two Levels](packagemanager.png)
-
+<img src="packagemanager.png" width="300"/>
 </center>
-
+</div>
 ### Working With Different Package Management Systems
 
 The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include apt (or apt-get) and apt-cache.
 
 dnf is the open source command-line package-management utility for the RPM-compatible Linux systems that belongs to the Red Hat family. dnf has both command line and graphical user interfaces. Fedora and RHEL 8 replaced the older yum utility with dnf, thereby eliminating a lot of historical baggage, as well as introducing many nice new capabilities. dnf is pretty much backwards-compatible with yum for day-to-day commands.
 
+
+<div>
 <center>
-
-![Working with Different Package Management Systems](different.png)
-
+<img src="different.png" width="300"/>
 </center>
-
+</div>
 zypper is the package management system for the SUSE/openSUSE family and is also based on RPM. zypper also allows you to manage repositories from the command line. zypper is fairly straightforward to use and resembles dnf/yum quite closely.
 
 To learn the basic packaging commands, take a look at these basic packaging commands:
 
+<div>
 <center>
-
-![Basic packaging commands](commandpackage.png)
-
+<img src="commandpackage.png" width="400"/>
 </center>
-
+</div>
 ### Installing and Removing Software Packages
 
 Using the upper-level package management system appropriate for your Linux distribution, do the following:
@@ -1600,11 +1584,11 @@ ou have completed Chapter 7. Let’s summarize the key concepts we covered:
 
 Whether you are an inexperienced user or a veteran, you will not always know (or remember) the proper use of various Linux programs and utilities: what is the command to type, what options does it take, etc. You will need to consult help documentation regularly. Because Linux-based systems draw from a large variety of sources, there are numerous reservoirs of documentation and ways of getting help. Distributors consolidate this material and present it in a comprehensive and easy-to-use manner.
 
+<div>
 <center>
-
-![Linux Documentation Sources](sources.png)
-
+<img src="sources.png" width="200"/>
 </center>
+</div>
 
 Important Linux documentation sources include:
 
@@ -1691,11 +1675,11 @@ Nodes are essentially sections and subsections in the documentation. You can mov
 
 Items function like browser links and are identified by an asterisk (*) at the beginning of the item name. Named items (outside a menu) are identified with double-colons (::) at the end of the item name. Items can refer to other nodes within the file or to other files. 
 
+<div>
 <center>
-
-![info Page Structure](function.png)
-
+<img src="function.png" width="300"/>
 </center>
+</div>
 
 ### Working with info
 
@@ -1741,12 +1725,11 @@ In addition to the man pages, the GNU Info System, and the help command, there a
 - Package documentation
 - Online resources.
 
+<div>
 <center>
-
-![Other Documentation Sources](documentation.png)
-
+<img src="documentation.png" width="200"/>
 </center>
-
+</div>
 ### Graphical Help Systems
 
 ll Linux desktop systems have a graphical help application. This application is usually displayed as a question-mark icon or an image of a ship’s life-preserver, and can also always be found within the menu system. These programs usually contain custom help for the desktop itself and some of its applications, and will sometimes also include graphically-rendered info and man pages.
@@ -1815,12 +1798,11 @@ You have completed Chapter 8. Let’s summarize the key concepts covered:
 
 A process is simply an instance of one or more related tasks (threads) executing on your computer. It is not the same as a program or a command. A single command may actually start several processes simultaneously. Some processes are independent of each other and others are related. A failure of one process may or may not affect the others running on the system.
 
+<div>
 <center>
-
-![Processes](processes.png)
-
+<img src="processes.png" width="200"/>
 </center>
-
+</div>
 Processes use many system resources, such as memory, CPU (central processing unit) cycles, and peripheral devices, such as network cards, hard drives, printers and displays. The operating system (especially the kernel) is responsible for allocating a proper share of these resources to each process and ensuring overall optimized system utilization.
 
 ### Process Types
@@ -1829,11 +1811,11 @@ A terminal window (one kind of command shell) is a process that runs as long as 
 
 Processes can be of different types according to the task being performed. Here are some different process types, along with their descriptions and examples:
 
+<div>
 <center>
-
-![Process Type](type.png)
-
+<img src="type.png" width="400"/>
 </center>
+</div>
 
 ### Process Scheduling and States
 
@@ -1841,11 +1823,12 @@ A critical kernel function called the scheduler constantly shifts processes on a
 
 When a process is in a so-called running state, it means it is either currently executing instructions on a CPU, or is waiting to be granted a share of time (a time slice) so it can execute. All processes in this state reside on what is called a run queue and on a computer with multiple CPUs, or cores, there is a run queue on each.
 
+<div>
 <center>
-
-![Process Scheduling and States](scheduling.png)
-
+<img src="scheduling.png" width="200"/>
 </center>
+</div>
+
 
 However, sometimes processes go into what is called a sleep state, generally when they are waiting for something to happen before they can resume, perhaps for the user to type something. In this condition, a process is said to be sitting in a wait queue.
 
@@ -1859,11 +1842,11 @@ New PIDs are usually assigned in ascending order as processes are born. Thus, PI
 
 The table explains the PID types and their descriptions:
 
+<div>
 <center>
-
-![Process and Thread IDs](idtype.png)
-
+<img src="idtype.png" width="400"/>
 </center>
+</div>
 
 ### Terminating a Process
 
@@ -1879,11 +1862,11 @@ Many users can access a system simultaneously, and each user can run multiple pr
 
 The user who determines the access rights for the users is identified by the Effective UID (EUID). The EUID may or may not be the same as the RUID.
 
+<div>
 <center>
-
-![User and Group IDs](id.png)
-
+<img src="id.png" width="200"/>
 </center>
+</div>
 
 Users can be categorized into various groups. Each group is identified by the Real Group ID (RGID). The access rights of the group are determined by the Effective Group ID (EGID). Each user can be a member of one or more groups.
 
@@ -1998,11 +1981,11 @@ ps has many options for specifying exactly which tasks to examine, what informat
 
 Without options, ps will display all processes running under the current shell. You can use the -u option to display information of processes for a specified username. The command ps -ef displays all the processes in the system in full detail. The command ps -eLf goes one step further and displays one line of information for every thread (remember, a process can contain multiple threads).
 
+<div>
 <center>
-
-![The ps Command (System V Style)](pscommand.png)
-
+<img src="pscommand.png" width="400"/>
 </center>
+</div>
 
 ### The ps Command (BSD Style)
 
@@ -2010,11 +1993,11 @@ ps has another style of option specification, which stems from the BSD variety o
 
 The screenshot shows a sample output of ps with the aux and axo qualifiers.
 
+<div>
 <center>
-
-![The ps Command (BSD Style)](pscommand2.png)
-
+<img src="pscommand2.png" width="400"/>
 </center>
+</div>
 
 ### The Process Tree
 
@@ -2076,21 +2059,21 @@ Besides reporting information, top can be utilized interactively for monitoring 
 
 The table lists what happens when pressing various keys when running top:
 
+<div>
 <center>
-
-![Interactive Keys with top](top.png)
-
+<img src="top.png" width="400"/>
 </center>
+</div>
 
 ### Scheduling Future Processes Using at
 
 Suppose you need to perform a task on a specific day sometime in the future. However, you know you will be away from the machine on that day. How will you perform the task? You can use the at utility program to execute any non-interactive command at a specified time, as illustrated in the screenshot below:
 
+<div>
 <center>
-
-![Scheduling Future Processes Using at](futureprocess.png)
-
+<img src="futureprocess.png" width="300"/>
 </center>
+</div>
 
 ### cron
 
@@ -2098,11 +2081,11 @@ cron is a time-based scheduling utility program. It can launch routine backgroun
 
 Typing crontab -e will open the crontab editor to edit existing jobs or to create new jobs. Each line of the crontab file will contain 6 fields:
 
+<div>
 <center>
-
-![Cron](cron.png)
-
+<img src="cron.png" width="400"/>
 </center>
+</div>
 
 Examples:
 
@@ -2128,11 +2111,11 @@ where SUFFIX may be:
 
 sleep and at are quite different; sleep delays execution for a specific period, while at starts execution at a later time.
 
+<div>
 <center>
-
-![Sleep](sleep.png)
-
+<img src="sleep.png" width="400"/>
 </center>
+</div>
 
 ### Using at for Batch Processing in the Future
 
@@ -2240,11 +2223,11 @@ On many systems (including Linux), the filesystem is structured like a tree. The
 
 In this section, you will learn about some basic concepts, including the filesystem hierarchy, as well as about disk partitions.
 
+<div>
 <center>
-
-![SleepFilesystems](filesystem.png)
-
+<img src="filesystem.png" width="200"/>
 </center>
+</div>
 
 ### Filesystem Varieties
 
@@ -2272,21 +2255,21 @@ Each filesystem on a Linux system occupies a disk partition. Partitions help to 
 
 The picture shows the use of the gparted utility, which displays the partition layout on a system which has four operating systems on it: RHEL 8, CentOS 7, Ubuntu and Windows.
 
+<div>
 <center>
-
-![Gparted](gparted.png)
-
+<img src="gparted.png" width="400"/>
 </center>
+</div>
 
 ### Mount Points
 
 Before you can start using a filesystem, you need to mount it on the filesystem tree at a mount point. This is simply a directory (which may or may not be empty) where the filesystem is to be grafted on. Sometimes, you may need to create the directory if it does not already exist.
 
+<div>
 <center>
-
-![Mount Points](mount.png)
-
+<img src="mount.png" width="200"/>
 </center>
+</div>
 
 WARNING: If you mount a filesystem on a non-empty directory, the former contents of that directory are covered-up and not accessible until the filesystem is unmounted. Thus, mount points are usually empty directories.
 
@@ -2314,11 +2297,11 @@ It is often necessary to share data across physical systems which may be either 
 
 The command df -Th (disk-free) will display information about mounted filesystems, including the filesystem type, and usage statistics about currently used and available space.
 
+<div>
 <center>
-
-![The Client-Server Architecture of NFS ](clientserver.png)
-
+<img src="clientserver.png" width="400"/>
 </center>
+</div>
 
 Many system administrators mount remote users' home directories on a server in order to give them access to the same files and configuration files across multiple client systems. This allows the users to log in to different computers, yet still have access to the same files and resources.
 
@@ -2392,31 +2375,31 @@ Sometimes, you may group users based on their department or function. You can th
     /home/staff/
     /home/students/
 
+<div>
 <center>
-
-![Home Directories](home.png)
-
+<img src="home.png" width="200"/>
 </center>
+</div>
 
 ### The /bin and /sbin Directories
 
 The /bin directory contains executable binaries, essential commands used to boot the system or in single-user mode, and essential commands required by all system users, such as cat, cp, ls, mv, ps, and rm.
 
+<div>
 <center>
-
-![/bin Directory](bin.png)
-
+<img src="bin.png" width="400"/>
 </center>
+</div>
 
 Likewise, the /sbin directory is intended for essential binaries related to system administration, such as fsck and ip. To view a list of these programs, type:
 
 `$ ls /bin /sbin`
 
+<div>
 <center>
-
-![/sbin Directory](sbin.png)
-
+<img src="sbin.png" width="400"/>
 </center>
+</div>
 
 Commands that are not essential (theoretically) for the system to boot or operate in single-user mode are placed in the /usr/bin and /usr/sbin directories. Historically, this was done so /usr could be mounted as a separate filesystem that could be mounted at a later stage of system startup or even over a network. However, nowadays most find this distinction is obsolete. In fact, many distributions have been discovered to be unable to boot with this separation, as this modality had not been used or tested for a long time.
 
@@ -2442,11 +2425,11 @@ The /proc filesystem contains virtual files (files that exist only in memory) th
 
 The first example shows there is a directory for every process running on the system, which contains vital information about it. The second example shows a virtual directory that contains a lot of information about the entire system, in particular its hardware and configuration. The /proc filesystem is very useful because the information it reports is gathered only as needed and never needs storage on the disk.
 
+<div>
 <center>
-
-![The /proc Filesystem](proc.png)
-
+<img src="proc.png" width="400"/>
 </center>
+</div>
 
 ### The /dev Directory
 
@@ -2460,11 +2443,11 @@ The /dev directory contains device nodes, a type of pseudo-file used by most har
                     /dev/lp1 (second printer)
                     /dev/random (a source of random numbers).
 
+<div>
 <center>
-
-![The /dev Directory](dev.png)
-
+<img src="dev.png" width="400"/>
 </center>
+</div>
 
 ### The /var Directory
 
@@ -2475,19 +2458,19 @@ The /var directory contains files that are expected to change in size and conten
             Print queues: /var/spool
             Temporary files: /var/tmp.
 
+<div>
 <center>
-
-![The /var Directory](var.png)
-
+<img src="var.png" width="400"/>
 </center>
+</div>
 
 The /var directory may be put on its own filesystem so that growth of the files can be accommodated and any exploding file sizes do not fatally affect the system. Network services directories such as /var/ftp (the FTP service) and /var/www (the HTTP web service) are also found under /var.
 
+<div>
 <center>
-
-![The /var Directory](var2.png)
-
+<img src="var2.png" width="200"/>
 </center>
+</div>
 
 ### The /etc Directory
 
@@ -2495,11 +2478,11 @@ The /etc directory is the home for system configuration files. It contains no bi
 
 Note that /etc is for system-wide configuration files and only the superuser can modify files there. User-specific configuration files are always found under their home directory.
 
+<div>
 <center>
-
-![The /etc Directory](etc.png)
-
+<img src="etc.png" width="400"/>
 </center>
+</div>
 
 ### The /boot Directory
 
@@ -2518,11 +2501,11 @@ Each of these files has a kernel version appended to its name.
 
 The Grand Unified Bootloader (GRUB) files such as /boot/grub/grub.conf or /boot/grub2/grub2.cfg are also found under the /boot directory.
 
+<div>
 <center>
-
-![The /boot Directory](boot.png)
-
+<img src="boot.png" width="400"/>
 </center>
+</div>
 
 The screenshot shows an example listing of the /boot directory, taken from a RHEL system that has multiple installed kernels, including both distribution-supplied and custom-compiled ones. Names will vary and things will tend to look somewhat different on a different distribution.
 
@@ -2534,21 +2517,21 @@ Most of these are what is known as dynamically loaded libraries (also known as s
 
 On recent Linux distributions, one finds:
 
+<div>
 <center>
-
-![The /lib and /lib64 Directories](lib.png)
-
+<img src="lib.png" width="400"/>
 </center>
+</div>
 
 .e., just like for /bin and /sbin, the directories just point to those under /usr.
 
 Kernel modules (kernel code, often device drivers, that can be loaded and unloaded without re-starting the system) are located in /lib/modules/\<kernel-version-number>.
 
+<div>
 <center>
-
-![/lib/modules Contents](libmodules.png)
-
+<img src="libmodules.png" width="400"/>
 </center>
+</div>
 
 ### Removable media: the /media, /run and /mnt Directories
 
@@ -2558,31 +2541,31 @@ While historically this was done under the /media directory, modern Linux distri
 
 The /mnt directory has been used since the early days of UNIX for temporarily mounting filesystems. These can be those on removable media, but more often might be network filesystems, which are not normally mounted. Or these can be temporary partitions, or so-called loopback filesystems, which are files which pretend to be partitions.
 
+<div>
 <center>
-
-![The /run Directory](run.png)
-
+<img src="run.png" width="400"/>
 </center>
+</div>
 
 ### Additional Directories Under /:
 
 There are some additional directories to be found under the root directory:
 
+<div>
 <center>
-
-![Additional Directory](add.png)
-
+<img src="add.png" width="400"/>
 </center>
+</div>
 
 ### The /usr Directory Tree
 
 The /usr directory tree contains theoretically non-essential programs and scripts (in the sense that they should not be needed to initially boot the system) and has at least the following sub-directories:
 
+<div>
 <center>
-
-![The /usr Directory Tree](usr.png)
-
+<img src="usr.png" width="400"/>
 </center>
+</div>
 
 ### Comparing Files with diff
 
@@ -2590,11 +2573,11 @@ Now that you know about the filesystem and its structure, let’s learn how to m
 
 diff is used to compare files and directories. This often-used utility program has many useful options (see: man diff) including:
 
+<div>
 <center>
-
-![Comparing Files with diff](diff.png)
-
+<img src="diff.png" width="400"/>
 </center>
+</div>
 
 To compare two files, at the command prompt, type diff [options] \<filename1> \<filename2>. diff is meant to be used for text files; for binary files, one can use cmp. 
 
@@ -2608,11 +2591,11 @@ You can compare three files at once using diff3, which uses one file as the refe
 
 The graphic shows the use of diff3.
 
+<div>
 <center>
-
-![Using diff3](diff3.png)
-
+<img src="diff3.png" width="300"/>
 </center>
+</div>
 
 Many modifications to source code and configuration files are distributed utilizing patches, which are applied, not surprisingly, with the patch program. A patch file contains the deltas (changes) required to update an older version of a file to the new one. The patch files are actually produced by running diff with the correct options, as in:
 
@@ -2620,11 +2603,11 @@ Many modifications to source code and configuration files are distributed utiliz
 
 Distributing just the patch is more concise and efficient than distributing the entire file. For example, if only one line needs to change in a file that contains 1000 lines, the patch file will be just a few lines long.
 
+<div>
 <center>
-
-![Using patch](patch.png)
-
+<img src="patch.png" width="400"/>
 </center>
+</div>
 
 To apply a patch, you can just do either of the two methods below:
 
@@ -2639,11 +2622,11 @@ In Linux, a file's extension often does not categorize it the way it might in ot
 
 The real nature of a file can be ascertained by using the file utility. For the file names given as arguments, it examines the contents and certain characteristics to determine whether the files are plain text, shared libraries, executable programs, scripts, or something else.
 
+<div>
 <center>
-
-![Using the file Utility](utility.png)
-
+<img src="utility.png" width="400"/>
 </center>
+</div>
 
 ### Using diff and patch
 
@@ -2724,11 +2707,11 @@ File data is often compressed to save disk space and reduce the time it takes to
 
 Linux uses a number of methods to perform this compression, including:
 
+<div>
 <center>
-
-![Compressing Data](compressing.png)
-
+<img src="compressing.png" width="400"/>
 </center>
+</div>
 
 These techniques vary in the efficiency of the compression (how much space is saved) and in how long they take to compress; generally, the more efficient techniques take longer. Decompression time does not vary as much across different methods.
 
@@ -2738,11 +2721,11 @@ In addition, the tar utility is often used to group files in an archive and then
 
 gzip is the most often used Linux compression utility. It compresses very well and is very fast. The following table provides some usage examples:
 
+<div>
 <center>
-
-![Compressing Data Using gzip](gzip.png)
-
+<img src=".png" width="400"/>
 </center>
+</div>
 
 ### Compressing Data Using bzip2
 
@@ -2750,11 +2733,11 @@ bzip2 has a syntax that is similar to gzip but it uses a different compression a
 
 Examples of common usage are also similar to gzip:
 
+<div>
 <center>
-
-![Compressing Data Using bzip2](bzip2.png)
-
+<img src="bzip2.png" width="400"/>
 </center>
+</div>
 
 NOTE: bzip2 has lately become deprecated due to lack of maintenance and the superior compression ratios of xz which is actively maintained.
 
@@ -2764,11 +2747,11 @@ xz is the most space efficient compression utility used in Linux and is used to 
 
 Some usage examples:
 
+<div>
 <center>
-
-![Compressing Data Using xz](xz.png)
-
+<img src="xz.png" width="400"/>
 </center>
+</div>
 
 Compressed files are stored with a .xz extension.
 
@@ -2776,11 +2759,11 @@ Compressed files are stored with a .xz extension.
 
  The zip program is not often used to compress files in Linux, but is often required to examine and decompress archives from other operating systems. It is only used in Linux when you get a zipped file from a Windows user. It is a legacy program.
 
- <center>
-
-![Handling Files Using zip](zip.png)
-
+<div>
+<center>
+<img src="zip.png" width="400"/>
 </center>
+</div>
 
 ### Archiving and Compressing Data Using tar
 
@@ -2788,11 +2771,11 @@ Historically, tar stood for "tape archive" and was used to archive files to a ma
 
 Here are some examples of the use of tar:
 
+<div>
 <center>
-
-![Archiving and Compressing Data Using tar](tar.png)
-
+<img src="tar.png" width="400"/>
 </center>
+</div>
 
 You can separate out the archiving and compression stages, as in:
 
@@ -2805,11 +2788,11 @@ but this is slower and wastes space by creating an unneeded intermediary .tar fi
 
 To demonstrate the relative efficiency of gzip, bzip2, and xz, the following screenshot shows the results of compressing a purely text file directory tree (the include directory from the kernel source) using the three methods.
 
+<div>
 <center>
-
-![Relative Compression Times and Sizes](relative.png)
-
+<img src="relative.png" width="400"/>
 </center>
+</div>
 
 This shows that as compression factors go up, CPU time does as well (i.e. producing smaller archives takes longer).
 
@@ -2933,11 +2916,11 @@ By now, you have certainly realized Linux is packed with choices; when it comes 
 
 In this section, we learn first about the nano and gedit editors, which are relatively simple and easy to learn, and then later the more complicated choices, vi and emacs. Before we start, let us take a look at some cases where an editor is not needed.
 
+<div>
 <center>
-
-![Text Editors in Linux](texteditors.png)
-
+<img src="texteditors.png" width="300"/>
 </center>
+</div>
 
 ### Creating Files Without Using an Editor
 
@@ -2970,11 +2953,11 @@ Both techniques produce a file with the following lines in it:
 
 and are extremely useful when employed by scripts.
 
+<div>
 <center>
-
-![Creating Files Without Using an Editor ](creatingfiles.png)
-
+<img src="creatingfiles.png" width="300"/>
 </center>
+</div>
 
 ### nano and gedit
 
@@ -3015,11 +2998,11 @@ Both vi and emacs have a basic purely text-based form that can run in a non-grap
 
 You need to be aware that fights among seasoned users over which editor is better can be quite intense and are often described as a holy war.
 
+<div>
 <center>
-
-![Linux Text Editors](advancededitors.png)
-
+<img src="advancededitors.png" width="300"/>
 </center>
+</div>
 
 ### Introduction to vi
 
@@ -3039,85 +3022,85 @@ Typing vimtutor launches a short but very comprehensive tutorial for those who w
 
 vi provides three modes, as described in the table below. It is vital to not lose track of which mode you are in. Many keystrokes and commands behave quite differently in different modes.
 
+<div>
 <center>
-
-![Modes in vi](vi.png)
-
+<img src="vi.png" width="400"/>
 </center>
+</div>
 
 ### Working with Files in vi
 
 The table describes the most important commands used to start, exit, read, and write files in vi. The ENTER key needs to be pressed after all of these commands.
 
+<div>
 <center>
-
-![Working with Files in vi](viwithfiles.png)
-
+<img src="viwithfiles.png" width="400"/>
 </center>
+</div>
 
 ### Changing Cursor Positions in vi
 
 The table describes the most important keystrokes used when changing cursor position in vi. Line mode commands (those following colon : ) require the ENTER key to be pressed after the command is typed.
 
+<div>
 <center>
-
-![Changing Cursor Positions in vi](changing.png)
-
+<img src="changing.png" width="400"/>
 </center>
+</div>
 
 ### Searching for Text in vi
 
 The table describes the most important commands used when searching for text in vi. The ENTER key should be pressed after typing the search pattern.
 
+<div>
 <center>
-
-![Searching for Text in vi](searching.png)
-
+<img src="searching.png" width="400"/>
 </center>
+</div>
 
 The table describes the most important keystrokes used when searching for text in vi.
 
+<div>
 <center>
-
-![Searching for Text in vi](keystrokes.png)
-
+<img src="keystrokes.png" width="400"/>
 </center>
+</div>
 
 ### Working with Text in vi
 
 The table describes the most important keystrokes used when changing, adding, and deleting text in vi.
 
+<div>
 <center>
-
-![Working with Text in vi](workingvi.png)
-
+<img src="workingvi.png" width="400"/>
 </center>
+</div>
 
 ### Commands for vi
 
+<div>
 <center>
-
-![Commands for vi](commandsvi1.png)
-
+<img src="commandsvi1.png" width="400"/>
 </center>
+</div>
 
+<div>
 <center>
-
-![Commands for vi](commandsvi2.png)
-
+<img src="commandsvi2.png" width="400"/>
 </center>
+</div>
 
+<div>
 <center>
-
-![Commands for vi](commandsvi3.png)
-
+<img src="commandsvi3.png" width="400"/>
 </center>
+</div>
 
+<div>
 <center>
-
-![Commands for vi](commandsvi4.png)
-
+<img src="commandsvi4.png" width="400"/>
 </center>
+</div>
 
 ### Using External Commands in vi
 
@@ -3135,11 +3118,11 @@ Rather than having different modes for command and insert, like vi, emacs uses t
 
 The table lists some of the most important key combinations that are used when starting, exiting, reading, and writing files in emacs.
 
+<div>
 <center>
-
-![Working with emacs](emacs.png)
-
+<img src="emacs.png" width="400"/>
 </center>
+</div>
 
 The emacs tutorial is a good place to start learning basic commands. It is available any time when in emacs by simply typing CTRL-h (for help) and then the letter t for tutorial.
 
@@ -3147,57 +3130,57 @@ The emacs tutorial is a good place to start learning basic commands. It is avail
 
 The table lists some of the keys and key combinations that are used for changing cursor positions in emacs.
 
+<div>
 <center>
-
-![Changing Cursor Positions in emacs](emacs1.png)
-
+<img src="emacs1.png" width="400"/>
 </center>
+</div>
 
 ### Searching for Text in emacs 
 
 The table lists the key combinations that are used for searching for text in emacs.
 
+<div>
 <center>
-
-![Searching for Text in emacs](searchingemacs.png)
-
+<img src="searchingemacs.png" width="400"/>
 </center>
+</div>
 
 ### Working with Text in emacs
 
 The table lists some of the key combinations used for changing, adding, and deleting text in emacs:
 
+<div>
 <center>
-
-![Working with Text in emacs](workingemacs.png)
-
+<img src="workingemacs.png" width="400"/>
 </center>
+</div>
 
 ### Commands for emacs
 
+<div>
 <center>
-
-![Commands for emacs](commandsemacs1.png)
-
+<img src="commandsemacs1.png" width="400"/>
 </center>
+</div>
 
+<div>
 <center>
-
-![Commands for emacs](commandsemacs2.png)
-
+<img src="commandsemacs2.png" width="400"/>
 </center>
+</div>
 
+<div>
 <center>
-
-![Commands for emacs](commandsemacs3.png)
-
+<img src="commandsemacs3.png" width="400"/>
 </center>
+</div>
 
+<div>
 <center>
-
-![Commands for emacs](commandsemacs4.png)
-
+<img src="commandsemacs4.png" width="400"/>
 </center>
+</div>
 
 ### Chapter Summary
 
@@ -3226,11 +3209,11 @@ Giving who the -a option will give more detailed information.
 
 In Linux, the command shell program (generally bash) uses one or more startup files to configure the user environment. Files in the /etc directory define global settings for all users, while initialization files in the user's home directory can include and/or override the global settings.
 
+<div>
 <center>
-
-![User Startup Files](userstartup.png)
-
+<img src="userstartup.png" width="200"/>
 </center>
+</div>
 
 The startup files can do anything the user would like to do in every command shell, such as:
 
@@ -3255,11 +3238,11 @@ Most commonly, users only fiddle with ~/.bashrc, as it is invoked every time a n
 
 Recent distributions sometimes do not even have .bash_profile and/or .bash_login, and some just do little more than include .bashrc.
 
+<div>
 <center>
-
-![Order of the Startup Files](orderof.png)
-
+<img src="orderof.png" width="200"/>
 </center>
+</div>
 
 ### Creating Aliases
 
@@ -3269,11 +3252,11 @@ Typing alias with no arguments will list currently defined aliases.
 
 Please note there should not be any spaces on either side of the equal sign and the alias definition needs to be placed within either single or double quotes if it contains any spaces.
 
+<div>
 <center>
-
-![Creating Aliases](aliases.png)
-
+<img src="aliases.png" width="400"/>
 </center>
+</div>
 
 ### Basics of Users and Groups
 
@@ -3285,11 +3268,11 @@ Users also have one or more group IDs (gid), including a default one which is th
 
 For example, /etc/passwd might contain `george:x:1002:1002:George Metesky:/home/george:/bin/bash` and /etc/group might contain `george:x:1002`.
 
+<div>
 <center>
-
-![Basics of Users and Groups](basics.png)
-
+<img src="basics.png" width="400"/>
 </center>
+</div>
 
 ### Adding and Removing Users
 
@@ -3409,11 +3392,11 @@ An environment variable is actually just a character string that contains inform
 
 By default, variables created within a script are only available to the current shell; child processes (sub-shells) will not have access to values that have been set or modified. Allowing child processes to see the values requires use of the export command.
 
+<div>
 <center>
-
-![Setting Environment Variables](settingenvironment.png)
-
+<img src="settingenvironment.png" width="400"/>
 </center>
+</div>
 
 You can also set environment variables to be fed as a one shot to a command as in:
 
@@ -3425,19 +3408,19 @@ which feeds the values of the SDIRS and KROOT environment variables to the comma
 
 HOME is an environment variable that represents the home (or login) directory of the user. cd without arguments will change the current working directory to the value of HOME. Note the tilde character (~) is often used as an abbreviation for \$HOME. Thus, cd $HOME and cd ~ are completely equivalent statements.
 
+<div>
 <center>
-
-![The HOME Variable](home1.png)
-
+<img src="home1.png" width="400"/>
 </center>
+</div>
 
 The screenshot demonstrates this. 
 
+<div>
 <center>
-
-![The HOME Variable](home2.png)
-
+<img src="home2.png" width="300"/>
 </center>
+</div>
 
 ### The PATH Variable
 
@@ -3455,11 +3438,11 @@ To prefix a private bin directory to your path:
 
     /home/student/bin:/usr/local/bin:/usr/bin:/bin/usr
 
+<div>
 <center>
-
-![The PATH Variable](path.png)
-
+<img src="path.png" width="400"/>
 </center>
+</div>
 
 ### The SHELL Variable
 
@@ -3595,21 +3578,22 @@ Several associated environment variables can be used to get information about th
 
 For a complete description of the use of these environment variables, see man bash.
 
+<div>
 <center>
-
-![Using History Environment Variables](hist.png)
-
+<img src="hist.png" width="300"/>
 </center>
+</div>
+
 
 ### Finding and Using Previous Commands
 
 Specific keys to perform various tasks:
 
+<div>
 <center>
-
-![Finding and Using Previous Commands](previouscommand.png)
-
+<img src="previouscommand.png" width="400"/>
 </center>
+</div>
 
 If you want to recall a command in the history list, but do not want to press the arrow key repeatedly, you can press CTRL-R to do a reverse intelligent search.
 
@@ -3626,11 +3610,12 @@ The following is an example of how you can use the CTRL-R command to search thro
 
 The table describes the syntax used to execute previously used commands:
 
+<div>
 <center>
-
-![Executing Previous Commands](executingpreviouscommand.png)
-
+<img src="executingpreviouscommand.png" width="400"/>
 </center>
+</div>
+
 
 All history substitutions start with !. When typing the command: ls -l /bin /etc /var, !$ will refer to /var, the last argument to the command.
 
@@ -3659,11 +3644,11 @@ sleep 1000
 
 You can use keyboard shortcuts to perform different tasks quickly. The table lists some of these keyboard shortcuts and their uses. Note the case of the "hotkey" does not matter, e.g. doing CTRL-a is the same as doing CTRL-A .
 
+<div>
 <center>
-
-![Keyboard Shortcuts](shortcuts.png)
-
+<img src="shortcuts.png" width="400"/>
 </center>
+</div>
 
 ### Command History
 
@@ -3709,11 +3694,11 @@ In Linux and other UNIX-based operating systems, every file is associated with a
 
 The following utility programs involve user and group ownership and permission setting: 
 
+<div>
 <center>
-
-![File Ownership](ownership.png)
-
+<img src="ownership.png" width="400"/>
 </center>
+</div>
 
 ### File Permission Modes and chmod
 
@@ -3753,11 +3738,11 @@ When you apply this to the chmod command, you have to give three digits for each
 
 -rwxr-xr-x 1 student student 1601 Mar 9 15:04 somefile
 
+<div>
 <center>
-
-![File Permission Modes and chmod](filepermission.png)
-
+<img src="filepermission.png" width="400"/>
 </center>
+</div>
 
 ### Example of chown
 
@@ -3767,21 +3752,21 @@ Notice it requires sudo to change the owner of file2 to root. The second chown c
 
 Finally, only the superuser can remove the files. 
 
+<div>
 <center>
-
-![Example of chown](chown.png)
-
+<img src="chown.png" width="400"/>
 </center>
+</div>
 
 ### Example of chgrp
 
 Now, let’s see an example of changing the group ownership using chgrp:
 
+<div>
 <center>
-
-![Example of chgrp](chgrp.png)
-
+<img src="chgrp.png" width="400"/>
 </center>
+</div>
 
 ### Chapter Summary
 
@@ -3812,11 +3797,11 @@ Indeed, experienced system administrators write customized scripts to accomplish
 
 In this section, we will concentrate on command line file and text manipulation-related utilities.
 
+<div>
 <center>
-
-![Command Line Tools for Manipulating Text Files](manipulating.png)
-
+<img src="manipulating.png" width="400"/>
 </center>
+</div>
 
 ### cat
 
@@ -3831,11 +3816,11 @@ The tac command (cat spelled backwards) prints the lines of a file in reverse or
 `$ tac file`
 `$ tac file1 file2 > newfile`
 
+<div>
 <center>
-
-![cat](cat.png)
-
+<img src="cat.png" width="400"/>
 </center>
+</div>
 
 ### Using cat Interactively
 
@@ -3849,11 +3834,11 @@ Another way to create a file at the terminal is cat > <filename> << EOF. A new f
 
 Note that EOF is case sensitive. One can also use another word, such as STOP.
 
+<div>
 <center>
-
-![Using cat Interactively](usingcat.png)
-
+<img src="usingcat.png" width="400"/>
 </center>
+</div>
 
 ### echo 
 
@@ -3872,11 +3857,11 @@ echo is particularly useful for viewing the values of environment variables (bui
 
 The following table lists echo commands and their usage:
 
+<div>
 <center>
-
-![echo](echo.png)
-
+<img src="echo.png" width="400"/>
 </center>
+</div>
 
 ### Working with Large Files
 
@@ -3903,11 +3888,11 @@ You can also just say:
 
 `head -5 /etc/default/grub`
 
+<div>
 <center>
-
-![head](head.png)
-
+<img src="head.png" width="400"/>
 </center>
+</div>
 
 ### tail
 
@@ -3927,11 +3912,11 @@ To continually monitor new output in a growing log file:
 
 This command will continuously display any new lines of output in somefile.log as soon as they appear. Thus, it enables you to monitor any current activity that is being reported and recorded.
 
+<div>
 <center>
-
-![tail](tail.png)
-
+<img src="tail.png" width="400"/>
 </center>
+</div>
 
 ### Viewing Compressed Files
 
@@ -3939,11 +3924,11 @@ When working with compressed files, many standard commands cannot be used direct
 
 Here is a table listing some z family commands:
 
+<div>
 <center>
-
-![Viewing Compressed Files](zcommand.png)
-
+<img src="zcommand.png" width="400"/>
 </center>
+</div>
 
 Note that if you run zless on an uncompressed file, it will still work and ignore the decompression stage. There are also equivalent utility programs for other compression methods besides gzip, for example, we have bzcat and bzless associated with bzip2, and xzcat and xzless associated with xz.
 
@@ -3957,11 +3942,11 @@ Note that many Linux users and administrators will write scripts using comprehen
 
 sed is a powerful text processing tool and is one of the oldest, earliest and most popular UNIX utilities. It is used to modify the contents of a file or input stream, usually placing the contents into a new file or output stream. Its name is an abbreviation for stream editor.
 
+<div>
 <center>
-
-![sed](sed.png)
-
+<img src="sed.png" width="200"/>
 </center>
+</div>
 
 sed can filter text, as well as perform substitutions in data streams.
 
@@ -3971,29 +3956,29 @@ Data from an input source/file (or stream) is taken and moved to a working space
 
 You can invoke sed using commands like those listed in the accompanying table.
 
+<div>
 <center>
-
-![sed Command Syntax](sedcommandsyntax.png)
-
+<img src="sedcommandsyntax.png" width="400"/>
 </center>
+</div>
 
 The -e option allows you to specify multiple editing commands simultaneously at the command line. It is unnecessary if you only have one operation invoked.
 
+<div>
 <center>
-
-![sed Command Syntax](sedcommandsyntax1.png)
-
+<img src="sedcommandsyntax1.png" width="400"/>
 </center>
+</div>
 
 ### sed Basic Operations
 
 Now that you know that you can perform multiple editing and filtering operations with sed, let’s explain some of them in more detail. The table explains some basic operations, where pattern is the current string and replace_string is the new string:
 
+<div>
 <center>
-
-![sed Basic Operations](sedbasic.png)
-
+<img src="sedbasic.png" width="400"/>
 </center>
+</div>
 
 You must use the -i option with care, because the action is not reversible. It is always safer to use sed without the –i option and then replace the file yourself, as shown in the following example:
 
@@ -4019,19 +4004,19 @@ awk has the following features:
 
 awk is invoked as shown in the following:
 
+<div>
 <center>
-
-![awk](awk1.png)
-
+<img src="awk1.png" width="400"/>
 </center>
+</div>
 
 s with sed, short awk commands can be specified directly at the command line, but a more complex script can be saved in a file that you can specify using the -f option.
 
+<div>
 <center>
-
-![awk](awk2.png)
-
+<img src="awk2.png" width="400"/>
 </center>
+</div>
 
 ### awk Basic Operations
 
@@ -4039,11 +4024,11 @@ The table explains the basic tasks that can be performed using awk. The input fi
 
 The command/action in awk needs to be surrounded with apostrophes (or single-quote (')). awk can be used as follows:
 
+<div>
 <center>
-
-![awk Basic Operations](awkbasic.png)
-
+<img src="awkbasic.png" width="400"/>
 </center>
+</div>
 
 ### Using sed
 
@@ -4085,19 +4070,20 @@ sort is used to rearrange the lines of a text file, in either ascending or desce
 
 sort can be used as follows:
 
+<div>
 <center>
-
-![sort](sort.png)
-
+<img src="sort.png" width="400"/>
 </center>
+</div>
 
 When used with the -u option, sort checks for unique values after sorting the records (lines). It is equivalent to running uniq (which we shall discuss) on the output of sort.
 
+
+<div>
 <center>
-
-![sort](sort1.png)
-
+<img src="sort1.png" width="400"/>
 </center>
+</div>
 
 ### uniq
 
@@ -4117,11 +4103,11 @@ To count the number of duplicate entries, use the following command:
 
 `uniq -c filename`
 
+<div>
 <center>
-
-![uniq](uniq.png)
-
+<img src="uniq.png" width="400"/>
 </center>
+</div>
 
 ### paste
 
@@ -4134,11 +4120,11 @@ paste accepts the following options:
 - -d delimiters, which specify a list of delimiters to be used instead of tabs for separating consecutive values on a single line. Each delimiter is used in turn; when the list has been exhausted, paste begins again at the first delimiter.
 - -s, which causes paste to append the data in series rather than in parallel; that is, in a horizontal rather than vertical fashion.
 
+<div>
 <center>
-
-![paste](paste.png)
-
+<img src="paste.png" width="400"/>
 </center>
+</div>
 
 ### Using paste 
 
@@ -4154,11 +4140,11 @@ The syntax to use a different delimiter is as follows:
 
 Common delimiters are 'space', 'tab', '|', 'comma', etc.
 
+<div>
 <center>
-
-![Using paste](usingpaste.png)
-
+<img src="usingpaste.png" width="300"/>
 </center>
+</div>
 
 ### join
 
@@ -4166,11 +4152,11 @@ Suppose you have two files with some similar columns. You have saved employees�
 
 The above task can be achieved using join, which is essentially an enhanced version of paste. It first checks whether the files share common fields, such as names or phone numbers, and then joins the lines in two files based on a common field.
 
+<div>
 <center>
-
-![join](join.png)
-
+<img src="join.png" width="400"/>
 </center>
+</div>
 
 ### Using join
 
@@ -4178,11 +4164,11 @@ To combine two files on a common field, at the command prompt type join file1 fi
 
 For example, the common field (i.e. it contains the same values) among the phonebook and cities files is the phone number, and the result of joining these two files is shown in the screen capture.
 
- <center>
-
-![Using join](usingjoin.png)
-
+<div>
+<center>
+<img src="usingjoin.png" width="400"/>
 </center>
+</div>
 
 ### split
 
@@ -4190,11 +4176,11 @@ split is used to break up (or split) a file into equal-sized segments for easier
 
 To split a file into segments using a different prefix, use the command split infile \<Prefix>.
 
+<div>
 <center>
-
-![split](split.png)
-
+<img src="split.png" width="300"/>
 </center>
+</div>
 
 ### Using split
 
@@ -4210,10 +4196,9 @@ where we have used wc (word count, soon to be discussed) to report on the number
 will split the American-English file into 100 equal-sized segments named dictionaryxx. The last one will of course be somewhat smaller.
 
 <center>
-
-![Using split](usingsplit.png)
-
+<img src="usingsplit.png" width="400"/>
 </center>
+</div>
 
 ### Regular Expressions and Search Patterns
 
@@ -4223,11 +4208,11 @@ Many text editors and utilities such as vi, sed, awk, find and grep work extensi
 
 These regular expressions are different from the wildcards (or meta-characters) used in filename matching in command shells such as bash (which were covered in the Command-Line Operations chapter). The table lists search patterns and their usage.
 
+<div>
 <center>
-
-![Regular Expressions and Search Patterns](regular.png)
-
+<img src="regular.png" width="400"/>
 </center>
+</div>
 
 ### Using Regular Expressions and Search Patterns
 
@@ -4235,11 +4220,11 @@ For example, consider the following sentence: the quick brown fox jumped over th
 
 Some of the patterns that can be applied to this sentence are as follows:
 
+<div>
 <center>
-
-![Using Regular Expressions and Search Patterns](usingregular.png)
-
+<img src="usingregular.png" width="400"/>
 </center>
+</div>
 
 ### Parsing Files with awk (and sort and uniq)
 
@@ -4275,11 +4260,11 @@ For example:
 
 grep is extensively used as a primary text searching tool. It scans files for specified patterns and can be used with regular expressions, as well as simple strings, as shown in the table:
 
+<div>
 <center>
-
-![grep](grep.png)
-
+<img src="grep.png" width="400"/>
 </center>
+</div>
 
 ### strings
 
@@ -4291,11 +4276,11 @@ For example, to search for the string my_string in a spreadsheet:
 
 The screenshot shows a search of a number of programs to see which ones have GPL licenses of various versions.
 
+<div>
 <center>
-
-![strings](strings.png)
-
+<img src="strings.png" width="400"/>
 </center>
+</div>
 
 ### Using grep
 
@@ -4317,11 +4302,11 @@ In the following we give some examples of things you can do with the grep comman
 
 In this section, you will learn about some additional text utilities that you can use for performing various actions on your Linux files, such as changing the case of letters or determining the count of words, lines, and characters in a file.
 
+<div>
 <center>
-
-![tr](tr.png)
-
+<img src="tr.png" width="400"/>
 </center>
+</div>
 
 The tr utility is used to translate specified characters into other characters or to delete them. The general syntax is as follows:
 
@@ -4331,11 +4316,11 @@ The items in the square brackets are optional. tr requires at least one argument
 
 For example, suppose you have a file named city containing several lines of text in mixed case. To translate all lower case characters to upper case, at the command prompt type cat city | tr a-z A-Z and press the Enter key.
 
+<div>
 <center>
-
-![tr](tr1.png)
-
+<img src="tr1.png" width="400"/>
 </center>
+</div>
 
 ### tee
 
@@ -4345,31 +4330,31 @@ For example, to list the contents of a directory on the screen and save the outp
 
 Typing cat newfile will then display the output of ls –l.
 
+<div>
 <center>
-
-![tee](tee.png)
-
+<img src="tee.png" width="400"/>
 </center>
+</div>
 
 ### wc
 
 wc (word count) counts the number of lines, words, and characters in a file or list of files. Options are given in the table below.
 
+<div>
 <center>
-
-![wc](wc.png)
-
+<img src="wc.png" width="400"/>
 </center>
+</div>
 
 By default, all three of these options are active.
 
 For example, to print only the number of lines contained in a file, type wc -l filename and press the Enter key.
 
+<div>
 <center>
-
-![wc](wc1.png)
-
+<img src="wc1.png" width="200"/>
 </center>
+</div>
 
 ### cut
 
@@ -4377,11 +4362,11 @@ cut is used for manipulating column-based files and is designed to extract speci
 
 For example, to display the third column delimited by a blank space, at the command prompt type ls -l | cut -d" " -f3 and press the Enter key.
 
+<div>
 <center>
-
-![cut](cut.png)
-
+<img src="cut.png" width="200"/>
 </center>
+</div>
 
 ### Using tee
 
@@ -4481,11 +4466,11 @@ Devices attached to a network must have at least one unique network address iden
 
 Exchanging information across the network requires using streams of small packets, each of which contains a piece of the information going from one machine to another. These packets contain data buffers, together with headers which contain information about where the packet is going to and coming from, and where it fits in the sequence of packets that constitute the stream. Networking protocols and software are rather complicated due to the diversity of machines and operating systems they must deal with, as well as the fact that even very old standards must be supported.
 
+<div>
 <center>
-
-![IP Addresses](IPaddresses.png)
-
+<img src="IPaddresses.png" width="200"/>
 </center>
+</div>
 
 ### IPv4 and IPv6
 
@@ -4497,11 +4482,11 @@ IPv6 uses 128-bits for addresses; this allows for 3.4 X 1038 unique addresses. I
 
 One reason IPv4 has not disappeared is there are ways to effectively make many more addresses available by methods such as NAT (Network Address Translation).  NAT enables sharing one IP address among many locally connected computers, each of which has a unique address only seen on the local network. While this is used in organizational settings, it is also used in simple home networks. For example, if you have a router hooked up to your Internet Provider (such as a cable system) it gives you one externally visible address, but issues each device in your home an individual local address.
 
+<div>
 <center>
-
-![IPv4 and IPv6](ipv4.png)
-
+<img src="ipv4.png" width="300"/>
 </center>
+</div>
 
 ### Decoding IPv4 Addresses
 
@@ -4515,11 +4500,11 @@ NOTE: Octet is just another word for byte.
 
 Network addresses are divided into five classes: A, B, C, D and E. Classes A, B and C are classified into two parts: Network addresses (Net ID) and Host address (Host ID). The Net ID is used to identify the network, while the Host ID is used to identify a host in the network. Class D is used for special multicast applications (information is broadcast to multiple computers simultaneously) and Class E is reserved for future use. In this section you will learn about classes A, B and C.
 
+<div>
 <center>
-
-![Decoding IPv4 Addresses](decoding.png)
-
+<img src="decoding.png" width="300"/>
 </center>
+</div>
 
 ### Class A Network Addresses
 
@@ -4529,11 +4514,11 @@ Each Class A network can have up to 16.7 million unique hosts on its network. Th
 
 NOTE: The value of an octet, or 8-bits, can range from 0 to 255. 
 
+<div>
 <center>
-
-![Class A Network Addresses](classa.png)
-
+<img src="classa.png" width="200"/>
 </center>
+</div>
 
 ### Class B Network Addresses
 
@@ -4541,11 +4526,11 @@ Class B addresses use the first two octets of the IP address as their Net ID and
 
 Each Class B network can support a maximum of 65,536 unique hosts on its network. The range of host addresses is from 128.0.0.0 to 191.255.255.255.
 
+<div>
 <center>
-
-![Class B Network Addresses](classb.png)
-
+<img src="classb.png" width="200"/>
 </center>
+</div>
 
 ### Class C Network Addresses
 
@@ -4553,21 +4538,21 @@ Class C addresses use the first three octets of the IP address as their Net ID a
 
 Each Class C network can support up to 256 (8-bits) unique hosts. The range of host addresses is from 192.0.0.0 to 223.255.255.255.
 
+<div>
 <center>
-
-![Class C Network Addresses](classc.png)
-
+<img src="classc.png" width="200"/>
 </center>
+</div>
 
 ### IP Address Allocation
 
 Typically, a range of IP addresses are requested from your Internet Service Provider (ISP) by your organization's network administrator. Often, your choice of which class of IP address you are given depends on the size of your network and expected growth needs. If NAT is in operation, such as in a home network, you only get one externally visible address!
 
+<div>
 <center>
-
-![IP Address Allocation](allocation.png)
-
+<img src="allocation.png" width="200"/>
 </center>
+</div>
 
 You can assign IP addresses to computers over a network either manually or dynamically. Manual assignment adds static (never changing) addresses to the network. Dynamically assigned addresses can change every time you reboot or even more often; the Dynamic Host Configuration Protocol (DHCP) is used to assign IP addresses.
 
@@ -4583,11 +4568,11 @@ NOTE: If you give an argument, the system will try to change its hostname to mat
 
 The special hostname localhost is associated with the IP address 127.0.0.1 and describes the machine you are currently on (which normally has additional network-related IP addresses).
 
+<div>
 <center>
-
-![Name Resolution](serverip.png)
-
+<img src="serverip.png" width="400"/>
 </center>
+</div>
 
 ### Network Configuration Files
 
@@ -4597,11 +4582,11 @@ For Debian family configurations, the basic network configuration files could be
 
 Modern systems emphasize the use of Network Manager, which we briefly discussed when we considered graphical system administration, rather than try to keep up with the vagaries of the files in /etc. While the graphical versions of Network Manager do look somewhat different in different distributions, the nmtui utility (shown in the screenshot) varies almost not at all, as does the even more sparse nmcli (command line interface) utility. If you are proficient in the use of the GUIs, by all means, use them. If you are working on a variety of systems, the lower level utilities may make life easier.
 
+<div>
 <center>
-
-![Network Configuration Files](networkmanager.png)
-
+<img src="networkmanager.png" width="200"/>
 </center>
+</div>
 
 Recent Ubuntu distributions include netplan, which is turned on by default, and supplants Network Manager. Since no other distribution has shown interest, and since it can easily be disabled if it bothers you, we will ignore it.
 
@@ -4611,11 +4596,11 @@ Network interfaces are a connection channel between a device and a network. Phys
 
 Information about a particular network interface or all network interfaces can be reported by the ip and ifconfig utilities, which you may have to run as the superuser, or at least, give the full path, i.e. /sbin/ifconfig, on some distributions. ip is newer than ifconfig and has far more capabilities, but its output is uglier to the human eye. Some new Linux distributions do not install the older net-tools package to which ifconfig belongs, and  so you would have to install it if you want to use it.
 
+<div>
 <center>
-
-![Network Interfaces](networkinterfaces.png)
-
+<img src="networkinterfaces.png" width="400"/>
 </center>
+</div>
 
 ### The ip Utility
 
@@ -4629,11 +4614,11 @@ To view the routing information:
 
 ip is a very powerful program that can do many things. Older (and more specific) utilities such as ifconfig and route are often used to accomplish similar tasks. A look at the relevant man pages can tell you much more about these utilities.
 
+<div>
 <center>
-
-![The ip Utility](iputility.png)
-
+<img src="iputility.png" width="400"/>
 </center>
+</div>
 
 ### ping
 
@@ -4643,29 +4628,29 @@ To check the status of the remote host, at the command prompt, type ping \<hostn
 
 ping is frequently used for network testing and management; however, its usage can increase network load unacceptably. Hence, you can abort the execution of ping by typing CTRL-C, or by using the -c option, which limits the number of packets that ping will send before it quits. When execution stops, a summary is displayed.
 
+<div>
 <center>
-
-![ping](ping.png)
-
+<img src="ping.png" width="400"/>
 </center>
+</div>
 
 ### route
 
 A network requires the connection of many nodes. Data moves from source to destination by passing through a series of routers and potentially across multiple networks. Servers maintain routing tables containing the addresses of each node in the network. The IP routing protocols enable routers to build up a forwarding table that correlates final destinations with the next hop addresses.
 
+<div>
 <center>
-
-![route](route1.png)
-
+<img src="route1.png" width="400"/>
 </center>
+</div>
 
 One can use the route utility or the newer ip route command to view or change the IP routing table to add, delete, or modify specific (static) routes to specific hosts or networks. The table explains some commands that can be used to manage IP routing:
 
+<div>
 <center>
-
-![route](route2.png)
-
+<img src="route2.png" width="400"/>
 </center>
+</div>
 
 ### traceroute
 
@@ -4673,21 +4658,21 @@ traceroute is used to inspect the route which the data packet takes to reach the
 
 To print the route taken by the packet to reach the network host, at the command prompt, type traceroute \<address>.
 
+<div>
 <center>
-
-![traceroute](traceroute.png)
-
+<img src="traceroute.png" width="400"/>
 </center>
+</div>
 
 ### More Networking Tools
 
 Now, let’s learn about some additional networking tools. Networking tools are very useful for monitoring and debugging network problems, such as network connectivity and network traffic.
 
+<div>
 <center>
-
-![More Networking Tools](othernetworking.png)
-
+<img src="othernetworking.png" width="400"/>
 </center>
+</div>
 
 ### Graphical and Non-Graphical Browsers
 
@@ -4703,11 +4688,11 @@ The common graphical browsers used in Linux are:
 
 Sometimes, you either do not have a graphical environment to work in (or have reasons not to use it) but still need to access web resources. In such a case, you can use non-graphical browsers, such as the following:
 
+<div>
 <center>
-
-![Graphical and Non-Graphical Browsers](browser.png)
-
+<img src="browser.png" width="400"/>
 </center>
+</div>
 
 ### wget
 
@@ -4720,11 +4705,11 @@ Sometimes, you need to download files and information, but a browser is not the 
 
 To download a web page, you can simply type wget <url>, and then you can read the downloaded page as a local file using a graphical or non-graphical browser.
 
+<div>
 <center>
-
-![wget](wget.png)
-
+<img src="wget.png" width="400"/>
 </center>
+</div>
 
 ### curl
 
@@ -4734,21 +4719,21 @@ You can read a URL using `curl <URL>`. For example, if you want to read http://w
 
 To get the contents of a web page and store it to a file, type `curl -o saved.html http://www.mysite.com`. The contents of the main index file at the website will be saved in saved.html.
 
+<div>
 <center>
-
-![curl](curl.png)
-
+<img src="curl.png" width="400"/>
 </center>
+</div>
 
 ### FTP (File Transfer Protocol)
 
 When you are connected to a network, you may need to transfer files from one machine to another. File Transfer Protocol (FTP) is a well-known and popular method for transferring files between computers using the Internet. This method is built on a client-server model. FTP can be used within a browser or with stand-alone client programs.
 
+<div>
 <center>
-
-![FTP (File Transfer Protocol)](ftp.png)
-
+<img src="ftp.png" width="200"/>
 </center>
+</div>
 
 FTP is one of the oldest methods of network data transfer, dating back to the early 1970s. As such, it is considered inadequate for modern needs, as well as being intrinsically insecure. However, it is still in use and when security is not a concern (such as with so-called anonymous FTP) it can make sense. However, many websites, such as kernel.org, have abandoned its use.
 
@@ -4765,21 +4750,21 @@ Some command line FTP clients are:
 
 FTP has fallen into disfavor on modern systems, as it is intrinsically insecure, since passwords are user credentials that can be transmitted without encryption and are thus prone to interception. Thus, it was removed in favor of using rsync and web browser https access for example. As an alternative, sftp is a very secure mode of connection, which uses the Secure Shell (ssh) protocol, which we will discuss shortly. sftp encrypts its data and thus sensitive information is transmitted more securely. However, it does not work with so-called anonymous FTP (guest user credentials).
 
+<div>
 <center>
-
-![FTP Clients](ftpclients.png)
-
+<img src="ftpclients.png" width="200"/>
 </center>
+</div>
 
 ### SSH: Executing Commands Remotely
 
 Secure Shell (SSH) is a cryptographic network protocol used for secure data communication. It is also used for remote services and other secure services between two devices on the network and is very useful for administering systems which are not easily available to physically work on, but to which you have remote access.
 
+<div>
 <center>
-
-![SSH: Executing Commands Remotely](ssh.png)
-
+<img src="ssh.png" width="200"/>
 </center>
+</div>
 
 To login to a remote system using your same user name you can just type ssh some_system and press Enter. ssh then prompts you for the remote password. You can also configure ssh to securely allow your remote access without typing a password each time.
 
@@ -4793,12 +4778,11 @@ To copy a local file to a remote system, at the command prompt, type scp \<local
 
 You will receive a prompt for the remote password. You can also configure scp so that it does not prompt for a password for each transfer.
 
-
+<div>
 <center>
-
-![Copying Files Securely with scp](scp.png)
-
+<img src="scp.png" width="200"/>
 </center>
+</div>
 
 ### Network Troubleshooting
 
@@ -5117,11 +5101,11 @@ You have completed Chapter 14. Let’s summarize the key concepts covered:
 
 Suppose you want to look up a filename, check if the associated file exists, and then respond accordingly, displaying a message confirming or not confirming the file's existence. If you only need to do it once, you can just type a sequence of commands at a terminal. However, if you need to do this multiple times, automation is the way to go. In order to automate sets of commands, you will need to learn how to write shell scripts. Most commonly in Linux, these scripts are developed to be run under the bash command shell interpreter. The graphic illustrates several of the benefits of deploying scripts.
 
+<div>
 <center>
-
-![Shell Scripting](shellscripting.png)
-
+<img src="shellscripting.png" width="300"/>
 </center>
+</div>
 
 NOTE: Many of the topics discussed in this and the next chapter have already been introduced earlier, while discussing things that can be done at the command line. We have elected to repeat some of that discussion in order to make the sections on scripting stand on their own, so the repetition is intentional.
 
@@ -5142,11 +5126,11 @@ Linux provides a wide choice of shells; exactly what is available on the system 
 
 Most Linux users use the default bash shell, but those with long UNIX backgrounds with other shells may want to override the default.
 
+<div>
 <center>
-
-![Command Shell Choices](shellchoices.png)
-
+<img src="shellchoices.png" width="300"/>
 </center>
+</div>
 
 ### History of Command Shells
 
@@ -5181,11 +5165,11 @@ Remember from our earlier discussion, a shell is a command line interpreter whic
 
 The first line of the script, which starts with #!, contains the full path of the command interpreter (in this case /bin/bash) that is to be used on the file. As we have noted, you have quite a few choices for the scripting language you can use, such as /usr/bin/perl, /bin/csh, /usr/bin/python, etc.
 
+<div>
 <center>
-
-![Shell Scripts](shellscript.png)
-
+<img src="shellscript.png" width="400"/>
 </center>
+</div>
 
 ### A Simple bash Script
 
@@ -5206,11 +5190,11 @@ You can then run the script by typing `./hello.sh` or by doing:
 
 NOTE: If you use the second form, you do not have to make the file executable.
 
+<div>
 <center>
-
-![A Simple bash Script](bashscript.png)
-
+<img src="bashscript.png" width="300"/>
 </center>
+</div>
 
 ### Interactive Example Using bash Scripts
 
@@ -5229,21 +5213,21 @@ In the above example, when the user types `./getname.sh` and the script is execu
 
 NOTE: The hash-tag/pound-sign/number-sign (#) is used to start comments in the script and can be placed anywhere in the line (the rest of the line is considered a comment). However, note the special magic combination of #!, used on the first line, is a unique exception to this rule.
 
+<div>
 <center>
-
-![Interactive Example Using bash Scripts](interactivebash.png)
-
+<img src="interactivebash.png" width="300"/>
 </center>
+</div>
 
 ### Return Values
 
 All shell scripts generate a return value upon finishing execution, which can be explicitly set with the exit statement. Return values permit a process to monitor the exit state of another process, often in a parent-child relationship. Knowing how the process terminates enables taking any appropriate steps which are necessary or contingent on success or failure.
 
+<div>
 <center>
-
-![Return Values](returnvalues.png)
-
+<img src="returnvalues.png" width="300"/>
 </center>
+</div>
 
 ### Viewing Return Values
 
@@ -5259,11 +5243,11 @@ As a script executes, one can check for a specific value or condition and return
 
 In this example, the system is able to locate the file /etc/logrotate.conf and ls returns a value of 0 to indicate success. When run on a non-existing file, it returns 2. Applications often translate these return values into meaningful messages easily understood by the user.
 
+<div>
 <center>
-
-![Viewing Return Values](viewingreturnvalues.png)
-
+<img src="viewingreturnvalues.png" width="400"/>
 </center>
+</div>
 
 ### Exit Status Codes
 
@@ -5303,11 +5287,11 @@ Make it executable and run it:
 
 Scripts require you to follow a standard language syntax. Rules delineate how to define variables and how to construct and format allowed statements, etc. The table lists some special character usages within bash scripts:
 
+<div>
 <center>
-
-![Basic Syntax and Special Characters](basicsyntax.png)
-
+<img src="basicsyntax.png" width="400"/>
 </center>
+</div>
 
 There are other special characters and character combinations and constructs that scripts understand, such as (..), {..}, [..], &&, ||, ', ", $((...)), some of which we will discuss later.
 
@@ -5328,11 +5312,11 @@ Here is an example of a command installing a long list of packages on a system u
 
 The command is divided into multiple lines to make it look readable and easier to understand. The \ operator at the end of each line causes the shell to combine (concatenate) multiple lines and executes them as one single command.
 
+<div>
 <center>
-
-![Splitting Long Commands Over Multiple Lines](splitting.png)
-
+<img src="splitting.png" width="400"/>
 </center>
+</div>
 
 ### Putting Multiple Commands on a Single Line
 
@@ -5356,11 +5340,11 @@ In this case, you proceed until something succeeds and then you stop executing a
 
 Chaining commands is not the same as piping them; in the later case succeeding commands begin operating on data streams produced by earlier ones before they complete, while in chaining each step exits before the next one starts.
 
+<div>
 <center>
-
-![Putting Multiple Commands on a Single Line](putting.png)
-
+<img src="putting.png" width="400"/>
 </center>
+</div>
 
 ### Output Redirection
 
@@ -5374,11 +5358,11 @@ To check the contents of /tmp/free.out, at the command prompt type cat /tmp/free
 
 Two > characters (>>) will append output to a file if it exists, and act just like > if the file does not already exist.
 
+<div>
 <center>
-
-![Output Redirection](output.png)
-
+<img src="output.png" width="200"/>
 </center>
+</div>
 
 ### Input Redirection
 
@@ -5409,21 +5393,21 @@ In addition, bash has many built-in commands, which can only be used to display 
 
 A complete list of bash built-in commands can be found in the bash man page, or by simply typing help, as we review on the next page.
 
+<div>
 <center>
-
-![Built-In Shell Commands](builtin.png)
-
+<img src="builtin.png" width="300"/>
 </center>
+</div>
 
 ### 
 
 We already enumerated which commands have versions built in to bash, in our earlier discussion of how to get help on Linux systems. Once again, here is a screenshot listing exactly which commands are available.
 
+<div>
 <center>
-
-![Commands Built in to bash](builtinbash.png)
-
+<img src="builtinbash.png" width="400"/>
 </center>
+</div>
 
 ### Script Parameters
 
@@ -5434,11 +5418,11 @@ Users often need to pass parameter values to a script, such as a filename, date,
 
 Within a script, the parameter or an argument is represented with a $ and a number or special character. The table lists some of these parameters.
 
+<div>
 <center>
-
-![Script Parameters](scriptparameters.png)
-
+<img src="scriptparameters.png" width="300"/>
 </center>
+</div>
 
 ### Using Script Parameters
 
@@ -5456,11 +5440,11 @@ $* prints all parameters: one two three four five
 
 The final statement becomes: All done with param.sh
 
+<div>
 <center>
-
-![Using Script Parameters](usingscriptparameters.png)
-
+<img src="usingscriptparameters.png" width="400"/>
 </center>
+</div>
 
 ### Command Substitution
 
@@ -5477,11 +5461,11 @@ Virtually any command can be executed this way. While both of these methods enab
 
 In the above example, the output of the command uname –r (which will be something like 5.13.3), is inserted into the argument for the ls command.
 
+<div>
 <center>
-
-![Command Substitution](commandsubtitution.png)
-
+<img src="commandsubtitution.png" width="400"/>
 </center>
+</div>
 
 ### Environment Variables
 
@@ -5497,11 +5481,11 @@ However, no prefix is required when setting or modifying the variable value. For
 
 You can get a list of environment variables with the env, set, or printenv commands.
 
+<div>
 <center>
-
-![Environment Variables](environmentvariables.png)
-
+<img src="environmentvariables.png" width="200"/>
 </center>
+</div>
 
 ### Exporting Environment Variables
 

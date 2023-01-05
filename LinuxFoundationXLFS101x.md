@@ -396,7 +396,7 @@ The exact method for changing your theme may depend on your distribution. For ol
 
 There are other options to get additional themes beyond the default selection. You can download and install themes from the GNOME's Wiki website.
 
-### Customizing the Desktop
+<h3><b> Customizing the Desktop </b></h3>
 
 Despite the length of this section, we will not do very elaborate step-by-step lab exercises, because of the diversity of Linux distributions and versions, and because they each customize their desktops, even if the underlying code base is the same. Trying to give exact instructions is an exercise in futility; not only are there many variations, they are susceptible to change every time a new version of a Linux distribution is released.
 
@@ -409,11 +409,11 @@ Linux is so customizable that very few people who use it stay with the default l
 
 Click the link below to view a solution to the Lab exercise.
 
-### Logging In and Out
+<h3><b> Logging In and Out </b></h3>
 
 The next screen shows a demonstration for logging in and out on the major Linux distribution families we concentrate on in this course. Note that evolution has brought us to a stage where it little matters which distribution you choose, as they are all rather similar.
 
-### Locking the Screen
+<h3><b> Locking the Screen </b></h3>
 
 It is often a good idea to lock your screen to prevent other people from accessing your session while you are away from your computer.
 
@@ -432,11 +432,11 @@ To re-enter the desktop session you just need to provide your password again.
 
 The screenshot below shows how to lock the screen for Ubuntu. The details vary little in modern distributions.
 
-### Switching Users
+<h3><b> Switching Users </b></h3>
 
 Linux is a true multi-user operating system, which allows more than one user to be simultaneously logged in. If more than one person uses the system, it is best for each person to have their own user account and password. This allows for individualized settings, home directories, and other files. Users can take turns using the machine, while keeping everyone's sessions alive, or even be logged in simultaneously through the network.
 
-### Shutting Down and Restarting
+<h3><b> Shutting Down and Restarting </b></h3>
 
 Besides normal daily starting and stopping of the computer, a system restart may be required as part of certain major system updates, generally only those involving installing a new Linux kernel.
 
@@ -444,7 +444,7 @@ Initiating the shutdown process from the graphical desktop is rather trivial on 
 
 In all cases, you click on either a settings (gear) or a power icon and follow the prompts. 
 
-### Shutting Down and Restarting on GNOME
+<h3><b> Shutting Down and Restarting on GNOME </b></h3>
 
 To shut down the computer in any recent GNOME-based Linux distribution, perform the following steps:
 
@@ -455,11 +455,11 @@ Shutdown, reboot, and logout operations will ask for confirmation before going a
 
 Always save your documents and data before restarting, shutting down, or logging out. 
 
-### Suspending
+<h3><b> Suspending </b></h3>
 
 All modern computers support Suspend (or Sleep) Mode when you want to stop using your computer for a while. Suspend Mode saves the current system state and allows you to resume your session more quickly while remaining on, but uses very little power in the sleeping state. It works by keeping your system’s applications, desktop, and so on, in system RAM, but turning off all of the other hardware. This shortens the time for a full system start-up as well as conserves battery power. One should note that modern Linux distributions actually boot so fast that the amount of time saved is often minor.
 
-### Suspending the System
+<h3><b> Suspending the System </b></h3>
 
 To suspend the system, the procedure starts the same as that for shutdown or locking the screen.  
 
@@ -467,7 +467,7 @@ The method is quite simple and universal in most recent GNOME-based distribution
 
 <i><b>NOTE</b>: To wake your system and resume your session, move the mouse or press any button on the keyboard. The system will wake up with the screen locked, just as if you had manually locked it; type in your password to resume.</i>
 
-### Basic Operations
+<h3><b> Basic Operations </b></h3>
 
 Even experienced users can forget the precise command that launches an application, or exactly what options and arguments it requires. Fortunately, Linux allows you to quickly open applications using the graphical interface.
 
@@ -478,7 +478,7 @@ Applications are found at different places in Linux (and within GNOME):
 - In some Ubuntu versions, from the Dash button in the upper-left corner.
 - For KDE, and some other environments, applications can be opened from the button in the lower-left corner.
 
-### Locating Applications
+<h3><b> Locating Applications </b></h3>
 
 Unlike other operating systems, the initial install of Linux usually comes with a wide range of applications and software archives that contain thousands of programs that enable you to accomplish a wide variety of tasks with your computer. For most key tasks, a default application is usually already installed. However, you can always install more applications and try different options.
 
@@ -486,13 +486,13 @@ For example, Firefox is popular as the default browser in many Linux distributio
 
 Locating applications from the GNOME and KDE menus is easy, as they are neatly organized in functional submenus.
 
-### Default Applications
+<h3><b> Default Applications </b></h3>
 
 Multiple applications are available to accomplish various tasks and to open a file of a given type. For example, you can click on a web address while reading an email and launch a browser such as Firefox or Chrome.
 
 To set default applications, enter the Settings menu (on all recent Linux distributions) and then click on either Default Applications or Details > Default Applications. The exact list will vary from what is shown here in the Ubuntu screenshot according to what is actually installed and available on your system.
 
-### File Manager
+<h3><b> File Manager </b></h3>
 
 Each distribution implements the Nautilus (File Manager) utility, which is used to navigate the file system. It can locate files and, when a file is clicked upon, either it will run if it is a program, or an associated application will be launched using the file as data. This behavior is completely familiar to anyone who has used other operating systems.
 
@@ -502,7 +502,7 @@ This will open a window with your Home directory displayed. The left panel of th
 
 You can click the Magnifying Glass icon on the top-right to search for files or directories (folders).
 
-### Home Directories
+<h3><b> Home Directories</b></h3>
 
 The File Manager lets you access different locations on your computer and the network, including the <b>Home</b> directory, <b>Desktop, Documents, Pictures,</b> and other <b>Other Locations</b>. 
 
@@ -513,7 +513,7 @@ By default, files the user saves will be placed in a directory tree starting the
 In the screenshot shown for Ubuntu, we have chosen the list format and are also showing hidden files (those starting with a period). See if you can do the same on your distribution.
 
 
-### Viewing Files
+<h3><b>Viewing Files</b></h3>
 
 The File Manager allows you to view files and directories in more than one way.
 
@@ -525,7 +525,7 @@ Another useful option is to show hidden files (sometimes imprecisely called syst
 
 The file browser provides multiple ways to customize your window view to facilitate easy drag and drop file operations. You can also alter the size of the icons by selecting Zoom In and Zoom Out under the View menu.
 
-### Searching for Files
+<h3><b> Searching for Files</b></h3>
 
 The File Manager includes a great search tool inside the file browser window.
 
@@ -538,7 +538,7 @@ The shortcut key to get to the search text box is CTRL-F. You can exit the searc
 
 Another quick way to access a specific directory is to press CTRL-L, which will give you a Location text box to type in a path to a directory.
 
-### More About Searching for Files
+<h3><b> More About Searching for Files</b></h3>
 
 You can refine your search beyond the initial keyword by providing dropdown menus to further filter the search.
 
@@ -549,7 +549,7 @@ You can refine your search beyond the initial keyword by providing dropdown menu
 For example, if you want to find a PDF file containing the word Linux in your home directory, navigate to your home directory and search for the word “Linux”. You should see that the default search criterion limits the search to your home directory already. To finish the job, click the + button to add another search criterion, select File Type for the type of criterion, and select PDF under the File Type dropdown.
 
 
-### Editing a File
+<h3><b> Editing a File</b></h3>
 
 Editing any text file through the graphical interface is easy in the GNOME desktop environment. Simply double-click the file on the desktop or in the Nautilus file browser window to open the file with the default text editor.
 

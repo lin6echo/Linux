@@ -1,4 +1,4 @@
-<h3>Linux Distribution</h3>
+<b>Linux Distribution</b>
 
 So, what is a Linux distribution and how does it relate to the Linux kernel?
 
@@ -15,7 +15,7 @@ While the most recent Linux kernel (and earlier versions) can always be found in
 
 Examples of other essential tools and ingredients provided by distributions include the C/C++ and Clang compilers, the gdb debugger, the core system libraries applications need to link with in order to run, the low-level interface for drawing graphics on the screen, as well as the higher-level desktop environment, and the system for installing and updating the various components, including the kernel itself. And all distributions come with a rather complete suite of applications already installed.
 
-<h3>Services Associated with Distributions</h3>
+<b>Services Associated with Distributions</b>
 
 The vast variety of Linux distributions are designed to cater to many different audiences and organizations, according to their specific needs and tastes. However, large organizations, such as companies and governmental institutions and other entities, tend to choose the major commercially-supported distributions from Red Hat, SUSE, and Canonical (Ubuntu).
 
@@ -25,7 +25,7 @@ Note that CentOS is planned to disappear at the end of 2021 in favor of CentOS S
 
 Many commercial distributors, including Red Hat, Ubuntu, SUSE, and Oracle, provide long term fee-based support for their distributions, as well as hardware and software certification. All major distributors provide update services for keeping your system primed with the latest security and bug fixes, and performance enhancements, as well as provide online support resources.
 
-<h3>The Boot Process</h3>
+<b>The Boot Process</b>
 
 <div>
 <center>
@@ -42,7 +42,7 @@ On the other hand, the boot process can be rather technical, and you can start u
 
 <b>NOTE</b>: <i>You may want to come back and study this section later, if you want to first get a good feel for how to use a Linux system.</i>
 
-<h3>BIOS - The First Step</h3>
+<b>BIOS - The First Step</b>
 
 <div>
 <center>
@@ -54,7 +54,7 @@ Starting an x86-based Linux system involves a number of steps. When the computer
 
 The BIOS software is stored on a ROM chip on the motherboard. After this, the remainder of the boot process is controlled by the operating system (OS).
 
-<h3>Master Boot Record (MBR) and Boot Loader</h3>
+<b>Master Boot Record (MBR) and Boot Loader</b>
 
 <div>
 <center>
@@ -66,7 +66,7 @@ Once the POST is completed, the system control passes from the BIOS to the boot 
 
 A number of boot loaders exist for Linux; the most common ones are GRUB (for GRand Unified Boot loader), ISOLINUX (for booting from removable media), and DAS U-Boot (for booting on embedded devices/appliances). Most Linux boot loaders can present a user interface for choosing alternative options for booting Linux, and even other operating systems that might be installed. When booting Linux, the boot loader is responsible for loading the kernel image and the initial RAM disk or filesystem (which contains some critical files and device drivers needed to start the system) into memory.
 
-<h3>Boot Loader in Action</h3>
+<b>Boot Loader in Action</b>
 
 The boot loader has two distinct stages:
 
@@ -78,7 +78,7 @@ The boot loader has two distinct stages:
 
 For systems using the BIOS/MBR method, the boot loader resides at the first sector of the hard disk, also known as the Master Boot Record (MBR). The size of the MBR is just 512 bytes. In this stage, the boot loader examines the partition table and finds a bootable partition. Once it finds a bootable partition, it then searches for the second stage boot loader, for example GRUB, and loads it into RAM (Random Access Memory). For systems using the EFI/UEFI method, UEFI firmware reads its Boot Manager data to determine which UEFI application is to be launched and from where (i.e. from which disk and partition the EFI partition can be found). The firmware then launches the UEFI application, for example GRUB, as defined in the boot entry in the firmware's boot manager. This procedure is more complicated, but more versatile than the older MBR methods.
 
-<h3>Initial RAM Disk</h3>
+<b>Initial RAM Disk</b>
 
 The initramfs filesystem image contains programs and binary files that perform all actions needed to mount the proper root filesystem, like providing kernel functionality for the needed filesystem and device drivers for mass storage controllers with a facility called udev (for user device), which is responsible for figuring out which devices are present, locating the device drivers they need to operate properly, and loading them. After the root filesystem has been found, it is checked for errors and mounted.
 
@@ -93,7 +93,7 @@ The mount program instructs the operating system that a filesystem is ready for 
 
 init handles the mounting and pivoting over to the final real root filesystem. If special hardware drivers are needed before the mass storage can be accessed, they must be in the initramfs image.
 
-<h3>Text-Mode Login</h3>
+<b>Text-Mode Login</b>
 
 Near the end of the boot process, init starts a number of text-mode login prompts. These enable you to type your username, followed by your password, and to eventually get a command shell. However, if you are running a system with a graphical login interface, you will not see these at first.
 
@@ -107,7 +107,7 @@ As you will learn in Chapter 7: Command Line Operations, the terminals which run
 
 Usually, the default command shell is bash (the GNU Bourne Again Shell), but there are a number of other advanced command shells available. The shell prints a text prompt, indicating it is ready to accept commands; after the user types the command and presses Enter, the command is executed, and another prompt is displayed after the command is done.
 
-<h3>The Linux Kernel</h3>
+<b>The Linux Kernel</b>
 
 The boot loader loads both the kernel and an initial RAM–based file system (initramfs) into memory, so it can be used directly by the kernel.
 
@@ -119,7 +119,7 @@ The boot loader loads both the kernel and an initial RAM–based file system (in
 
 When the kernel is loaded in RAM, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system. This includes all processors, I/O subsystems, storage devices, etc. The kernel also loads some necessary user space applications.
 
-<h3>/sbin/init and Services</h3>
+<b>/sbin/init and Services</b>
 
 Once the kernel has set up all its hardware and mounted the root filesystem, the kernel runs /sbin/init. This then becomes the initial process, which then starts other processes to get the system running. Most other processes on the system trace their origin ultimately to init; exceptions include the so-called kernel processes. These are started by the kernel directly, and their job is to manage internal operating system details.
 
@@ -135,7 +135,7 @@ Traditionally, this process startup was done using conventions that date back to
 
 However, all major distributions have moved away from this sequential runlevel method of system initialization, although they usually emulate many System V utilities for compatibility purposes. Next, we discuss the new methods, of which systemd has become dominant.
 
-<h3>Startup Alternatives</h3>
+<b>Startup Alternatives</b>
 
 SysVinit viewed things as a serial process, divided into a series of sequential stages. Each stage required completion before the next could proceed. Thus, startup did not easily take advantage of the parallel processing that could be done on multiple processors or cores.
 
@@ -154,7 +154,7 @@ systemd
 
 While the migration to systemd was rather controversial, it has been adopted by all major distributions, and so we will not discuss the older System V method or Upstart, which has become a dead end. Regardless of how one feels about the controversies or the technical methods of systemd, almost universal adoption has made learning how to work on Linux systems simpler, as there are fewer differences among distributions. We enumerate systemd features next.
 
-<h3>systemd Features</h3>
+<b>systemd Features</b>
 
 Systems with systemd start up faster than those with earlier init methods. This is largely because it replaces a serialized set of steps with aggressive parallelization techniques, which permits multiple services to be initiated simultaneously.
 
@@ -169,7 +169,7 @@ One systemd command (systemctl) is used for most basic tasks. While we have not 
 
     In most cases, the .service can be omitted. There are many technical differences with older methods that lie beyond the scope of our discussion.  
 
-<h3>Linux Filesystems</h3>
+<b>Linux Filesystems</b>
 
 Think of a refrigerator that has multiple shelves that can be used for storing various items. These shelves help you organize the grocery items by shape, size, type, etc. The same concept applies to a filesystem, which is the embodiment of a method of storing and organizing arbitrary collections of data in a human-usable form.
 
@@ -182,7 +182,7 @@ Different types of filesystems supported by Linux:
 
 This section will describe the standard filesystem layout shared by most Linux distributions.
 
-<h3>Partitions and Filesystems</h3>
+<b>Partitions and Filesystems</b>
 
 A partition is a physically contiguous section of a disk, or what appears to be so in some advanced setups.
 
@@ -202,7 +202,7 @@ One can think of a partition as a container in which a filesystem resides, altho
 </center>
 </div>
 
-<h3>The Filesystem Hierarchy Standard</h3>
+<b>The Filesystem Hierarchy Standard</b>
 
 Linux systems store their important files according to a standard layout called the Filesystem Hierarchy Standard (FHS), which has long been maintained by the Linux Foundation. For more information, take a look at the following document: "Filesystem Hierarchy Standard" created by LSB Workgroup. Having a standard is designed to ensure that users, administrators, and developers can move between distributions without having to re-learn how the system is organized.
 
@@ -214,11 +214,11 @@ Linux systems store their important files according to a standard layout called 
 
 Linux uses the ‘/’ character to separate paths (unlike Windows, which uses ‘\’), and does not have drive letters. Multiple drives and/or partitions are mounted as directories in the single filesystem. Removable media such as USB drives and CDs and DVDs will show up as mounted at /run/media/yourusername/disklabel for recent Linux systems, or under /media for older distributions. For example, if your username is student a USB pen drive labeled FEDORA might end up being found at /run/media/student/FEDORA, and a file README.txt on that disc would be at /run/media/student/FEDORA/README.txt.
 
-<h3>More About the Filesystem Hierarchy Standard</h3>
+<b>More About the Filesystem Hierarchy Standard</b>
 
 All Linux filesystem names are case-sensitive, so /boot, /Boot, and /BOOT represent three different directories (or folders). Many distributions distinguish between core utilities needed for proper system operation and other programs, and place the latter in directories under /usr (think user). To get a sense for how the other programs are organized, find the /usr directory in the diagram from the previous page and compare the subdirectories with those that exist directly under the system root directory (/).
 
-<h3>Questions to Ask When Choosing a Distribution</h3>
+<b>Questions to Ask When Choosing a Distribution</b>
 
 Some questions worth thinking about before deciding on a distribution include:
 
@@ -238,13 +238,13 @@ Some questions worth thinking about before deciding on a distribution include:
 </center>
 </div>
 
-<h3>Linux Installation: Planning</h3>
+<b>Linux Installation: Planning</b>
 
 The partition layout needs to be decided at the time of installation; it can be difficult to change later. While Linux systems handle multiple partitions by mounting them at specific points in the filesystem, and you can always modify the design later, it is always easier to try and get it right to begin with.
 
 Nearly all installers provide a reasonable default layout, with either all space dedicated to normal files on one big partition and a smaller swap partition, or with separate partitions for some space-sensitive areas like /home and /var. You may need to override the defaults and do something different if you have special needs, or if you want to use more than one disk.
 
-<h3>Linux Installation: Software Choices</h3>
+<b>Linux Installation: Software Choices</b>
 
 All installations include the bare minimum software for running a Linux distribution.
 
@@ -259,7 +259,7 @@ Most installers also provide options for adding categories of software. Common a
 
 All installers set up some initial security features on the new system. One basic step consists of setting the password for the superuser (root) and setting up an initial user. In some cases (such as Ubuntu), only an initial user is set up; direct root login is not configured and root access requires logging in first as a normal user and then using sudo, as we will describe later. Some distributions will also install more advanced security frameworks, such as SELinux or AppArmor. For example, all Red Hat-based systems including Fedora and CentOS always use SELinux by default, and Ubuntu comes with AppArmor up and running.
 
-<h3>Linux Installation: Install Source</h3>
+<b>Linux Installation: Install Source</b>
 
 Like other operating systems, Linux distributions are provided on removable media such as USB drives and CDs or DVDs. Most Linux distributions also support booting a small image and downloading the rest of the system over the network. These small images are usable on media, or as network boot images, in which case it is possible to perform an install without using any local media.
 
@@ -269,7 +269,7 @@ Many installers can do an installation completely automatically, using a configu
 
 Each distribution provides its own documentation and tools for creating and managing these files.
 
-<h3>Linux Installation: The Process</h3>
+<b>Linux Installation: The Process</b>
 
 The actual installation process is pretty similar for all distributions.
 
@@ -281,7 +281,7 @@ Most installers have the option of downloading and installing updates as part of
 
 <b>NOTE</b>: <i>We will be demonstrating the installation process in each of the three Linux distribution families we cover in this course. You can view a demonstration for the distribution type of your choice.</i>
 
-<h3>Linux Installation: The Warning</h3>
+<b>Linux Installation: The Warning</b>
 
 <b>IMPORTANT!</b>
 
@@ -297,7 +297,7 @@ These alternate methods are:
 
 The first method is sometimes complicated and should be done when your confidence is high and you understand the steps involved. The second and third methods are quite safe and make it difficult to damage your system.
 
-<h3>Chapter Summary</h3>
+<b>Chapter Summary</b>
 
 You have completed Chapter 3. Let’s summarize the key concepts covered:
 
@@ -307,7 +307,7 @@ You have completed Chapter 3. Let’s summarize the key concepts covered:
 - The boot process has multiple steps, starting with BIOS, which triggers the boot loader to start up the Linux kernel. From there, the initramfs filesystem is invoked, which triggers the init program to complete the startup process.
 - Determining the appropriate distribution to deploy requires that you match your specific system needs to the capabilities of the different distributions.
 
-<h3>Learning Objectives</h3>
+<b>Learning Objectives</b>
 
 By the end of this chapter, you should be able to:
 
@@ -315,7 +315,7 @@ By the end of this chapter, you should be able to:
 - Perform basic operations using the graphical interface.
 - Change the graphical desktop to suit your needs.
 
-### Graphical Desktop
+<b> Graphical Desktop</b>
 
 You can use either a Command Line Interface (CLI) or a Graphical User Interface (GUI) when using Linux. To work at the CLI, you have to remember which programs and commands are used to perform tasks, and how to quickly and accurately obtain more information about their use and options. On the other hand, using the GUI is often quick and easy. It allows you to interact with your system through graphical icons and screens. For repetitive tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely. 
 
@@ -323,7 +323,7 @@ You can use either a Command Line Interface (CLI) or a Graphical User Interface 
 
 We will learn how to manage sessions using the GUI for the three Linux distribution families that we cover the most in this course: Red Hat (CentOS, Fedora), SUSE (openSUSE), and Debian (Ubuntu, Mint). Since we are using the GNOME-based variant of openSUSE rather than the KDE-based one, all are actually quite similar. If you are using KDE (or other Linux desktops such as XFCE), your experience will vary somewhat from what is shown, but not in any intrinsically difficult way, as user interfaces have converged to certain well-known behaviors on modern operating systems. In subsequent sections of this course we will concentrate in great detail on the command line interface, which is pretty much the same on all distributions.
 
-### X Window System
+<b> X Window System </b>
 
 Generally, in a Linux desktop system, the X Window System is loaded as one of the final steps in the boot process. It is often just called X.
 
@@ -339,7 +339,7 @@ A service called the Display Manager keeps track of the displays being provided 
 
 X is rather old software; it dates back to the mid 1980s and, as such, has certain deficiencies on modern systems (for example, with security), as it has been stretched rather far from its original purposes. A newer system, known as Wayland, is gradually superseding it and is the default display system for Fedora, RHEL 8, and other recent distributions.  For the most part, it looks just like X to the user, although under the hood it is quite different.
 
-### More About X
+<b> More About X
 
 A desktop environment consists of a session manager, which starts and maintains the components of the graphical session, and the window manager, which controls the placement and movement of windows, window title-bars, and controls.
 
@@ -354,30 +354,30 @@ Although these can be mixed, generally a set of utilities, session manager, and 
 
 If the display manager is not started by default in the default runlevel, you can start the graphical desktop different way, after logging on to a text-mode console, by running startx from the command line. Or, you can start the display manager (gdm, lightdm, kdm, xdm, etc.) manually from the command line. This differs from running startx as the display managers will project a sign in screen. We discuss them next.
 
-### GUI Startup
+<b> GUI Startup
 
 When you install a desktop environment, the X display manager starts at the end of the boot process. It is responsible for starting the graphics system, logging in the user, and starting the user’s desktop environment. You can often select from a choice of desktop environments when logging in to the system.
 
 The default display manager for GNOME is called gdm. Other popular display managers include lightdm (used on Ubuntu before version 18.04 LTS) and kdm (associated with KDE).
 
-### GNOME Desktop Environment
+<b> GNOME Desktop Environment
 
 GNOME is a popular desktop environment with an easy-to-use graphical user interface. It is bundled as the default desktop environment for most Linux distributions, including Red Hat Enterprise Linux (RHEL), Fedora, CentOS, SUSE Linux Enterprise, Ubuntu and Debian. GNOME has menu-based navigation and is sometimes an easy transition to accomplish for Windows users. However, as you will see, the look and feel can be quite different across distributions, even if they are all using GNOME.
 
 
 Another common desktop environment very important in the history of Linux and also widely used is KDE, which has often been used in conjunction with SUSE and openSUSE. Other alternatives for a desktop environment include Unity (present on older Ubuntu, but still based on GNOME), XFCE and LXDE. As previously mentioned, most desktop environments follow a similar structure to GNOME, and we will restrict ourselves mostly to it to keep things less complex.
 
-### Graphical Desktop Background
+<b> Graphical Desktop Background
 
 Each Linux distribution comes with its own set of desktop backgrounds. You can change the default by choosing a new wallpaper or selecting a custom picture to be set as the desktop background. If you do not want to use an image as the background, you can select a color to be displayed on the desktop instead.
 
 In addition, you can also change the desktop theme, which changes the look and feel of the Linux system. The theme also defines the appearance of application windows.
 
-### Customizing the Desktop Background
+<b> Customizing the Desktop Background
 
 To change the background, you can right click anywhere on the desktop and choose Change Background. 
 
-### gnome-tweaks
+<b> gnome-tweaks
 
 Most common settings, both personal and system-wide, are to be found by clicking in the upper right-hand corner, on either a gear or other obvious icon, depending on your Linux distribution.
 
@@ -389,7 +389,7 @@ As discussed in the next chapter, some recent distributions have taken most of t
 
 In the screenshot below, the keyboard mapping is being adjusted so the useless CapsLock key can be used as an additional Ctrl key; this saves users who use Ctrl a lot (such as emacs aficionados) from getting physically damaged by pinkie strain.
 
-### Changing the Theme
+<b> Changing the Theme
 
 The visual appearance of applications (the buttons, scroll bars, widgets, and other graphical components) are controlled by a theme. GNOME comes with a set of different themes which can change the way your applications look. 
 
@@ -397,7 +397,7 @@ The exact method for changing your theme may depend on your distribution. For ol
 
 There are other options to get additional themes beyond the default selection. You can download and install themes from the GNOME's Wiki website.
 
-### Customizing the Desktop
+<b> Customizing the Desktop
 
 Despite the length of this section, we will not do very elaborate step-by-step lab exercises, because of the diversity of Linux distributions and versions, and because they each customize their desktops, even if the underlying code base is the same. Trying to give exact instructions is an exercise in futility; not only are there many variations, they are susceptible to change every time a new version of a Linux distribution is released.
 
@@ -410,11 +410,11 @@ Linux is so customizable that very few people who use it stay with the default l
 
 Click the link below to view a solution to the Lab exercise.
 
-### Logging In and Out
+<b> Logging In and Out
 
 The next screen shows a demonstration for logging in and out on the major Linux distribution families we concentrate on in this course. Note that evolution has brought us to a stage where it little matters which distribution you choose, as they are all rather similar.
 
-### Locking the Screen
+<b> Locking the Screen
 
 It is often a good idea to lock your screen to prevent other people from accessing your session while you are away from your computer.
 
@@ -433,11 +433,11 @@ To re-enter the desktop session you just need to provide your password again.
 
 The screenshot below shows how to lock the screen for Ubuntu. The details vary little in modern distributions.
 
-### Switching Users
+<b> Switching Users
 
 Linux is a true multi-user operating system, which allows more than one user to be simultaneously logged in. If more than one person uses the system, it is best for each person to have their own user account and password. This allows for individualized settings, home directories, and other files. Users can take turns using the machine, while keeping everyone's sessions alive, or even be logged in simultaneously through the network.
 
-### Shutting Down and Restarting
+<b> Shutting Down and Restarting
 
 Besides normal daily starting and stopping of the computer, a system restart may be required as part of certain major system updates, generally only those involving installing a new Linux kernel.
 
@@ -445,7 +445,7 @@ Initiating the shutdown process from the graphical desktop is rather trivial on 
 
 In all cases, you click on either a settings (gear) or a power icon and follow the prompts. 
 
-### Shutting Down and Restarting on GNOME
+<b> Shutting Down and Restarting on GNOME
 
 To shut down the computer in any recent GNOME-based Linux distribution, perform the following steps:
 
@@ -456,11 +456,11 @@ Shutdown, reboot, and logout operations will ask for confirmation before going a
 
 Always save your documents and data before restarting, shutting down, or logging out. 
 
-### Suspending
+<b> Suspending
 
 All modern computers support Suspend (or Sleep) Mode when you want to stop using your computer for a while. Suspend Mode saves the current system state and allows you to resume your session more quickly while remaining on, but uses very little power in the sleeping state. It works by keeping your system’s applications, desktop, and so on, in system RAM, but turning off all of the other hardware. This shortens the time for a full system start-up as well as conserves battery power. One should note that modern Linux distributions actually boot so fast that the amount of time saved is often minor.
 
-### Suspending the System
+<b> Suspending the System
 
 To suspend the system, the procedure starts the same as that for shutdown or locking the screen.  
 
@@ -468,7 +468,7 @@ The method is quite simple and universal in most recent GNOME-based distribution
 
 <i><b>NOTE</b>: To wake your system and resume your session, move the mouse or press any button on the keyboard. The system will wake up with the screen locked, just as if you had manually locked it; type in your password to resume.</i>
 
-### Basic Operations
+<b> Basic Operations
 
 Even experienced users can forget the precise command that launches an application, or exactly what options and arguments it requires. Fortunately, Linux allows you to quickly open applications using the graphical interface.
 
@@ -479,7 +479,7 @@ Applications are found at different places in Linux (and within GNOME):
 - In some Ubuntu versions, from the Dash button in the upper-left corner.
 - For KDE, and some other environments, applications can be opened from the button in the lower-left corner.
 
-### Locating Applications
+<b> Locating Applications
 
 Unlike other operating systems, the initial install of Linux usually comes with a wide range of applications and software archives that contain thousands of programs that enable you to accomplish a wide variety of tasks with your computer. For most key tasks, a default application is usually already installed. However, you can always install more applications and try different options.
 
@@ -487,13 +487,13 @@ For example, Firefox is popular as the default browser in many Linux distributio
 
 Locating applications from the GNOME and KDE menus is easy, as they are neatly organized in functional submenus.
 
-### Default Applications
+<b> Default Applications
 
 Multiple applications are available to accomplish various tasks and to open a file of a given type. For example, you can click on a web address while reading an email and launch a browser such as Firefox or Chrome.
 
 To set default applications, enter the Settings menu (on all recent Linux distributions) and then click on either Default Applications or Details > Default Applications. The exact list will vary from what is shown here in the Ubuntu screenshot according to what is actually installed and available on your system.
 
-### File Manager
+<b> File Manager
 
 Each distribution implements the Nautilus (File Manager) utility, which is used to navigate the file system. It can locate files and, when a file is clicked upon, either it will run if it is a program, or an associated application will be launched using the file as data. This behavior is completely familiar to anyone who has used other operating systems.
 
@@ -503,7 +503,7 @@ This will open a window with your Home directory displayed. The left panel of th
 
 You can click the Magnifying Glass icon on the top-right to search for files or directories (folders).
 
-### Home Directories
+<b> Home Directories
 
 The File Manager lets you access different locations on your computer and the network, including the <b>Home</b> directory, <b>Desktop, Documents, Pictures,</b> and other <b>Other Locations</b>. 
 
@@ -514,7 +514,7 @@ By default, files the user saves will be placed in a directory tree starting the
 In the screenshot shown for Ubuntu, we have chosen the list format and are also showing hidden files (those starting with a period). See if you can do the same on your distribution.
 
 
-### Viewing Files
+<b> Viewing Files
 
 The File Manager allows you to view files and directories in more than one way.
 
@@ -526,7 +526,7 @@ Another useful option is to show hidden files (sometimes imprecisely called syst
 
 The file browser provides multiple ways to customize your window view to facilitate easy drag and drop file operations. You can also alter the size of the icons by selecting Zoom In and Zoom Out under the View menu.
 
-### Searching for Files
+<b> Searching for Files
 
 The File Manager includes a great search tool inside the file browser window.
 
@@ -539,7 +539,7 @@ The shortcut key to get to the search text box is CTRL-F. You can exit the searc
 
 Another quick way to access a specific directory is to press CTRL-L, which will give you a Location text box to type in a path to a directory.
 
-### More About Searching for Files
+<b> More About Searching for Files
 
 You can refine your search beyond the initial keyword by providing dropdown menus to further filter the search.
 
@@ -550,13 +550,13 @@ You can refine your search beyond the initial keyword by providing dropdown menu
 For example, if you want to find a PDF file containing the word Linux in your home directory, navigate to your home directory and search for the word “Linux”. You should see that the default search criterion limits the search to your home directory already. To finish the job, click the + button to add another search criterion, select File Type for the type of criterion, and select PDF under the File Type dropdown.
 
 
-### Editing a File
+<b> Editing a File
 
 Editing any text file through the graphical interface is easy in the GNOME desktop environment. Simply double-click the file on the desktop or in the Nautilus file browser window to open the file with the default text editor.
 
 The default text editor in GNOME is gedit. It is simple yet powerful, ideal for editing documents, making quick notes, and programming. Although gedit is designed as a general purpose text editor, it offers additional features for spell checking, highlighting, file listings and statistics.
 
-### Removing a File
+<b> Removing a File
 
 Deleting a file in Nautilus will automatically move the deleted files to the .local/share/Trash/files/ directory (a trash can of sorts) under the user's home directory. There are several ways to delete files and directories using Nautilus.
 
@@ -566,7 +566,7 @@ Deleting a file in Nautilus will automatically move the deleted files to the .lo
 
 Note that you may have a Delete Permanently option which bypasses the trash folder, and that this option may be visible all the time or only in list (rather than) icon mode.
 
-### More About Removing a File
+<b> More About Removing a File
 
 To permanently delete a file:
 
@@ -577,7 +577,7 @@ Alternatively, select the file or directory you want to permanently delete and p
 
 As a precaution, you should never delete your Home directory, as doing so will most likely erase all your GNOME configuration files and possibly prevent you from logging in. Many personal system and program configurations are stored under your home directory.
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 4. Let's summarize the key concepts covered:
 
@@ -595,19 +595,19 @@ You have completed Chapter 4. Let's summarize the key concepts covered:
 - Each Linux distribution comes with its own set of desktop backgrounds.
 - GNOME comes with a set of different themes which can change the way your applications look.
 
-### System Settings
+<b> System Settings
 
 The System Settings panel allows you to control most of the basic configuration options and desktop settings, such as specifying the screen resolution, managing network connections, or changing the date and time of the system.
 
 For the GNOME Desktop Manager, one clicks on the upper right-hand corner and then selects the tools image (screwdriver crossed with a wrench or a gear). Depending on your distribution, you may find other ways to get into the settings configuration as well. You will also find variation in the menu layout between Linux distributions and versions, so you may have to hunt for the settings you need to examine or modify.
 
-### System Settings Menus
+<b> System Settings Menus
 
 To get deeper into configuration, one can click on the Devices on the previous menu in order to configure items like the display, the keyboard, the printers, etc.
 
 One can also click on the Users icon (which may be under Details) to set values for system users, such as their login picture, password, etc.
 
-### gnome-tweaks
+<b> gnome-tweaks
 
 A lot of personalized configuration settings do not appear on the settings menus. Instead, you have to launch a tool called either gnome-tweaks (or gnome-tweak-tool on older Linux distributions). We have not really discussed working at the command line yet, but you can always launch a program such as this by doing Alt-F2 and typing in the command. Some distributions have a link to the tweaks menus in the settings, but for some mysterious reason, many obscure this tool's existence, and it becomes hard to discover how to modify even rather basic desktop attributes and behavior.
 
@@ -617,7 +617,7 @@ The most recent GNOME versions have removed a lot of the functionality of gnome-
 
 The screenshot here is from a Red Hat system with quite a few extensions installed, but not all being used.
 
-### Display Settings
+<b> Display Settings
 
 Clicking on Settings > Displays (or Settings > Devices > Displays) will expose the most common settings for changing  the desktop appearance. These settings function independently of the specific display drivers you are running. The exact appearance will depend enormously on how many monitors you have and other factors, such as Linux distribution and particular version.
 
@@ -625,7 +625,7 @@ If your system uses a proprietary video card driver (usually from nVidia or AMD)
 
 The X server, which actually provides the GUI, uses /etc/X11/xorg.conf as its configuration file if it exists; In modern Linux distributions, this file is usually present only in unusual circumstances, such as when certain less common graphic drivers are in use. Changing this configuration file directly is usually for more advanced users.
 
-### Setting Resolution and Configuring Multiple Screens
+<b> Setting Resolution and Configuring Multiple Screens
 
 While your system will usually figure out the best resolution for your screen automatically, it may get this wrong in some cases, or you might want to change the resolution to meet your needs.
 
@@ -633,7 +633,7 @@ You can accomplish this using the Displays panel. The switch to the new resoluti
 
 In most cases, the configuration for multiple displays is set up automatically as one big screen spanning all monitors, using a reasonable guess for screen layout. If the screen layout is not as desired, a check box can turn on mirrored mode, where the same display is seen on all monitors. Clicking on a particular monitor image lets you configure the resolution of each one, and whether they make one big screen, or mirror the same video, etc.
 
-### Date and Time Settings
+<b> Date and Time Settings
 
 By default, Linux always uses Coordinated Universal Time (UTC) for its own internal timekeeping. Displayed or stored time values rely on the system time zone setting to get the proper time. UTC is similar to, but more accurate than, Greenwich Mean Time (GMT).
 
@@ -643,11 +643,11 @@ The more detailed date and time settings can be selected from the Date & Time wi
 
 The "automatic" settings are referring to the use of Network Time Protocol (NTP), which we discuss next.
 
-### Network Time Protocol
+<b> Network Time Protocol
 
 The Network Time Protocol (NTP) is the most popular and reliable protocol for setting the local time by consulting established Internet servers. Linux distributions always come with a working NTP setup, which refers to specific time servers run or relied on by the distribution. This means that no setup, beyond "on" or "off", is generally required for network time synchronization.
 
-#### Getting and Setting Screen Resolution
+<b># Getting and Setting Screen Resolution
 
 Find out the current screen resolution for your desktop.
 
@@ -658,7 +658,7 @@ NOTE: You can also ascertain your current resolution by typing at the command li
 `student:/tmp> $ xdpyinfo | grep dim`
 `dimensions: 3200x1080 pixels (847x286 millimeters)`
 
-### Network Configuration
+<b> Network Configuration
 
 All Linux distributions have network configuration files, but file formats and locations can differ from one distribution to another. Hand editing of these files can handle quite complicated setups, but is not very dynamic or easy to learn and use. Network Manager was developed to make things easier and more uniform across distributions. It can list all available networks (both wired and wireless), allow the choice of a wired, wireless, or mobile broadband network, handle passwords, and set up Virtual Private Networks (VPNs). Except for unusual situations, it is generally best to let Network Manager establish your connections and keep track of your settings.
 
@@ -668,7 +668,7 @@ All Linux distributions have network configuration files, but file formats and l
 </center>
 </div>
 
-### Wired and Wireless Connections
+<b> Wired and Wireless Connections
 
 Wired connections usually do not require complicated or manual configuration. The hardware interface and signal presence are automatically detected, and then Network Manager sets the actual network settings via Dynamic Host Configuration Protocol (DHCP).
 
@@ -682,7 +682,7 @@ For static configurations that do not use DHCP, manual setup can also be done ea
 
 Wireless networks are usually not connected by default. You can view the list of available wireless networks and see which one (if any) you are currently connected to by using Network Manager. You can then add, edit, or remove known wireless networks, and also specify which ones you want connected by default when present.
 
-### Configuring Wireless Connections
+<b> Configuring Wireless Connections
 
 To configure a wireless network in any recent GNOME-based distribution:
 
@@ -694,7 +694,7 @@ If you click on Wi-Fi Settings, you will bring up the third screenshot. If you c
 
 Older and other Linux distributions may look quite a bit different in detail, but the steps and choices are essentially identical, as they are all running Network Manager with perhaps somewhat different clothing.
 
-### Mobile Broadband and VPN Connections
+<b> Mobile Broadband and VPN Connections
 
 You can set up a mobile broadband connection with Network Manager, which will launch a wizard to set up the connection details for each connection.
 
@@ -706,7 +706,7 @@ It supports many VPN technologies, such as native IPSec, Cisco OpenConnect (via 
 
 You might get support for VPN as a separate package from your distributor. You need to install this package if your preferred VPN is not supported.
 
-### Installing and Updating Software
+<b> Installing and Updating Software
 
 Each package in a Linux distribution provides one piece of the system, such as the Linux kernel, the C compiler, utilities for manipulating text or configuring the network, or for your favorite web browsers and email clients.
 
@@ -716,7 +716,7 @@ All systems have a lower-level utility which handles the details of unpacking a 
 
 In this section, you will learn how to install and update software in Linux using the Debian packaging system (used by systems such as Ubuntu as well) and RPM packaging systems (which is used by both Red Hat and SUSE family systems). These are the main ones in use although there are others which work well for other distributions which are less used.
 
-### Debian Packaging
+<b> Debian Packaging
 
 Let’s look at the Package Management for the Debian family system.
 
@@ -730,7 +730,7 @@ dpkg is the underlying package manager for these systems. It can install, remove
 
 For Debian-based systems, the higher-level package management system is the Advanced Package Tool (APT) system of utilities. Generally, while each distribution within the Debian family uses APT, it creates its own user interface on top of it (for example, apt and apt-get, synaptic, gnome-software, Ubuntu Software Center, etc). Although apt repositories are generally compatible with each other, the software they contain generally is not. Therefore, most repositories target a particular distribution (like Ubuntu), and often software distributors ship with multiple repositories to support multiple distributions. Demonstrations are shown later in this section.
 
-### Red Hat Package Manager (RPM)
+<b> Red Hat Package Manager (RPM)
 
 Red Hat Package Manager (RPM) is the other package management system popular on Linux distributions. It was developed by Red Hat, and adopted by a number of other distributions, including SUSE/openSUSE, Mageia, CentOS, Oracle Linux, and others.
 
@@ -742,7 +742,7 @@ Red Hat Package Manager (RPM) is the other package management system popular on 
 
 The higher-level package manager differs between distributions. Red Hat family distributions historically use RHEL/CentOS and Fedora uses dnf, while retaining good backwards compatibility with the older yum program. SUSE family distributions such as openSUSE also use RPM, but use the zypper interface.
 
-### openSUSE’s YaST Software Management
+<b> openSUSE’s YaST Software Management
 
 The Yet another Setup Tool (YaST) software manager is similar to other graphical package managers. It is an RPM-based application. You can add, remove, or update packages using this application very easily. To access the YaST software manager:
 
@@ -762,7 +762,7 @@ You can also find YaST by clicking on Applications > Other-YaST, which is a stra
 
 openSUSE’s YaST software management application is similar to the graphical package managers in other distributions. A demonstration of the YaST software manager is shown later in this section.
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 5. Let's summarize the key concepts covered:
 
@@ -775,7 +775,7 @@ You have completed Chapter 5. Let's summarize the key concepts covered:
 - Debian distributions use dpkg and apt-based utilities for package management.
 - RPM was developed by Red Hat, and adopted by a number of other distributions, including the openSUSE, Mandriva, CentOS, Oracle Linux, and others.
 
-### Internet Applications
+<b> Internet Applications
 
 he Internet is a global network that allows users around the world to perform multiple tasks, such as searching for data, communicating through emails and online shopping. Obviously, you need to use network-aware applications to take advantage of the Internet. These include:
 
@@ -790,7 +790,7 @@ he Internet is a global network that allows users around the world to perform mu
 <img src="Internet%20Application.png" width="200"/>
 </center>
 </div>
-### Web Browsers
+<b> Web Browsers
 
 As discussed in the Graphical Interface chapter, Linux offers a wide variety of web browsers, both graphical and text-based, including:
 
@@ -802,7 +802,7 @@ As discussed in the Graphical Interface chapter, Linux offers a wide variety of 
 - linx, lynx, w3m
 - Opera
 
-### Email Applications
+<b> Email Applications
 
 Email applications allow for sending, receiving, and reading messages over the Internet. Linux systems offer a wide number of email clients, both graphical and text-based. In addition, many users simply use their browsers to access their email accounts.
 
@@ -819,7 +819,7 @@ Linux supports the following types of email applications:
 <img src="email.png" width="200"/>
 </center>
 </div>
-### Other Internet Applications
+<b> Other Internet Applications
 
 Linux systems provide many other applications for performing Internet-related tasks. These include:
 
@@ -829,7 +829,7 @@ Linux systems provide many other applications for performing Internet-related ta
 </center>
 </div>
 
-### Office Applications
+<b> Office Applications
 
 Most day-to-day computer systems have productivity applications (sometimes called office suites) available or installed. Each suite is a collection of closely coupled programs used to create and edit different kinds of files such as:
 
@@ -843,7 +843,7 @@ Most Linux distributions offer LibreOffice, an open source office suite that sta
 In addition, Linux users have full access to Internet-based office suites such as Google Docs and Microsoft Office 365.
 
 
-### LibreOffice Components
+<b> LibreOffice Components
 
 The component applications included in LibreOffice are:
 
@@ -854,7 +854,7 @@ The component applications included in LibreOffice are:
 
 The LibreOffice applications can read and write non-native document formats, such as those used by Microsoft Office. Usually, fidelity is maintained quite well, but complicated documents might have some imperfect conversions.
 
-### Development Applications
+<b> Development Applications
 
 Linux distributions come with a complete set of applications and tools that are needed by those developing or maintaining both user applications and the kernel itself.
 
@@ -868,7 +868,7 @@ These tools are tightly integrated and include:
 
 On other operating systems, these tools have to be obtained and installed separately, often at a high cost, while on Linux they are all available at no cost through standard package installation systems.
 
-### Sound Players
+<b> Sound Players
 
 Multimedia applications are used to listen to music, watch videos, etc., as well as to present and view text and graphics. Linux systems offer a number of sound player applications, including:
 
@@ -880,7 +880,7 @@ Multimedia applications are used to listen to music, watch videos, etc., as well
 
 Of course, Linux systems can also connect with commercial online music streaming services, such as Pandora and Spotify through web browsers.
 
-### Movie Players
+<b> Movie Players
 
 Movie (video) players can portray input from many different sources, either local to the machine or on the Internet.
 
@@ -892,7 +892,7 @@ Linux systems offer a number of movie players, including:
 - Xine
 - Totem
 
-### Movie Editors
+<b> Movie Editors
 
 Movie editors are used to edit videos or movies. Linux systems offer a number of movie editors, including: 
 
@@ -901,7 +901,7 @@ Movie editors are used to edit videos or movies. Linux systems offer a number of
 <img src="MovieEditors.png" width="300"/>
 </center>
 </div>
-### GIMP (GNU Image Manipulation Program)
+<b> GIMP (GNU Image Manipulation Program)
 
 Graphic editors allow you to create, edit, view, and organize images of various formats, like Joint Photographic Experts Group (JPEG or JPG), Portable Network Graphics (PNG), Graphics Interchange Format (GIF), and Tagged Image File Format (TIFF).
 
@@ -911,7 +911,7 @@ The GNU Image Manipulation Program (GIMP) is a feature-rich image retouching and
 - It has many special purpose plugins and filters.
 - It provides extensive information about the image, such as layers, channels, and histograms.
 
-### Graphics Utilities
+<b> Graphics Utilities
 
 In addition to GIMP, there are other graphics utilities that help perform various image-related tasks, including:
 
@@ -921,7 +921,7 @@ In addition to GIMP, there are other graphics utilities that help perform variou
 <img src="GraphicsUtilities.png" width="300"/>
 </center>
 </div>
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 6. Let’s summarize the key concepts covered:
 
@@ -937,7 +937,7 @@ You have completed Chapter 6. Let’s summarize the key concepts covered:
 - The GIMP (GNU Image Manipulation Program) utility is a feature-rich image retouching and editing tool available on all Linux distributions.
 - Other graphics utilities that help perform various image-related tasks are eog, Inkscape, convert, and Scribus.
 
-### Introduction to the Command Line
+<b> Introduction to the Command Line
 
 Linux system administrators spend a significant amount of their time at a command line prompt. They often automate and troubleshoot tasks in this text environment. There is a saying, "graphical user interfaces make easy tasks easier, while command line interfaces make difficult tasks possible". Linux relies heavily on the abundance of command line tools. The command line interface provides the following advantages:
 
@@ -948,7 +948,7 @@ Linux system administrators spend a significant amount of their time at a comman
 - You can initiate graphical applications directly from the command line instead of hunting through menus.
 - While graphical tools may vary among Linux distributions, the command line interface does not.
 
-### Using a Text Terminal on the Graphical Desktop
+<b> Using a Text Terminal on the Graphical Desktop
 
 A terminal emulator program emulates (simulates) a standalone terminal within a window on the desktop. By this, we mean it behaves essentially as if you were logging into the machine at a pure text terminal with no running graphical interface. Most terminal emulator programs support multiple terminal sessions by opening additional tabs or windows.
 
@@ -958,7 +958,7 @@ By default, on GNOME desktop environments, the gnome-terminal application is use
 - konsole (default on KDE)
 - terminator
 
-### Launching Terminal Windows
+<b> Launching Terminal Windows
 
 To open a terminal on any system using a recent GNOME desktop click on Applications > System Tools > Terminal or Applications > Utilities > Terminal. If you do not have the Applications menu, you will have to install the appropriate gnome-shell-extension package and turn on with gnome-tweaks.
 
@@ -968,7 +968,7 @@ You can also hit Alt-F2 and type in either gnome-terminal or konsole, whichever 
 
 Because distributions have had a history of burying opening up a command line terminal, and the place in menus may vary in the desktop GUI, It is a good idea to figure out how to "pin" the terminal icon to the panel, which might mean adding it to the Favorites grouping on GNOME systems.
 
-### Some Basic Utilities
+<b> Some Basic Utilities
 
 There are some basic command line utilities that are used constantly, and it would be impossible to proceed further without using some of them in simple form before we discuss them in more detail. A short list has to include:
 
@@ -981,7 +981,7 @@ The screenshot shows elementary uses of these programs. Note the use of the pipe
 
 For the most part, we will only use these utilities in screenshots displaying various activities, before we discuss them in detail.
 
-### The Command Line
+<b> The Command Line
 
 Most input lines entered at the shell prompt have three basic elements:
 
@@ -993,7 +993,7 @@ The command is the name of the program you are executing. It may be followed by 
 
 However, plenty of commands have no options, no arguments, or neither. In addition, other elements (such as setting environment variables) can also appear on the command line when launching a task.
 
-### sudo
+<b> sudo
 
 All the demonstrations created have a user configured with sudo capabilities to provide the user with administrative (admin) privileges when required. sudo allows users to run programs using the security privileges of another user, generally root (superuser). 
 
@@ -1006,7 +1006,7 @@ Next, you will learn the steps to set up and run sudo on your system.
 <img src="sudo.png" width="300"/>
 </center>
 </div>
-### Steps for Setting Up and Running sudo
+<b> Steps for Setting Up and Running sudo
 
 If your system does not already have sudo set up and enabled, you need to do the following steps:
 
@@ -1020,7 +1020,7 @@ If your system does not already have sudo set up and enabled, you need to do the
 
 That should be it. For the rest of this course, if you use sudo you should be properly set up. When using sudo, by default you will be prompted to give a password (your own user password) at least the first time you do it within a specified time interval. It is possible (though very insecure) to configure sudo to not require a password or change the time window in which the password does not have to be repeated with every sudo command.
 
-### Switching Between the GUI and the Command Line
+<b> Switching Between the GUI and the Command Line
 
 The customizable nature of Linux allows you to drop the graphical interface (temporarily or permanently) or to start it up after the system has been running.
 
@@ -1034,7 +1034,7 @@ Linux production servers are usually installed without the GUI, and even if it i
 </center>
 </div>
 
-### Virtual Terminals
+<b> Virtual Terminals
 
 Virtual Terminals (VT) are console sessions that use the entire display and keyboard outside of a graphical environment. Such terminals are considered "virtual" because, although there can be multiple active terminals, only one terminal remains visible at a time. A VT is not quite the same as a command line terminal window; you can have many of those visible at once on a graphical desktop.
 
@@ -1051,7 +1051,7 @@ To switch between VTs, press CTRL-ALT-function key for the VT. For example, pres
 </center>
 </div>
 
-### Turning Off the Graphical Desktop
+<b> Turning Off the Graphical Desktop
 
 Linux distributions can start and stop the graphical desktop in various ways. The exact method differs from distribution and among distribution versions. For the newer systemd-based distributions, the display manager is run as a service, you can stop the GUI desktop with the systemctl utility and most distributions will also work with the telinit command, as in:
 
@@ -1069,7 +1069,7 @@ On Ubuntu versions before 18.04 LTS, substitute lightdm for gdm.
 </center>
 </div>
 
-### Killing the Graphical User Interface
+<b> Killing the Graphical User Interface
 
 Methods of bringing down the GUI:
 
@@ -1083,7 +1083,7 @@ Methods of bringing the GUI back up:
 `student:/tmp> sudo systemctl start lightdm`
 `student:/tmp> sudo telinit 5`
 
-### Basic Operations
+<b> Basic Operations
 
 In this section, we will discuss how to accomplish basic operations from the command line. These include how to log in and log out from the system, restart or shut down the system, locate applications, access directories, identify absolute and relative paths, and explore the filesystem.
 
@@ -1092,7 +1092,7 @@ In this section, we will discuss how to accomplish basic operations from the com
 <img src="basic.png" width="200"/>
 </center>
 </div>
-### Logging In and Out
+<b> Logging In and Out
 
 An available text terminal will prompt for a username (with the string login:) and password. When typing your password, nothing is displayed on the terminal (not even a * to indicate that you typed in something), to prevent others from seeing your password. After you have logged into the system, you can perform basic operations.
 
@@ -1103,7 +1103,7 @@ Once your session is started (either by logging into a text terminal or via a gr
 <img src="logging.png" width="300"/>
 </center>
 </div>
-### Rebooting and Shutting Down
+<b> Rebooting and Shutting Down
 
 The preferred method to shut down or reboot the system is to use the shutdown command. This sends a warning message, and then prevents further users from logging in. The init process will then control shutting down or rebooting the system. It is important to always shut down properly; failure to do so can result in damage to the system and/or loss of data.
 
@@ -1120,7 +1120,7 @@ NOTE: On recent Wayland-based Linux distributions, broadcast messages do not app
 <img src="rebooting.png" width="300"/>
 </center>
 </div>
-### Locating Applications
+<b> Locating Applications
 
 Depending on the specifics of your particular distribution's policy, programs and software packages can be installed in various directories. In general, executable programs and scripts should live in the /bin, /usr/bin, /sbin, /usr/sbin directories, or somewhere under /opt. They can also appear in /usr/local/bin and /usr/local/sbin, or in a directory in a user's account space, such as /home/student/bin.
 
@@ -1136,7 +1136,7 @@ diff: /usr/bin/diff /usr/share/man/man1/diff.1.gz /usr/share/man/man1p/diff.1p.g
 
 as well as locating source and man files packaged with the program.
 
-### Accessing Directories
+<b> Accessing Directories
 
 When you first log into a system or open a terminal, the default directory should be your home directory. You can print the exact path of this by typing echo $HOME. Many Linux distributions actually open new graphical terminals in \$HOME/Desktop. The following commands are useful for directory navigation:
 
@@ -1145,7 +1145,7 @@ When you first log into a system or open a terminal, the default directory shoul
 <img src="accessing.png" width="300"/>
 </center>
 </div>
-### Understanding Absolute and Relative Paths
+<b> Understanding Absolute and Relative Paths
 
 There are two ways to identify paths:
 
@@ -1172,7 +1172,7 @@ In this case, the absolute pathname method requires less typing.
 <img src="understanding.png" width="400"/>
 </center>
 </div>
-### Exploring the Filesystem
+<b> Exploring the Filesystem
 
 Traversing up and down the filesystem tree can get tedious. The tree command is a good way to get a bird’s-eye view of the filesystem tree. Use tree -d to view just the directories and to suppress listing file names.
 
@@ -1183,7 +1183,7 @@ The following commands can help in exploring the filesystem:
 <img src="commands.png" width="400"/>
 </center>
 </div>
-### Hard Links
+<b> Hard Links
 
 he ln utility is used to create hard links and (with the -s option) soft links, also known as symbolic links or symlinks. These two kinds of links are very useful in UNIX-based operating systems.
 
@@ -1205,7 +1205,7 @@ If you edit one of the files, exactly what happens depends on your editor; most 
 `ln file1 file2`
 `ls -li file?`
 
-### Soft (Symbolic) Links
+<b> Soft (Symbolic) Links
 
 Soft (or Symbolic) links are created with the -s option, as in:
 
@@ -1221,7 +1221,7 @@ Unlike hard links, soft links can point to objects even on different filesystems
 `ln -s file1 file3`
 `ls -li file1 file3`
 
-### Navigating the Directory History
+<b> Navigating the Directory History
 
 The `cd` command remembers where you were last, and lets you get back there with `cd` -. For remembering more than just the last directory visited, use `pushd` to change the directory instead of `cd`; this pushes your starting directory onto a list. Using `popd` will then send you back to those directories, walking in reverse order (the most recent directory will be the first one retrieved with `popd`). The list of directories is displayed with the `dirs` command.
 
@@ -1230,11 +1230,11 @@ The `cd` command remembers where you were last, and lets you get back there with
 <img src="navigating.png" width="300"/>
 </center>
 </div>
-### Working with Files
+<b> Working with Files
 
 Linux provides many commands that help you with viewing the contents of a file, creating a new file or an empty file, changing the timestamp of a file, and moving, removing and renaming a file or directory. These commands help you in managing your data and files and in ensuring that the correct data is available at the correct location.
 
-### Viewing Files
+<b> Viewing Files
 
 You can use the following command line utilities to view files:
 
@@ -1243,7 +1243,7 @@ You can use the following command line utilities to view files:
 <img src="workingwithfiles.png" width="400"/>
 </center>
 </div>
-### touch
+<b> touch
 
 touch is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time.
 
@@ -1264,7 +1264,7 @@ This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
 <img src="touch.png" width="300"/>
 </center>
 </div>
-### mkdir and rmdir
+<b> mkdir and rmdir
 
 mkdir is used to create a directory:
 
@@ -1280,7 +1280,7 @@ Removing a directory is done with rmdir. The directory must be empty or the comm
 <img src="mkdir.png" width="400"/>
 </center>
 </div>
-### Moving, Renaming or Removing a File
+<b> Moving, Renaming or Removing a File
 
 Note that mv does double duty, in that it can:
 
@@ -1294,7 +1294,7 @@ If you are not certain about removing files that match a pattern you supply, it 
 <img src="remove.png" width="300"/>
 </center>
 </div>
-### Renaming or Removing a Directory
+<b> Renaming or Removing a Directory
 
 `rmdir` works only on empty directories; otherwise you get an error. 
 
@@ -1305,7 +1305,7 @@ While typing `rm –rf` is a fast and easy way to remove a whole filesystem tree
 <img src="removedir.png" width="300"/>
 </center>
 </div>
-### Modifying the Command Line Prompt
+<b> Modifying the Command Line Prompt
 
 The PS1 variable is the character string that is displayed as the prompt on the command line. Most distributions set PS1 to a known default value, which is suitable in most cases. However, users may want custom information to show on the command line. For example, some system administrators require the user and the host system name to show up on the command line as in:
 
@@ -1324,7 +1324,7 @@ For example:
 
 By convention, most systems are set up so that the root user has a pound sign (#) as their prompt.
 
-### Standard File Streams
+<b> Standard File Streams
 
 When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or stdin), standard output (standard out or stdout) and standard error (or stderr).
 
@@ -1339,7 +1339,7 @@ In Linux, all open files are represented internally by what are called file desc
 
 On the next page and in the chapters ahead, you will see examples which alter where a running command gets its input, where it writes its output, or where it prints diagnostic (error) messages.
 
-### I/O Redirection
+<b> I/O Redirection
 
 Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, instead of from our keyboard, and we can write output and errors to files or use them to provide input for subsequent commands.
 
@@ -1367,7 +1367,7 @@ bash permits an easier syntax for the above:
 
 `$ do_something >& all-output-file`
 
-### Pipes
+<b> Pipes
 
 The UNIX/Linux philosophy is to have many simple and short programs (or commands) cooperate together to produce quite complex results, rather than have one complex program with many possible options and modes of operation. In order to accomplish this, extensive use of pipes is made. You can pipe the output of one command or program into another as its input.
 
@@ -1385,13 +1385,13 @@ Furthermore, there is no need to save output in (temporary) files between the st
 </center>
 </div>
 
-### Searching for Files
+<b> Searching for Files
 
 Being able to quickly find the files you are looking for will save you time and enhance productivity. You can search for files in both your home directory space, or in any other directory or location on the system.
 
 The main tools for doing this are the locate and find utilities. We will also show how to use wildcards in bash, in order to specify any file which matches a given generalized request.
 
-### locate
+<b> locate
 
 The locate utility program performs a search taking advantage of a previously constructed database of files and directories on your system, matching all entries that contain a specified character string. This can sometimes result in a very long list.
 
@@ -1403,7 +1403,7 @@ which will list all the files and directories with both zip and bin in their nam
 
 locate utilizes a database created by a related utility, updatedb. Most Linux systems run this automatically once a day. However, you can update it at any time by just running updatedb from the command line as the root user.
 
-### Wildcards and Matching File Names
+<b> Wildcards and Matching File Names
 
 <div>
 <center>
@@ -1415,7 +1415,7 @@ To search for files using the ? wildcard, replace each unknown character with ?.
 
 To search for files using the * wildcard, replace the unknown string with *. For example, if you remember only that the extension was .out, type ls *.out.
 
-### The find Program
+<b> The find Program
 
 find is an extremely useful and often-used utility program in the daily life of a Linux system administrator. It recurses down the filesystem tree from any particular directory (or set of directories) and locates files that match specified conditions. The default pathname is always the present working directory.
 
@@ -1423,7 +1423,7 @@ For example, administrators sometimes scan for potentially large core files (whi
 
 It is also common to remove files in inessential or outdated files in /tmp (and other volatile directories, such as those containing cached files) that have not been accessed recently. Many Linux distributions use shell scripts that run periodically (through cron usually) to perform such house cleaning.
 
-### Using find
+<b> Using find
 
 When no arguments are given, find lists all files in the current directory and all of its subdirectories. Commonly used options to shorten the list include -name (only list files with a certain pattern in their name), -iname (also ignore the case of file names), and -type (which will restrict the results to files of a certain specified type, such as d for directory, l for symbolic link, or f for a regular file, etc.). 
 
@@ -1439,7 +1439,7 @@ Searching only for regular files named gcc:
 
 `$ find /usr -type f -name gcc`
 
-### Using Advanced find Options
+<b> Using Advanced find Options
 
 Another good use of find is being able to run commands on the files that match your search criteria. The -exec option is used for this purpose.
 
@@ -1458,7 +1458,7 @@ One can also use the -ok option, which behaves the same as -exec, except that fi
 <img src="finding.png" width="300"/>
 </center>
 </div>
-### Finding Files Based on Time and Size
+<b> Finding Files Based on Time and Size
 
 It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size. It is easy to perform such searches.
 
@@ -1478,7 +1478,7 @@ For example, to find files greater than 10 MB in size and running a command on t
 
 `$ find / -size +10M -exec command {} ’;’`
 
-### Finding Directories and Creating Symbolic Links
+<b> Finding Directories and Creating Symbolic Links
 
 Find the init.d directory, starting from /, and then create a symbolic link from within your home directory to this directory.
 
@@ -1490,7 +1490,7 @@ Note that this SysVinit directory is no longer used much in systemd-based system
 
 Note you will get a lot of noise about trying to look at files and directories normal users are not allowed to examine. If you preface the find command with sudo these will not occur.
 
-### Package Management Systems on Linux
+<b> Package Management Systems on Linux
 
 The core parts of a Linux distribution and most of its add-on software are installed via the Package Management System. Each package contains the files and other instructions needed to make one software component work well and cooperate with the other components that comprise the entire system. Packages can depend on each other. For example, a package for a web-based application written in PHP can depend on the PHP package.
 
@@ -1498,7 +1498,7 @@ There are two broad families of package managers: those based on Debian and thos
 
 In this section, you will learn how to install, remove, or search for packages from the command line using these two package management systems.
 
-### Package Managers: Two Levels
+<b> Package Managers: Two Levels
 
 Both package management systems operate on two distinct levels: a low-level tool (such as dpkg or rpm) takes care of the details of unpacking individual packages, running scripts, getting the software installed correctly, while a high-level tool (such as apt-get, dnf, yum, or zypper) works with groups of packages, downloads packages from the vendor, and figures out dependencies.
 
@@ -1509,7 +1509,7 @@ Most of the time users need to work only with the high-level tool, which will ta
 <img src="packagemanager.png" width="300"/>
 </center>
 </div>
-### Working With Different Package Management Systems
+<b> Working With Different Package Management Systems
 
 The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include apt (or apt-get) and apt-cache.
 
@@ -1530,7 +1530,7 @@ To learn the basic packaging commands, take a look at these basic packaging comm
 <img src="commandpackage.png" width="400"/>
 </center>
 </div>
-### Installing and Removing Software Packages
+<b> Installing and Removing Software Packages
 
 Using the upper-level package management system appropriate for your Linux distribution, do the following:
 
@@ -1557,7 +1557,7 @@ or
 `student:/tmp> zypper install dump`
 `student:/tmp> zypper remove dump`
 
-### Chapter Summary
+<b> Chapter Summary
 
 ou have completed Chapter 7. Let’s summarize the key concepts we covered:
 
@@ -1580,7 +1580,7 @@ ou have completed Chapter 7. Let’s summarize the key concepts we covered:
 - You can use the dnf command-line package management utility for the RPM-based Red Hat Family Linux distributions.
 - The zypper package management system is based on RPM and used for openSUSE.
 
-### Linux Documentation Sources
+<b> Linux Documentation Sources
 
 Whether you are an inexperienced user or a veteran, you will not always know (or remember) the proper use of various Linux programs and utilities: what is the command to type, what options does it take, etc. You will need to consult help documentation regularly. Because Linux-based systems draw from a large variety of sources, there are numerous reservoirs of documentation and ways of getting help. Distributors consolidate this material and present it in a comprehensive and easy-to-use manner.
 
@@ -1597,7 +1597,7 @@ Important Linux documentation sources include:
 - The help command and --help option
 - Other documentation sources, e.g. Gentoo Handbook or Ubuntu Documentation.
 
-### The man pages
+<b> The man pages
 
 The man pages are the most often-used source of Linux documentation. They provide in-depth documentation about many programs and utilities, as well as other topics, including configuration files, and programming APIs for system calls, library routines, and the kernel. They are present on all Linux distributions and are always at your fingertips.
 
@@ -1609,7 +1609,7 @@ man pages are often converted to other formats, such as PDF documents and web pa
 
 Other sources of documentation include published books and many Internet sites.
 
-#### man
+<b># man
 
 The man program searches, formats, and displays the information contained in the man page system. Because many topics have copious amounts of relevant information, output is piped through a pager program (such as less) to be viewed one page at a time. At the same time, the information is formatted for a good visual display.
 
@@ -1620,7 +1620,7 @@ A given topic may have multiple pages associated with it and there is a default 
 
 The default order is specified in /etc/man_db.conf and is roughly (but not exactly) in ascending numerical order by section.
 
-### Manual Chapters
+<b> Manual Chapters
 
 The man pages are divided into chapters numbered 1 through 9. In some cases, a letter is appended to the chapter number to identify a specific topic. For example, many pages describing part of the X Window API are in chapter 3X.
 
@@ -1630,7 +1630,7 @@ With the -a parameter, man will display all pages with the given name in all cha
 
 `$ man -a socket`
 
-### Working with man
+<b> Working with man
 
 Now, try to do the following:
 
@@ -1651,7 +1651,7 @@ Now, try to do the following:
 3. `student:/tmp> man 3 printf`
     (man printf will bring up the command-line utility (section 1) of the same name.)
     
-### The GNU Info System
+<b> The GNU Info System
 
 The next source of Linux documentation is the GNU Info System.
 
@@ -1659,7 +1659,7 @@ This is the GNU project's standard documentation format, which it prefers as an 
 
 Functionally, info resembles man in many ways. However, topics are connected using links (even though its design predates the World Wide Web). Information can be viewed through either a command line interface, a graphical help utility, printed or viewed online.
 
-### Using info from the Command Line
+<b> Using info from the Command Line
 
 Typing info with no arguments in a terminal window displays an index of available topics. You can browse through the topic list using the regular movement keys: arrows, Page Up, and Page Down.
 
@@ -1667,7 +1667,7 @@ You can view help for a particular topic by typing info <topic name>. The  syste
 
 Some useful keys are: q to quit, h for help, and Enter to select a menu item.
 
-### info Page Structure
+<b> info Page Structure
 
 The topic which you view in an info page is called a node. The table lists the basic keystrokes for moving between nodes.
 
@@ -1681,7 +1681,7 @@ Items function like browser links and are identified by an asterisk (*) at the b
 </center>
 </div>
 
-### Working with info
+<b> Working with info
 
 From the command line, bring up the info page for cpio. Bring up the tutorial.
 
@@ -1689,7 +1689,7 @@ From the command line, bring up the info page for cpio. Bring up the tutorial.
 
 Move the cursor down to the Tutorial node, and press Enter.
 
-### The --help Option
+<b> The --help Option
 
 Another important source of Linux documentation is use of the --help option.
 
@@ -1699,7 +1699,7 @@ Most commands have an available short description which can be viewed using the 
 
 The --help option is useful as a quick reference and it displays information faster than the man or info pages.
 
-### The help Command
+<b> The help Command
 
 When run within a bash command shell, some popular commands (such as echo and cd) actually run especially built-in bash versions of the commands rather than the usual binaries found on the file system, say under /bin or /usr/bin. It is more efficient to do so as execution is faster because fewer resources are used (we will discuss command shells later). One should note that there can be some (usually small) differences in the two versions of the command.
 
@@ -1707,7 +1707,7 @@ To view a synopsis of these built-in commands, you can simply type help as shown
 
 For these built-in commands, help performs the same basic function as the -h and --help arguments perform for standalone programs.
 
-### Working with Command Line help
+<b> Working with Command Line help
 
 List the available options for the mkdir command, in more than one way.
 
@@ -1717,7 +1717,7 @@ or
 
 `student:/tmp>$ man mkdir`
 
-### Other Documentation Sources
+<b> Other Documentation Sources
 
 In addition to the man pages, the GNU Info System, and the help command, there are other sources of Linux documentation, some examples of which include:
 
@@ -1730,7 +1730,7 @@ In addition to the man pages, the GNU Info System, and the help command, there a
 <img src="documentation.png" width="200"/>
 </center>
 </div>
-### Graphical Help Systems
+<b> Graphical Help Systems
 
 ll Linux desktop systems have a graphical help application. This application is usually displayed as a question-mark icon or an image of a ship’s life-preserver, and can also always be found within the menu system. These programs usually contain custom help for the desktop itself and some of its applications, and will sometimes also include graphically-rendered info and man pages.
 
@@ -1739,13 +1739,13 @@ If you do not want to spend time hunting for the right icon or menu item to laun
 - GNOME: `gnome-help` or `yelp`
 - KDE: `khelpcenter`
 
-### Package Documentation
+<b> Package Documentation
 
 Linux documentation is also available as part of the package management system. Usually, this documentation is directly pulled from the upstream source code, but it can also contain information about how the distribution packaged and set up the software.
 
 Such information is placed under the /usr/share/doc directory, grouped in subdirectories named after each package, perhaps including the version number in the name.
 
-### Online Resources
+<b> Online Resources
 
 There are many places to access online Linux documentation, and a little bit of searching will get you buried in it.
 
@@ -1761,7 +1761,7 @@ You can also find very helpful documentation for each distribution. Each distrib
 
 Moreover, you can use online search sites to locate helpful resources from all over the Internet, including blog posts, forum and mailing list posts, news articles, and so on.
 
-### Working with Graphical Help Systems
+<b> Working with Graphical Help Systems
 
 Find the graphical help system on your desktop and try to locate within it the man pages for printf. This may be difficult, so do not waste too much time before looking at the suggestions below. 
 
@@ -1781,7 +1781,7 @@ The same mechanism works to get info pages as well, as in:
 
 `student:/tmp> yelp info:cpio`
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 8. Let’s summarize the key concepts covered:
 
@@ -1794,7 +1794,7 @@ You have completed Chapter 8. Let’s summarize the key concepts covered:
 - You can type help at the command line to display a synopsis of built-in commands.
 - There are many other help resources both on your system and on the Internet.
 
-### What Is a Process?
+<b> What Is a Process?
 
 A process is simply an instance of one or more related tasks (threads) executing on your computer. It is not the same as a program or a command. A single command may actually start several processes simultaneously. Some processes are independent of each other and others are related. A failure of one process may or may not affect the others running on the system.
 
@@ -1805,7 +1805,7 @@ A process is simply an instance of one or more related tasks (threads) executing
 </div>
 Processes use many system resources, such as memory, CPU (central processing unit) cycles, and peripheral devices, such as network cards, hard drives, printers and displays. The operating system (especially the kernel) is responsible for allocating a proper share of these resources to each process and ensuring overall optimized system utilization.
 
-### Process Types
+<b> Process Types
 
 A terminal window (one kind of command shell) is a process that runs as long as needed. It allows users to execute programs and access resources in an interactive environment. You can also run programs in the background, which means they become detached from the shell.
 
@@ -1817,7 +1817,7 @@ Processes can be of different types according to the task being performed. Here 
 </center>
 </div>
 
-### Process Scheduling and States
+<b> Process Scheduling and States
 
 A critical kernel function called the scheduler constantly shifts processes on and off the CPU, sharing time according to relative priority, how much time is needed and how much has already been granted to a task.
 
@@ -1834,7 +1834,7 @@ However, sometimes processes go into what is called a sleep state, generally whe
 
 There are some other less frequent process states, especially when a process is terminating. Sometimes, a child process completes, but its parent process has not asked about its state. Amusingly, such a process is said to be in a zombie state; it is not really alive, but still shows up in the system's list of processes.
 
-### Process and Thread IDs
+<b> Process and Thread IDs
 
 At any given time, there are always multiple processes being executed. The operating system keeps track of them by assigning each a unique process ID (PID) number. The PID is used to track process state, CPU usage, memory use, precisely where resources are located in memory, and other characteristics.
 
@@ -1848,7 +1848,7 @@ The table explains the PID types and their descriptions:
 </center>
 </div>
 
-### Terminating a Process
+<b> Terminating a Process
 
 At some point, one of your applications may stop working properly. How do you eliminate it?
 
@@ -1856,7 +1856,7 @@ To terminate a process, you can type kill -SIGKILL \<pid> or kill -9 \<pid>.
 
 Note, however, you can only kill your own processes; those belonging to another user are off limits, unless you are root.
 
-### User and Group IDs
+<b> User and Group IDs
 
 Many users can access a system simultaneously, and each user can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user.
 
@@ -1872,7 +1872,7 @@ Users can be categorized into various groups. Each group is identified by the Re
 
 Most of the time we ignore these details and just talk about the User ID (UID) and Group ID (GID).
 
-### More About Priorities
+<b> More About Priorities
 
 At any given time, many processes are running (i.e. in the run queue) on the system. However, a CPU can actually accommodate only one task at a time, just like a car can have only one driver at a time. Some processes are more important than others, so Linux allows you to set and manipulate process priority. Higher priority processes get preferential access to the CPU.
 
@@ -1880,7 +1880,7 @@ The priority for a process can be set by specifying a nice value, or niceness, f
 
 You can also assign a so-called real-time priority to time-sensitive tasks, such as controlling machines through a computer or collecting incoming data. This is just a very high priority and is not to be confused with what is called hard real-time which is conceptually different, and has more to do with making sure a job gets completed within a very well-defined time window.
 
-### Load Averages
+<b> Load Averages
 
 The load average is the average of the load number for a given period of time. It takes into account processes that are:
 
@@ -1892,7 +1892,7 @@ NOTE: Linux differs from other UNIX-like operating systems in that it includes t
 
 The load average can be viewed by running w, top or uptime. We will explain the numbers on the next page.
 
-### Interpreting Load Averages
+<b> Interpreting Load Averages
 
 The load average is displayed using three numbers (0.45, 0.17, and 0.12) in the below screenshot. Assuming our system is a single-CPU system, the three load average numbers are interpreted as follows:
 
@@ -1906,7 +1906,7 @@ If we had more than one CPU, say a quad-CPU system, we would divide the load ave
 
 Short-term increases are usually not a problem. A high peak you see is likely a burst of activity, not a new level. For example, at start up, many processes start and then activity settles down. If a high peak is seen in the 5 and 15 minute load averages, it may be cause for concern.
 
-### Background and Foreground Processes
+<b> Background and Foreground Processes
 
 Linux supports background and foreground job processing. A job in this context is just a command launched from a terminal window. Foreground jobs run directly from the shell, and when one foreground job is running, other jobs need to wait for shell access (at least in that terminal window if using the GUI) until it is completed. This is fine when jobs complete quickly. But this can have an adverse effect if the current job is going to take a long time (even several hours) to complete.
 
@@ -1914,7 +1914,7 @@ In such cases, you can run the job in the background and free the shell for othe
 
 You can either use CTRL-Z to suspend a foreground job or CTRL-C to terminate a foreground job and can always use the bg and fg commands to run a process in the background and foreground, respectively.
 
-### Managing Jobs
+<b> Managing Jobs
 
 The jobs utility displays all jobs running in background. The display shows the job ID, state, and command name, as shown here.
 
@@ -1922,7 +1922,7 @@ jobs -l provides the same information as jobs, and adds the PID of the backgroun
 
 The background jobs are connected to the terminal window, so, if you log off, the jobs utility will not show the ones started from that window.
 
-### Getting Uptime and Load Averages
+<b> Getting Uptime and Load Averages
 
 Ascertain how long your system has been up. 
 
@@ -1940,7 +1940,7 @@ A third method is to use w:
 
 `student:/tmp> w`
 
-### Background and Foreground Jobs
+<b> Background and Foreground Jobs
 
 We are going to launch a graphical program from a terminal window, so that one can no longer type in the window. gedit is an easy choice, but you can substitute any other program that does this.
 
@@ -1973,7 +1973,7 @@ We are going to launch a graphical program from a terminal window so that one ca
     `$ kill -9 19827`
     `$ jobs -l`
 
-### The ps Command (System V Style)
+<b> The ps Command (System V Style)
 
 ps provides information about currently running processes keyed by PID. If you want a repetitive update of this status, you can use top or other commonly installed variants (such as htop or atop) from the command line, or invoke your distribution's graphical system monitor application.
 
@@ -1987,7 +1987,7 @@ Without options, ps will display all processes running under the current shell. 
 </center>
 </div>
 
-### The ps Command (BSD Style)
+<b> The ps Command (BSD Style)
 
 ps has another style of option specification, which stems from the BSD variety of UNIX, where options are specified without preceding dashes. For example, the command ps aux displays all processes of all users. The command ps axo allows you to specify which attributes you want to view.
 
@@ -1999,15 +1999,15 @@ The screenshot shows a sample output of ps with the aux and axo qualifiers.
 </center>
 </div>
 
-### The Process Tree
+<b> The Process Tree
 
 pstree displays the processes running on the system in the form of a tree diagram showing the relationship between a process and its parent process and any other processes that it created. Repeated entries of a process are not displayed, and threads are displayed in curly braces.
 
-### top
+<b> top
 
 While a static view of what the system is doing is useful, monitoring the system performance live over time is also valuable. One option would be to run ps at regular intervals, say, every few seconds. A better alternative is to use top to get constant real-time updates (every two seconds by default), until you exit by typing q.top clearly highlights which processes are consuming the most CPU cycles and memory (using appropriate commands from within top).
 
-### First Line of the top Output
+<b> First Line of the top Output
 
 The first line of the top output displays a quick summary of what is happening in the system, including:
 
@@ -2017,17 +2017,17 @@ The first line of the top output displays a quick summary of what is happening i
 
 The load average determines how busy the system is. A load average of 1.00 per CPU indicates a fully subscribed, but not overloaded, system. If the load average goes above this value, it indicates that processes are competing for CPU time. If the load average is very high, it might indicate that the system is having a problem, such as a runaway process (a process in a non-responding state).
 
-### Second Line of the top Output
+<b> Second Line of the top Output
 
 The second line of the top output displays the total number of processes, the number of running, sleeping, stopped, and zombie processes. Comparing the number of running processes with the load average helps determine if the system has reached its capacity or perhaps a particular user is running too many processes. The stopped processes should be examined to see if everything is running correctly.
 
-### Third Line of the top Output
+<b> Third Line of the top Output
 
 The third line of the top output indicates how the CPU time is being divided between the users (us) and the kernel (sy) by displaying the percentage of CPU time used for each.
 
 The percentage of user jobs running at a lower priority (niceness - ni) is then listed. Idle mode (id) should be low if the load average is high, and vice versa. The percentage of jobs waiting (wa) for I/O is listed. Interrupts include the percentage of hardware (hi) vs. software interrupts (si). Steal time (st) is generally used with virtual machines, which has some of its idle CPU time taken for other uses.
 
-### Fourth and Fifth Lines of the top Output
+<b> Fourth and Fifth Lines of the top Output
 
 The fourth and fifth lines of the top output indicate memory usage, which is divided in two categories:
 
@@ -2040,7 +2040,7 @@ You need to monitor memory usage very carefully to ensure good system performanc
 
 If the system starts using swap often, you can add more swap space. However, adding more physical memory should also be considered.
 
-### Process List of the top Output
+<b> Process List of the top Output
 
 Each line in the process list of the top output displays information about a process. By default, processes are ordered by highest CPU usage. The following information about each process is displayed:
 
@@ -2053,7 +2053,7 @@ Each line in the process list of the top output displays information about a pro
 - Execution time (TIME+)
 - Command (COMMAND).
 
-### Interactive Keys with top
+<b> Interactive Keys with top
 
 Besides reporting information, top can be utilized interactively for monitoring and controlling processes. While top is running in a terminal window, you can enter single-letter commands to change its behavior. For example, you can view the top-ranked processes based on CPU or memory usage. If needed, you can alter the priorities of running processes or you can stop/kill a process.
 
@@ -2065,7 +2065,7 @@ The table lists what happens when pressing various keys when running top:
 </center>
 </div>
 
-### Scheduling Future Processes Using at
+<b> Scheduling Future Processes Using at
 
 Suppose you need to perform a task on a specific day sometime in the future. However, you know you will be away from the machine on that day. How will you perform the task? You can use the at utility program to execute any non-interactive command at a specified time, as illustrated in the screenshot below:
 
@@ -2075,7 +2075,7 @@ Suppose you need to perform a task on a specific day sometime in the future. How
 </center>
 </div>
 
-### cron
+<b> cron
 
 cron is a time-based scheduling utility program. It can launch routine background jobs at specific times and/or days on an on-going basis. cron is driven by a configuration file called /etc/crontab (cron table), which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
 
@@ -2092,7 +2092,7 @@ Examples:
 - The entry * * * * * /usr/local/bin/execute/this/script.sh will schedule a job to execute script.sh every minute of every hour of every day of the month, and every month and every day in the week.
 - The entry 30 08 10 06 * /home/sysadmin/full-backup will schedule a full-backup at 8.30 a.m., 10-June, irrespective of the day of the week.
 
-### sleep
+<b> sleep
 
 Sometimes, a command or job must be delayed or suspended. Suppose, for example, an application has read and processed the contents of a data file and then needs to save a report on a backup system. If the backup system is currently busy or not available, the application can be made to sleep (wait) until it can complete its work. Such a delay might be to mount the backup device and prepare it for writing.
 
@@ -2117,7 +2117,7 @@ sleep and at are quite different; sleep delays execution for a specific period, 
 </center>
 </div>
 
-### Using at for Batch Processing in the Future
+<b> Using at for Batch Processing in the Future
 
 Schedule a very simple task to run at a future time from now. This can be as simple as running ls or date and saving the output. You can use a time as short as one minute in the future.
 
@@ -2159,7 +2159,7 @@ Do this:
     CTRL-D
     `$ atq`
 
-### Scheduling a Periodic Task with cron
+<b> Scheduling a Periodic Task with cron
 
 Set up a cron job to do some simple task every day at 10 a.m.
 
@@ -2199,7 +2199,7 @@ and mailing them to you, you can remove it with:
 
 If the machine is not up at 10 AM on a given day, anacron will run the job at a suitable time.
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 9. Let’s summarize the key concepts covered:
 
@@ -2215,7 +2215,7 @@ You have completed Chapter 9. Let’s summarize the key concepts covered:
 - at executes any non-interactive command at a specified time.
 - cron is used to schedule tasks that need to be performed at regular intervals.
 
-### Introduction to Filesystems
+<b> Introduction to Filesystems
 
 In Linux (and all UNIX-like operating systems) it is often said “Everything is a file”, or at least it is treated as such. This means whether you are dealing with normal data files and documents, or with devices such as sound cards and printers, you interact with them through the same kind of Input/Output (I/O) operations. This simplifies things: you open a “file” and perform normal operations like reading the file and writing on it (which is one reason why text editors, which you will learn about in an upcoming section, are so important).
 
@@ -2229,7 +2229,7 @@ In this section, you will learn about some basic concepts, including the filesys
 </center>
 </div>
 
-### Filesystem Varieties
+<b> Filesystem Varieties
 
 Linux supports a number of native filesystem types, expressly created by Linux developers, such as:
 
@@ -2249,7 +2249,7 @@ Many older, legacy filesystems, such as FAT, are also supported.
 
 It is often the case that more than one filesystem type is used on a machine, based on considerations such as the size of files, how often they are modified, what kind of hardware they sit on and what kind of access speed is needed, etc. The most advanced filesystem types in common use are the journaling varieties: ext4, xfs, btrfs, and jfs. These have many state-of-the-art features and high performance, and are very hard to corrupt accidentally.
 
-### Linux Partitions
+<b> Linux Partitions
 
 Each filesystem on a Linux system occupies a disk partition. Partitions help to organize the contents of disks according to the kind and use of the data contained. For example, important programs required to run the system are often kept on a separate partition (known as root or /) than the one that contains files owned by regular users of that system (/home). In addition, temporary files created and destroyed during the normal operation of Linux may be located on dedicated partitions. One advantage of this kind of isolation by type and variability is that when all available space on a particular partition is exhausted, the system may still operate normally.
 
@@ -2261,7 +2261,7 @@ The picture shows the use of the gparted utility, which displays the partition l
 </center>
 </div>
 
-### Mount Points
+<b> Mount Points
 
 Before you can start using a filesystem, you need to mount it on the filesystem tree at a mount point. This is simply a directory (which may or may not be empty) where the filesystem is to be grafted on. Sometimes, you may need to create the directory if it does not already exist.
 
@@ -2273,7 +2273,7 @@ Before you can start using a filesystem, you need to mount it on the filesystem 
 
 WARNING: If you mount a filesystem on a non-empty directory, the former contents of that directory are covered-up and not accessible until the filesystem is unmounted. Thus, mount points are usually empty directories.
 
-### Mounting and Unmounting
+<b> Mounting and Unmounting
 
 The mount command is used to attach a filesystem (which can be local to the computer or on a network) somewhere within the filesystem tree. The basic arguments are the device node and mount point. For example,
 
@@ -2291,7 +2291,7 @@ If you want it to be automatically available every time the system starts up, yo
 
 Executing mount without any arguments will show all presently mounted filesystems.
 
-### NFS and Network Filesystems
+<b> NFS and Network Filesystems
 
 It is often necessary to share data across physical systems which may be either in the same location or anywhere that can be reached by the Internet. A network (also sometimes called distributed) filesystem may have all its data on one machine or have it spread out on more than one network node. A variety of different filesystems can be used locally on the individual machines; a network filesystem can be thought of as a grouping of lower level filesystems of varying types.
 
@@ -2307,7 +2307,7 @@ Many system administrators mount remote users' home directories on a server in o
 
 The most common such filesystem is named simply NFS (the Network Filesystem). It has a very long history and was first developed by Sun Microsystems. Another common implementation is CIFS (also termed SAMBA), which has Microsoft roots. We will restrict our attention in what follows to NFS.
 
-### NFS on the Server
+<b> NFS on the Server
 
 We will now look in detail at how to use NFS on the server.
 
@@ -2325,7 +2325,7 @@ This entry allows the directory /projects to be mounted using NFS with read and 
 
 After modifying the /etc/exports file, you can type exportfs -av to notify Linux about the directories you are allowing to be remotely mounted using NFS. You can also restart NFS with sudo systemctl restart nfs, but this is heavier, as it halts NFS for a short while before starting it up again. To make sure the NFS service starts whenever the system is booted, issue sudo systemctl enable nfs.
 
-### NFS on the Client
+<b> NFS on the Client
 
 On the client machine, if it is desired to have the remote filesystem mounted automatically upon system boot, /etc/fstab is modified to accomplish this. For example, an entry in the client's /etc/fstab might look like the following:
 
@@ -2337,7 +2337,7 @@ You can also mount the remote filesystem without a reboot or as a one-time mount
 
 Remember, if /etc/fstab is not modified, this remote mount will not be present the next time the system is restarted. Furthermore, you may want to use the nofail option in fstab in case the NFS server is not live at boot.
 
-### Exploring Mounted Filesystems
+<b> Exploring Mounted Filesystems
 
 Issue the command:
 
@@ -2361,7 +2361,7 @@ Another way to show mounted filesystems is to type:
 
 which is essentially how the utility gets its information.
 
-### Overview of User Home Directories
+<b> Overview of User Home Directories
 
 In this section, you will learn to identify and differentiate between the most important directories found in Linux. We start with ordinary users' home directory space.
 
@@ -2381,7 +2381,7 @@ Sometimes, you may group users based on their department or function. You can th
 </center>
 </div>
 
-### The /bin and /sbin Directories
+<b> The /bin and /sbin Directories
 
 The /bin directory contains executable binaries, essential commands used to boot the system or in single-user mode, and essential commands required by all system users, such as cat, cp, ls, mv, ps, and rm.
 
@@ -2405,7 +2405,7 @@ Commands that are not essential (theoretically) for the system to boot or operat
 
 Thus, on some of the newest Linux distributions /usr/bin and /bin are actually just symbolically linked together, as are /usr/sbin and /sbin.
 
-### The /proc Filesystem
+<b> The /proc Filesystem
 
 Certain filesystems, like the one mounted at /proc, are called pseudo-filesystems because they have no permanent presence anywhere on the disk.
 
@@ -2431,7 +2431,7 @@ The first example shows there is a directory for every process running on the sy
 </center>
 </div>
 
-### The /dev Directory
+<b> The /dev Directory
 
 The /dev directory contains device nodes, a type of pseudo-file used by most hardware and software devices, except for network devices. This directory is:
 
@@ -2449,7 +2449,7 @@ The /dev directory contains device nodes, a type of pseudo-file used by most har
 </center>
 </div>
 
-### The /var Directory
+<b> The /var Directory
 
 The /var directory contains files that are expected to change in size and content as the system is running (var stands for variable), such as the entries in the following directories:
 
@@ -2472,7 +2472,7 @@ The /var directory may be put on its own filesystem so that growth of the files 
 </center>
 </div>
 
-### The /etc Directory
+<b> The /etc Directory
 
 The /etc directory is the home for system configuration files. It contains no binary programs, although there are some executable scripts. For example, /etc/resolv.conf tells the system where to go on the network to obtain host name to IP address mappings (DNS). Files like passwd, shadow and group for managing user accounts are found in the /etc directory. While some distributions have historically had their own extensive infrastructure under /etc (for example, Red Hat and SUSE have used /etc/sysconfig), with the advent of systemd there is much more uniformity among distributions today.
 
@@ -2484,7 +2484,7 @@ Note that /etc is for system-wide configuration files and only the superuser can
 </center>
 </div>
 
-### The /boot Directory
+<b> The /boot Directory
 
 The /boot directory contains the few essential files needed to boot the system. For every alternative kernel installed on the system there are four files:
 
@@ -2509,7 +2509,7 @@ The Grand Unified Bootloader (GRUB) files such as /boot/grub/grub.conf or /boot/
 
 The screenshot shows an example listing of the /boot directory, taken from a RHEL system that has multiple installed kernels, including both distribution-supplied and custom-compiled ones. Names will vary and things will tend to look somewhat different on a different distribution.
 
-### The /lib and /lib64 Directories
+<b> The /lib and /lib64 Directories
 
 /lib contains libraries (common code shared by applications and needed for them to run) for the essential programs in /bin and /sbin. These library filenames either start with ld or lib. For example, /lib/libncurses.so.5.9.
 
@@ -2533,7 +2533,7 @@ Kernel modules (kernel code, often device drivers, that can be loaded and unload
 </center>
 </div>
 
-### Removable media: the /media, /run and /mnt Directories
+<b> Removable media: the /media, /run and /mnt Directories
 
 One often uses removable media, such as USB drives, CDs and DVDs. To make the material accessible through the regular filesystem, it has to be mounted at a convenient location. Most Linux systems are configured so any removable media are automatically mounted when the system notices something has been plugged in.
 
@@ -2547,7 +2547,7 @@ The /mnt directory has been used since the early days of UNIX for temporarily mo
 </center>
 </div>
 
-### Additional Directories Under /:
+<b> Additional Directories Under /:
 
 There are some additional directories to be found under the root directory:
 
@@ -2557,7 +2557,7 @@ There are some additional directories to be found under the root directory:
 </center>
 </div>
 
-### The /usr Directory Tree
+<b> The /usr Directory Tree
 
 The /usr directory tree contains theoretically non-essential programs and scripts (in the sense that they should not be needed to initially boot the system) and has at least the following sub-directories:
 
@@ -2567,7 +2567,7 @@ The /usr directory tree contains theoretically non-essential programs and script
 </center>
 </div>
 
-### Comparing Files with diff
+<b> Comparing Files with diff
 
 Now that you know about the filesystem and its structure, let’s learn how to manage files and directories.
 
@@ -2583,7 +2583,7 @@ To compare two files, at the command prompt, type diff [options] \<filename1> \<
 
 In this section, you will learn additional methods for comparing files and how to apply patches to files.
 
-### Using diff3 and patch
+<b> Using diff3 and patch
 
 You can compare three files at once using diff3, which uses one file as the reference basis for the other two. For example, suppose you and a co-worker both have made modifications to the same file working at the same time independently. diff3 can show the differences based on the common file you both started with. The syntax for diff3 is as follows:
 
@@ -2616,7 +2616,7 @@ To apply a patch, you can just do either of the two methods below:
 
 The first usage is more common, as it is often used to apply changes to an entire directory tree, rather than just one file, as in the second example. To understand the use of the -p1 option and many others, see the man page for patch.
 
-### Using the file Utility
+<b> Using the file Utility
 
 In Linux, a file's extension often does not categorize it the way it might in other operating systems. One cannot assume that a file named file.txt is a text file and not an executable program. In Linux, a filename is generally more meaningful to the user of the system than the system itself. In fact, most applications directly examine a file's contents to see what kind of object it is rather than relying on an extension. This is very different from the way Windows handles filenames, where a filename ending with .exe, for example, represents an executable binary file.
 
@@ -2628,7 +2628,7 @@ The real nature of a file can be ascertained by using the file utility. For the 
 </center>
 </div>
 
-### Using diff and patch
+<b> Using diff and patch
 
 Linux and other open source communities often use the patch utility to disseminate modifications and updates. Here, we will give a practical introduction to using diff and patch.
 
@@ -2677,7 +2677,7 @@ or this exercise, you could use any text file, but we will use /etc/group as des
     student:/tmp> diff group GROUP
     student:/tmp>
 
-### Backing Up Data
+<b> Backing Up Data
 
 There are many ways you can back up data or even your entire system. Basic ways to do so include the use of simple copying with cp and use of the more robust rsync.
 
@@ -2687,7 +2687,7 @@ cp can only copy files to and from destinations on the local machine (unless you
 
 rsync is very efficient when recursively copying one directory tree to another, because only the differences are transmitted over the network. One often synchronizes the destination directory tree with the origin, using the -r option to recursively walk down the directory tree copying all files and directories below the one listed as the source.
 
-### Using rsync
+<b> Using rsync
 
 sync is a very powerful utility. For example, a very useful way to back up a project directory might be to use the following command:
 
@@ -2701,7 +2701,7 @@ A good combination of options is shown in:
 
 `$ rsync --progress -avrxH  --delete sourcedir destdir`
 
-### Compressing Data
+<b> Compressing Data
 
 File data is often compressed to save disk space and reduce the time it takes to transmit files over networks.
 
@@ -2717,7 +2717,7 @@ These techniques vary in the efficiency of the compression (how much space is sa
 
 In addition, the tar utility is often used to group files in an archive and then compress the whole archive at once.
 
-### Compressing Data Using gzip
+<b> Compressing Data Using gzip
 
 gzip is the most often used Linux compression utility. It compresses very well and is very fast. The following table provides some usage examples:
 
@@ -2727,7 +2727,7 @@ gzip is the most often used Linux compression utility. It compresses very well a
 </center>
 </div>
 
-### Compressing Data Using bzip2
+<b> Compressing Data Using bzip2
 
 bzip2 has a syntax that is similar to gzip but it uses a different compression algorithm and produces significantly smaller files, at the price of taking a longer time to do its work. Thus, it is more likely to be used to compress larger files.
 
@@ -2741,7 +2741,7 @@ Examples of common usage are also similar to gzip:
 
 NOTE: bzip2 has lately become deprecated due to lack of maintenance and the superior compression ratios of xz which is actively maintained.
 
-### Compressing Data Using xz
+<b> Compressing Data Using xz
 
 xz is the most space efficient compression utility used in Linux and is used to store archives of the Linux kernel. Once again, it trades a slower compression speed for an even higher compression ratio.
 
@@ -2755,7 +2755,7 @@ Some usage examples:
 
 Compressed files are stored with a .xz extension.
 
-### Handling Files Using zip
+<b> Handling Files Using zip
 
  The zip program is not often used to compress files in Linux, but is often required to examine and decompress archives from other operating systems. It is only used in Linux when you get a zipped file from a Windows user. It is a legacy program.
 
@@ -2765,7 +2765,7 @@ Compressed files are stored with a .xz extension.
 </center>
 </div>
 
-### Archiving and Compressing Data Using tar
+<b> Archiving and Compressing Data Using tar
 
 Historically, tar stood for "tape archive" and was used to archive files to a magnetic tape. It allows you to create or extract files from an archive file, often called a tarball. At the same time, you can optionally compress while creating the archive, and decompress while extracting its contents.
 
@@ -2784,7 +2784,7 @@ You can separate out the archiving and compression stages, as in:
 
 but this is slower and wastes space by creating an unneeded intermediary .tar file.
 
-### Relative Compression Times and Sizes
+<b> Relative Compression Times and Sizes
 
 To demonstrate the relative efficiency of gzip, bzip2, and xz, the following screenshot shows the results of compressing a purely text file directory tree (the include directory from the kernel source) using the three methods.
 
@@ -2796,7 +2796,7 @@ To demonstrate the relative efficiency of gzip, bzip2, and xz, the following scr
 
 This shows that as compression factors go up, CPU time does as well (i.e. producing smaller archives takes longer).
 
-### Disk-to-Disk Copying (dd)
+<b> Disk-to-Disk Copying (dd)
 
 The dd program is very useful for making copies of raw disk space. For example, to back up your Master Boot Record (MBR) (the first 512-byte sector on the disk that contains a table describing the partitions on that disk), you might type:
 
@@ -2812,11 +2812,11 @@ to make a copy of one disk onto another, will delete everything that previously 
 
 An exact copy of the first disk device is created on the second disk device.
 
-##### Do not experiment with this command as written above, as it can erase a hard disk!
+<b>## Do not experiment with this command as written above, as it can erase a hard disk!
 
 Exactly what the name dd stands for is an often-argued item. The words data definition is the most popular theory and has roots in early IBM history. Often, people joke that it means disk destroyer and other variants such as delete data!
 
-### Archiving (Backing Up) the Home Directory
+<b> Archiving (Backing Up) the Home Directory
 
 Archiving (or backing up) your files from time to time is essential good hygiene. You might type a command and thereby unintentionally clobber files you need and did not mean to alter.
 
@@ -2881,7 +2881,7 @@ student:/tmp> ls -lh /tmp/doc.tar*
 
 which shows xz did best, followed by bz2 and then gz. You may have noticed, however, the inverse relationship between the size reduction of the compression and how long it took!
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 10. Let’s summarize the key concepts covered:
 
@@ -2901,7 +2901,7 @@ You have completed Chapter 10. Let’s summarize the key concepts covered:
 - tar allows you to create or extract files from an archive file, often called a tarball. You can optionally compress while creating the archive, and decompress while extracting its contents.
 - dd can be used to make large exact copies, even of entire disk partitions, efficiently.
 
-### Overview of Text Editors in Linux
+<b> Overview of Text Editors in Linux
 
 At some point, you will need to manually edit text files. You might be composing an email off-line, writing a script to be used for bash or other command interpreters, altering a system or application configuration file, or developing source code for a programming language such as C, Python or Java.
 
@@ -2922,7 +2922,7 @@ In this section, we learn first about the nano and gedit editors, which are rela
 </center>
 </div>
 
-### Creating Files Without Using an Editor
+<b> Creating Files Without Using an Editor
 
 Sometimes, you may want to create a short file and don't want to bother invoking a full text editor. In addition, doing so can be quite useful when used from within scripts, even when creating longer files. You will no doubt find yourself using this method when you start on the later chapters that cover shell scripting!
 
@@ -2959,13 +2959,13 @@ and are extremely useful when employed by scripts.
 </center>
 </div>
 
-### nano and gedit
+<b> nano and gedit
 
 There are some text editors that are pretty obvious; they require no particular experience to learn and are actually quite capable, even robust. A particularly easy to use one is the text terminal-based editor nano. Just invoke nano by giving a file name as an argument. All the help you need is displayed at the bottom of the screen, and you should be able to proceed without any problem.
 
 As a graphical editor, gedit is part of the GNOME desktop system (kwrite is associated with KDE). The gedit and kwrite editors are very easy to use and are extremely capable. They are also very configurable. They look a lot like Notepad in Windows. Other variants such as kate are also supported by KDE.
 
-### nano
+<b> nano
 
 nano is easy to use, and requires very little effort to learn. To open a file, type nano <filename> and press Enter. If the file does not exist, it will be created.
 
@@ -2982,7 +2982,7 @@ nano provides a two line shortcut bar at the bottom of the screen that lists the
             CTRL-C
             Show cursor position.
 
-### gedit
+<b> gedit
 
 gedit (pronounced 'g-edit') is a simple-to-use graphical editor that can only be run within a Graphical Desktop environment. It is visually quite similar to the Notepad text editor in Windows, but is actually far more capable and very configurable and has a wealth of plugins available to extend its capabilities further.
 
@@ -2990,7 +2990,7 @@ To open a new file find the program in your desktop's menu system, or from the c
 
 Using gedit is pretty straightforward and does not require much training. Its interface is composed of quite familiar elements.
 
-### vi and emacs
+<b> vi and emacs
 
 Developers and administrators experienced in working on UNIX-like systems almost always use one of the two venerable editing options: vi and emacs. Both are present or easily available on all distributions and are completely compatible with the versions available on other operating systems. 
 
@@ -3004,7 +3004,7 @@ You need to be aware that fights among seasoned users over which editor is bette
 </center>
 </div>
 
-### Introduction to vi
+<b> Introduction to vi
 
 Usually, the actual program installed on your system is vim, which stands for Vi IMproved, and is aliased to the name vi. The name is pronounced as “vee-eye”.
 
@@ -3014,11 +3014,11 @@ GNOME extends vi with a very graphical interface known as gvim and KDE offers kv
 
 When using vi, all commands are entered through the keyboard. You do not need to keep moving your hands to use a pointer device such as a mouse or touchpad, unless you want to do so when using one of the graphical versions of the editor.
 
-### vimtutor
+<b> vimtutor
 
 Typing vimtutor launches a short but very comprehensive tutorial for those who want to learn their first vi commands. Even though it provides only an introduction and just seven lessons, it has enough material to make you a very proficient vi user, because it covers a large number of commands. After learning these basic ones, you can look up new tricks to incorporate into your list of vi commands because there are always more optimal ways to do things in vi with less typing.
 
-### Modes in vi
+<b> Modes in vi
 
 vi provides three modes, as described in the table below. It is vital to not lose track of which mode you are in. Many keystrokes and commands behave quite differently in different modes.
 
@@ -3028,7 +3028,7 @@ vi provides three modes, as described in the table below. It is vital to not los
 </center>
 </div>
 
-### Working with Files in vi
+<b> Working with Files in vi
 
 The table describes the most important commands used to start, exit, read, and write files in vi. The ENTER key needs to be pressed after all of these commands.
 
@@ -3038,7 +3038,7 @@ The table describes the most important commands used to start, exit, read, and w
 </center>
 </div>
 
-### Changing Cursor Positions in vi
+<b> Changing Cursor Positions in vi
 
 The table describes the most important keystrokes used when changing cursor position in vi. Line mode commands (those following colon : ) require the ENTER key to be pressed after the command is typed.
 
@@ -3048,7 +3048,7 @@ The table describes the most important keystrokes used when changing cursor posi
 </center>
 </div>
 
-### Searching for Text in vi
+<b> Searching for Text in vi
 
 The table describes the most important commands used when searching for text in vi. The ENTER key should be pressed after typing the search pattern.
 
@@ -3066,7 +3066,7 @@ The table describes the most important keystrokes used when searching for text i
 </center>
 </div>
 
-### Working with Text in vi
+<b> Working with Text in vi
 
 The table describes the most important keystrokes used when changing, adding, and deleting text in vi.
 
@@ -3076,7 +3076,7 @@ The table describes the most important keystrokes used when changing, adding, an
 </center>
 </div>
 
-### Commands for vi
+<b> Commands for vi
 
 <div>
 <center>
@@ -3102,19 +3102,19 @@ The table describes the most important keystrokes used when changing, adding, an
 </center>
 </div>
 
-### Using External Commands in vi
+<b> Using External Commands in vi
 
 Typing sh command opens an external command shell. When you exit the shell, you will resume your editing session.
 
 Typing ! executes a command from within vi. The command follows the exclamation point. This technique is best suited for non-interactive commands, such as : ! wc %. Typing this will run the wc (word count) command on the file; the character % represents the file currently being edited.
 
-### Introduction to emacs
+<b> Introduction to emacs
 
 The emacs editor is a popular competitor for vi. Unlike vi, it does not work with modes. emacs is highly customizable and includes a large number of features. It was initially designed for use on a console, but was soon adapted to work with a GUI as well. emacs has many other capabilities other than simple text editing. For example, it can be used for email, debugging, etc.
 
 Rather than having different modes for command and insert, like vi, emacs uses the CTRL and Meta (Alt or Esc) keys for special commands.
 
-### Working with emacs
+<b> Working with emacs
 
 The table lists some of the most important key combinations that are used when starting, exiting, reading, and writing files in emacs.
 
@@ -3126,7 +3126,7 @@ The table lists some of the most important key combinations that are used when s
 
 The emacs tutorial is a good place to start learning basic commands. It is available any time when in emacs by simply typing CTRL-h (for help) and then the letter t for tutorial.
 
-### Changing Cursor Positions in emacs 
+<b> Changing Cursor Positions in emacs 
 
 The table lists some of the keys and key combinations that are used for changing cursor positions in emacs.
 
@@ -3136,7 +3136,7 @@ The table lists some of the keys and key combinations that are used for changing
 </center>
 </div>
 
-### Searching for Text in emacs 
+<b> Searching for Text in emacs 
 
 The table lists the key combinations that are used for searching for text in emacs.
 
@@ -3146,7 +3146,7 @@ The table lists the key combinations that are used for searching for text in ema
 </center>
 </div>
 
-### Working with Text in emacs
+<b> Working with Text in emacs
 
 The table lists some of the key combinations used for changing, adding, and deleting text in emacs:
 
@@ -3156,7 +3156,7 @@ The table lists some of the key combinations used for changing, adding, and dele
 </center>
 </div>
 
-### Commands for emacs
+<b> Commands for emacs
 
 <div>
 <center>
@@ -3182,7 +3182,7 @@ The table lists some of the key combinations used for changing, adding, and dele
 </center>
 </div>
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 11. Let’s summarize the key concepts covered:
 
@@ -3196,7 +3196,7 @@ You have completed Chapter 11. Let’s summarize the key concepts covered:
 - vi has three modes: Command, Insert, and Line. emacs has only one, but requires use of special keys, such as Control and Escape.
 - Both editors use various combinations of keystrokes to accomplish tasks. The learning curve to master these can be long, but once mastered using either editor is extremely efficient.
 
-### Identifying the Current User
+<b> Identifying the Current User
 
 As you know, Linux is a multi-user operating system, meaning more than one user can log on at the same time.
 
@@ -3205,7 +3205,7 @@ As you know, Linux is a multi-user operating system, meaning more than one user 
 
 Giving who the -a option will give more detailed information.
 
-### User Startup Files
+<b> User Startup Files
 
 In Linux, the command shell program (generally bash) uses one or more startup files to configure the user environment. Files in the /etc directory define global settings for all users, while initialization files in the user's home directory can include and/or override the global settings.
 
@@ -3222,7 +3222,7 @@ The startup files can do anything the user would like to do in every command she
 - Setting the default text editor
 - Setting the path for where to find executable programs
 
-### Order of the Startup Files
+<b> Order of the Startup Files
 
 The standard prescription is that when you first login to Linux, /etc/profile is read and evaluated, after which the following files are searched (if they exist) in the listed order:
 
@@ -3244,7 +3244,7 @@ Recent distributions sometimes do not even have .bash_profile and/or .bash_login
 </center>
 </div>
 
-### Creating Aliases
+<b> Creating Aliases
 
 You can create customized commands or modify the behavior of already existing ones by creating aliases. Most often, these aliases are placed in your ~/.bashrc file so they are available to any command shells you create. unalias removes an alias.
 
@@ -3258,7 +3258,7 @@ Please note there should not be any spaces on either side of the equal sign and 
 </center>
 </div>
 
-### Basics of Users and Groups
+<b> Basics of Users and Groups
 
 All Linux users are assigned a unique user ID (uid), which is just an integer; normal users start with a uid of 1000 or greater.
 
@@ -3274,7 +3274,7 @@ For example, /etc/passwd might contain `george:x:1002:1002:George Metesky:/home/
 </center>
 </div>
 
-### Adding and Removing Users
+<b> Adding and Removing Users
 
 Distributions have straightforward graphical interfaces for creating and removing users and groups and manipulating group membership. However, it is often useful to do it from the command line or from within shell scripts. Only the root user can add and remove users and groups.
 
@@ -3295,7 +3295,7 @@ uid=1002(bjmoose) gid=1002(bjmoose) groups=106(fuse),1002(bjmoose)
 
 If given the name of another user as an argument, id will report information about that other user.
 
-### Adding and Removing Groups
+<b> Adding and Removing Groups
 
 Adding a new group is done with groupadd:
 
@@ -3331,7 +3331,7 @@ Removing a user from the group is somewhat trickier. The -G option to usermod mu
 
 only the rjsquirrel group will be left.
 
-### The root Account
+<b> The root Account
 
 The root account is very powerful and has full access to the system. Other operating systems often call this the administrator account; in Linux, it is often called the superuser account. You must be extremely cautious before granting full root access to a user; it is rarely, if ever, justified. External attacks often consist of tricks used to elevate to the root account.
 
@@ -3340,7 +3340,7 @@ However, you can use sudo to assign more limited privileges to user accounts:
             Only on a temporary basis
             Only for a specific subset of commands.
 
-### su and sudo
+<b> su and sudo
 
 When assigning elevated privileges, you can use the command su (switch or substitute user) to launch a new shell running as another user (you must type the password of the user you are becoming). Most often, this other user is root, and the new shell allows the use of elevated privileges until it is exited. It is almost always a bad (dangerous for both security and stability) practice to use su to become root. Resulting errors can include deletion of vital files from the system and security breaches.
 
@@ -3348,7 +3348,7 @@ Granting privileges using sudo is less dangerous and is preferred. By default, s
 
 In the Local Security Principles chapter we will describe and compare su and sudo in detail.
 
-### Elevating to root Account
+<b> Elevating to root Account
 
 To temporarily become the superuser for a series of commands, you can type su and then be prompted for the root password.
 
@@ -3356,7 +3356,7 @@ To execute just one command with root privilege type sudo <command>. When the co
 
 sudo configuration files are stored in the /etc/sudoers file and in the /etc/sudoers.d/ directory. By default, the sudoers.d directory is empty.
 
-### Deploying aliases
+<b> Deploying aliases
 
 Typing long commands and file names over and over again gets rather tedious, and leads to a lot of trivial errors, such as typos.
 
@@ -3382,13 +3382,13 @@ Note you can use double quotes instead of single quotes, or use no quotes at all
 
 To make the alias persistent, just place it in your $HOME/.bashrc file.
 
-### Environment Variables
+<b> Environment Variables
 
 Environment variables are quantities that have specific values which may be utilized by the command shell, such as bash, or other utilities and applications. Some environment variables are given preset values by the system (which can usually be overridden), while others are set directly by the user, either at the command line or within startup and other scripts. 
 
 An environment variable is actually just a character string that contains information used by one or more applications. There are a number of ways to view the values of currently set environment variables; one can type set, env, or export. Depending on the state of your system, set may print out many more lines than the other two methods.
 
-### Setting Environment Variables
+<b> Setting Environment Variables
 
 By default, variables created within a script are only available to the current shell; child processes (sub-shells) will not have access to values that have been set or modified. Allowing child processes to see the values requires use of the export command.
 
@@ -3404,7 +3404,7 @@ You can also set environment variables to be fed as a one shot to a command as i
 
 which feeds the values of the SDIRS and KROOT environment variables to the command make modules_install.
 
-### The HOME Variable
+<b> The HOME Variable
 
 HOME is an environment variable that represents the home (or login) directory of the user. cd without arguments will change the current working directory to the value of HOME. Note the tilde character (~) is often used as an abbreviation for \$HOME. Thus, cd $HOME and cd ~ are completely equivalent statements.
 
@@ -3422,7 +3422,7 @@ The screenshot demonstrates this.
 </center>
 </div>
 
-### The PATH Variable
+<b> The PATH Variable
 
 PATH is an ordered list of directories (the path) which is scanned when a command is given to find the appropriate program or script to run. Each directory in the path is separated by colons `(:)`. A null (empty) directory name (or ./) indicates the current directory at any given time.
 
@@ -3444,7 +3444,7 @@ To prefix a private bin directory to your path:
 </center>
 </div>
 
-### The SHELL Variable
+<b> The SHELL Variable
 
 The environment variable SHELL points to the user's default command shell (the program that is handling whatever you type in a command window, usually bash) and contains the full pathname to the shell:
 
@@ -3452,7 +3452,7 @@ The environment variable SHELL points to the user's default command shell (the p
 /bin/bash
 `$`
 
-### The PS1 Variable and the Command Line Prompt
+<b> The PS1 Variable and the Command Line Prompt
 
 Prompt Statement (PS) is used to customize your prompt string in your terminal windows to display the information you want. 
 
@@ -3486,7 +3486,7 @@ change the prompt, and eventually change it back with:
 `$ PS1=$OLD_PS1`
 `$`
 
-### Adding /tmp to Your Path
+<b> Adding /tmp to Your Path
 
 Create a small file /tmp/ls, which contains just the line:
 
@@ -3527,7 +3527,7 @@ For the next two steps, it is a good idea to work in another terminal window, or
 
 Note the second form is a very dangerous thing to do, and is a trivial way to insert a Trojan Horse program; if someone can put a malicious program in /tmp, they can trick you into running it accidentally.
 
-### Changing the Command Line Prompt
+<b> Changing the Command Line Prompt
 
 It is nice to have your current working directory as part of your prompt so that a quick glance will give you some information without typing pwd every time.
 
@@ -3555,13 +3555,13 @@ How can you make this persistent, so that whenever you start a bash command shel
 3. `PS1='\h:\w>'`
     student:/tmp>
 
-### Recalling Previous Commands
+<b> Recalling Previous Commands
 
 bash keeps track of previously entered commands and statements in a history buffer. You can recall previously used commands simply by using the Up and Down cursor keys. To view the list of previously executed commands, you can just type history at the command line.
 
 The list of commands is displayed with the most recent command appearing last in the list. This information is stored in ~/.bash_history. If you have multiple terminals open, the commands typed in each session are not saved until the session terminates.
 
-### Using History Environment Variables
+<b> Using History Environment Variables
 
 Several associated environment variables can be used to get information about the history file.
 
@@ -3585,7 +3585,7 @@ For a complete description of the use of these environment variables, see man ba
 </div>
 
 
-### Finding and Using Previous Commands
+<b> Finding and Using Previous Commands
 
 Specific keys to perform various tasks:
 
@@ -3606,7 +3606,7 @@ The following is an example of how you can use the CTRL-R command to search thro
 `$ sleep 1000`                                                     (Pressed Enter to execute the searched command)
 `$`
 
-### Executing Previous Commands
+<b> Executing Previous Commands
 
 The table describes the syntax used to execute previously used commands:
 
@@ -3640,7 +3640,7 @@ echo $SHELL
 sleep 1000
 `$`
 
-### Keyboard Shortcuts
+<b> Keyboard Shortcuts
 
 You can use keyboard shortcuts to perform different tasks quickly. The table lists some of these keyboard shortcuts and their uses. Note the case of the "hotkey" does not matter, e.g. doing CTRL-a is the same as doing CTRL-A .
 
@@ -3650,7 +3650,7 @@ You can use keyboard shortcuts to perform different tasks quickly. The table lis
 </center>
 </div>
 
-### Command History
+<b> Command History
 
 You have been busy working with your Linux workstation long enough to have typed in about 100 commands in one particular bash command shell.
 
@@ -3688,7 +3688,7 @@ to re-run the command listed as #9. If this was the only man command that you ty
 
 now that you remember the command name that you typed. Finally, if you had typed a few man commands, you could use CTRL-R to search backward in your history to find the specific man command that you want to re-run and then just hit Return to execute it.
 
-### File Ownership
+<b> File Ownership
 
 In Linux and other UNIX-based operating systems, every file is associated with a user who is the owner. Every file is also associated with a group (a subset of all users) which has an interest in the file and certain rights, or permissions: read, write, and execute.
 
@@ -3700,7 +3700,7 @@ The following utility programs involve user and group ownership and permission s
 </center>
 </div>
 
-### File Permission Modes and chmod
+<b> File Permission Modes and chmod
 
 Files have three kinds of permissions: read (r), write (w), execute (x). These are generally represented as in rwx. These permissions affect three groups of owners: user/owner (u), group (g), and others (o).
 
@@ -3744,7 +3744,7 @@ When you apply this to the chmod command, you have to give three digits for each
 </center>
 </div>
 
-### Example of chown
+<b> Example of chown
 
 Let's see an example of changing file ownership using chown, as shown in the screenshot to the right. First, we create two empty files using touch.
 
@@ -3758,7 +3758,7 @@ Finally, only the superuser can remove the files.
 </center>
 </div>
 
-### Example of chgrp
+<b> Example of chgrp
 
 Now, let’s see an example of changing the group ownership using chgrp:
 
@@ -3768,7 +3768,7 @@ Now, let’s see an example of changing the group ownership using chgrp:
 </center>
 </div>
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 12. Let's summarize the key concepts covered:
 
@@ -3787,7 +3787,7 @@ You have completed Chapter 12. Let's summarize the key concepts covered:
 - File ownership is changed by typing chown owner filename.
 - File group ownership is changed by typing chgrp group filename.
 
-### Command Line Tools for Manipulating Text Files
+<b> Command Line Tools for Manipulating Text Files
 
 Irrespective of the role you play with Linux (system administrator, developer or user), you often need to browse through and parse text files, and/or extract data from them. These are file manipulation operations. Thus, it is essential for the Linux user to become adept at performing certain operations on files.
 
@@ -3803,7 +3803,7 @@ In this section, we will concentrate on command line file and text manipulation-
 </center>
 </div>
 
-### cat
+<b> cat
 
 cat is short for concatenate and is one of the most frequently used Linux command line utilities. It is often used to read and print files, as well as for simply viewing file contents. To view a file, use the following command:
 
@@ -3822,7 +3822,7 @@ The tac command (cat spelled backwards) prints the lines of a file in reverse or
 </center>
 </div>
 
-### Using cat Interactively
+<b> Using cat Interactively
 
 cat can be used to read from standard input (such as the terminal window) if no files are specified. You can use the > operator to create and add lines into a new file, and the >> operator to append lines (or files) to an existing file. We mentioned this when talking about how to create files without an editor.
 
@@ -3840,7 +3840,7 @@ Note that EOF is case sensitive. One can also use another word, such as STOP.
 </center>
 </div>
 
-### echo 
+<b> echo 
 
 echo simply displays (echoes) text. It is used simply, as in:
 
@@ -3863,7 +3863,7 @@ The following table lists echo commands and their usage:
 </center>
 </div>
 
-### Working with Large Files
+<b> Working with Large Files
 
 System administrators need to work with configuration files, text files, documentation files, and log files. Some of these files may be large or become quite large as they accumulate data with time. These files will require both viewing and administrative updating. In this section, you will learn how to manage such large files.
 
@@ -3876,7 +3876,7 @@ Viewing somefile can be done by typing either of the two following commands:
 
 By default, man pages are sent through the less command. You may have encountered the older more utility which has the same basic function but fewer capabilities: i.e. less is more!
 
-### head
+<b> head
 
 head reads the first few lines of each named file (10 by default) and displays it on standard output. You can give a different number of lines in an option.
 
@@ -3894,7 +3894,7 @@ You can also just say:
 </center>
 </div>
 
-### tail
+<b> tail
 
 tail prints the last few lines of each named file and displays it on standard output. By default, it displays the last 10 lines. You can give a different number of lines as an option. tail is especially useful when you are troubleshooting any issue using log files, as you probably want to see the most recent lines of output.
 
@@ -3918,7 +3918,7 @@ This command will continuously display any new lines of output in somefile.log a
 </center>
 </div>
 
-### Viewing Compressed Files
+<b> Viewing Compressed Files
 
 When working with compressed files, many standard commands cannot be used directly. For many commonly-used file and text manipulation programs, there is also a version especially designed to work directly with compressed files. These associated utilities have the letter "z" prefixed to their name. For example, we have utility programs such as zcat, zless, zdiff and zgrep.
 
@@ -3932,13 +3932,13 @@ Here is a table listing some z family commands:
 
 Note that if you run zless on an uncompressed file, it will still work and ignore the decompression stage. There are also equivalent utility programs for other compression methods besides gzip, for example, we have bzcat and bzless associated with bzip2, and xzcat and xzless associated with xz.
 
-### Introduction to sed and awk
+<b> Introduction to sed and awk
 
 It is very common to create and then repeatedly edit and/or extract contents from a file. Let’s learn how to use sed and awk to easily perform such operations.
 
 Note that many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl, rather than use sed and awk (and some other utilities we will discuss later). Using such utilities is certainly fine in most circumstances; one should always feel free to use the tools one is experienced with. However, the utilities that are described here are much lighter; i.e. they use fewer system resources, and execute faster. There are situations (such as during booting the system) where a lot of time would be wasted using the more complicated tools, and the system may not even be able to run them. So, the simpler tools will always be needed.
 
-### sed
+<b> sed
 
 sed is a powerful text processing tool and is one of the oldest, earliest and most popular UNIX utilities. It is used to modify the contents of a file or input stream, usually placing the contents into a new file or output stream. Its name is an abbreviation for stream editor.
 
@@ -3952,7 +3952,7 @@ sed can filter text, as well as perform substitutions in data streams.
 
 Data from an input source/file (or stream) is taken and moved to a working space. The entire list of operations/modifications is applied over the data in the working space and the final contents are moved to the standard output space (or stream).
 
-### sed Command Syntax
+<b> sed Command Syntax
 
 You can invoke sed using commands like those listed in the accompanying table.
 
@@ -3970,7 +3970,7 @@ The -e option allows you to specify multiple editing commands simultaneously at 
 </center>
 </div>
 
-### sed Basic Operations
+<b> sed Basic Operations
 
 Now that you know that you can perform multiple editing and filtering operations with sed, let’s explain some of them in more detail. The table explains some basic operations, where pattern is the current string and replace_string is the new string:
 
@@ -3992,7 +3992,7 @@ sed     -e 's/01/JAN/' -e 's/02/FEB/' -e 's/03/MAR/' -e 's/04/APR/' -e 's/05/MAY
         -e 's/06/JUN/' -e 's/07/JUL/' -e 's/08/AUG/' -e 's/09/SEP/' -e 's/10/OCT/' \
         -e 's/11/NOV/' -e 's/12/DEC/'
 
-### awk
+<b> awk
 
 awk is used to extract and then print specific contents of a file and is often used to construct reports. It was created at Bell Labs in the 1970s and derived its name from the last names of its authors: Alfred Aho, Peter Weinberger, and Brian Kernighan.
 
@@ -4018,7 +4018,7 @@ s with sed, short awk commands can be specified directly at the command line, bu
 </center>
 </div>
 
-### awk Basic Operations
+<b> awk Basic Operations
 
 The table explains the basic tasks that can be performed using awk. The input file is read one line at a time, and, for each line, awk matches the given pattern in the given order and performs the requested action. The -F option allows you to specify a particular field separator character. For example, the /etc/passwd file uses ":" to separate the fields, so the -F: option is used with the /etc/passwd file.
 
@@ -4030,7 +4030,7 @@ The command/action in awk needs to be surrounded with apostrophes (or single-quo
 </center>
 </div>
 
-### Using sed
+<b> Using sed
 
 Search for all instances of the user command interpreter (shell) equal to /sbin/nologin in /etc/passwd and replace them with /bin/bash.
 
@@ -4052,7 +4052,7 @@ where we have used the colon ( : ) as the delimiter instead. (You are free to ch
 
 works just fine.
 
-### File Manipulation Utilities
+<b> File Manipulation Utilities
 
 In managing your files, you may need to perform tasks such as sorting data and copying data from one location to another. Linux provides numerous file manipulation utilities that you can use while working with text files. In this section, you will learn about the following file manipulation programs:
 
@@ -4064,7 +4064,7 @@ In managing your files, you may need to perform tasks such as sorting data and c
 
 You will also learn about regular expressions and search patterns.
 
-### sort
+<b> sort
 
 sort is used to rearrange the lines of a text file, in either ascending or descending order according to a sort key. You can also sort with respect to particular fields (columns) in a file. The default sort key is the order of the ASCII characters (i.e. essentially alphabetically).
 
@@ -4085,7 +4085,7 @@ When used with the -u option, sort checks for unique values after sorting the re
 </center>
 </div>
 
-### uniq
+<b> uniq
 
 niq removes duplicate consecutive lines in a text file and is useful for simplifying the text display.
 
@@ -4109,7 +4109,7 @@ To count the number of duplicate entries, use the following command:
 </center>
 </div>
 
-### paste
+<b> paste
 
 Suppose you have a file that contains the full name of all employees and another file that lists their phone numbers and Employee IDs. You want to create a new file that contains all the data listed in three columns: name, employee ID, and phone number. How can you do this effectively without investing too much time?
 
@@ -4126,7 +4126,7 @@ paste accepts the following options:
 </center>
 </div>
 
-### Using paste 
+<b> Using paste 
 
 paste can be used to combine fields (such as name or phone number) from different files, as well as combine lines from multiple files. For example, line one from file1 can be combined with line one of file2, line two from file1 can be combined with line two of file2, and so on.
 
@@ -4146,7 +4146,7 @@ Common delimiters are 'space', 'tab', '|', 'comma', etc.
 </center>
 </div>
 
-### join
+<b> join
 
 Suppose you have two files with some similar columns. You have saved employees’ phone numbers in two files, one with their first name and the other with their last name. You want to combine the files without repeating the data of common columns. How do you achieve this?
 
@@ -4158,7 +4158,7 @@ The above task can be achieved using join, which is essentially an enhanced vers
 </center>
 </div>
 
-### Using join
+<b> Using join
 
 To combine two files on a common field, at the command prompt type join file1 file2 and press the Enter key.
 
@@ -4170,7 +4170,7 @@ For example, the common field (i.e. it contains the same values) among the phone
 </center>
 </div>
 
-### split
+<b> split
 
 split is used to break up (or split) a file into equal-sized segments for easier viewing and manipulation, and is generally used only on relatively large files. By default, split breaks up a file into 1000-line segments. The original file remains unchanged, and a set of new files with the same name plus an added prefix is created. By default, the x prefix is added. To split a file into segments, use the command split infile.
 
@@ -4182,7 +4182,7 @@ To split a file into segments using a different prefix, use the command split in
 </center>
 </div>
 
-### Using split
+<b> Using split
 
 We will apply split to an American-English dictionary file of over 99,000 lines:
 
@@ -4200,7 +4200,7 @@ will split the American-English file into 100 equal-sized segments named diction
 </center>
 </div>
 
-### Regular Expressions and Search Patterns
+<b> Regular Expressions and Search Patterns
 
 Regular expressions are text strings used for matching a specific pattern, or to search for a specific location, such as the start or end of a line or a word. Regular expressions can contain both normal characters or so-called meta-characters, such as * and $.
 
@@ -4214,7 +4214,7 @@ These regular expressions are different from the wildcards (or meta-characters) 
 </center>
 </div>
 
-### Using Regular Expressions and Search Patterns
+<b> Using Regular Expressions and Search Patterns
 
 For example, consider the following sentence: the quick brown fox jumped over the lazy dog.
 
@@ -4226,7 +4226,7 @@ Some of the patterns that can be applied to this sentence are as follows:
 </center>
 </div>
 
-### Parsing Files with awk (and sort and uniq)
+<b> Parsing Files with awk (and sort and uniq)
 
 Generate a column containing a unique list of all the shells used for users in /etc/passwd.
 
@@ -4256,7 +4256,7 @@ For example:
 /sbin/nologin
 /sbin/shutdown
 
-### grep
+<b> grep
 
 grep is extensively used as a primary text searching tool. It scans files for specified patterns and can be used with regular expressions, as well as simple strings, as shown in the table:
 
@@ -4266,7 +4266,7 @@ grep is extensively used as a primary text searching tool. It scans files for sp
 </center>
 </div>
 
-### strings
+<b> strings
 
 strings is used to extract all printable character strings found in the file or files given as arguments. It is useful in locating human-readable content embedded in binary files; for text files one can just use grep.
 
@@ -4282,7 +4282,7 @@ The screenshot shows a search of a number of programs to see which ones have GPL
 </center>
 </div>
 
-### Using grep
+<b> Using grep
 
 In the following we give some examples of things you can do with the grep command; your task is to experiment with these examples and extend them.
 
@@ -4298,7 +4298,7 @@ In the following we give some examples of things you can do with the grep comman
 4. `student:/tmp> grep -n ftp /etc/services | grep -v tcp`
 5. `student:/tmp> grep -e ^ts -e st$ /etc/services`
 
-### tr
+<b> tr
 
 In this section, you will learn about some additional text utilities that you can use for performing various actions on your Linux files, such as changing the case of letters or determining the count of words, lines, and characters in a file.
 
@@ -4322,7 +4322,7 @@ For example, suppose you have a file named city containing several lines of text
 </center>
 </div>
 
-### tee
+<b> tee
 
 tee takes the output from any command, and, while sending it to standard output, it also saves it to a file. In other words, it tees the output stream from the command: one stream is displayed on the standard output and the other is saved to a file.
 
@@ -4336,7 +4336,7 @@ Typing cat newfile will then display the output of ls –l.
 </center>
 </div>
 
-### wc
+<b> wc
 
 wc (word count) counts the number of lines, words, and characters in a file or list of files. Options are given in the table below.
 
@@ -4356,7 +4356,7 @@ For example, to print only the number of lines contained in a file, type wc -l f
 </center>
 </div>
 
-### cut
+<b> cut
 
 cut is used for manipulating column-based files and is designed to extract specific columns. The default column separator is the tab character. A different delimiter can be given as a command option.
 
@@ -4368,7 +4368,7 @@ For example, to display the third column delimited by a blank space, at the comm
 </center>
 </div>
 
-### Using tee
+<b> Using tee
 
 The tee utility is very useful for saving a copy of your output while you are watching it being generated.
 
@@ -4405,7 +4405,7 @@ drwxr-xr-x   2 root root    12288 Nov  3 07:26 brltty
 -rw-r--r--   1 root root      676 Jun 23  2016 cgconfig.conf
 :
 
-### Using wc
+<b> Using wc
 
 Using wc (word count), find out how many lines, words, and characters there are in all the files in /var/log that have the .log extension.
 
@@ -4422,7 +4422,7 @@ wc: /var/log/wpa_supplicant.log: Permission denied
 wc: /var/log/yum.log: Permission denied
   10438  291452 5162156 total
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 13. Let’s summarize the key concepts covered:
 
@@ -4448,7 +4448,7 @@ You have completed Chapter 13. Let’s summarize the key concepts covered:
 - strings extracts printable character strings from binary files.
 - The z command family is used to read and work with compressed files.
 
-### Introduction to Networking
+<b> Introduction to Networking
 
 A network is a group of computers and computing devices connected together through communication channels, such as cables or wireless media. The computers connected over a network may be located in the same geographical area or spread across the world.
 
@@ -4460,7 +4460,7 @@ A network is used to:
 
 Most organizations have both an internal network and an Internet connection for users to communicate with machines and people outside the organization. The Internet is the largest network in the world and can be called "the network of networks".
 
-### IP Addresses
+<b> IP Addresses
 
 Devices attached to a network must have at least one unique network address identifier known as the IP (Internet Protocol) address. The address is essential for routing packets of information through the network.
 
@@ -4472,7 +4472,7 @@ Exchanging information across the network requires using streams of small packet
 </center>
 </div>
 
-### IPv4 and IPv6
+<b> IPv4 and IPv6
 
 There are two different types of IP addresses available: IPv4 (version 4) and IPv6 (version 6). IPv4 is older and by far the more widely used, while IPv6 is newer and is designed to get past limitations inherent in the older standard and furnish many more possible addresses.
 
@@ -4488,7 +4488,7 @@ One reason IPv4 has not disappeared is there are ways to effectively make many m
 </center>
 </div>
 
-### Decoding IPv4 Addresses
+<b> Decoding IPv4 Addresses
 
 A 32-bit IPv4 address is divided into four 8-bit sections called octets.
 
@@ -4506,7 +4506,7 @@ Network addresses are divided into five classes: A, B, C, D and E. Classes A, B 
 </center>
 </div>
 
-### Class A Network Addresses
+<b> Class A Network Addresses
 
 Class A addresses use the first octet of an IP address as their Net ID and use the other three octets as the Host ID. The first bit of the first octet is always set to zero. So you can use only 7-bits for unique network numbers. As a result, there are a maximum of 126 Class A networks available (the addresses 0000000 and 1111111 are reserved). Not surprisingly, this was only feasible when there were very few unique networks with large numbers of hosts. As the use of the Internet expanded, Classes B and C were added in order to accommodate the growing demand for independent networks.
 
@@ -4520,7 +4520,7 @@ NOTE: The value of an octet, or 8-bits, can range from 0 to 255.
 </center>
 </div>
 
-### Class B Network Addresses
+<b> Class B Network Addresses
 
 Class B addresses use the first two octets of the IP address as their Net ID and the last two octets as the Host ID. The first two bits of the first octet are always set to binary 10, so there are a maximum of 16,384 (14-bits) Class B networks. The first octet of a Class B address has values from 128 to 191. The introduction of Class B networks expanded the number of networks but it soon became clear that a further level would be needed.
 
@@ -4532,7 +4532,7 @@ Each Class B network can support a maximum of 65,536 unique hosts on its network
 </center>
 </div>
 
-### Class C Network Addresses
+<b> Class C Network Addresses
 
 Class C addresses use the first three octets of the IP address as their Net ID and the last octet as their Host ID. The first three bits of the first octet are set to binary 110, so almost 2.1 million (21-bits) Class C networks are available. The first octet of a Class C address has values from 192 to 223. These are most common for smaller networks which don't have many unique hosts.
 
@@ -4544,7 +4544,7 @@ Each Class C network can support up to 256 (8-bits) unique hosts. The range of h
 </center>
 </div>
 
-### IP Address Allocation
+<b> IP Address Allocation
 
 Typically, a range of IP addresses are requested from your Internet Service Provider (ISP) by your organization's network administrator. Often, your choice of which class of IP address you are given depends on the size of your network and expected growth needs. If NAT is in operation, such as in a home network, you only get one externally visible address!
 
@@ -4556,7 +4556,7 @@ Typically, a range of IP addresses are requested from your Internet Service Prov
 
 You can assign IP addresses to computers over a network either manually or dynamically. Manual assignment adds static (never changing) addresses to the network. Dynamically assigned addresses can change every time you reboot or even more often; the Dynamic Host Configuration Protocol (DHCP) is used to assign IP addresses.
 
-### Name Resolution
+<b> Name Resolution
 
 Name Resolution is used to convert numerical IP address values into a human-readable format known as the hostname. For example, 104.95.85.15 is the numerical IP address that refers to the hostname whitehouse.gov. Hostnames are much easier to remember!
 
@@ -4574,7 +4574,7 @@ The special hostname localhost is associated with the IP address 127.0.0.1 and d
 </center>
 </div>
 
-### Network Configuration Files
+<b> Network Configuration Files
 
 Network configuration files are essential to ensure that interfaces function correctly. They are located in the /etc directory tree. However, the exact files used have historically been dependent on the particular Linux distribution and version being used.
 
@@ -4590,7 +4590,7 @@ Modern systems emphasize the use of Network Manager, which we briefly discussed 
 
 Recent Ubuntu distributions include netplan, which is turned on by default, and supplants Network Manager. Since no other distribution has shown interest, and since it can easily be disabled if it bothers you, we will ignore it.
 
-### Network Interfaces
+<b> Network Interfaces
 
 Network interfaces are a connection channel between a device and a network. Physically, network interfaces can proceed through a network interface card (NIC), or can be more abstractly implemented as software. You can have multiple network interfaces operating at once. Specific interfaces can be brought up (activated) or brought down (deactivated) at any time.
 
@@ -4602,7 +4602,7 @@ Information about a particular network interface or all network interfaces can b
 </center>
 </div>
 
-### The ip Utility
+<b> The ip Utility
 
 To view the IP address:
 
@@ -4620,7 +4620,7 @@ ip is a very powerful program that can do many things. Older (and more specific)
 </center>
 </div>
 
-### ping
+<b> ping
 
 ping is used to check whether or not a machine attached to the network can receive and send data; i.e. it confirms that the remote host is online and is responding.
 
@@ -4634,7 +4634,7 @@ ping is frequently used for network testing and management; however, its usage c
 </center>
 </div>
 
-### route
+<b> route
 
 A network requires the connection of many nodes. Data moves from source to destination by passing through a series of routers and potentially across multiple networks. Servers maintain routing tables containing the addresses of each node in the network. The IP routing protocols enable routers to build up a forwarding table that correlates final destinations with the next hop addresses.
 
@@ -4652,7 +4652,7 @@ One can use the route utility or the newer ip route command to view or change th
 </center>
 </div>
 
-### traceroute
+<b> traceroute
 
 traceroute is used to inspect the route which the data packet takes to reach the destination host, which makes it quite useful for troubleshooting network delays and errors. By using traceroute, you can isolate connectivity issues between hops, which helps resolve them faster.
 
@@ -4664,7 +4664,7 @@ To print the route taken by the packet to reach the network host, at the command
 </center>
 </div>
 
-### More Networking Tools
+<b> More Networking Tools
 
 Now, let’s learn about some additional networking tools. Networking tools are very useful for monitoring and debugging network problems, such as network connectivity and network traffic.
 
@@ -4674,7 +4674,7 @@ Now, let’s learn about some additional networking tools. Networking tools are 
 </center>
 </div>
 
-### Graphical and Non-Graphical Browsers
+<b> Graphical and Non-Graphical Browsers
 
 Browsers are used to retrieve, transmit, and explore information resources, usually on the World Wide Web. Linux users commonly use both graphical and non-graphical browser applications.
 
@@ -4694,7 +4694,7 @@ Sometimes, you either do not have a graphical environment to work in (or have re
 </center>
 </div>
 
-### wget
+<b> wget
 
 Sometimes, you need to download files and information, but a browser is not the best choice, either because you want to download multiple files and/or directories, or you want to perform the action from a command line or a script. wget is a command line utility that can capably handle the following types of downloads:
 
@@ -4711,7 +4711,7 @@ To download a web page, you can simply type wget <url>, and then you can read th
 </center>
 </div>
 
-### curl
+<b> curl
 
 Besides downloading, you may want to obtain information about a URL, such as the source code being used. curl can be used from the command line or a script to read such information. curl also allows you to save the contents of a web page to a file, as does wget.
 
@@ -4725,7 +4725,7 @@ To get the contents of a web page and store it to a file, type `curl -o saved.ht
 </center>
 </div>
 
-### FTP (File Transfer Protocol)
+<b> FTP (File Transfer Protocol)
 
 When you are connected to a network, you may need to transfer files from one machine to another. File Transfer Protocol (FTP) is a well-known and popular method for transferring files between computers using the Internet. This method is built on a client-server model. FTP can be used within a browser or with stand-alone client programs.
 
@@ -4737,7 +4737,7 @@ When you are connected to a network, you may need to transfer files from one mac
 
 FTP is one of the oldest methods of network data transfer, dating back to the early 1970s. As such, it is considered inadequate for modern needs, as well as being intrinsically insecure. However, it is still in use and when security is not a concern (such as with so-called anonymous FTP) it can make sense. However, many websites, such as kernel.org, have abandoned its use.
 
-### FTP Clients
+<b> FTP Clients
 
 FTP clients enable you to transfer files with remote computers using the FTP protocol. These clients can be either graphical or command line tools. Filezilla, for example, allows use of the drag-and-drop approach to transfer files between hosts. All web browsers support FTP, all you have to do is give a URL like ftp://ftp.kernel.org where the usual http:// becomes ftp://.
 
@@ -4756,7 +4756,7 @@ FTP has fallen into disfavor on modern systems, as it is intrinsically insecure,
 </center>
 </div>
 
-### SSH: Executing Commands Remotely
+<b> SSH: Executing Commands Remotely
 
 Secure Shell (SSH) is a cryptographic network protocol used for secure data communication. It is also used for remote services and other secure services between two devices on the network and is very useful for administering systems which are not easily available to physically work on, but to which you have remote access.
 
@@ -4770,7 +4770,7 @@ To login to a remote system using your same user name you can just type ssh some
 
 If you want to run as another user, you can do either ssh -l someone some_system or ssh someone@some_system. To run a command on a remote system via SSH, at the command prompt, you can type ssh some_system my_command.
 
-### Copying Files Securely with scp
+<b> Copying Files Securely with scp
 
 We can also move files securely using Secure Copy (scp) between two networked hosts. scp uses the SSH protocol for transferring data.
 
@@ -4784,7 +4784,7 @@ You will receive a prompt for the remote password. You can also configure scp so
 </center>
 </div>
 
-### Network Troubleshooting
+<b> Network Troubleshooting
 
 Troubleshooting network problems is something that you will often encounter if you haven't already. We are going to practice some of the previously discussed tools, that can help you isolate, troubleshoot and fix problems in your network.
 
@@ -5035,7 +5035,7 @@ Note, an enhanced version of traceroute is supplied by mtr, which runs continuou
 
 Hopefully, running through some of these commands helped. It actually helps to see what the correct output for your system looks like. Practice using these commands; it is very likely that you will need them someday.
 
-### Non-Graphical Browsers
+<b> Non-Graphical Browsers
 
 There are times when a graphical browser is not available, but you need to look up or download a resource. In this exercise, we are going to experiment with using non-graphical web browsers. 
 
@@ -5075,7 +5075,7 @@ You should see a text dialog box with choices of what to do. Save the package wh
 
 You can now quit your non-graphical browser. If you used links, then click on the top line of the screen, select the File drop-down menu item, and click on Exit. Confirm that you really want to exit Links. You should now see your shell prompt.
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 14. Let’s summarize the key concepts covered:
 
@@ -5097,7 +5097,7 @@ You have completed Chapter 14. Let’s summarize the key concepts covered:
 - ftp, sftp, ncftp, and yafc are command line FTP clients used in Linux.
                 You can use ssh to run commands on remote systems.
 
-### Shell Scripting
+<b> Shell Scripting
 
 Suppose you want to look up a filename, check if the associated file exists, and then respond accordingly, displaying a message confirming or not confirming the file's existence. If you only need to do it once, you can just type a sequence of commands at a terminal. However, if you need to do this multiple times, automation is the way to go. In order to automate sets of commands, you will need to learn how to write shell scripts. Most commonly in Linux, these scripts are developed to be run under the bash command shell interpreter. The graphic illustrates several of the benefits of deploying scripts.
 
@@ -5109,7 +5109,7 @@ Suppose you want to look up a filename, check if the associated file exists, and
 
 NOTE: Many of the topics discussed in this and the next chapter have already been introduced earlier, while discussing things that can be done at the command line. We have elected to repeat some of that discussion in order to make the sections on scripting stand on their own, so the repetition is intentional.
 
-### Command Shell Choices
+<b> Command Shell Choices
 
 The command interpreter is tasked with executing statements that follow it in the script. Commonly used interpreters include: /usr/bin/perl, /bin/bash, /bin/csh, /usr/bin/python and /bin/sh.
 
@@ -5132,7 +5132,7 @@ Most Linux users use the default bash shell, but those with long UNIX background
 </center>
 </div>
 
-### History of Command Shells
+<b> History of Command Shells
 
 To learn more about the UNIX shell, you can read this short article below.
 
@@ -5156,7 +5156,7 @@ sh and partial compatibility with ksh.
 On all Linux systems sh is just a link to bash, but scripts which are invoked as sh will only work
 without the bash extensions. A similar relationship exists between csh and tcsh.
 
-### Shell Scripts
+<b> Shell Scripts
 
 Remember from our earlier discussion, a shell is a command line interpreter which provides the user interface for terminal windows. It can also be used to run scripts, even in non-interactive sessions without a terminal window, as if the commands were being directly typed in. For example, typing `find . -name "*.c" -ls` at the command line accomplishes the same thing as executing a script file containing the lines:
 
@@ -5171,7 +5171,7 @@ The first line of the script, which starts with #!, contains the full path of th
 </center>
 </div>
 
-### A Simple bash Script
+<b> A Simple bash Script
 
 Let's write a simple bash script that displays a one line message on the screen. Either type:
 
@@ -5196,7 +5196,7 @@ NOTE: If you use the second form, you do not have to make the file executable.
 </center>
 </div>
 
-### Interactive Example Using bash Scripts
+<b> Interactive Example Using bash Scripts
 
 Now, let's see how to create a more interactive example using a bash script. The user will be prompted to enter a value, which is then displayed on the screen. The value is stored in a temporary variable, name. We can reference the value of a shell variable by using a $ in front of the variable name, such as \$name. To create this script, you need to create a file named getname.sh in your favorite editor with the following content:
 
@@ -5219,7 +5219,7 @@ NOTE: The hash-tag/pound-sign/number-sign (#) is used to start comments in the s
 </center>
 </div>
 
-### Return Values
+<b> Return Values
 
 All shell scripts generate a return value upon finishing execution, which can be explicitly set with the exit statement. Return values permit a process to monitor the exit state of another process, often in a parent-child relationship. Knowing how the process terminates enables taking any appropriate steps which are necessary or contingent on success or failure.
 
@@ -5229,7 +5229,7 @@ All shell scripts generate a return value upon finishing execution, which can be
 </center>
 </div>
 
-### Viewing Return Values
+<b> Viewing Return Values
 
 As a script executes, one can check for a specific value or condition and return success or failure as the result. By convention, success is returned as 0, and failure is returned as a non-zero value. An easy way to demonstrate success and failure completion is to execute ls on a file that exists as well as one that does not, the return value is stored in the environment variable represented by $?:
 
@@ -5249,7 +5249,7 @@ In this example, the system is able to locate the file /etc/logrotate.conf and l
 </center>
 </div>
 
-### Exit Status Codes
+<b> Exit Status Codes
 
 Write a script which:
 
@@ -5283,7 +5283,7 @@ Make it executable and run it:
         SoMeFiLe.ext
         status: 0
 
-### Basic Syntax and Special Characters
+<b> Basic Syntax and Special Characters
 
 Scripts require you to follow a standard language syntax. Rules delineate how to define variables and how to construct and format allowed statements, etc. The table lists some special character usages within bash scripts:
 
@@ -5295,7 +5295,7 @@ Scripts require you to follow a standard language syntax. Rules delineate how to
 
 There are other special characters and character combinations and constructs that scripts understand, such as (..), {..}, [..], &&, ||, ', ", $((...)), some of which we will discuss later.
 
-### Splitting Long Commands Over Multiple Lines
+<b> Splitting Long Commands Over Multiple Lines
 
 Sometimes, commands are too long to either easily type on one line, or to grasp and understand (even though there is no real practical limit to the length of a command line).  
 
@@ -5318,7 +5318,7 @@ The command is divided into multiple lines to make it look readable and easier t
 </center>
 </div>
 
-### Putting Multiple Commands on a Single Line
+<b> Putting Multiple Commands on a Single Line
 
 Users sometimes need to combine several commands and statements and even conditionally execute them based on the behavior of operators used in between them. This method is called chaining of commands.
 
@@ -5346,7 +5346,7 @@ Chaining commands is not the same as piping them; in the later case succeeding c
 </center>
 </div>
 
-### Output Redirection
+<b> Output Redirection
 
 Most operating systems accept input from the keyboard and display the output on the terminal. However, in shell scripting you can send the output to a file. The process of diverting the output to a file is called output redirection. We have already used this facility in our earlier sections on how to use the command line.
 
@@ -5364,7 +5364,7 @@ Two > characters (>>) will append output to a file if it exists, and act just li
 </center>
 </div>
 
-### Input Redirection
+<b> Input Redirection
 
 Just as the output can be redirected to a file, the input of a command can be read from a file. The process of reading input from a file is called input redirection and uses the < character.
 
@@ -5379,7 +5379,7 @@ The following three commands (using wc to count the number of lines, words and c
 `$ cat /etc/passwd | wc`
 49  105 2678
 
-### Built-In Shell Commands
+<b> Built-In Shell Commands
 
 Shell scripts execute sequences of commands and other types of statements. These commands can be: 
 
@@ -5399,7 +5399,7 @@ A complete list of bash built-in commands can be found in the bash man page, or 
 </center>
 </div>
 
-### 
+<b> 
 
 We already enumerated which commands have versions built in to bash, in our earlier discussion of how to get help on Linux systems. Once again, here is a screenshot listing exactly which commands are available.
 
@@ -5409,7 +5409,7 @@ We already enumerated which commands have versions built in to bash, in our earl
 </center>
 </div>
 
-### Script Parameters
+<b> Script Parameters
 
 Users often need to pass parameter values to a script, such as a filename, date, etc. Scripts will take different paths or arrive at different values according to the parameters (command arguments) that are passed to them. These values can be text or numbers as in:
 
@@ -5424,7 +5424,7 @@ Within a script, the parameter or an argument is represented with a $ and a numb
 </center>
 </div>
 
-### Using Script Parameters
+<b> Using Script Parameters
 
 If you type in the script shown in the figure, make the script executable with chmod +x param.sh. Then, run the script giving it several arguments, as shown. The script is processed as follows:
 
@@ -5446,7 +5446,7 @@ The final statement becomes: All done with param.sh
 </center>
 </div>
 
-### Command Substitution
+<b> Command Substitution
 
 At times, you may need to substitute the result of a command as a portion of another command. It can be done in two ways:
 
@@ -5467,7 +5467,7 @@ In the above example, the output of the command uname –r (which will be someth
 </center>
 </div>
 
-### Environment Variables
+<b> Environment Variables
 
 Most scripts use variables containing a value, which can be used anywhere in the script. These variables can either be user or system-defined. Many applications use such environment variables (already covered in some detail in the User Environment chapter) for supplying inputs, validation, and controlling behavior.
 
@@ -5487,7 +5487,7 @@ You can get a list of environment variables with the env, set, or printenv comma
 </center>
 </div>
 
-### Exporting Environment Variables
+<b> Exporting Environment Variables
 
 While we discussed the export of environment variables in the section on the "User Environment", it is worth reviewing this topic in the context of writing bash scripts.
 
@@ -5509,7 +5509,7 @@ Typing export with no arguments will give a list of all currently exported envir
 </center>
 </div>
 
-### Functions
+<b> Functions
 
 A function is a code block that implements a set of operations. Functions are useful for executing procedures multiple times, perhaps with varying input variables. Functions are also often called subroutines. Using functions in scripts requires two steps:
 
@@ -5536,7 +5536,7 @@ The function can be as long as desired and have many statements. Once defined, t
 </center>
 </div>
 
-### Working with Files and Directories in a Script
+<b> Working with Files and Directories in a Script
 
 Write a script which:
 
@@ -5616,7 +5616,7 @@ Give a directory name to create:
         This file is named file4
         Goodbye My Friend
 
-### Passing Arguments
+<b> Passing Arguments
 
 Write a script that takes exactly one argument, and prints it back out to standard output. Make sure the script generates a usage message if it is run without giving an argument.
 
@@ -5646,7 +5646,7 @@ Make it executable and run it:
         Usage: ./testarg.sh argument
         student:/tmp>
 
-### Environment Variables
+<b> Environment Variables
 
 Write a script which:
 
@@ -5710,7 +5710,7 @@ Enter 1 or 2, to set the environmental variable EVAR to Yes or No
 
 The value of EVAR is: Unknown
 
-### Working with Functions
+<b> Working with Functions
 
 Write a script which:
 
@@ -5765,7 +5765,7 @@ Enter a number from 1 to 3
 
 ./testfun.sh: line 21: func7: command not found
 
-### The if Statement
+<b> The if Statement
 
 Conditional decision making, using an if statement, is a basic construct that any useful programming or scripting language must have.
 
@@ -5797,7 +5797,7 @@ fi
 </center>
 </div>
 
-### Using the if Statement
+<b> Using the if Statement
 
 In the following example, an if statement checks to see if a certain file exists, and if the file is found, it displays a message indicating success or failure:
 
@@ -5817,7 +5817,7 @@ Notice the use of the square brackets ([]) to delineate the test condition. Ther
 
 In modern scripts, you may see doubled brackets as in \[[ -f /etc/passwd ]]. This is not an error. It is never wrong to do so and it avoids some subtle problems, such as referring to an empty environment variable without surrounding it in double quotes; we will not talk about this here.
 
-### The elif Statement
+<b> The elif Statement
 
 You can use the elif statement to perform more complicated tests, and take action appropriate actions. The basic syntax is:
 
@@ -5837,7 +5837,7 @@ In the example shown we use strings tests which we will explain shortly, and sho
 </center>
 </div>
 
-### Testing for Files
+<b> Testing for Files
 
 bash provides a set of file conditionals, that can be used with the if statement, including those in the table.
 
@@ -5870,7 +5870,7 @@ man 1 test.
 </center>
 </div>
 
-### Boolean Expressions
+<b> Boolean Expressions
 
 Boolean expressions evaluate to either TRUE or FALSE, and results are obtained using the various Boolean operators listed in the table.
 
@@ -5884,7 +5884,7 @@ Note that if you have multiple conditions strung together with the && operator, 
 
 Likewise, if you are using the || operator, processing stops as soon as anything is true. For example, if you have A || B || C and A is false and B is true, you will also never execute C.
 
-### Tests in Boolean Expressions
+<b> Tests in Boolean Expressions
 
 Boolean expressions return either TRUE or FALSE. We can use such expressions when working with multiple data types, including strings or numbers, as well as with files. For example, to check if a file exists, use the following conditional test:
 
@@ -5896,7 +5896,7 @@ Similarly, to check if the value of number1 is greater than the value of number2
 
 The operator -gt returns TRUE if number1 is greater than number2.
 
-### Example of Testing of Strings
+<b> Example of Testing of Strings
 
 You can use the if statement to compare strings using the operator == (two equal signs). The syntax is as follows:
 
@@ -5914,7 +5914,7 @@ In the example illustrated here, the if statement is used to compare the input p
 </center>
 </div>
 
-### Numerical Tests
+<b> Numerical Tests
 
 You can use specially defined operators with the if statement to compare numbers. The various operators that are available are listed in the table:
 
@@ -5928,7 +5928,7 @@ The syntax for comparing numbers is as follows:
 
     exp1 -op exp2
 
-### Example of Testing for Numbers
+<b> Example of Testing for Numbers
 
 Let us now consider an example of comparing numbers using the various operators:
 
@@ -5938,7 +5938,7 @@ Let us now consider an example of comparing numbers using the various operators:
 </center>
 </div>
 
-### Arithmetic Expressions
+<b> Arithmetic Expressions
 
 Arithmetic expressions can be evaluated in the following three ways (spaces are important!):
 
@@ -5964,7 +5964,7 @@ In modern shell scripts, the use of expr is better replaced with var=$((...)).
 </center>
 </div>
 
-### Arithmetic and Functions
+<b> Arithmetic and Functions
 
 Write a script that will act as a simple calculator for add, subtract, multiply and divide.
 
@@ -6067,7 +6067,7 @@ Make it executable and run it:
     operator must be a, s, m, or d, not x as supplied
     x is not a, s, m, or d, aborting
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 15. Let’s summarize the key concepts covered:
 
@@ -6082,7 +6082,7 @@ You have completed Chapter 15. Let’s summarize the key concepts covered:
 - The if statement is used to select an action based on a condition.
 - Arithmetic expressions consist of numbers and arithmetic operators, such as +, -, and *.
 
-### String Manipulation
+<b> String Manipulation
 
 Let’s go deeper and find out how to work with strings in scripts.
 
@@ -6096,7 +6096,7 @@ String operators include those that do comparison, sorting, and finding the leng
 </center>
 </div>
 
-### Example of String Manipulation
+<b> Example of String Manipulation
 
 In the first example, we compare the first string with the second string and display an appropriate message using the if statement.
 
@@ -6114,7 +6114,7 @@ In the second example, we pass in a file name and see if that file exists in the
 </center>
 </div>
 
-### Parts of a String
+<b> Parts of a String
 
 At times, you may not need to compare or use an entire string. To extract the first n characters of a string we can specify: ${string:0:n}. Here, 0 is the offset in the string (i.e. which character to begin from) where the extraction needs to start and n is the number of characters to be extracted.
 
@@ -6126,7 +6126,7 @@ To extract all characters in a string after a dot (.), use the following express
 </center>
 </div>
 
-### String Tests and Operations
+<b> String Tests and Operations
 
 Write a script which reads two strings as arguments and then:
 
@@ -6211,7 +6211,7 @@ Create a file named teststrings.sh, with the content below:
 
 `student:/tmp>`
 
-### The case Statement
+<b> The case Statement
 
 The case statement is used in scenarios where the actual value of a variable can lead to different execution paths. case statements are often used to handle command-line options.
 
@@ -6228,7 +6228,7 @@ Below are some of the advantages of using the case statement:
 </center>
 </div>
 
-### Structure of the case Statement
+<b> Structure of the case Statement
 
 Here is the basic structure of the case statement:
 
@@ -6246,7 +6246,7 @@ Here is the basic structure of the case statement:
 </center>
 </div>
 
-### Example of Use of the case Construct
+<b> Example of Use of the case Construct
 
 Here is an example of the use of a case construct. Note you can have multiple possibilities for each case value that take the same action.
 
@@ -6256,7 +6256,7 @@ Here is an example of the use of a case construct. Note you can have multiple po
 </center>
 </div>
 
-### Using the case Statement
+<b> Using the case Statement
 
 Write a script that takes as an argument a month in numerical form (i.e. between 1 and 12), and translates this to the month name and displays the result on standard out (the terminal).
 
@@ -6282,7 +6282,7 @@ Create a file named testcase.sh, with the content below:
 
     month=$1
 
-################################################
+<b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>
 `# The example of a case statement:`
 
     case $month in
@@ -6324,7 +6324,7 @@ Make it executable and run it:
     Please pass a number between 1 and 12
     student:/tmp> 
 
-### Looping Constructs
+<b> Looping Constructs
 
 By using looping constructs, you can execute one or more lines of code repetitively, usually on a selection of values of data such as individual files. Usually, you do this until a conditional test returns either true or false, as is required.
 
@@ -6342,7 +6342,7 @@ Three types of loops are often used in most programming languages:
 
 All these loops are easily used for repeating a set of statements until the exit condition is true.
 
-### The for Loop
+<b> The for Loop
 
 The for loop operates on each element of a list of items. The syntax for the for loop is:
 
@@ -6361,7 +6361,7 @@ The screenshot here shows an example of the for loop to print the sum of numbers
 </center>
 </div>
 
-### The while Loop
+<b> The while Loop
 
 The while loop repeats a set of statements as long as the control command returns true. The syntax is:
 
@@ -6381,7 +6381,7 @@ The screenshot here shows an example of the while loop that calculates the facto
 </center>
 </div>
 
-### The until Loop
+<b> The until Loop
 
 The until loop repeats a set of statements as long as the control command is false. Thus, it is essentially the opposite of the while loop. The syntax is:
 
@@ -6401,13 +6401,13 @@ The screenshot here shows an example of the until loop that once again computes 
 </center>
 </div>
 
-### Debugging bash Scripts
+<b> Debugging bash Scripts
 
 While working with scripts and commands, you may run into errors. These may be due to an error in the script, such as an incorrect syntax, or other ingredients, such as a missing file or insufficient permission to do an operation. These errors may be reported with a specific error code, but often just yield incorrect or confusing output. So, how do you go about identifying and fixing an error?
 
 Debugging helps you troubleshoot and resolve such errors, and is one of the most important tasks a system administrator performs.
 
-### Script Debug Mode
+<b> Script Debug Mode
 
 You can run a bash script in debug mode either by doing bash –x ./script_file, or bracketing parts of the script with set -x and set +x. The debug mode helps identify the error because:
 
@@ -6427,7 +6427,7 @@ The screenshot shown here demonstrates a script which runs in debug mode if run 
 </center>
 </div>
 
-### Redirecting Errors to File and Screen
+<b> Redirecting Errors to File and Screen
 
 In UNIX/Linux, all programs that run are given three open file streams when they are started as listed in the table: 
 
@@ -6447,7 +6447,7 @@ The screenshot shows a shell script with a simple bug, which is then run and the
 </center>
 </div>
 
-### Creating Temporary Files and Directories
+<b> Creating Temporary Files and Directories
 
 Consider a situation where you want to retrieve 100 records from a file with 10,000 records. You will need a place to store the extracted information, perhaps in a temporary file, while you do further processing on it.
 
@@ -6463,7 +6463,7 @@ The XXXXXXXX is replaced by mktemp with random characters to ensure the name of 
 </center>
 </div>
 
-### Example of Creating a Temporary File and Directory
+<b> Example of Creating a Temporary File and Directory
 
 Sloppiness in creation of temporary files can lead to real damage, either by accident or if there is a malicious actor. For example, if someone were to create a symbolic link from a known temporary file used by root to the /etc/passwd file, like this:
 
@@ -6488,7 +6488,7 @@ Note the screen capture shows similarly named temporary files from different day
 </center>
 </div>
 
-### Discarding Output with /dev/null
+<b> Discarding Output with /dev/null
 
 Certain commands (like find) will produce voluminous amounts of output, which can overwhelm the console. To avoid this, we can redirect the large output to a special file (a device node) called /dev/null. This pseudofile is also called the bit bucket or black hole.
 
@@ -6508,7 +6508,7 @@ both stdout and stderr will be dumped into /dev/null.
 </center>
 </div>
 
-### Random Numbers and Data
+<b> Random Numbers and Data
 
 It is often useful to generate random numbers and other random data when performing tasks such as:
 
@@ -6529,7 +6529,7 @@ The example shows you how to easily use the environmental variable method to gen
 </center>
 </div>
 
-### How the Kernel Generates Random Numbers
+<b> How the Kernel Generates Random Numbers
 
 Some servers have hardware random number generators that take as input different types of noise signals, such as thermal noise and photoelectric effect. A transducer converts this noise into an electric signal, which is again converted into a digital number by an A-D converter. This number is considered random. However, most common computers do not contain such specialized hardware and, instead, rely on events created during booting to create the raw data needed.
 
@@ -6547,7 +6547,7 @@ Furthermore, when the entropy pool is empty, /dev/random is blocked and does not
 </center>
 </div>
 
-### Using Random Numbers
+<b> Using Random Numbers
 
 Write a script which:
 
@@ -6582,7 +6582,7 @@ Make it executable and run it:
     strC-27782
     student:/tmp>
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 16. Let’s summarize the key concepts covered:
 
@@ -6596,13 +6596,13 @@ You have completed Chapter 16. Let’s summarize the key concepts covered:
 - Linux allows you to create temporary files and directories, which store data for a short duration, both saving space and increasing security.
 - Linux provides several different ways of generating random numbers, which are widely used.
 
-### Printing on Linux
+<b> Printing on Linux
 
 To manage printers and print directly from a computer or across a networked environment, you need to know how to configure and install a printer. Printing itself requires software that converts information from the application you are using to a language your printer can understand. The Linux standard for printing software is the Common UNIX Printing System (CUPS).
 
 Modern Linux desktop systems make installing and administering printers pretty simple and intuitive, and not unlike how it is done on other operating systems. Nevertheless, it is instructive to understand the underpinnings of how it is done in Linux.
 
-### CUPS Overview
+<b> CUPS Overview
 
 CUPS is the underlying software almost all Linux systems use to print from applications like a web browser or LibreOffice. It converts page descriptions produced by your application (put a paragraph here, draw a line there, and so forth) and then sends the information to the printer. It acts as a print server for both local and network printers.
 
@@ -6610,7 +6610,7 @@ Printers manufactured by different companies may use their own particular print 
 
 Generally, the only time you should need to configure your printer is when you use it for the first time. In fact, CUPS often figures things out on its own by detecting and configuring any printers it locates.
 
-### How Does CUPS Work? 
+<b> How Does CUPS Work? 
 
 CUPS carries out the printing process with the help of its various components:
 
@@ -6630,7 +6630,7 @@ You will learn about each of these components on the next few pages.
 </center>
 </div>
 
-### Scheduler
+<b> Scheduler
 
 CUPS is designed around a print scheduler that manages print jobs, handles administrative commands, allows users to query the printer status, and manages the flow of data through all CUPS components.
 
@@ -6642,7 +6642,7 @@ CUPS is designed around a print scheduler that manages print jobs, handles admin
 
 We will look at the browser-based interface that can be used with CUPS,  which allows you to view and manipulate the order and status of pending print jobs.
 
-### Configuration Files
+<b> Configuration Files
 
 The print scheduler reads server settings from several configuration files, the two most important of which are cupsd.conf and printers.conf. These and all other CUPS related configuration files are stored under the /etc/cups/ directory.
 
@@ -6658,7 +6658,7 @@ You can view the full list of configuration files by typing ls -lF /etc/cups.
 </center>
 </div>
 
-### Job Files
+<b> Job Files
 
 CUPS stores print requests as files under the /var/spool/cups directory (these can actually be accessed before a document is sent to a printer). Data files are prefixed with the letter d while control files are prefixed with the letter c.
 
@@ -6676,7 +6676,7 @@ After a printer successfully handles a job, data files are automatically removed
 </center>
 </div>
 
-### Log Files
+<b> Log Files
 
 Log files are placed in /var/log/cups and are used by the scheduler to record activities that have taken place. These files include access, error, and page records.
 
@@ -6698,7 +6698,7 @@ Note on some distributions permissions are set such that you do not need to use 
 </center>
 </div>
 
-### Filters, Printer Drivers, and Backends
+<b> Filters, Printer Drivers, and Backends
 
 CUPS uses filters to convert job file formats to printable formats. Printer drivers contain descriptions for currently connected and configured printers, and are usually stored under /etc/cups/ppd/. The print data is then sent to the printer through a filter, and via a backend that helps to locate devices connected to the system.
 
@@ -6710,7 +6710,7 @@ CUPS uses filters to convert job file formats to printable formats. Printer driv
 
 So, in short, when you execute a print command, the scheduler validates the command and processes the print job, creating job files according to the settings specified in the configuration files. Simultaneously, the scheduler records activities in the log files. Job files are processed with the help of the filter, printer driver, and backend, and then sent to the printer.
 
-### Managing CUPS
+<b> Managing CUPS
 
 Assuming CUPS has been installed you'll need to start and manage the CUPS daemon so that CUPS is ready for configuring a printer. Managing the CUPS daemon is simple; all management features can be done with the systemctl utility:
 
@@ -6722,7 +6722,7 @@ Assuming CUPS has been installed you'll need to start and manage the CUPS daemon
 
 NOTE: The next screen demonstrates this on Ubuntu, but is the same for all major current Linux distributions. 
 
-### Configuring a Printer from the GUI
+<b> Configuring a Printer from the GUI
 
 Each Linux distribution has a GUI application that lets you add, remove, and configure local or remote printers. Using this application, you can easily set up the system to use both local and network printers. The following screens show how to find and use the appropriate application in each of the distribution families covered in this course.
 
@@ -6734,7 +6734,7 @@ When configuring a printer, make sure the device is currently turned on and conn
 </center>
 </div>
 
-### Adding Printers from the CUPS Web Interface
+<b> Adding Printers from the CUPS Web Interface
 
 A fact that few people know is that CUPS also comes with its own web server, which makes a configuration interface available via a set of CGI scripts.
 
@@ -6765,7 +6765,7 @@ Some pages require a username and password to perform certain actions, for examp
 </center>
 </div>
 
-### Printing from the Graphical Interface
+<b> Printing from the Graphical Interface
 
 Many graphical applications allow users to access printing features using the CTRL-P shortcut. To print a file, you first need to specify the printer (or a file name and location if you are printing to a file instead) you want to use; and then select the page setup, quality, and color options. After selecting the required options, you can submit the document for printing. The document is then submitted to CUPS. You can use your browser to access the CUPS web interface at http://localhost:631/ to monitor the status of the printing job. Now that you have configured the printer, you can print using either the Graphical or Command Line interfaces.
 
@@ -6777,7 +6777,7 @@ The screenshot shows the GUI interface for CTRL-P for CentOS, other Linux distri
 </center>
 </div>
 
-### Printing from the Command-Line Interface
+<b> Printing from the Command-Line Interface
 
 CUPS provides two command-line interfaces, descended from the System V and BSD flavors of UNIX. This means that you can use either lp (System V) or lpr (BSD) to print. You can use these commands to print text, PostScript, PDF, and image files.
 
@@ -6791,7 +6791,7 @@ lp is just a command line front-end to the lpr utility that passes input to lpr.
 </center>
 </div>
 
-### Using lp
+<b> Using lp
 
 lp and lpr accept command line options that help you perform all operations that the GUI can accomplish. lp is typically used with a file name as an argument.
 
@@ -6805,7 +6805,7 @@ Some lp commands and other printing utilities you can use are listed in the tabl
 
 lpoptions can be used to set printer options and defaults. Each printer has a set of tags associated with it, such as the default number of copies and authentication requirements. You can type lpoptions help to obtain a list of supported options. lpoptions can also be used to set system-wide values, such as the default printer.
 
-### Managing Print Jobs
+<b> Managing Print Jobs
 
 You send a file to the shared printer. But when you go there to collect the printout, you discover another user has just started a 200 page job that is not time sensitive. Your file cannot be printed until this print job is complete. What do you do now?
 
@@ -6819,7 +6819,7 @@ Some of these commands are listed in the table.
 </center>
 </div>
 
-### Working with PostScript and PDF
+<b> Working with PostScript and PDF
 
 PostScript is a standard  page description language. It effectively manages scaling of fonts and vector graphics to provide quality printouts. It is purely a text format that contains the data fed to a PostScript interpreter. The format itself is a language that was developed by Adobe in the early 1980s to enable the transfer of data to printers.
 
@@ -6837,7 +6837,7 @@ Features of PostScript are:
 
 Postscript has been for the most part superseded by the PDF format (Portable Document Format) which produces far smaller files in a compressed format for which support has been integrated into many applications. However, one still has to deal with postscript documents, often as an intermediate format on the way to producing final documents.
 
-### Working with enscript
+<b> Working with enscript
 
 enscript is a tool that is used to convert a text file to PostScript and other formats. It also supports Rich Text Format (RTF) and HyperText Markup Language (HTML). For example, you can convert a text file to two columns (-2) formatted PostScript using the command:
 
@@ -6853,7 +6853,7 @@ The commands that can be used with enscript are listed in the table below (for a
 </center>
 </div>
 
-### Converting between PostScript and PDF
+<b> Converting between PostScript and PDF
 
 Most users today are far more accustomed to working with files in PDF format, viewing them easily either on the Internet through their browser or locally on their machine. The PostScript format is still important for various technical reasons that the general user will rarely have to deal with.
 
@@ -6869,7 +6869,7 @@ Some usage examples:
 </center>
 </div>
 
-### Viewing PDF Content
+<b> Viewing PDF Content
 
 Linux has many standard programs that can read PDF files, as well as many applications that can easily create them, including all available office suites, such as LibreOffice.
 
@@ -6880,7 +6880,7 @@ The most common Linux PDF readers are:
 
 These open source PDF readers support and can read files following the PostScript standard. The proprietary Adobe Acrobat Reader, which was once widely used on Linux systems, is fortunately no longer available, as it did defective rendering and was unstable and poorly maintained.
 
-### Manipulating PDFs
+<b> Manipulating PDFs
 
 At times, you may want to merge, split, or rotate PDF files; not all of these operations can be achieved while using a PDF viewer. Some of these operations include:
 
@@ -6900,7 +6900,7 @@ In order to accomplish these tasks there are several programs available:
 
 qpdf is widely available on Linux distributions and is very full-featured. pdftk was once very popular but depends on an obsolete unmaintained package (libgcj) and a number of distributions have dropped it; thus we recommend avoiding it. Ghostscript (often invoked using gs) is widely available and well-maintained. However, its usage is a little complex.
 
-### Using qpdf
+<b> Using qpdf
 
 You can accomplish a wide variety of tasks using qpdf including:
 
@@ -6916,7 +6916,7 @@ You can accomplish a wide variety of tasks using qpdf including:
 </center>
 </div>
 
-### Using pdftk
+<b> Using pdftk
 
 pdftk has now been ported to Java! Marc Vinyals has developed and maintained a port to Java for pdftk which can be found here, together with instructions for installation. Some distributions such as Ubuntu, may install this version only. 
 
@@ -6928,7 +6928,7 @@ You can accomplish a wide variety of tasks using pdftk including:
 </center>
 </div>
 
-### Encrypting PDF Files with pdftk
+<b> Encrypting PDF Files with pdftk
 
 If you’re working with PDF files that contain confidential information and you want to ensure that only certain people can view the PDF file, you can apply a password to it using the user_pw option. One can do this by issuing a command such as:
 
@@ -6942,7 +6942,7 @@ When you run this command, you will receive a prompt to set the required passwor
 </center>
 </div>
 
-### Using Ghostscript
+<b> Using Ghostscript
 
 Ghostscript is widely available as an interpreter for the Postscript and PDF languages. The executable program associated with it is abbreviated to gs.
 
@@ -6957,7 +6957,7 @@ This utility can do most of the operations pdftk can, as well as many others; se
     `$ gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dDOPDFMARKS=false -dFirstPage=10 -dLastPage=20\
             -sOutputFile=split.pdf file.pdf`
 
-### Using Additional Tools
+<b> Using Additional Tools
 
 You can use other tools to work with PDF files, such as:
 
@@ -6978,7 +6978,7 @@ For example, to collect the details of a document, you can use the following com
 </center>
 </div>
 
-### Creating PostScript and PDF from Text Files
+<b> Creating PostScript and PDF from Text Files
 
 1. Check to see if the enscript package has been installed on your system, and if not, install it.
 2. Using enscript, convert the text file /var/dmesg to PostScript format and name the result /tmp/dmesg.ps. As an alternative, you can use any large text file on your system. Make sure you can read the PostScript file (for example with evince) and compare to the original file. NOTE: On some systems, evince may have problems with the PostScript file, but the PDF file you produce from it will be fine for viewing.
@@ -7044,7 +7044,7 @@ For example, to collect the details of a document, you can use the following com
         Page rot:       0
         File size:      28177 bytes
 
-### Combining PDFs
+<b> Combining PDFs
 
 You can convert two text files (you can create them or use ones that already exist since this is non-destructive) into PDFs, or you can use two pre-existing ones. Combine them into one PDF, and view the result.
 
@@ -7079,7 +7079,7 @@ Now view them:
 
 How do the files compare?
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 17. Let’s summarize the key concepts covered:
 
@@ -7095,7 +7095,7 @@ You have completed Chapter 17. Let’s summarize the key concepts covered:
 - flpsed can add data to a PostScript document.
 - pdfmod is a simple application with a graphical interface that you can use to modify PDF documents.
 
-### User Accounts
+<b> User Accounts
 
 The Linux kernel allows properly authenticated users to access files and applications. While each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID. Upon account creation, new user information is added to the user database and the user's home directory must be created and populated with some essential files. Command line programs such as useradd and userdel as well as GUI tools are used for creating and removing accounts. 
 
@@ -7113,7 +7113,7 @@ For each user, the following seven fields are maintained in the /etc/passwd file
 </center>
 </div>
 
-### Types of Accounts
+<b> Types of Accounts
 
 By default, Linux distinguishes between several account types in order to isolate processes and workloads. Linux has four types of accounts:
 
@@ -7132,13 +7132,13 @@ Keep in mind that practices you use on multi-user business systems are more stri
 </center>
 </div>
 
-### Understanding the root Account
+<b> Understanding the root Account
 
 root is the most privileged account on a Linux/UNIX system. This account has the ability to carry out all facets of system administration, including adding accounts, changing user passwords, examining log files, installing software, etc. Utmost care must be taken when using this account. It has no security restrictions imposed upon it.
 
 When you are signed in as, or acting as root, the shell prompt displays '#' (if you are using bash and you have not customized the prompt, as we have discussed previously). This convention is intended to serve as a warning to you of the absolute power of this account.
 
-### Operations Requiring root Privileges
+<b> Operations Requiring root Privileges
 
 root privileges are required to perform operations such as:
 
@@ -7155,7 +7155,7 @@ Regular account users of Linux distributions might be allowed to install softwar
 </center>
 </div>
 
-### Operations Not Requiring root Privileges
+<b> Operations Not Requiring root Privileges
 
 A regular account user can perform some operations requiring special permissions; however, the system configuration must allow such abilities to be exercised.
 
@@ -7169,7 +7169,7 @@ The table provides examples of operations which do not require root privileges:
 </center>
 </div>
 
-### Comparing sudo and su
+<b> Comparing sudo and su
 
 In Linux you can use either su or sudo to temporarily grant root access to a normal user. However, these methods are actually quite different. Listed below are the differences between the two commands:
 
@@ -7179,7 +7179,7 @@ In Linux you can use either su or sudo to temporarily grant root access to a nor
 </center>
 </div>
 
-### sudo Features
+<b> sudo Features
 
 sudo has the ability to keep track of unsuccessful attempts at gaining root access. Users' authorization for using sudo is based on configuration information stored in the /etc/sudoers file and in the /etc/sudoers.d directory.
 
@@ -7193,7 +7193,7 @@ A message such as the following would appear in a system log file (usually /var/
 </center>
 </div>
 
-### The sudoers File
+<b> The sudoers File
 
 Whenever sudo is invoked, a trigger will look at /etc/sudoers and the files in /etc/sudoers.d to determine if the user has the right to use sudo and what the scope of their privilege is. Unknown user requests and requests to do operations not allowed to the user even with sudo are reported. The basic structure of entries in these files is:
 
@@ -7214,7 +7214,7 @@ The actual specific editor invoked will depend on the setting of your EDITOR env
 </center>
 </div>
 
-### Command Logging
+<b> Command Logging
 
 By default, sudo commands and any failures are logged in /var/log/auth.log under the Debian distribution family, and in /var/log/messages and/or /var/log/secure on other systems. This is an important safeguard to allow for tracking and accountability of sudo use. A typical entry of the message contains:
 
@@ -7234,7 +7234,7 @@ Running a command such as sudo whoami results in a log file entry such as:
 </center>
 </div>
 
-### Process Isolation
+<b> Process Isolation
 
 Linux is considered to be more secure than many other operating systems because processes are naturally isolated from each other. One process normally cannot access the resources of another process, even when that process is running with the same user privileges. Linux thus makes it difficult (though certainly not impossible) for viruses and security exploits to access and attack random resources on a system.
 
@@ -7253,7 +7253,7 @@ More recent additional security mechanisms that limit risks even further include
 </center>
 </div>
 
-### Hardware Device Access
+<b> Hardware Device Access
 
 Linux limits user access to non-networking hardware devices in a manner that is extremely similar to regular file access. Applications interact by engaging the filesystem layer (which is independent of the actual device or hardware the file resides on). This layer will then open a device special file (often called a device node) under the /dev directory that corresponds to the device being accessed. Each device special file has standard owner, group and world permission fields. Security is naturally enforced just as it is when standard files are accessed.
 
@@ -7269,7 +7269,7 @@ The standard permissions as shown in the figure, make it impossible for regular 
 </center>
 </div>
 
-### Keeping Current
+<b> Keeping Current
 
 When security problems in either the Linux kernel or applications and libraries are discovered, Linux distributions have a good record of reacting quickly and pushing out fixes to all systems by updating their software repositories and sending notifications to update immediately. The same thing is true with bug fixes and performance improvements that are not security related.
 
@@ -7283,7 +7283,7 @@ However, it is well known that many systems do not get updated frequently enough
 
 So the best practice is to take advantage of your Linux distribution's mechanism for automatic updates and never postpone them. It is extremely rare that such an update will cause new problems.
 
-### sudo
+<b> sudo
 
 
 - Create a new user, using useradd, and give the user an initial password with passwd.
@@ -7318,7 +7318,7 @@ which will require giving newuser's password, and is probably a better solution.
 
 `sudo ls /root`
 
-### How Passwords Are Stored
+<b> How Passwords Are Stored
 
 The system verifies authenticity and identity using user credentials.
 
@@ -7332,7 +7332,7 @@ Originally, encrypted passwords were stored in the /etc/passwd file, which was r
 
 On modern systems, passwords are actually stored in an encrypted format in a secondary file named /etc/shadow. Only those with root access can read or modify this file.
 
-### Password Algorithm
+<b> Password Algorithm
 
 Protecting passwords has become a crucial element of security. Most Linux distributions rely on a modern password encryption algorithm called SHA-512 (Secure Hashing Algorithm 512 bits), developed by the U.S. National Security Agency (NSA) to encrypt passwords.
 
@@ -7346,7 +7346,7 @@ For example, if you wish to experiment with SHA-512 encoding, the word "test" ca
 </center>
 </div>
 
-### Good Password Practices
+<b> Good Password Practices
 
 IT professionals follow several good practices for securing the data and the password of every user.
 
@@ -7360,7 +7360,7 @@ IT professionals follow several good practices for securing the data and the pas
 </center>
 </div>
 
-### Password Aging
+<b> Password Aging
 
 With the newly created user from the previous exercise, look at the password aging for the user.
 
@@ -7377,7 +7377,7 @@ When you are finished and wish to delete the newly created account, use userdel,
 
 Note: The example solution works in the US. chage -E uses the default date format for the local keyboard setting.
 
-### Requiring Boot Loader Passwords
+<b> Requiring Boot Loader Passwords
 
 You can secure the boot process with a secure password to prevent someone from bypassing the user authentication step. This can work in conjunction with password protection for the BIOS. Note that while using a bootloader password alone will stop a user from editing the bootloader configuration during the boot process, it will not prevent a user from booting from an alternative boot media such as optical disks or pen drives. Thus, it should be used with a BIOS password for full protection.
 
@@ -7385,7 +7385,7 @@ For the older GRUB 1 boot method, it was relatively easy to set a password for g
 
 Furthermore, you never edit grub.cfg directly; instead, you can modify the configuration files in /etc/grub.d and /etc/defaults/grub, and then run update-grub, or grub2-mkconfig and save the new configuration file.
 
-### Hardware Vulnerability
+<b> Hardware Vulnerability
 
 When hardware is physically accessible, security can be compromised by:
 
@@ -7413,11 +7413,11 @@ For single user computers and those in a home environment some of the above feat
 </center>
 </div>
 
-### Software Vulnerability
+<b> Software Vulnerability
 
 Like all software, hackers occasionally find weaknesses in the Linux ecosystem. The strength of the Linux (and open source community in general) is the speed with which such vulnerabilities are exposed and remediated. Specific coverage of vulnerabilities is beyond the scope of this course, but the Discussion Board can be used to carry out further discussion.
 
-### Chapter Summary
+<b> Chapter Summary
 
 You have completed Chapter 18. Let’s summarize the key concepts covered:
 

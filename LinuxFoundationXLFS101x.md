@@ -4,7 +4,7 @@ So, what is a Linux distribution and how does it relate to the Linux kernel?
 
 <div>
 <center>
-<img src="Distributionroles.png" width="400"/>
+<img src="Distributionroles.png" width="300"/>
 </center>
 </div>
 
@@ -208,7 +208,7 @@ Linux systems store their important files according to a standard layout called 
 
 <div>
 <center>
-<img src="Filesystemhierarchy.png" width="400"/>
+<img src="Filesystemhierarchy.png" width="300"/>
 </center>
 </div>
 
@@ -397,7 +397,7 @@ The exact method for changing your theme may depend on your distribution. For ol
 
 There are other options to get additional themes beyond the default selection. You can download and install themes from the GNOME's Wiki website.
 
-### Lab 4.1: Customizing the Desktop
+### Customizing the Desktop
 
 Despite the length of this section, we will not do very elaborate step-by-step lab exercises, because of the diversity of Linux distributions and versions, and because they each customize their desktops, even if the underlying code base is the same. Trying to give exact instructions is an exercise in futility; not only are there many variations, they are susceptible to change every time a new version of a Linux distribution is released.
 
@@ -647,7 +647,7 @@ The "automatic" settings are referring to the use of Network Time Protocol (NTP)
 
 The Network Time Protocol (NTP) is the most popular and reliable protocol for setting the local time by consulting established Internet servers. Linux distributions always come with a working NTP setup, which refers to specific time servers run or relied on by the distribution. This means that no setup, beyond "on" or "off", is generally required for network time synchronization.
 
-#### Lab 5.1: Getting and Setting Screen Resolution
+#### Getting and Setting Screen Resolution
 
 Find out the current screen resolution for your desktop.
 
@@ -825,7 +825,7 @@ Linux systems provide many other applications for performing Internet-related ta
 
 <div>
 <center>
-<img src="OtherApp.png" width="400"/>
+<img src="OtherApp.png" width="300"/>
 </center>
 </div>
 
@@ -874,7 +874,7 @@ Multimedia applications are used to listen to music, watch videos, etc., as well
 
 <div>
 <center>
-<img src="Sound.png" width="400"/>
+<img src="Sound.png" width="300"/>
 </center>
 </div>
 
@@ -898,7 +898,7 @@ Movie editors are used to edit videos or movies. Linux systems offer a number of
 
 <div>
 <center>
-<img src="MovieEditors.png" width="400"/>
+<img src="MovieEditors.png" width="300"/>
 </center>
 </div>
 ### GIMP (GNU Image Manipulation Program)
@@ -918,7 +918,7 @@ In addition to GIMP, there are other graphics utilities that help perform variou
 
 <div>
 <center>
-<img src="GraphicsUtilities.png" width="400"/>
+<img src="GraphicsUtilities.png" width="300"/>
 </center>
 </div>
 ### Chapter Summary
@@ -1003,7 +1003,7 @@ Next, you will learn the steps to set up and run sudo on your system.
 
 <div>
 <center>
-<img src="sudo.png" width="400"/>
+<img src="sudo.png" width="300"/>
 </center>
 </div>
 ### Steps for Setting Up and Running sudo
@@ -1030,7 +1030,7 @@ Linux production servers are usually installed without the GUI, and even if it i
 
 <div>
 <center>
-<img src="switching.png" width="400"/>
+<img src="switching.png" width="300"/>
 </center>
 </div>
 
@@ -1065,7 +1065,7 @@ On Ubuntu versions before 18.04 LTS, substitute lightdm for gdm.
 
 <div>
 <center>
-<img src="Turningoff.png" width="400"/>
+<img src="Turningoff.png" width="300"/>
 </center>
 </div>
 
@@ -1100,7 +1100,7 @@ Once your session is started (either by logging into a text terminal or via a gr
 
 <div>
 <center>
-<img src="logging.png" width="400"/>
+<img src="logging.png" width="300"/>
 </center>
 </div>
 ### Rebooting and Shutting Down
@@ -1117,7 +1117,7 @@ NOTE: On recent Wayland-based Linux distributions, broadcast messages do not app
 
 <div>
 <center>
-<img src="rebooting.png" width="400"/>
+<img src="rebooting.png" width="300"/>
 </center>
 </div>
 ### Locating Applications
@@ -1142,7 +1142,7 @@ When you first log into a system or open a terminal, the default directory shoul
 
 <div>
 <center>
-<img src="accessing.png" width="400"/>
+<img src="accessing.png" width="300"/>
 </center>
 </div>
 ### Understanding Absolute and Relative Paths
@@ -1227,7 +1227,7 @@ The `cd` command remembers where you were last, and lets you get back there with
 
 <div>
 <center>
-<img src="navigating.png" width="400"/>
+<img src="navigating.png" width="300"/>
 </center>
 </div>
 ### Working with Files
@@ -1261,7 +1261,7 @@ This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
 
 <div>
 <center>
-<img src="touch.png" width="400"/>
+<img src="touch.png" width="300"/>
 </center>
 </div>
 ### mkdir and rmdir
@@ -1291,7 +1291,7 @@ If you are not certain about removing files that match a pattern you supply, it 
 
 <div>
 <center>
-<img src="remove.png" width="400"/>
+<img src="remove.png" width="300"/>
 </center>
 </div>
 ### Renaming or Removing a Directory
@@ -1302,7 +1302,7 @@ While typing `rm –rf` is a fast and easy way to remove a whole filesystem tree
 
 <div>
 <center>
-<img src="removedir.png" width="400"/>
+<img src="removedir.png" width="300"/>
 </center>
 </div>
 ### Modifying the Command Line Prompt
@@ -1330,7 +1330,7 @@ When commands are executed, by default there are three standard file streams (or
 
 <div>
 <center>
-<img src="standard.png" width="400"/>
+<img src="standard.png" width="300"/>
 </center>
 </div>
 Usually, stdin is your keyboard, and stdout and stderr are printed on your terminal. stderr is often redirected to an error logging file, while stdin is supplied by directing input to come from a file or from the output of a previous command through a pipe. stdout is also often redirected into a file. Since stderr is where error messages are written, usually nothing will go there.
@@ -1407,7 +1407,7 @@ locate utilizes a database created by a related utility, updatedb. Most Linux sy
 
 <div>
 <center>
-<img src="wildcards.png" width="400"/>
+<img src="wildcards.png" width="300"/>
 </center>
 </div>
 
@@ -1677,7 +1677,7 @@ Items function like browser links and are identified by an asterisk (*) at the b
 
 <div>
 <center>
-<img src="function.png" width="300"/>
+<img src="function.png" width="200"/>
 </center>
 </div>
 
@@ -1983,7 +1983,7 @@ Without options, ps will display all processes running under the current shell. 
 
 <div>
 <center>
-<img src="pscommand.png" width="400"/>
+<img src="pscommand.png" width="300"/>
 </center>
 </div>
 
@@ -1995,7 +1995,7 @@ The screenshot shows a sample output of ps with the aux and axo qualifiers.
 
 <div>
 <center>
-<img src="pscommand2.png" width="400"/>
+<img src="pscommand2.png" width="300"/>
 </center>
 </div>
 
@@ -2061,7 +2061,7 @@ The table lists what happens when pressing various keys when running top:
 
 <div>
 <center>
-<img src="top.png" width="400"/>
+<img src="top.png" width="300"/>
 </center>
 </div>
 
@@ -2083,7 +2083,7 @@ Typing crontab -e will open the crontab editor to edit existing jobs or to creat
 
 <div>
 <center>
-<img src="cron.png" width="400"/>
+<img src="cron.png" width="300"/>
 </center>
 </div>
 
@@ -2113,7 +2113,7 @@ sleep and at are quite different; sleep delays execution for a specific period, 
 
 <div>
 <center>
-<img src="sleep.png" width="400"/>
+<img src="sleep.png" width="300"/>
 </center>
 </div>
 
@@ -2257,7 +2257,7 @@ The picture shows the use of the gparted utility, which displays the partition l
 
 <div>
 <center>
-<img src="gparted.png" width="400"/>
+<img src="gparted.png" width="300"/>
 </center>
 </div>
 
@@ -2299,7 +2299,7 @@ The command df -Th (disk-free) will display information about mounted filesystem
 
 <div>
 <center>
-<img src="clientserver.png" width="400"/>
+<img src="clientserver.png" width="300"/>
 </center>
 </div>
 
@@ -2460,7 +2460,7 @@ The /var directory contains files that are expected to change in size and conten
 
 <div>
 <center>
-<img src="var.png" width="400"/>
+<img src="var.png" width="300"/>
 </center>
 </div>
 
@@ -2593,7 +2593,7 @@ The graphic shows the use of diff3.
 
 <div>
 <center>
-<img src="diff3.png" width="300"/>
+<img src="diff3.png" width="200"/>
 </center>
 </div>
 
@@ -2605,7 +2605,7 @@ Distributing just the patch is more concise and efficient than distributing the 
 
 <div>
 <center>
-<img src="patch.png" width="400"/>
+<img src="patch.png" width="300"/>
 </center>
 </div>
 
@@ -3072,7 +3072,7 @@ The table describes the most important keystrokes used when changing, adding, an
 
 <div>
 <center>
-<img src="workingvi.png" width="400"/>
+<img src="workingvi.png" width="300"/>
 </center>
 </div>
 
@@ -3080,25 +3080,25 @@ The table describes the most important keystrokes used when changing, adding, an
 
 <div>
 <center>
-<img src="commandsvi1.png" width="400"/>
+<img src="commandsvi1.png" width="300"/>
 </center>
 </div>
 
 <div>
 <center>
-<img src="commandsvi2.png" width="400"/>
+<img src="commandsvi2.png" width="300"/>
 </center>
 </div>
 
 <div>
 <center>
-<img src="commandsvi3.png" width="400"/>
+<img src="commandsvi3.png" width="300"/>
 </center>
 </div>
 
 <div>
 <center>
-<img src="commandsvi4.png" width="400"/>
+<img src="commandsvi4.png" width="300"/>
 </center>
 </div>
 
@@ -3120,7 +3120,7 @@ The table lists some of the most important key combinations that are used when s
 
 <div>
 <center>
-<img src="emacs.png" width="400"/>
+<img src="emacs.png" width="300"/>
 </center>
 </div>
 
@@ -3132,7 +3132,7 @@ The table lists some of the keys and key combinations that are used for changing
 
 <div>
 <center>
-<img src="emacs1.png" width="400"/>
+<img src="emacs1.png" width="300"/>
 </center>
 </div>
 
@@ -3142,7 +3142,7 @@ The table lists the key combinations that are used for searching for text in ema
 
 <div>
 <center>
-<img src="searchingemacs.png" width="400"/>
+<img src="searchingemacs.png" width="300"/>
 </center>
 </div>
 
@@ -3152,7 +3152,7 @@ The table lists some of the key combinations used for changing, adding, and dele
 
 <div>
 <center>
-<img src="workingemacs.png" width="400"/>
+<img src="workingemacs.png" width="300"/>
 </center>
 </div>
 
@@ -3160,25 +3160,25 @@ The table lists some of the key combinations used for changing, adding, and dele
 
 <div>
 <center>
-<img src="commandsemacs1.png" width="400"/>
+<img src="commandsemacs1.png" width="300"/>
 </center>
 </div>
 
 <div>
 <center>
-<img src="commandsemacs2.png" width="400"/>
+<img src="commandsemacs2.png" width="300"/>
 </center>
 </div>
 
 <div>
 <center>
-<img src="commandsemacs3.png" width="400"/>
+<img src="commandsemacs3.png" width="300"/>
 </center>
 </div>
 
 <div>
 <center>
-<img src="commandsemacs4.png" width="400"/>
+<img src="commandsemacs4.png" width="300"/>
 </center>
 </div>
 
@@ -3254,7 +3254,7 @@ Please note there should not be any spaces on either side of the equal sign and 
 
 <div>
 <center>
-<img src="aliases.png" width="400"/>
+<img src="aliases.png" width="300"/>
 </center>
 </div>
 
@@ -3270,7 +3270,7 @@ For example, /etc/passwd might contain `george:x:1002:1002:George Metesky:/home/
 
 <div>
 <center>
-<img src="basics.png" width="400"/>
+<img src="basics.png" width="300"/>
 </center>
 </div>
 
@@ -3394,7 +3394,7 @@ By default, variables created within a script are only available to the current 
 
 <div>
 <center>
-<img src="settingenvironment.png" width="400"/>
+<img src="settingenvironment.png" width="300"/>
 </center>
 </div>
 
@@ -3410,7 +3410,7 @@ HOME is an environment variable that represents the home (or login) directory of
 
 <div>
 <center>
-<img src="home1.png" width="400"/>
+<img src="home1.png" width="300"/>
 </center>
 </div>
 
@@ -3440,7 +3440,7 @@ To prefix a private bin directory to your path:
 
 <div>
 <center>
-<img src="path.png" width="400"/>
+<img src="path.png" width="300"/>
 </center>
 </div>
 
@@ -3580,7 +3580,7 @@ For a complete description of the use of these environment variables, see man ba
 
 <div>
 <center>
-<img src="hist.png" width="300"/>
+<img src="hist.png" width="200"/>
 </center>
 </div>
 
@@ -3591,7 +3591,7 @@ Specific keys to perform various tasks:
 
 <div>
 <center>
-<img src="previouscommand.png" width="400"/>
+<img src="previouscommand.png" width="300"/>
 </center>
 </div>
 
@@ -3612,7 +3612,7 @@ The table describes the syntax used to execute previously used commands:
 
 <div>
 <center>
-<img src="executingpreviouscommand.png" width="400"/>
+<img src="executingpreviouscommand.png" width="300"/>
 </center>
 </div>
 
@@ -3646,7 +3646,7 @@ You can use keyboard shortcuts to perform different tasks quickly. The table lis
 
 <div>
 <center>
-<img src="shortcuts.png" width="400"/>
+<img src="shortcuts.png" width="300"/>
 </center>
 </div>
 
@@ -3696,7 +3696,7 @@ The following utility programs involve user and group ownership and permission s
 
 <div>
 <center>
-<img src="ownership.png" width="400"/>
+<img src="ownership.png" width="300"/>
 </center>
 </div>
 
@@ -3740,7 +3740,7 @@ When you apply this to the chmod command, you have to give three digits for each
 
 <div>
 <center>
-<img src="filepermission.png" width="400"/>
+<img src="filepermission.png" width="300"/>
 </center>
 </div>
 
@@ -3754,7 +3754,7 @@ Finally, only the superuser can remove the files.
 
 <div>
 <center>
-<img src="chown.png" width="400"/>
+<img src="chown.png" width="300"/>
 </center>
 </div>
 
@@ -3764,7 +3764,7 @@ Now, let’s see an example of changing the group ownership using chgrp:
 
 <div>
 <center>
-<img src="chgrp.png" width="400"/>
+<img src="chgrp.png" width="300"/>
 </center>
 </div>
 
@@ -3799,7 +3799,7 @@ In this section, we will concentrate on command line file and text manipulation-
 
 <div>
 <center>
-<img src="manipulating.png" width="400"/>
+<img src="manipulating.png" width="300"/>
 </center>
 </div>
 
@@ -3818,7 +3818,7 @@ The tac command (cat spelled backwards) prints the lines of a file in reverse or
 
 <div>
 <center>
-<img src="cat.png" width="400"/>
+<img src="cat.png" width="300"/>
 </center>
 </div>
 
@@ -3836,7 +3836,7 @@ Note that EOF is case sensitive. One can also use another word, such as STOP.
 
 <div>
 <center>
-<img src="usingcat.png" width="400"/>
+<img src="usingcat.png" width="300"/>
 </center>
 </div>
 
@@ -3859,7 +3859,7 @@ The following table lists echo commands and their usage:
 
 <div>
 <center>
-<img src="echo.png" width="400"/>
+<img src="echo.png" width="300"/>
 </center>
 </div>
 
@@ -3890,7 +3890,7 @@ You can also just say:
 
 <div>
 <center>
-<img src="head.png" width="400"/>
+<img src="head.png" width="300"/>
 </center>
 </div>
 
@@ -3914,7 +3914,7 @@ This command will continuously display any new lines of output in somefile.log a
 
 <div>
 <center>
-<img src="tail.png" width="400"/>
+<img src="tail.png" width="300"/>
 </center>
 </div>
 
@@ -3926,7 +3926,7 @@ Here is a table listing some z family commands:
 
 <div>
 <center>
-<img src="zcommand.png" width="400"/>
+<img src="zcommand.png" width="300"/>
 </center>
 </div>
 
@@ -3958,7 +3958,7 @@ You can invoke sed using commands like those listed in the accompanying table.
 
 <div>
 <center>
-<img src="sedcommandsyntax.png" width="400"/>
+<img src="sedcommandsyntax.png" width="300"/>
 </center>
 </div>
 
@@ -3966,7 +3966,7 @@ The -e option allows you to specify multiple editing commands simultaneously at 
 
 <div>
 <center>
-<img src="sedcommandsyntax1.png" width="400"/>
+<img src="sedcommandsyntax1.png" width="300"/>
 </center>
 </div>
 
@@ -3976,7 +3976,7 @@ Now that you know that you can perform multiple editing and filtering operations
 
 <div>
 <center>
-<img src="sedbasic.png" width="400"/>
+<img src="sedbasic.png" width="300"/>
 </center>
 </div>
 
@@ -4006,7 +4006,7 @@ awk is invoked as shown in the following:
 
 <div>
 <center>
-<img src="awk1.png" width="400"/>
+<img src="awk1.png" width="300"/>
 </center>
 </div>
 
@@ -4014,7 +4014,7 @@ s with sed, short awk commands can be specified directly at the command line, bu
 
 <div>
 <center>
-<img src="awk2.png" width="400"/>
+<img src="awk2.png" width="300"/>
 </center>
 </div>
 
@@ -4026,7 +4026,7 @@ The command/action in awk needs to be surrounded with apostrophes (or single-quo
 
 <div>
 <center>
-<img src="awkbasic.png" width="400"/>
+<img src="awkbasic.png" width="300"/>
 </center>
 </div>
 
@@ -4072,7 +4072,7 @@ sort can be used as follows:
 
 <div>
 <center>
-<img src="sort.png" width="400"/>
+<img src="sort.png" width="300"/>
 </center>
 </div>
 
@@ -4081,7 +4081,7 @@ When used with the -u option, sort checks for unique values after sorting the re
 
 <div>
 <center>
-<img src="sort1.png" width="400"/>
+<img src="sort1.png" width="300"/>
 </center>
 </div>
 
@@ -4105,7 +4105,7 @@ To count the number of duplicate entries, use the following command:
 
 <div>
 <center>
-<img src="uniq.png" width="400"/>
+<img src="uniq.png" width="300"/>
 </center>
 </div>
 
@@ -4122,7 +4122,7 @@ paste accepts the following options:
 
 <div>
 <center>
-<img src="paste.png" width="400"/>
+<img src="paste.png" width="300"/>
 </center>
 </div>
 
@@ -4154,7 +4154,7 @@ The above task can be achieved using join, which is essentially an enhanced vers
 
 <div>
 <center>
-<img src="join.png" width="400"/>
+<img src="join.png" width="300"/>
 </center>
 </div>
 
@@ -4166,7 +4166,7 @@ For example, the common field (i.e. it contains the same values) among the phone
 
 <div>
 <center>
-<img src="usingjoin.png" width="400"/>
+<img src="usingjoin.png" width="300"/>
 </center>
 </div>
 
@@ -4196,7 +4196,7 @@ where we have used wc (word count, soon to be discussed) to report on the number
 will split the American-English file into 100 equal-sized segments named dictionaryxx. The last one will of course be somewhat smaller.
 
 <center>
-<img src="usingsplit.png" width="400"/>
+<img src="usingsplit.png" width="300"/>
 </center>
 </div>
 
@@ -4210,7 +4210,7 @@ These regular expressions are different from the wildcards (or meta-characters) 
 
 <div>
 <center>
-<img src="regular.png" width="400"/>
+<img src="regular.png" width="300"/>
 </center>
 </div>
 
@@ -4222,7 +4222,7 @@ Some of the patterns that can be applied to this sentence are as follows:
 
 <div>
 <center>
-<img src="usingregular.png" width="400"/>
+<img src="usingregular.png" width="300"/>
 </center>
 </div>
 
@@ -4262,7 +4262,7 @@ grep is extensively used as a primary text searching tool. It scans files for sp
 
 <div>
 <center>
-<img src="grep.png" width="400"/>
+<img src="grep.png" width="300"/>
 </center>
 </div>
 
@@ -4278,7 +4278,7 @@ The screenshot shows a search of a number of programs to see which ones have GPL
 
 <div>
 <center>
-<img src="strings.png" width="400"/>
+<img src="strings.png" width="300"/>
 </center>
 </div>
 
@@ -4304,7 +4304,7 @@ In this section, you will learn about some additional text utilities that you ca
 
 <div>
 <center>
-<img src="tr.png" width="400"/>
+<img src="tr.png" width="300"/>
 </center>
 </div>
 
@@ -4318,7 +4318,7 @@ For example, suppose you have a file named city containing several lines of text
 
 <div>
 <center>
-<img src="tr1.png" width="400"/>
+<img src="tr1.png" width="300"/>
 </center>
 </div>
 
@@ -4332,7 +4332,7 @@ Typing cat newfile will then display the output of ls –l.
 
 <div>
 <center>
-<img src="tee.png" width="400"/>
+<img src="tee.png" width="300"/>
 </center>
 </div>
 
@@ -4342,7 +4342,7 @@ wc (word count) counts the number of lines, words, and characters in a file or l
 
 <div>
 <center>
-<img src="wc.png" width="400"/>
+<img src="wc.png" width="300"/>
 </center>
 </div>
 
@@ -4570,7 +4570,7 @@ The special hostname localhost is associated with the IP address 127.0.0.1 and d
 
 <div>
 <center>
-<img src="serverip.png" width="400"/>
+<img src="serverip.png" width="300"/>
 </center>
 </div>
 
@@ -4598,7 +4598,7 @@ Information about a particular network interface or all network interfaces can b
 
 <div>
 <center>
-<img src="networkinterfaces.png" width="400"/>
+<img src="networkinterfaces.png" width="300"/>
 </center>
 </div>
 
@@ -4616,7 +4616,7 @@ ip is a very powerful program that can do many things. Older (and more specific)
 
 <div>
 <center>
-<img src="iputility.png" width="400"/>
+<img src="iputility.png" width="300"/>
 </center>
 </div>
 
@@ -4630,7 +4630,7 @@ ping is frequently used for network testing and management; however, its usage c
 
 <div>
 <center>
-<img src="ping.png" width="400"/>
+<img src="ping.png" width="300"/>
 </center>
 </div>
 
@@ -4640,7 +4640,7 @@ A network requires the connection of many nodes. Data moves from source to desti
 
 <div>
 <center>
-<img src="route1.png" width="400"/>
+<img src="route1.png" width="300"/>
 </center>
 </div>
 
@@ -4648,7 +4648,7 @@ One can use the route utility or the newer ip route command to view or change th
 
 <div>
 <center>
-<img src="route2.png" width="400"/>
+<img src="route2.png" width="300"/>
 </center>
 </div>
 
@@ -4660,7 +4660,7 @@ To print the route taken by the packet to reach the network host, at the command
 
 <div>
 <center>
-<img src="traceroute.png" width="400"/>
+<img src="traceroute.png" width="300"/>
 </center>
 </div>
 
@@ -4670,7 +4670,7 @@ Now, let’s learn about some additional networking tools. Networking tools are 
 
 <div>
 <center>
-<img src="othernetworking.png" width="400"/>
+<img src="othernetworking.png" width="300"/>
 </center>
 </div>
 
@@ -4690,7 +4690,7 @@ Sometimes, you either do not have a graphical environment to work in (or have re
 
 <div>
 <center>
-<img src="browser.png" width="400"/>
+<img src="browser.png" width="300"/>
 </center>
 </div>
 
@@ -4707,7 +4707,7 @@ To download a web page, you can simply type wget <url>, and then you can read th
 
 <div>
 <center>
-<img src="wget.png" width="400"/>
+<img src="wget.png" width="300"/>
 </center>
 </div>
 
@@ -4721,7 +4721,7 @@ To get the contents of a web page and store it to a file, type `curl -o saved.ht
 
 <div>
 <center>
-<img src="curl.png" width="400"/>
+<img src="curl.png" width="300"/>
 </center>
 </div>
 
@@ -5167,7 +5167,7 @@ The first line of the script, which starts with #!, contains the full path of th
 
 <div>
 <center>
-<img src="shellscript.png" width="400"/>
+<img src="shellscript.png" width="300"/>
 </center>
 </div>
 
@@ -5245,7 +5245,7 @@ In this example, the system is able to locate the file /etc/logrotate.conf and l
 
 <div>
 <center>
-<img src="viewingreturnvalues.png" width="400"/>
+<img src="viewingreturnvalues.png" width="300"/>
 </center>
 </div>
 
@@ -5289,7 +5289,7 @@ Scripts require you to follow a standard language syntax. Rules delineate how to
 
 <div>
 <center>
-<img src="basicsyntax.png" width="400"/>
+<img src="basicsyntax.png" width="300"/>
 </center>
 </div>
 
@@ -5314,7 +5314,7 @@ The command is divided into multiple lines to make it look readable and easier t
 
 <div>
 <center>
-<img src="splitting.png" width="400"/>
+<img src="splitting.png" width="300"/>
 </center>
 </div>
 
@@ -5342,7 +5342,7 @@ Chaining commands is not the same as piping them; in the later case succeeding c
 
 <div>
 <center>
-<img src="putting.png" width="400"/>
+<img src="putting.png" width="300"/>
 </center>
 </div>
 
@@ -5405,7 +5405,7 @@ We already enumerated which commands have versions built in to bash, in our earl
 
 <div>
 <center>
-<img src="builtinbash.png" width="400"/>
+<img src="builtinbash.png" width="300"/>
 </center>
 </div>
 
@@ -5442,7 +5442,7 @@ The final statement becomes: All done with param.sh
 
 <div>
 <center>
-<img src="usingscriptparameters.png" width="400"/>
+<img src="usingscriptparameters.png" width="300"/>
 </center>
 </div>
 
@@ -5463,7 +5463,7 @@ In the above example, the output of the command uname –r (which will be someth
 
 <div>
 <center>
-<img src="commandsubtitution.png" width="400"/>
+<img src="commandsubtitution.png" width="300"/>
 </center>
 </div>
 
@@ -5503,11 +5503,11 @@ While child processes are allowed to modify the value of exported variables, the
 
 Typing export with no arguments will give a list of all currently exported environment variables.
 
+<div>
 <center>
-
-![Exporting Environment Variables](exportingvariables.png)
-
+<img src="exportingvariables.png" width="300"/>
 </center>
+</div>
 
 ### Functions
 
@@ -5530,11 +5530,11 @@ For example, the following function is named display:
 
 The function can be as long as desired and have many statements. Once defined, the function can be called later as many times as necessary. In the full example shown in the figure, we are also showing an often-used refinement: how to pass an argument to the function. The first argument can be referred to as \$1, the second as \$2, etc.
 
+<div>
 <center>
-
-![Functions](functions.png)
-
+<img src="functions.png" width="300"/>
 </center>
+</div>
 
 ### Working with Files and Directories in a Script
 
@@ -5791,11 +5791,11 @@ else
        statements
 fi
 
+<div>
 <center>
-
-![The if Statement](ifstatement.png)
-
+<img src="ifstatement.png" width="200"/>
 </center>
+</div>
 
 ### Using the if Statement
 
@@ -5831,11 +5831,11 @@ fi
 
 In the example shown we use strings tests which we will explain shortly, and show how to pull in an environment variable with the read statement. 
 
+<div>
 <center>
-
-![The elif Statement](elif.png)
-
+<img src="elif.png" width="300"/>
 </center>
+</div>
 
 ### Testing for Files
 
@@ -5864,21 +5864,21 @@ You can view the full list of file conditions typing:
 
 man 1 test.
 
+<div>
 <center>
-
-![Testing for Files](testing.png)
-
+<img src="testing.png" width="300"/>
 </center>
+</div>
 
 ### Boolean Expressions
 
 Boolean expressions evaluate to either TRUE or FALSE, and results are obtained using the various Boolean operators listed in the table.
 
+<div>
 <center>
-
-![Boolean Expressions](boolean.png)
-
+<img src="boolean.png" width="300"/>
 </center>
+</div>
 
 Note that if you have multiple conditions strung together with the && operator, processing stops as soon as a condition evaluates to false. For example, if you have A && B && C and A is true but B is false, C will never be executed.
 
@@ -5908,21 +5908,21 @@ Note that using one = sign will also work, but some consider it deprecated usage
 
 In the example illustrated here, the if statement is used to compare the input provided by the user and accordingly display the result.
 
+<div>
 <center>
-
-![Example of Testing of Strings](examplestrings.png)
-
+<img src="examplestrings.png" width="300"/>
 </center>
+</div>
 
 ### Numerical Tests
 
 You can use specially defined operators with the if statement to compare numbers. The various operators that are available are listed in the table:
 
+<div>
 <center>
-
-![Numerical Tests](numerical.png)
-
+<img src="numerical.png" width="300"/>
 </center>
+</div>
 
 The syntax for comparing numbers is as follows:
 
@@ -5932,11 +5932,11 @@ The syntax for comparing numbers is as follows:
 
 Let us now consider an example of comparing numbers using the various operators:
 
+<div>
 <center>
-
-![Example of Testing for Numbers](testingfornumber.png)
-
+<img src="testingfornumber.png" width="300"/>
 </center>
+</div>
 
 ### Arithmetic Expressions
 
@@ -5960,10 +5960,9 @@ expr is a standard but somewhat deprecated program. The syntax is as follows:
 In modern shell scripts, the use of expr is better replaced with var=$((...)).
 
 <center>
-
-![Arithmetic Expressions](arithmetic.png)
-
+<img src="arithmetic.png" width="200"/>
 </center>
+</div>
 
 ### Arithmetic and Functions
 
@@ -6091,29 +6090,29 @@ A string variable contains a sequence of text characters. It can include letters
 
 String operators include those that do comparison, sorting, and finding the length. The following table demonstrates the use of some basic string operators:
 
+<div>
 <center>
-
-![String Manipulation](stringmanipulation.png)
-
+<img src="stringmanipulation.png" width="300"/>
 </center>
+</div>
 
 ### Example of String Manipulation
 
 In the first example, we compare the first string with the second string and display an appropriate message using the if statement.
 
+<div>
 <center>
-
-![Example of String Manipulation](comparingstrings.png)
-
+<img src="comparingstrings.png" width="300"/>
 </center>
+</div>
 
 In the second example, we pass in a file name and see if that file exists in the current directory or not.
 
+<div>
 <center>
-
-![Example of String Manipulation](passing.png)
-
+<img src="passing.png" width="300"/>
 </center>
+</div>
 
 ### Parts of a String
 
@@ -6121,11 +6120,11 @@ At times, you may not need to compare or use an entire string. To extract the fi
 
 To extract all characters in a string after a dot (.), use the following expression: ${string#*.}.
 
+<div>
 <center>
-
-![Parts of a String](partsofastring.png)
-
+<img src="partsofastring.png" width="300"/>
 </center>
+</div>
 
 ### String Tests and Operations
 
@@ -6223,11 +6222,11 @@ Below are some of the advantages of using the case statement:
 - It enables you to compare a variable against several values at once.
 - It reduces the complexity of a program.
 
+<div>
 <center>
-
-![The case Statement](casestatement.png)
-
+<img src="casestatement.png" width="200"/>
 </center>
+</div>
 
 ### Structure of the case Statement
 
@@ -6241,21 +6240,21 @@ Here is the basic structure of the case statement:
         * )       execute some default commands or nothing ;;
     esac
 
+<div>
 <center>
-
-![Structure of the case Statement](structure.png)
-
+<img src="structure.png" width="200"/>
 </center>
+</div>
 
 ### Example of Use of the case Construct
 
 Here is an example of the use of a case construct. Note you can have multiple possibilities for each case value that take the same action.
 
+<div>
 <center>
-
-![Example of Use of the case Construct](casestructure.png)
-
+<img src="casestructure.png" width="300"/>
 </center>
+</div>
 
 ### Using the case Statement
 
@@ -6329,11 +6328,11 @@ Make it executable and run it:
 
 By using looping constructs, you can execute one or more lines of code repetitively, usually on a selection of values of data such as individual files. Usually, you do this until a conditional test returns either true or false, as is required.
 
+<div>
 <center>
-
-![Looping Constructs](looping.png)
-
+<img src="looping.png" width="100"/>
 </center>
+</div>
 
 Three types of loops are often used in most programming languages:
 
@@ -6358,7 +6357,7 @@ The screenshot here shows an example of the for loop to print the sum of numbers
 
 <div>
 <center>
-<img src="forloop.png" width="400"/>
+<img src="forloop.png" width="300"/>
 </center>
 </div>
 
@@ -6378,7 +6377,7 @@ The screenshot here shows an example of the while loop that calculates the facto
 
 <div>
 <center>
-<img src="whileloop.png" width="400"/>
+<img src="whileloop.png" width="300"/>
 </center>
 </div>
 
@@ -6398,7 +6397,7 @@ The screenshot here shows an example of the until loop that once again computes 
 
 <div>
 <center>
-<img src="untilloop.png" width="400"/>
+<img src="untilloop.png" width="300"/>
 </center>
 </div>
 
@@ -6424,7 +6423,7 @@ The screenshot shown here demonstrates a script which runs in debug mode if run 
 
 <div>
 <center>
-<img src="scriptdebug.png" width="400"/>
+<img src="scriptdebug.png" width="300"/>
 </center>
 </div>
 
@@ -6434,7 +6433,7 @@ In UNIX/Linux, all programs that run are given three open file streams when they
 
 <div>
 <center>
-<img src="redirecting1.png" width="400"/>
+<img src="redirecting1.png" width="300"/>
 </center>
 </div>
 
@@ -6444,7 +6443,7 @@ The screenshot shows a shell script with a simple bug, which is then run and the
 
 <div>
 <center>
-<img src="redirecting2.png" width="400"/>
+<img src="redirecting2.png" width="300"/>
 </center>
 </div>
 
@@ -6460,7 +6459,7 @@ The XXXXXXXX is replaced by mktemp with random characters to ensure the name of 
 
 <div>
 <center>
-<img src="creatingtemp.png" width="400"/>
+<img src="creatingtemp.png" width="300"/>
 </center>
 </div>
 
@@ -6485,7 +6484,7 @@ Note the screen capture shows similarly named temporary files from different day
 
 <div>
 <center>
-<img src="exampletemp.png" width="400"/>
+<img src="exampletemp.png" width="300"/>
 </center>
 </div>
 
@@ -6505,7 +6504,7 @@ both stdout and stderr will be dumped into /dev/null.
 
 <div>
 <center>
-<img src="devnull.png" width="400"/>
+<img src="devnull.png" width="300"/>
 </center>
 </div>
 
@@ -6627,7 +6626,7 @@ You will learn about each of these components on the next few pages.
 
 <div>
 <center>
-<img src="cups.png" width="400"/>
+<img src="cups.png" width="200"/>
 </center>
 </div>
 
@@ -6637,7 +6636,7 @@ CUPS is designed around a print scheduler that manages print jobs, handles admin
 
 <div>
 <center>
-<img src="scheduler.png" width="400"/>
+<img src="scheduler.png" width="200"/>
 </center>
 </div>
 
@@ -6655,7 +6654,7 @@ You can view the full list of configuration files by typing ls -lF /etc/cups.
 
 <div>
 <center>
-<img src="etccups.png" width="400"/>
+<img src="etccups.png" width="300"/>
 </center>
 </div>
 
@@ -6665,7 +6664,7 @@ CUPS stores print requests as files under the /var/spool/cups directory (these c
 
 <div>
 <center>
-<img src="varspool.png" width="400"/>
+<img src="varspool.png" width="300"/>
 </center>
 </div>
 
@@ -6673,7 +6672,7 @@ After a printer successfully handles a job, data files are automatically removed
 
 <div>
 <center>
-<img src="printqueue.png" width="300"/>
+<img src="printqueue.png" width="200"/>
 </center>
 </div>
 
@@ -6687,7 +6686,7 @@ To view what log files exist, type:
 
 <div>
 <center>
-<img src="logfiles.png" width="400"/>
+<img src="logfiles.png" width="300"/>
 </center>
 </div>
 
@@ -6705,7 +6704,7 @@ CUPS uses filters to convert job file formats to printable formats. Printer driv
 
 <div>
 <center>
-<img src="filterprinter.png" width="300"/>
+<img src="filterprinter.png" width="200"/>
 </center>
 </div>
 
@@ -6731,7 +6730,7 @@ When configuring a printer, make sure the device is currently turned on and conn
 
 <div>
 <center>
-<img src="configuring.png" width="400"/>
+<img src="configuring.png" width="300"/>
 </center>
 </div>
 
@@ -6762,7 +6761,7 @@ Some pages require a username and password to perform certain actions, for examp
 
 <div>
 <center>
-<img src="cupswebsite.png" width="400"/>
+<img src="cupswebsite.png" width="300"/>
 </center>
 </div>
 
@@ -6774,7 +6773,7 @@ The screenshot shows the GUI interface for CTRL-P for CentOS, other Linux distri
 
 <div>
 <center>
-<img src="gui.png" width="400"/>
+<img src="gui.png" width="300"/>
 </center>
 </div>
 
@@ -6788,7 +6787,7 @@ lp is just a command line front-end to the lpr utility that passes input to lpr.
 
 <div>
 <center>
-<img src="printingcommandline.png" width="400"/>
+<img src="printingcommandline.png" width="300"/>
 </center>
 </div>
 
@@ -6800,7 +6799,7 @@ Some lp commands and other printing utilities you can use are listed in the tabl
 
 <div>
 <center>
-<img src="lp.png" width="400"/>
+<img src="lp.png" width="300"/>
 </center>
 </div>
 
@@ -6816,7 +6815,7 @@ Some of these commands are listed in the table.
 
 <div>
 <center>
-<img src="lpcommand.png" width="400"/>
+<img src="lpcommand.png" width="300"/>
 </center>
 </div>
 
@@ -6826,7 +6825,7 @@ PostScript is a standard  page description language. It effectively manages scal
 
 <div>
 <center>
-<img src="postscript.png" width="300"/>
+<img src="postscript.png" width="200"/>
 </center>
 </div>
 
@@ -6850,7 +6849,7 @@ The commands that can be used with enscript are listed in the table below (for a
 
 <div>
 <center>
-<img src="enscript.png" width="400"/>
+<img src="enscript.png" width="300"/>
 </center>
 </div>
 
@@ -6866,7 +6865,7 @@ Some usage examples:
 
 <div>
 <center>
-<img src="postscriptandpdf.png" width="400"/>
+<img src="postscriptandpdf.png" width="300"/>
 </center>
 </div>
 
@@ -6907,7 +6906,7 @@ You can accomplish a wide variety of tasks using qpdf including:
 
 <div>
 <center>
-<img src="gpdf1.png" width="400"/>
+<img src="gpdf1.png" width="300"/>
 </center>
 </div>
 
@@ -6925,7 +6924,7 @@ You can accomplish a wide variety of tasks using pdftk including:
 
 <div>
 <center>
-<img src="pdftk.png" width="400"/>
+<img src="pdftk.png" width="300"/>
 </center>
 </div>
 
@@ -6939,7 +6938,7 @@ When you run this command, you will receive a prompt to set the required passwor
 
 <div>
 <center>
-<img src="encrypted.png" width="300"/>
+<img src="encrypted.png" width="200"/>
 </center>
 </div>
 
@@ -6975,7 +6974,7 @@ For example, to collect the details of a document, you can use the following com
 
 <div>
 <center>
-<img src="additional.png" width="300"/>
+<img src="additional.png" width="200"/>
 </center>
 </div>
 
@@ -7102,7 +7101,7 @@ The Linux kernel allows properly authenticated users to access files and applica
 
 <div>
 <center>
-<img src="useraccount1.png" width="400"/>
+<img src="useraccount1.png" width="300"/>
 </center>
 </div>
 
@@ -7110,7 +7109,7 @@ For each user, the following seven fields are maintained in the /etc/passwd file
 
 <div>
 <center>
-<img src="useraccount2.png" width="400"/>
+<img src="useraccount2.png" width="300"/>
 </center>
 </div>
 
@@ -7129,7 +7128,7 @@ Keep in mind that practices you use on multi-user business systems are more stri
 
 <div>
 <center>
-<img src="lastutility.png" width="400"/>
+<img src="lastutility.png" width="300"/>
 </center>
 </div>
 
@@ -7152,7 +7151,7 @@ Regular account users of Linux distributions might be allowed to install softwar
 
 <div>
 <center>
-<img src="operations.png" width="300"/>
+<img src="operations.png" width="200"/>
 </center>
 </div>
 
@@ -7166,7 +7165,7 @@ The table provides examples of operations which do not require root privileges:
 
 <div>
 <center>
-<img src="notrequire.png" width="400"/>
+<img src="notrequire.png" width="300"/>
 </center>
 </div>
 
@@ -7176,7 +7175,7 @@ In Linux you can use either su or sudo to temporarily grant root access to a nor
 
 <div>
 <center>
-<img src="sudoandsu.png" width="400"/>
+<img src="sudoandsu.png" width="300"/>
 </center>
 </div>
 
@@ -7190,7 +7189,7 @@ A message such as the following would appear in a system log file (usually /var/
 
 <div>
 <center>
-<img src="sudofeatures.png" width="300"/>
+<img src="sudofeatures.png" width="200"/>
 </center>
 </div>
 
@@ -7211,7 +7210,7 @@ The actual specific editor invoked will depend on the setting of your EDITOR env
 
 <div>
 <center>
-<img src="sudoers.png" width="400"/>
+<img src="sudoers.png" width="300"/>
 </center>
 </div>
 
@@ -7231,7 +7230,7 @@ Running a command such as sudo whoami results in a log file entry such as:
 
 <div>
 <center>
-<img src="commandlogging.png" width="400"/>
+<img src="commandlogging.png" width="300"/>
 </center>
 </div>
 
@@ -7250,7 +7249,7 @@ More recent additional security mechanisms that limit risks even further include
 
 <div>
 <center>
-<img src="processisolation.png" width="300"/>
+<img src="processisolation.png" width="200"/>
 </center>
 </div>
 
@@ -7266,7 +7265,7 @@ The standard permissions as shown in the figure, make it impossible for regular 
 
 <div>
 <center>
-<img src="hardwaredevice.png" width="400"/>
+<img src="hardwaredevice.png" width="300"/>
 </center>
 </div>
 
@@ -7343,7 +7342,7 @@ For example, if you wish to experiment with SHA-512 encoding, the word "test" ca
 
 <div>
 <center>
-<img src="pwdencryption.png" width="400"/>
+<img src="pwdencryption.png" width="300"/>
 </center>
 </div>
 
@@ -7357,7 +7356,7 @@ IT professionals follow several good practices for securing the data and the pas
 
 <div>
 <center>
-<img src="chage.png" width="400"/>
+<img src="chage.png" width="300"/>
 </center>
 </div>
 

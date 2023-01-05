@@ -555,7 +555,7 @@ Editing any text file through the graphical interface is easy in the GNOME deskt
 
 The default text editor in GNOME is gedit. It is simple yet powerful, ideal for editing documents, making quick notes, and programming. Although gedit is designed as a general purpose text editor, it offers additional features for spell checking, highlighting, file listings and statistics.
 
-### Removing a File
+<h3><b> Removing a File </h3></b>
 
 Deleting a file in Nautilus will automatically move the deleted files to the .local/share/Trash/files/ directory (a trash can of sorts) under the user's home directory. There are several ways to delete files and directories using Nautilus.
 
@@ -565,7 +565,7 @@ Deleting a file in Nautilus will automatically move the deleted files to the .lo
 
 Note that you may have a Delete Permanently option which bypasses the trash folder, and that this option may be visible all the time or only in list (rather than) icon mode.
 
-### More About Removing a File
+<h3><b> More About Removing a File </b></h3>
 
 To permanently delete a file:
 
@@ -576,7 +576,7 @@ Alternatively, select the file or directory you want to permanently delete and p
 
 As a precaution, you should never delete your Home directory, as doing so will most likely erase all your GNOME configuration files and possibly prevent you from logging in. Many personal system and program configurations are stored under your home directory.
 
-### Chapter Summary
+<h3><b> Chapter Summary </b></h3>
 
 You have completed Chapter 4. Let's summarize the key concepts covered:
 
@@ -594,19 +594,19 @@ You have completed Chapter 4. Let's summarize the key concepts covered:
 - Each Linux distribution comes with its own set of desktop backgrounds.
 - GNOME comes with a set of different themes which can change the way your applications look.
 
-### System Settings
+<h3><b> System Settings </b></h3>
 
 The System Settings panel allows you to control most of the basic configuration options and desktop settings, such as specifying the screen resolution, managing network connections, or changing the date and time of the system.
 
 For the GNOME Desktop Manager, one clicks on the upper right-hand corner and then selects the tools image (screwdriver crossed with a wrench or a gear). Depending on your distribution, you may find other ways to get into the settings configuration as well. You will also find variation in the menu layout between Linux distributions and versions, so you may have to hunt for the settings you need to examine or modify.
 
-### System Settings Menus
+<h3><b> System Settings Menus </b></h3>
 
 To get deeper into configuration, one can click on the Devices on the previous menu in order to configure items like the display, the keyboard, the printers, etc.
 
 One can also click on the Users icon (which may be under Details) to set values for system users, such as their login picture, password, etc.
 
-### gnome-tweaks
+<h3><b> gnome-tweaks </b></h3>
 
 A lot of personalized configuration settings do not appear on the settings menus. Instead, you have to launch a tool called either gnome-tweaks (or gnome-tweak-tool on older Linux distributions). We have not really discussed working at the command line yet, but you can always launch a program such as this by doing Alt-F2 and typing in the command. Some distributions have a link to the tweaks menus in the settings, but for some mysterious reason, many obscure this tool's existence, and it becomes hard to discover how to modify even rather basic desktop attributes and behavior.
 
@@ -616,7 +616,7 @@ The most recent GNOME versions have removed a lot of the functionality of gnome-
 
 The screenshot here is from a Red Hat system with quite a few extensions installed, but not all being used.
 
-### Display Settings
+<h3><b> Display Settings </b></h3>
 
 Clicking on Settings > Displays (or Settings > Devices > Displays) will expose the most common settings for changing  the desktop appearance. These settings function independently of the specific display drivers you are running. The exact appearance will depend enormously on how many monitors you have and other factors, such as Linux distribution and particular version.
 
@@ -624,7 +624,7 @@ If your system uses a proprietary video card driver (usually from nVidia or AMD)
 
 The X server, which actually provides the GUI, uses /etc/X11/xorg.conf as its configuration file if it exists; In modern Linux distributions, this file is usually present only in unusual circumstances, such as when certain less common graphic drivers are in use. Changing this configuration file directly is usually for more advanced users.
 
-### Setting Resolution and Configuring Multiple Screens
+<h3><b> Setting Resolution and Configuring Multiple Screens </b></h3>
 
 While your system will usually figure out the best resolution for your screen automatically, it may get this wrong in some cases, or you might want to change the resolution to meet your needs.
 
@@ -632,7 +632,7 @@ You can accomplish this using the Displays panel. The switch to the new resoluti
 
 In most cases, the configuration for multiple displays is set up automatically as one big screen spanning all monitors, using a reasonable guess for screen layout. If the screen layout is not as desired, a check box can turn on mirrored mode, where the same display is seen on all monitors. Clicking on a particular monitor image lets you configure the resolution of each one, and whether they make one big screen, or mirror the same video, etc.
 
-### Date and Time Settings
+<h3><b> Date and Time Settings </b></h3>
 
 By default, Linux always uses Coordinated Universal Time (UTC) for its own internal timekeeping. Displayed or stored time values rely on the system time zone setting to get the proper time. UTC is similar to, but more accurate than, Greenwich Mean Time (GMT).
 
@@ -642,11 +642,11 @@ The more detailed date and time settings can be selected from the Date & Time wi
 
 The "automatic" settings are referring to the use of Network Time Protocol (NTP), which we discuss next.
 
-### Network Time Protocol
+<h3><b> Network Time Protocol </b></h3>
 
 The Network Time Protocol (NTP) is the most popular and reliable protocol for setting the local time by consulting established Internet servers. Linux distributions always come with a working NTP setup, which refers to specific time servers run or relied on by the distribution. This means that no setup, beyond "on" or "off", is generally required for network time synchronization.
 
-#### Getting and Setting Screen Resolution
+<h3><b> Getting and Setting Screen Resolution </b></h3>
 
 Find out the current screen resolution for your desktop.
 
@@ -657,7 +657,7 @@ NOTE: You can also ascertain your current resolution by typing at the command li
 `student:/tmp> $ xdpyinfo | grep dim`
 `dimensions: 3200x1080 pixels (847x286 millimeters)`
 
-### Network Configuration
+<h3><b> Network Configuration </b></h3>
 
 All Linux distributions have network configuration files, but file formats and locations can differ from one distribution to another. Hand editing of these files can handle quite complicated setups, but is not very dynamic or easy to learn and use. Network Manager was developed to make things easier and more uniform across distributions. It can list all available networks (both wired and wireless), allow the choice of a wired, wireless, or mobile broadband network, handle passwords, and set up Virtual Private Networks (VPNs). Except for unusual situations, it is generally best to let Network Manager establish your connections and keep track of your settings.
 
@@ -667,7 +667,7 @@ All Linux distributions have network configuration files, but file formats and l
 </center>
 </div>
 
-### Wired and Wireless Connections
+<h3><b> Wired and Wireless Connections </b></h3>
 
 Wired connections usually do not require complicated or manual configuration. The hardware interface and signal presence are automatically detected, and then Network Manager sets the actual network settings via Dynamic Host Configuration Protocol (DHCP).
 
@@ -681,7 +681,7 @@ For static configurations that do not use DHCP, manual setup can also be done ea
 
 Wireless networks are usually not connected by default. You can view the list of available wireless networks and see which one (if any) you are currently connected to by using Network Manager. You can then add, edit, or remove known wireless networks, and also specify which ones you want connected by default when present.
 
-### Configuring Wireless Connections
+<h3><b> Configuring Wireless Connections </b></h3>
 
 To configure a wireless network in any recent GNOME-based distribution:
 
@@ -693,7 +693,7 @@ If you click on Wi-Fi Settings, you will bring up the third screenshot. If you c
 
 Older and other Linux distributions may look quite a bit different in detail, but the steps and choices are essentially identical, as they are all running Network Manager with perhaps somewhat different clothing.
 
-### Mobile Broadband and VPN Connections
+<h3><b> Mobile Broadband and VPN Connections </b></h3>
 
 You can set up a mobile broadband connection with Network Manager, which will launch a wizard to set up the connection details for each connection.
 
@@ -705,7 +705,7 @@ It supports many VPN technologies, such as native IPSec, Cisco OpenConnect (via 
 
 You might get support for VPN as a separate package from your distributor. You need to install this package if your preferred VPN is not supported.
 
-### Installing and Updating Software
+<h3><b> Installing and Updating Software </b></h3>
 
 Each package in a Linux distribution provides one piece of the system, such as the Linux kernel, the C compiler, utilities for manipulating text or configuring the network, or for your favorite web browsers and email clients.
 
@@ -715,7 +715,7 @@ All systems have a lower-level utility which handles the details of unpacking a 
 
 In this section, you will learn how to install and update software in Linux using the Debian packaging system (used by systems such as Ubuntu as well) and RPM packaging systems (which is used by both Red Hat and SUSE family systems). These are the main ones in use although there are others which work well for other distributions which are less used.
 
-### Debian Packaging
+<h3><b> Debian Packaging </b></h3>
 
 Let’s look at the Package Management for the Debian family system.
 
@@ -729,7 +729,7 @@ dpkg is the underlying package manager for these systems. It can install, remove
 
 For Debian-based systems, the higher-level package management system is the Advanced Package Tool (APT) system of utilities. Generally, while each distribution within the Debian family uses APT, it creates its own user interface on top of it (for example, apt and apt-get, synaptic, gnome-software, Ubuntu Software Center, etc). Although apt repositories are generally compatible with each other, the software they contain generally is not. Therefore, most repositories target a particular distribution (like Ubuntu), and often software distributors ship with multiple repositories to support multiple distributions. Demonstrations are shown later in this section.
 
-### Red Hat Package Manager (RPM)
+<h3><b> Red Hat Package Manager (RPM) </b></h3>
 
 Red Hat Package Manager (RPM) is the other package management system popular on Linux distributions. It was developed by Red Hat, and adopted by a number of other distributions, including SUSE/openSUSE, Mageia, CentOS, Oracle Linux, and others.
 
@@ -741,7 +741,7 @@ Red Hat Package Manager (RPM) is the other package management system popular on 
 
 The higher-level package manager differs between distributions. Red Hat family distributions historically use RHEL/CentOS and Fedora uses dnf, while retaining good backwards compatibility with the older yum program. SUSE family distributions such as openSUSE also use RPM, but use the zypper interface.
 
-### openSUSE’s YaST Software Management
+<h3><b> openSUSE’s YaST Software Management </b></h3>
 
 The Yet another Setup Tool (YaST) software manager is similar to other graphical package managers. It is an RPM-based application. You can add, remove, or update packages using this application very easily. To access the YaST software manager:
 
@@ -761,7 +761,7 @@ You can also find YaST by clicking on Applications > Other-YaST, which is a stra
 
 openSUSE’s YaST software management application is similar to the graphical package managers in other distributions. A demonstration of the YaST software manager is shown later in this section.
 
-### Chapter Summary
+<h3><b> Chapter Summary </b></h3>
 
 You have completed Chapter 5. Let's summarize the key concepts covered:
 
@@ -774,7 +774,7 @@ You have completed Chapter 5. Let's summarize the key concepts covered:
 - Debian distributions use dpkg and apt-based utilities for package management.
 - RPM was developed by Red Hat, and adopted by a number of other distributions, including the openSUSE, Mandriva, CentOS, Oracle Linux, and others.
 
-### Internet Applications
+<h3><b> Internet Applications </b></h3>
 
 he Internet is a global network that allows users around the world to perform multiple tasks, such as searching for data, communicating through emails and online shopping. Obviously, you need to use network-aware applications to take advantage of the Internet. These include:
 
@@ -801,7 +801,7 @@ As discussed in the Graphical Interface chapter, Linux offers a wide variety of 
 - linx, lynx, w3m
 - Opera
 
-### Email Applications
+<h3><b> Email Applications </b></h3>
 
 Email applications allow for sending, receiving, and reading messages over the Internet. Linux systems offer a wide number of email clients, both graphical and text-based. In addition, many users simply use their browsers to access their email accounts.
 
@@ -828,7 +828,7 @@ Linux systems provide many other applications for performing Internet-related ta
 </center>
 </div>
 
-### Office Applications
+<h3><b> Office Applications </b></h3>
 
 Most day-to-day computer systems have productivity applications (sometimes called office suites) available or installed. Each suite is a collection of closely coupled programs used to create and edit different kinds of files such as:
 
@@ -842,7 +842,7 @@ Most Linux distributions offer LibreOffice, an open source office suite that sta
 In addition, Linux users have full access to Internet-based office suites such as Google Docs and Microsoft Office 365.
 
 
-### LibreOffice Components
+<h3><b> LibreOffice Components </b></h3>
 
 The component applications included in LibreOffice are:
 
@@ -853,7 +853,7 @@ The component applications included in LibreOffice are:
 
 The LibreOffice applications can read and write non-native document formats, such as those used by Microsoft Office. Usually, fidelity is maintained quite well, but complicated documents might have some imperfect conversions.
 
-### Development Applications
+<h3><b> Development Applications </b></h3>
 
 Linux distributions come with a complete set of applications and tools that are needed by those developing or maintaining both user applications and the kernel itself.
 
@@ -867,7 +867,7 @@ These tools are tightly integrated and include:
 
 On other operating systems, these tools have to be obtained and installed separately, often at a high cost, while on Linux they are all available at no cost through standard package installation systems.
 
-### Sound Players
+<h3><b> Sound Players </b></h3>
 
 Multimedia applications are used to listen to music, watch videos, etc., as well as to present and view text and graphics. Linux systems offer a number of sound player applications, including:
 
@@ -879,7 +879,7 @@ Multimedia applications are used to listen to music, watch videos, etc., as well
 
 Of course, Linux systems can also connect with commercial online music streaming services, such as Pandora and Spotify through web browsers.
 
-### Movie Players
+<h3><b> Movie Players </b></h3>
 
 Movie (video) players can portray input from many different sources, either local to the machine or on the Internet.
 
@@ -891,7 +891,7 @@ Linux systems offer a number of movie players, including:
 - Xine
 - Totem
 
-### Movie Editors
+<h3><b> Movie Editors </b></h3>
 
 Movie editors are used to edit videos or movies. Linux systems offer a number of movie editors, including: 
 
@@ -910,7 +910,7 @@ The GNU Image Manipulation Program (GIMP) is a feature-rich image retouching and
 - It has many special purpose plugins and filters.
 - It provides extensive information about the image, such as layers, channels, and histograms.
 
-### Graphics Utilities
+<h3><b> Graphics Utilities </b></h3>
 
 In addition to GIMP, there are other graphics utilities that help perform various image-related tasks, including:
 
@@ -920,7 +920,8 @@ In addition to GIMP, there are other graphics utilities that help perform variou
 <img src="GraphicsUtilities.png" width="300"/>
 </center>
 </div>
-### Chapter Summary
+
+<h3><b> Chapter Summary </b></h3>
 
 You have completed Chapter 6. Let’s summarize the key concepts covered:
 
@@ -936,7 +937,7 @@ You have completed Chapter 6. Let’s summarize the key concepts covered:
 - The GIMP (GNU Image Manipulation Program) utility is a feature-rich image retouching and editing tool available on all Linux distributions.
 - Other graphics utilities that help perform various image-related tasks are eog, Inkscape, convert, and Scribus.
 
-### Introduction to the Command Line
+<h3><b> Introduction to the Command Line </b></h3>
 
 Linux system administrators spend a significant amount of their time at a command line prompt. They often automate and troubleshoot tasks in this text environment. There is a saying, "graphical user interfaces make easy tasks easier, while command line interfaces make difficult tasks possible". Linux relies heavily on the abundance of command line tools. The command line interface provides the following advantages:
 
@@ -947,7 +948,7 @@ Linux system administrators spend a significant amount of their time at a comman
 - You can initiate graphical applications directly from the command line instead of hunting through menus.
 - While graphical tools may vary among Linux distributions, the command line interface does not.
 
-### Using a Text Terminal on the Graphical Desktop
+<h3><b> Using a Text Terminal on the Graphical Desktop </b></h3>
 
 A terminal emulator program emulates (simulates) a standalone terminal within a window on the desktop. By this, we mean it behaves essentially as if you were logging into the machine at a pure text terminal with no running graphical interface. Most terminal emulator programs support multiple terminal sessions by opening additional tabs or windows.
 
@@ -957,7 +958,7 @@ By default, on GNOME desktop environments, the gnome-terminal application is use
 - konsole (default on KDE)
 - terminator
 
-### Launching Terminal Windows
+<h3><b> Launching Terminal Windows </b></h3>
 
 To open a terminal on any system using a recent GNOME desktop click on Applications > System Tools > Terminal or Applications > Utilities > Terminal. If you do not have the Applications menu, you will have to install the appropriate gnome-shell-extension package and turn on with gnome-tweaks.
 
@@ -967,7 +968,7 @@ You can also hit Alt-F2 and type in either gnome-terminal or konsole, whichever 
 
 Because distributions have had a history of burying opening up a command line terminal, and the place in menus may vary in the desktop GUI, It is a good idea to figure out how to "pin" the terminal icon to the panel, which might mean adding it to the Favorites grouping on GNOME systems.
 
-### Some Basic Utilities
+<h3><b> Some Basic Utilities </b></h3>
 
 There are some basic command line utilities that are used constantly, and it would be impossible to proceed further without using some of them in simple form before we discuss them in more detail. A short list has to include:
 
@@ -980,7 +981,7 @@ The screenshot shows elementary uses of these programs. Note the use of the pipe
 
 For the most part, we will only use these utilities in screenshots displaying various activities, before we discuss them in detail.
 
-### The Command Line
+<h3><b> The Command Line </b></h3>
 
 Most input lines entered at the shell prompt have three basic elements:
 
@@ -992,7 +993,7 @@ The command is the name of the program you are executing. It may be followed by 
 
 However, plenty of commands have no options, no arguments, or neither. In addition, other elements (such as setting environment variables) can also appear on the command line when launching a task.
 
-### sudo
+<h3><b> sudo </b></h3>
 
 All the demonstrations created have a user configured with sudo capabilities to provide the user with administrative (admin) privileges when required. sudo allows users to run programs using the security privileges of another user, generally root (superuser). 
 
@@ -1005,7 +1006,8 @@ Next, you will learn the steps to set up and run sudo on your system.
 <img src="sudo.png" width="300"/>
 </center>
 </div>
-### Steps for Setting Up and Running sudo
+
+<h3><b> Steps for Setting Up and Running sudo </b></h3>
 
 If your system does not already have sudo set up and enabled, you need to do the following steps:
 
@@ -1019,7 +1021,7 @@ If your system does not already have sudo set up and enabled, you need to do the
 
 That should be it. For the rest of this course, if you use sudo you should be properly set up. When using sudo, by default you will be prompted to give a password (your own user password) at least the first time you do it within a specified time interval. It is possible (though very insecure) to configure sudo to not require a password or change the time window in which the password does not have to be repeated with every sudo command.
 
-### Switching Between the GUI and the Command Line
+<h3><b> Switching Between the GUI and the Command Line </b></h3>
 
 The customizable nature of Linux allows you to drop the graphical interface (temporarily or permanently) or to start it up after the system has been running.
 
@@ -1033,7 +1035,7 @@ Linux production servers are usually installed without the GUI, and even if it i
 </center>
 </div>
 
-### Virtual Terminals
+<h3><b> Virtual Terminals </b></h3>
 
 Virtual Terminals (VT) are console sessions that use the entire display and keyboard outside of a graphical environment. Such terminals are considered "virtual" because, although there can be multiple active terminals, only one terminal remains visible at a time. A VT is not quite the same as a command line terminal window; you can have many of those visible at once on a graphical desktop.
 
@@ -1050,7 +1052,7 @@ To switch between VTs, press CTRL-ALT-function key for the VT. For example, pres
 </center>
 </div>
 
-### Turning Off the Graphical Desktop
+<h3><b> Turning Off the Graphical Desktop </b></h3>
 
 Linux distributions can start and stop the graphical desktop in various ways. The exact method differs from distribution and among distribution versions. For the newer systemd-based distributions, the display manager is run as a service, you can stop the GUI desktop with the systemctl utility and most distributions will also work with the telinit command, as in:
 
@@ -1068,7 +1070,7 @@ On Ubuntu versions before 18.04 LTS, substitute lightdm for gdm.
 </center>
 </div>
 
-### Killing the Graphical User Interface
+<h3><b> Killing the Graphical User Interface </b></h3>
 
 Methods of bringing down the GUI:
 
@@ -1082,7 +1084,7 @@ Methods of bringing the GUI back up:
 `student:/tmp> sudo systemctl start lightdm`
 `student:/tmp> sudo telinit 5`
 
-### Basic Operations
+<h3><b> Basic Operations </b></h3>
 
 In this section, we will discuss how to accomplish basic operations from the command line. These include how to log in and log out from the system, restart or shut down the system, locate applications, access directories, identify absolute and relative paths, and explore the filesystem.
 
@@ -1091,7 +1093,8 @@ In this section, we will discuss how to accomplish basic operations from the com
 <img src="basic.png" width="200"/>
 </center>
 </div>
-### Logging In and Out
+
+<h3><b> Logging In and Out </b></h3>
 
 An available text terminal will prompt for a username (with the string login:) and password. When typing your password, nothing is displayed on the terminal (not even a * to indicate that you typed in something), to prevent others from seeing your password. After you have logged into the system, you can perform basic operations.
 
@@ -1102,7 +1105,8 @@ Once your session is started (either by logging into a text terminal or via a gr
 <img src="logging.png" width="300"/>
 </center>
 </div>
-### Rebooting and Shutting Down
+
+<h3><b> Rebooting and Shutting Down </b></h3>
 
 The preferred method to shut down or reboot the system is to use the shutdown command. This sends a warning message, and then prevents further users from logging in. The init process will then control shutting down or rebooting the system. It is important to always shut down properly; failure to do so can result in damage to the system and/or loss of data.
 
@@ -1119,7 +1123,8 @@ NOTE: On recent Wayland-based Linux distributions, broadcast messages do not app
 <img src="rebooting.png" width="300"/>
 </center>
 </div>
-### Locating Applications
+
+<h3><b> Locating Applications </b></h3>
 
 Depending on the specifics of your particular distribution's policy, programs and software packages can be installed in various directories. In general, executable programs and scripts should live in the /bin, /usr/bin, /sbin, /usr/sbin directories, or somewhere under /opt. They can also appear in /usr/local/bin and /usr/local/sbin, or in a directory in a user's account space, such as /home/student/bin.
 
@@ -1135,7 +1140,7 @@ diff: /usr/bin/diff /usr/share/man/man1/diff.1.gz /usr/share/man/man1p/diff.1p.g
 
 as well as locating source and man files packaged with the program.
 
-### Accessing Directories
+<h3><b> Accessing Directories </b></h3>
 
 When you first log into a system or open a terminal, the default directory should be your home directory. You can print the exact path of this by typing echo $HOME. Many Linux distributions actually open new graphical terminals in \$HOME/Desktop. The following commands are useful for directory navigation:
 
@@ -1144,7 +1149,8 @@ When you first log into a system or open a terminal, the default directory shoul
 <img src="accessing.png" width="300"/>
 </center>
 </div>
-### Understanding Absolute and Relative Paths
+
+<h3><b> Understanding Absolute and Relative Paths </b></h3>
 
 There are two ways to identify paths:
 
@@ -1171,6 +1177,7 @@ In this case, the absolute pathname method requires less typing.
 <img src="understanding.png" width="400"/>
 </center>
 </div>
+
 ### Exploring the Filesystem
 
 Traversing up and down the filesystem tree can get tedious. The tree command is a good way to get a bird’s-eye view of the filesystem tree. Use tree -d to view just the directories and to suppress listing file names.
@@ -1182,6 +1189,7 @@ The following commands can help in exploring the filesystem:
 <img src="commands.png" width="400"/>
 </center>
 </div>
+
 ### Hard Links
 
 he ln utility is used to create hard links and (with the -s option) soft links, also known as symbolic links or symlinks. These two kinds of links are very useful in UNIX-based operating systems.
@@ -1229,6 +1237,7 @@ The `cd` command remembers where you were last, and lets you get back there with
 <img src="navigating.png" width="300"/>
 </center>
 </div>
+
 ### Working with Files
 
 Linux provides many commands that help you with viewing the contents of a file, creating a new file or an empty file, changing the timestamp of a file, and moving, removing and renaming a file or directory. These commands help you in managing your data and files and in ensuring that the correct data is available at the correct location.
@@ -1242,6 +1251,7 @@ You can use the following command line utilities to view files:
 <img src="workingwithfiles.png" width="400"/>
 </center>
 </div>
+
 ### touch
 
 touch is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time.
@@ -1263,6 +1273,7 @@ This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
 <img src="touch.png" width="300"/>
 </center>
 </div>
+
 ### mkdir and rmdir
 
 mkdir is used to create a directory:
@@ -1279,6 +1290,7 @@ Removing a directory is done with rmdir. The directory must be empty or the comm
 <img src="mkdir.png" width="400"/>
 </center>
 </div>
+
 ### Moving, Renaming or Removing a File
 
 Note that mv does double duty, in that it can:
@@ -1293,6 +1305,7 @@ If you are not certain about removing files that match a pattern you supply, it 
 <img src="remove.png" width="300"/>
 </center>
 </div>
+
 ### Renaming or Removing a Directory
 
 `rmdir` works only on empty directories; otherwise you get an error. 
@@ -1304,6 +1317,7 @@ While typing `rm –rf` is a fast and easy way to remove a whole filesystem tree
 <img src="removedir.png" width="300"/>
 </center>
 </div>
+
 ### Modifying the Command Line Prompt
 
 The PS1 variable is the character string that is displayed as the prompt on the command line. Most distributions set PS1 to a known default value, which is suitable in most cases. However, users may want custom information to show on the command line. For example, some system administrators require the user and the host system name to show up on the command line as in:
@@ -1332,6 +1346,7 @@ When commands are executed, by default there are three standard file streams (or
 <img src="standard.png" width="300"/>
 </center>
 </div>
+
 Usually, stdin is your keyboard, and stdout and stderr are printed on your terminal. stderr is often redirected to an error logging file, while stdin is supplied by directing input to come from a file or from the output of a previous command through a pipe. stdout is also often redirected into a file. Since stderr is where error messages are written, usually nothing will go there.
 
 In Linux, all open files are represented internally by what are called file descriptors. Simply put, these are represented by numbers starting at zero. stdin is file descriptor 0, stdout is file descriptor 1, and stderr is file descriptor 2. Typically, if other files are opened in addition to these three, which are opened by default, they will start at file descriptor 3 and increase from there.
@@ -1457,6 +1472,7 @@ One can also use the -ok option, which behaves the same as -exec, except that fi
 <img src="finding.png" width="300"/>
 </center>
 </div>
+
 ### Finding Files Based on Time and Size
 
 It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size. It is easy to perform such searches.
@@ -1508,6 +1524,7 @@ Most of the time users need to work only with the high-level tool, which will ta
 <img src="packagemanager.png" width="300"/>
 </center>
 </div>
+
 ### Working With Different Package Management Systems
 
 The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include apt (or apt-get) and apt-cache.
@@ -1520,6 +1537,7 @@ dnf is the open source command-line package-management utility for the RPM-compa
 <img src="different.png" width="300"/>
 </center>
 </div>
+
 zypper is the package management system for the SUSE/openSUSE family and is also based on RPM. zypper also allows you to manage repositories from the command line. zypper is fairly straightforward to use and resembles dnf/yum quite closely.
 
 To learn the basic packaging commands, take a look at these basic packaging commands:
@@ -1529,6 +1547,7 @@ To learn the basic packaging commands, take a look at these basic packaging comm
 <img src="commandpackage.png" width="400"/>
 </center>
 </div>
+
 ### Installing and Removing Software Packages
 
 Using the upper-level package management system appropriate for your Linux distribution, do the following:
@@ -1729,6 +1748,7 @@ In addition to the man pages, the GNU Info System, and the help command, there a
 <img src="documentation.png" width="200"/>
 </center>
 </div>
+
 ### Graphical Help Systems
 
 ll Linux desktop systems have a graphical help application. This application is usually displayed as a question-mark icon or an image of a ship’s life-preserver, and can also always be found within the menu system. These programs usually contain custom help for the desktop itself and some of its applications, and will sometimes also include graphically-rendered info and man pages.
@@ -1802,6 +1822,7 @@ A process is simply an instance of one or more related tasks (threads) executing
 <img src="processes.png" width="200"/>
 </center>
 </div>
+
 Processes use many system resources, such as memory, CPU (central processing unit) cycles, and peripheral devices, such as network cards, hard drives, printers and displays. The operating system (especially the kernel) is responsible for allocating a proper share of these resources to each process and ensuring overall optimized system utilization.
 
 ### Process Types
@@ -1827,7 +1848,6 @@ When a process is in a so-called running state, it means it is either currently 
 <img src="scheduling.png" width="200"/>
 </center>
 </div>
-
 
 However, sometimes processes go into what is called a sleep state, generally when they are waiting for something to happen before they can resume, perhaps for the user to type something. In this condition, a process is said to be sitting in a wait queue.
 
@@ -3289,12 +3309,12 @@ and sets the default shell to /bin/bash. Removing a user account is as easy as t
 
 Typing id with no argument gives information about the current user, as in:
 
-$ id
-uid=1002(bjmoose) gid=1002(bjmoose) groups=106(fuse),1002(bjmoose)
+`$ id`
+`uid=1002(bjmoose) gid=1002(bjmoose) groups=106(fuse),1002(bjmoose)`
 
 If given the name of another user as an argument, id will report information about that other user.
 
-### Adding and Removing Groups
+<h3><b> Adding and Removing Groups </b></h3>
 
 Adding a new group is done with groupadd:
 
@@ -3987,9 +4007,9 @@ The above command will replace all occurrences of pattern with replace_string in
 
 Example: To convert 01/02/… to JAN/FEB/…
 
-sed     -e 's/01/JAN/' -e 's/02/FEB/' -e 's/03/MAR/' -e 's/04/APR/' -e 's/05/MAY/' \
-        -e 's/06/JUN/' -e 's/07/JUL/' -e 's/08/AUG/' -e 's/09/SEP/' -e 's/10/OCT/' \
-        -e 's/11/NOV/' -e 's/12/DEC/'
+    sed     -e 's/01/JAN/' -e 's/02/FEB/' -e 's/03/MAR/' -e 's/04/APR/' -e 's/05/MAY/' \
+            -e 's/06/JUN/' -e 's/07/JUL/' -e 's/08/AUG/' -e 's/09/SEP/' -e 's/10/OCT/' \
+            -e 's/11/NOV/' -e 's/12/DEC/'
 
 ### awk
 
@@ -4380,29 +4400,29 @@ while both saving the output in a file and displaying it at your terminal.
 `student:/tmp> ls -l /etc | tee /tmp/ls-output`
 `student:/tmp> less /tmp/ls-output`
 
-total 2948
-drwxr-xr-x.  3 root root     4096 Nov  3 07:27 abrt
--rw-r--r--.  1 root root       16 Jan 15  2015 adjtime
--rw-r--r--   1 root root     1518 Jun  7  2013 aliases
--rw-r--r--.  1 root root    12288 Nov  3 07:49 aliases.db
-drwxr-xr-x.  2 root root     4096 Nov  3 07:26 alsa
-drwxr-xr-x.  2 root root     4096 Jan 20 07:28 alternatives
--rw-------   1 root root      541 Feb 23  2016 anacrontab
--rw-r--r--   1 root root       55 Jun  6  2016 asound.conf
--rw-r--r--   1 root root        1 May 23  2016 at.deny
-drwxr-xr-x.  2 root root     4096 Nov  3 07:26 at-spi2
-drwxr-x---.  3 root root     4096 Nov  3 07:26 audisp
-drwxr-x---.  3 root root     4096 Nov  3 07:26 audit
-drwxr-xr-x.  4 root root     4096 Nov  3 07:32 avahi
-drwxr-xr-x.  2 root root     4096 Jan 18 06:59 bash_completion.d
--rw-r--r--   1 root root     2853 May  4  2016 bashrc
-drwxr-xr-x.  2 root root     4096 Nov  7 10:20 binfmt.d
-drwxr-xr-x   2 root root     4096 Nov  3 07:26 bluetooth
-drwxr-xr-x.  2 root root     4096 Apr  9  2015 bonobo-activation
-drwxr-xr-x   2 root root    12288 Nov  3 07:26 brltty
--rw-r--r--   1 root root    21929 May  6  2016 brltty.conf
--rw-r--r--   1 root root      676 Jun 23  2016 cgconfig.conf
-:
+    total 2948
+    drwxr-xr-x.  3 root root     4096 Nov  3 07:27 abrt
+    -rw-r--r--.  1 root root       16 Jan 15  2015 adjtime
+    -rw-r--r--   1 root root     1518 Jun  7  2013 aliases
+    -rw-r--r--.  1 root root    12288 Nov  3 07:49 aliases.db
+    drwxr-xr-x.  2 root root     4096 Nov  3 07:26 alsa
+    drwxr-xr-x.  2 root root     4096 Jan 20 07:28 alternatives
+    -rw-------   1 root root      541 Feb 23  2016 anacrontab
+    -rw-r--r--   1 root root       55 Jun  6  2016 asound.conf
+    -rw-r--r--   1 root root        1 May 23  2016 at.deny
+    drwxr-xr-x.  2 root root     4096 Nov  3 07:26 at-spi2
+    drwxr-x---.  3 root root     4096 Nov  3 07:26 audisp
+    drwxr-x---.  3 root root     4096 Nov  3 07:26 audit
+    drwxr-xr-x.  4 root root     4096 Nov  3 07:32 avahi
+    drwxr-xr-x.  2 root root     4096 Jan 18 06:59 bash_completion.d
+    -rw-r--r--   1 root root     2853 May  4  2016 bashrc
+    drwxr-xr-x.  2 root root     4096 Nov  7 10:20 binfmt.d
+    drwxr-xr-x   2 root root     4096 Nov  3 07:26 bluetooth
+    drwxr-xr-x.  2 root root     4096 Apr  9  2015 bonobo-activation
+    drwxr-xr-x   2 root root    12288 Nov  3 07:26 brltty
+    -rw-r--r--   1 root root    21929 May  6  2016 brltty.conf
+    -rw-r--r--   1 root root      676 Jun 23  2016 cgconfig.conf
+    :
 
 ### Using wc
 
@@ -4410,16 +4430,16 @@ Using wc (word count), find out how many lines, words, and characters there are 
 
 s`tudent:/tmp> wc /var/log/*.log`
 
-    325    2204   18114 /var/log/boot.log
-      0       0       0 /var/log/pm-powersave.log
-   3098   17871  125630 /var/log/systemtap.log
-   5234  251967 4889056 /var/log/vbox-install.log
-wc: /var/log/wpa_supplicant.log: Permission denied
-   1313   15374   99968 /var/log/Xorg.0.log
-    150    1185    8520 /var/log/Xorg.1.log
-    318    2851   20868 /var/log/Xorg.9.log
-wc: /var/log/yum.log: Permission denied
-  10438  291452 5162156 total
+        325    2204   18114 /var/log/boot.log
+        0       0       0 /var/log/pm-powersave.log
+    3098   17871  125630 /var/log/systemtap.log
+    5234  251967 4889056 /var/log/vbox-install.log
+    wc: /var/log/wpa_supplicant.log: Permission denied
+    1313   15374   99968 /var/log/Xorg.0.log
+        150    1185    8520 /var/log/Xorg.1.log
+        318    2851   20868 /var/log/Xorg.9.log
+    wc: /var/log/yum.log: Permission denied
+    10438  291452 5162156 total
 
 ### Chapter Summary
 
@@ -4491,9 +4511,9 @@ One reason IPv4 has not disappeared is there are ways to effectively make many m
 
 A 32-bit IPv4 address is divided into four 8-bit sections called octets.
 
-Example:
-IP address →            172  .          16  .          31  .         46
-Bit format →     10101100.00010000.00011111.00101110
+    Example:
+    IP address →            172  .          16  .          31  .         46
+    Bit format →     10101100.00010000.00011111.00101110
 
 NOTE: Octet is just another word for byte.
 
@@ -5398,8 +5418,6 @@ A complete list of bash built-in commands can be found in the bash man page, or 
 </center>
 </div>
 
-### 
-
 We already enumerated which commands have versions built in to bash, in our earlier discussion of how to get help on Linux systems. Once again, here is a screenshot listing exactly which commands are available.
 
 <div>
@@ -5427,17 +5445,17 @@ Within a script, the parameter or an argument is represented with a $ and a numb
 
 If you type in the script shown in the figure, make the script executable with chmod +x param.sh. Then, run the script giving it several arguments, as shown. The script is processed as follows:
 
-$0 prints the script name: param.sh
+    $0 prints the script name: param.sh
 
-$1 prints the first parameter: one
+    $1 prints the first parameter: one
 
-$2 prints the second parameter: two
+    $2 prints the second parameter: two
 
-$3 prints the third parameter: three
+    $3 prints the third parameter: three
 
-$* prints all parameters: one two three four five
+    $* prints all parameters: one two three four five
 
-The final statement becomes: All done with param.sh
+The final statement becomes: All done with `param.sh`
 
 <div>
 <center>
@@ -5848,10 +5866,10 @@ You can use the if statement to test for file attributes, such as:
 
 For example, in the following example:
 
-if [ -x /etc/passwd ] ; then
+    if [ -x /etc/passwd ] ; then
 
-    ACTION
-fi
+        ACTION
+    fi
 
 the if statement checks if the file /etc/passwd is executable, which it is not. Note the very common practice of putting:
 

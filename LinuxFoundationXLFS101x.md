@@ -24,7 +24,7 @@ Note that CentOS is planned to disappear at the end of 2021 in favor of CentOS S
 
 Many commercial distributors, including Red Hat, Ubuntu, SUSE, and Oracle, provide long term fee-based support for their distributions, as well as hardware and software certification. All major distributors provide update services for keeping your system primed with the latest security and bug fixes, and performance enhancements, as well as provide online support resources.
 
-<h3>The Boot Process</h3>
+<h3><b>The Boot Process</b></h3>
 
 <div>
 <center>
@@ -41,7 +41,7 @@ On the other hand, the boot process can be rather technical, and you can start u
 
 <b>NOTE</b>: <i>You may want to come back and study this section later, if you want to first get a good feel for how to use a Linux system.</i>
 
-<h3>BIOS - The First Step</h3>
+<h3><b>BIOS - The First Step</b></h3>
 
 <div>
 <center>
@@ -53,7 +53,7 @@ Starting an x86-based Linux system involves a number of steps. When the computer
 
 The BIOS software is stored on a ROM chip on the motherboard. After this, the remainder of the boot process is controlled by the operating system (OS).
 
-<h3>Master Boot Record (MBR) and Boot Loader</h3>
+<h3><b>Master Boot Record (MBR) and Boot Loader</b></h3>
 
 <div>
 <center>
@@ -65,7 +65,7 @@ Once the POST is completed, the system control passes from the BIOS to the boot 
 
 A number of boot loaders exist for Linux; the most common ones are GRUB (for GRand Unified Boot loader), ISOLINUX (for booting from removable media), and DAS U-Boot (for booting on embedded devices/appliances). Most Linux boot loaders can present a user interface for choosing alternative options for booting Linux, and even other operating systems that might be installed. When booting Linux, the boot loader is responsible for loading the kernel image and the initial RAM disk or filesystem (which contains some critical files and device drivers needed to start the system) into memory.
 
-<h3>Boot Loader in Action</h3>
+<h3><b>Boot Loader in Action</b></h3>
 
 The boot loader has two distinct stages:
 
@@ -77,7 +77,7 @@ The boot loader has two distinct stages:
 
 For systems using the BIOS/MBR method, the boot loader resides at the first sector of the hard disk, also known as the Master Boot Record (MBR). The size of the MBR is just 512 bytes. In this stage, the boot loader examines the partition table and finds a bootable partition. Once it finds a bootable partition, it then searches for the second stage boot loader, for example GRUB, and loads it into RAM (Random Access Memory). For systems using the EFI/UEFI method, UEFI firmware reads its Boot Manager data to determine which UEFI application is to be launched and from where (i.e. from which disk and partition the EFI partition can be found). The firmware then launches the UEFI application, for example GRUB, as defined in the boot entry in the firmware's boot manager. This procedure is more complicated, but more versatile than the older MBR methods.
 
-<h3>Initial RAM Disk</h3>
+<h3><b>Initial RAM Disk</b></h3>
 
 The initramfs filesystem image contains programs and binary files that perform all actions needed to mount the proper root filesystem, like providing kernel functionality for the needed filesystem and device drivers for mass storage controllers with a facility called udev (for user device), which is responsible for figuring out which devices are present, locating the device drivers they need to operate properly, and loading them. After the root filesystem has been found, it is checked for errors and mounted.
 
@@ -92,7 +92,7 @@ The mount program instructs the operating system that a filesystem is ready for 
 
 init handles the mounting and pivoting over to the final real root filesystem. If special hardware drivers are needed before the mass storage can be accessed, they must be in the initramfs image.
 
-<h3>Text-Mode Login</h3>
+<h3><b>Text-Mode Login</b></h3>
 
 Near the end of the boot process, init starts a number of text-mode login prompts. These enable you to type your username, followed by your password, and to eventually get a command shell. However, if you are running a system with a graphical login interface, you will not see these at first.
 
@@ -106,7 +106,7 @@ As you will learn in Chapter 7: Command Line Operations, the terminals which run
 
 Usually, the default command shell is bash (the GNU Bourne Again Shell), but there are a number of other advanced command shells available. The shell prints a text prompt, indicating it is ready to accept commands; after the user types the command and presses Enter, the command is executed, and another prompt is displayed after the command is done.
 
-<h3>The Linux Kernel</h3>
+<h3><b>The Linux Kernel</b></h3>
 
 The boot loader loads both the kernel and an initial RAM–based file system (initramfs) into memory, so it can be used directly by the kernel.
 
@@ -118,7 +118,7 @@ The boot loader loads both the kernel and an initial RAM–based file system (in
 
 When the kernel is loaded in RAM, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system. This includes all processors, I/O subsystems, storage devices, etc. The kernel also loads some necessary user space applications.
 
-<h3>/sbin/init and Services</h3>
+<h3><b>/sbin/init and Services</b></h3>
 
 Once the kernel has set up all its hardware and mounted the root filesystem, the kernel runs /sbin/init. This then becomes the initial process, which then starts other processes to get the system running. Most other processes on the system trace their origin ultimately to init; exceptions include the so-called kernel processes. These are started by the kernel directly, and their job is to manage internal operating system details.
 
@@ -134,7 +134,7 @@ Traditionally, this process startup was done using conventions that date back to
 
 However, all major distributions have moved away from this sequential runlevel method of system initialization, although they usually emulate many System V utilities for compatibility purposes. Next, we discuss the new methods, of which systemd has become dominant.
 
-<h3>Startup Alternatives</h3>
+<h3><b>Startup Alternatives</b></h3>
 
 SysVinit viewed things as a serial process, divided into a series of sequential stages. Each stage required completion before the next could proceed. Thus, startup did not easily take advantage of the parallel processing that could be done on multiple processors or cores.
 
@@ -153,7 +153,7 @@ systemd
 
 While the migration to systemd was rather controversial, it has been adopted by all major distributions, and so we will not discuss the older System V method or Upstart, which has become a dead end. Regardless of how one feels about the controversies or the technical methods of systemd, almost universal adoption has made learning how to work on Linux systems simpler, as there are fewer differences among distributions. We enumerate systemd features next.
 
-<h3>systemd Features</h3>
+<h3><b>systemd Features</b></h3>
 
 Systems with systemd start up faster than those with earlier init methods. This is largely because it replaces a serialized set of steps with aggressive parallelization techniques, which permits multiple services to be initiated simultaneously.
 
@@ -168,7 +168,7 @@ One systemd command (systemctl) is used for most basic tasks. While we have not 
 
     In most cases, the .service can be omitted. There are many technical differences with older methods that lie beyond the scope of our discussion.  
 
-<h3>Linux Filesystems</h3>
+<h3><b>Linux Filesystems</b></h3>
 
 Think of a refrigerator that has multiple shelves that can be used for storing various items. These shelves help you organize the grocery items by shape, size, type, etc. The same concept applies to a filesystem, which is the embodiment of a method of storing and organizing arbitrary collections of data in a human-usable form.
 
@@ -181,7 +181,7 @@ Different types of filesystems supported by Linux:
 
 This section will describe the standard filesystem layout shared by most Linux distributions.
 
-<h3>Partitions and Filesystems</h3>
+<h3><b>Partitions and Filesystems</b></h3>
 
 A partition is a physically contiguous section of a disk, or what appears to be so in some advanced setups.
 
@@ -201,7 +201,7 @@ One can think of a partition as a container in which a filesystem resides, altho
 </center>
 </div>
 
-<h3>The Filesystem Hierarchy Standard</h3>
+<h3><b>The Filesystem Hierarchy Standard</b></h3>
 
 Linux systems store their important files according to a standard layout called the Filesystem Hierarchy Standard (FHS), which has long been maintained by the Linux Foundation. For more information, take a look at the following document: "Filesystem Hierarchy Standard" created by LSB Workgroup. Having a standard is designed to ensure that users, administrators, and developers can move between distributions without having to re-learn how the system is organized.
 
@@ -213,11 +213,11 @@ Linux systems store their important files according to a standard layout called 
 
 Linux uses the ‘/’ character to separate paths (unlike Windows, which uses ‘\’), and does not have drive letters. Multiple drives and/or partitions are mounted as directories in the single filesystem. Removable media such as USB drives and CDs and DVDs will show up as mounted at /run/media/yourusername/disklabel for recent Linux systems, or under /media for older distributions. For example, if your username is student a USB pen drive labeled FEDORA might end up being found at /run/media/student/FEDORA, and a file README.txt on that disc would be at /run/media/student/FEDORA/README.txt.
 
-<h3>More About the Filesystem Hierarchy Standard</h3>
+<h3><b>More About the Filesystem Hierarchy Standard</b></h3>
 
 All Linux filesystem names are case-sensitive, so /boot, /Boot, and /BOOT represent three different directories (or folders). Many distributions distinguish between core utilities needed for proper system operation and other programs, and place the latter in directories under /usr (think user). To get a sense for how the other programs are organized, find the /usr directory in the diagram from the previous page and compare the subdirectories with those that exist directly under the system root directory (/).
 
-<h3>Questions to Ask When Choosing a Distribution</h3>
+<h3><b>Questions to Ask When Choosing a Distribution</b></h3>
 
 Some questions worth thinking about before deciding on a distribution include:
 
@@ -237,13 +237,13 @@ Some questions worth thinking about before deciding on a distribution include:
 </center>
 </div>
 
-<h3>Linux Installation: Planning</h3>
+<h3><b>Linux Installation: Planning</b></h3>
 
 The partition layout needs to be decided at the time of installation; it can be difficult to change later. While Linux systems handle multiple partitions by mounting them at specific points in the filesystem, and you can always modify the design later, it is always easier to try and get it right to begin with.
 
 Nearly all installers provide a reasonable default layout, with either all space dedicated to normal files on one big partition and a smaller swap partition, or with separate partitions for some space-sensitive areas like /home and /var. You may need to override the defaults and do something different if you have special needs, or if you want to use more than one disk.
 
-<h3>Linux Installation: Software Choices</h3>
+<h3><b>Linux Installation: Software Choices</b></h3>
 
 All installations include the bare minimum software for running a Linux distribution.
 
@@ -258,7 +258,7 @@ Most installers also provide options for adding categories of software. Common a
 
 All installers set up some initial security features on the new system. One basic step consists of setting the password for the superuser (root) and setting up an initial user. In some cases (such as Ubuntu), only an initial user is set up; direct root login is not configured and root access requires logging in first as a normal user and then using sudo, as we will describe later. Some distributions will also install more advanced security frameworks, such as SELinux or AppArmor. For example, all Red Hat-based systems including Fedora and CentOS always use SELinux by default, and Ubuntu comes with AppArmor up and running.
 
-<h3>Linux Installation: Install Source</h3>
+<h3><b>Linux Installation: Install Source</b></h3>
 
 Like other operating systems, Linux distributions are provided on removable media such as USB drives and CDs or DVDs. Most Linux distributions also support booting a small image and downloading the rest of the system over the network. These small images are usable on media, or as network boot images, in which case it is possible to perform an install without using any local media.
 
@@ -268,7 +268,7 @@ Many installers can do an installation completely automatically, using a configu
 
 Each distribution provides its own documentation and tools for creating and managing these files.
 
-<h3>Linux Installation: The Process</h3>
+<h3><b>Linux Installation: The Process</b></h3>
 
 The actual installation process is pretty similar for all distributions.
 
@@ -280,7 +280,7 @@ Most installers have the option of downloading and installing updates as part of
 
 <b>NOTE</b>: <i>We will be demonstrating the installation process in each of the three Linux distribution families we cover in this course. You can view a demonstration for the distribution type of your choice.</i>
 
-<h3>Linux Installation: The Warning</h3>
+<h3><b>Linux Installation: The Warning</b></h3>
 
 <b>IMPORTANT!</b>
 
@@ -296,7 +296,7 @@ These alternate methods are:
 
 The first method is sometimes complicated and should be done when your confidence is high and you understand the steps involved. The second and third methods are quite safe and make it difficult to damage your system.
 
-<h3>Chapter Summary</h3>
+<h3><b>Chapter Summary</b></h3>
 
 You have completed Chapter 3. Let’s summarize the key concepts covered:
 
@@ -314,7 +314,7 @@ By the end of this chapter, you should be able to:
 - Perform basic operations using the graphical interface.
 - Change the graphical desktop to suit your needs.
 
-### Graphical Desktop
+<h3><b>Graphical Desktop</b></h3>
 
 You can use either a Command Line Interface (CLI) or a Graphical User Interface (GUI) when using Linux. To work at the CLI, you have to remember which programs and commands are used to perform tasks, and how to quickly and accurately obtain more information about their use and options. On the other hand, using the GUI is often quick and easy. It allows you to interact with your system through graphical icons and screens. For repetitive tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely. 
 
@@ -322,7 +322,7 @@ You can use either a Command Line Interface (CLI) or a Graphical User Interface 
 
 We will learn how to manage sessions using the GUI for the three Linux distribution families that we cover the most in this course: Red Hat (CentOS, Fedora), SUSE (openSUSE), and Debian (Ubuntu, Mint). Since we are using the GNOME-based variant of openSUSE rather than the KDE-based one, all are actually quite similar. If you are using KDE (or other Linux desktops such as XFCE), your experience will vary somewhat from what is shown, but not in any intrinsically difficult way, as user interfaces have converged to certain well-known behaviors on modern operating systems. In subsequent sections of this course we will concentrate in great detail on the command line interface, which is pretty much the same on all distributions.
 
-### X Window System
+<h3><b> X Window System </b></h3>
 
 Generally, in a Linux desktop system, the X Window System is loaded as one of the final steps in the boot process. It is often just called X.
 
@@ -338,7 +338,7 @@ A service called the Display Manager keeps track of the displays being provided 
 
 X is rather old software; it dates back to the mid 1980s and, as such, has certain deficiencies on modern systems (for example, with security), as it has been stretched rather far from its original purposes. A newer system, known as Wayland, is gradually superseding it and is the default display system for Fedora, RHEL 8, and other recent distributions.  For the most part, it looks just like X to the user, although under the hood it is quite different.
 
-### More About X
+<h3><b> More About X </b></h3>
 
 A desktop environment consists of a session manager, which starts and maintains the components of the graphical session, and the window manager, which controls the placement and movement of windows, window title-bars, and controls.
 
@@ -353,30 +353,30 @@ Although these can be mixed, generally a set of utilities, session manager, and 
 
 If the display manager is not started by default in the default runlevel, you can start the graphical desktop different way, after logging on to a text-mode console, by running startx from the command line. Or, you can start the display manager (gdm, lightdm, kdm, xdm, etc.) manually from the command line. This differs from running startx as the display managers will project a sign in screen. We discuss them next.
 
-### GUI Startup
+<h3><b>GUI Startup</b></h3>
 
 When you install a desktop environment, the X display manager starts at the end of the boot process. It is responsible for starting the graphics system, logging in the user, and starting the user’s desktop environment. You can often select from a choice of desktop environments when logging in to the system.
 
 The default display manager for GNOME is called gdm. Other popular display managers include lightdm (used on Ubuntu before version 18.04 LTS) and kdm (associated with KDE).
 
-### GNOME Desktop Environment
+<h3><b> GNOME Desktop Environment</b></h3>
 
 GNOME is a popular desktop environment with an easy-to-use graphical user interface. It is bundled as the default desktop environment for most Linux distributions, including Red Hat Enterprise Linux (RHEL), Fedora, CentOS, SUSE Linux Enterprise, Ubuntu and Debian. GNOME has menu-based navigation and is sometimes an easy transition to accomplish for Windows users. However, as you will see, the look and feel can be quite different across distributions, even if they are all using GNOME.
 
 
 Another common desktop environment very important in the history of Linux and also widely used is KDE, which has often been used in conjunction with SUSE and openSUSE. Other alternatives for a desktop environment include Unity (present on older Ubuntu, but still based on GNOME), XFCE and LXDE. As previously mentioned, most desktop environments follow a similar structure to GNOME, and we will restrict ourselves mostly to it to keep things less complex.
 
-### Graphical Desktop Background
+<h3><b>Graphical Desktop Background</b></h3>
 
 Each Linux distribution comes with its own set of desktop backgrounds. You can change the default by choosing a new wallpaper or selecting a custom picture to be set as the desktop background. If you do not want to use an image as the background, you can select a color to be displayed on the desktop instead.
 
 In addition, you can also change the desktop theme, which changes the look and feel of the Linux system. The theme also defines the appearance of application windows.
 
-### Customizing the Desktop Background
+<h3><b>Customizing the Desktop Background</b></h3>
 
 To change the background, you can right click anywhere on the desktop and choose Change Background. 
 
-### gnome-tweaks
+<h3><b> gnome-tweaks</b></h3>
 
 Most common settings, both personal and system-wide, are to be found by clicking in the upper right-hand corner, on either a gear or other obvious icon, depending on your Linux distribution.
 
@@ -388,7 +388,7 @@ As discussed in the next chapter, some recent distributions have taken most of t
 
 In the screenshot below, the keyboard mapping is being adjusted so the useless CapsLock key can be used as an additional Ctrl key; this saves users who use Ctrl a lot (such as emacs aficionados) from getting physically damaged by pinkie strain.
 
-### Changing the Theme
+<h3><b>Changing the Theme</b></h3>
 
 The visual appearance of applications (the buttons, scroll bars, widgets, and other graphical components) are controlled by a theme. GNOME comes with a set of different themes which can change the way your applications look. 
 

@@ -1,4 +1,4 @@
-<h3>Linux Distribution</h3>
+<b>Linux Distribution</b>
 
 So, what is a Linux distribution and how does it relate to the Linux kernel?
 

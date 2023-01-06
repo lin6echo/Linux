@@ -7434,7 +7434,7 @@ For single user computers and those in a home environment some of the above feat
 
 Like all software, hackers occasionally find weaknesses in the Linux ecosystem. The strength of the Linux (and open source community in general) is the speed with which such vulnerabilities are exposed and remediated. Specific coverage of vulnerabilities is beyond the scope of this course, but the Discussion Board can be used to carry out further discussion.
 
-### Chapter Summary
+### <b>Chapter Summary</b>
 
 You have completed Chapter 18. Let’s summarize the key concepts covered:
 

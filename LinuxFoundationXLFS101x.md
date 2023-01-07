@@ -1174,11 +1174,11 @@ In this case, the absolute pathname method requires less typing.
 
 <div>
 <center>
-<img src="understanding.png" width="400"/>
+<img src="understanding.png" width="300"/>
 </center>
 </div>
 
-### Exploring the Filesystem
+### <b>Exploring the Filesystem</b>
 
 Traversing up and down the filesystem tree can get tedious. The tree command is a good way to get a bird’s-eye view of the filesystem tree. Use tree -d to view just the directories and to suppress listing file names.
 
@@ -1190,7 +1190,7 @@ The following commands can help in exploring the filesystem:
 </center>
 </div>
 
-### Hard Links
+### <b>Hard Links</b>
 
 he ln utility is used to create hard links and (with the -s option) soft links, also known as symbolic links or symlinks. These two kinds of links are very useful in UNIX-based operating systems.
 
@@ -1212,7 +1212,7 @@ If you edit one of the files, exactly what happens depends on your editor; most 
 `ln file1 file2`
 `ls -li file?`
 
-### Soft (Symbolic) Links
+### <b>Soft (Symbolic) Links</b>
 
 Soft (or Symbolic) links are created with the -s option, as in:
 
@@ -1228,7 +1228,7 @@ Unlike hard links, soft links can point to objects even on different filesystems
 `ln -s file1 file3`
 `ls -li file1 file3`
 
-### Navigating the Directory History
+### <b>Navigating the Directory History</b>
 
 The `cd` command remembers where you were last, and lets you get back there with `cd` -. For remembering more than just the last directory visited, use `pushd` to change the directory instead of `cd`; this pushes your starting directory onto a list. Using `popd` will then send you back to those directories, walking in reverse order (the most recent directory will be the first one retrieved with `popd`). The list of directories is displayed with the `dirs` command.
 
@@ -1238,11 +1238,11 @@ The `cd` command remembers where you were last, and lets you get back there with
 </center>
 </div>
 
-### Working with Files
+### <b>Working with Files</b>
 
 Linux provides many commands that help you with viewing the contents of a file, creating a new file or an empty file, changing the timestamp of a file, and moving, removing and renaming a file or directory. These commands help you in managing your data and files and in ensuring that the correct data is available at the correct location.
 
-### Viewing Files
+### <b>Viewing Files</b>
 
 You can use the following command line utilities to view files:
 
@@ -1252,7 +1252,7 @@ You can use the following command line utilities to view files:
 </center>
 </div>
 
-### touch
+### <b>touch</b>
 
 touch is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time.
 
@@ -1274,7 +1274,7 @@ This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
 </center>
 </div>
 
-### mkdir and rmdir
+### <b>mkdir and rmdir</b>
 
 mkdir is used to create a directory:
 
@@ -1291,7 +1291,7 @@ Removing a directory is done with rmdir. The directory must be empty or the comm
 </center>
 </div>
 
-### Moving, Renaming or Removing a File
+### <b>Moving, Renaming or Removing a File</b>
 
 Note that mv does double duty, in that it can:
 
@@ -1306,7 +1306,7 @@ If you are not certain about removing files that match a pattern you supply, it 
 </center>
 </div>
 
-### Renaming or Removing a Directory
+### <b>Renaming or Removing a Directory</b>
 
 `rmdir` works only on empty directories; otherwise you get an error. 
 
@@ -1318,7 +1318,7 @@ While typing `rm –rf` is a fast and easy way to remove a whole filesystem tree
 </center>
 </div>
 
-### Modifying the Command Line Prompt
+### <b>Modifying the Command Line Prompt</b>
 
 The PS1 variable is the character string that is displayed as the prompt on the command line. Most distributions set PS1 to a known default value, which is suitable in most cases. However, users may want custom information to show on the command line. For example, some system administrators require the user and the host system name to show up on the command line as in:
 
@@ -1337,7 +1337,7 @@ For example:
 
 By convention, most systems are set up so that the root user has a pound sign (#) as their prompt.
 
-### Standard File Streams
+### <b>Standard File Streams</b>
 
 When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or stdin), standard output (standard out or stdout) and standard error (or stderr).
 
@@ -1353,7 +1353,7 @@ In Linux, all open files are represented internally by what are called file desc
 
 On the next page and in the chapters ahead, you will see examples which alter where a running command gets its input, where it writes its output, or where it prints diagnostic (error) messages.
 
-### I/O Redirection
+### <b>I/O Redirection</b>
 
 Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, instead of from our keyboard, and we can write output and errors to files or use them to provide input for subsequent commands.
 
@@ -1381,7 +1381,7 @@ bash permits an easier syntax for the above:
 
 `$ do_something >& all-output-file`
 
-### Pipes
+### <b>Pipes</b>
 
 The UNIX/Linux philosophy is to have many simple and short programs (or commands) cooperate together to produce quite complex results, rather than have one complex program with many possible options and modes of operation. In order to accomplish this, extensive use of pipes is made. You can pipe the output of one command or program into another as its input.
 
@@ -1399,13 +1399,13 @@ Furthermore, there is no need to save output in (temporary) files between the st
 </center>
 </div>
 
-### Searching for Files
+### <b>Searching for Files</b>
 
 Being able to quickly find the files you are looking for will save you time and enhance productivity. You can search for files in both your home directory space, or in any other directory or location on the system.
 
 The main tools for doing this are the locate and find utilities. We will also show how to use wildcards in bash, in order to specify any file which matches a given generalized request.
 
-### locate
+### <b>locate</b>
 
 The locate utility program performs a search taking advantage of a previously constructed database of files and directories on your system, matching all entries that contain a specified character string. This can sometimes result in a very long list.
 
@@ -1417,7 +1417,7 @@ which will list all the files and directories with both zip and bin in their nam
 
 locate utilizes a database created by a related utility, updatedb. Most Linux systems run this automatically once a day. However, you can update it at any time by just running updatedb from the command line as the root user.
 
-### Wildcards and Matching File Names
+### <b>Wildcards and Matching File Names</b>
 
 <div>
 <center>
@@ -1429,7 +1429,7 @@ To search for files using the ? wildcard, replace each unknown character with ?.
 
 To search for files using the * wildcard, replace the unknown string with *. For example, if you remember only that the extension was .out, type ls *.out.
 
-### The find Program
+### <b>The find Program</b>
 
 find is an extremely useful and often-used utility program in the daily life of a Linux system administrator. It recurses down the filesystem tree from any particular directory (or set of directories) and locates files that match specified conditions. The default pathname is always the present working directory.
 
@@ -1437,7 +1437,7 @@ For example, administrators sometimes scan for potentially large core files (whi
 
 It is also common to remove files in inessential or outdated files in /tmp (and other volatile directories, such as those containing cached files) that have not been accessed recently. Many Linux distributions use shell scripts that run periodically (through cron usually) to perform such house cleaning.
 
-### Using find
+### <b>Using find</b>
 
 When no arguments are given, find lists all files in the current directory and all of its subdirectories. Commonly used options to shorten the list include -name (only list files with a certain pattern in their name), -iname (also ignore the case of file names), and -type (which will restrict the results to files of a certain specified type, such as d for directory, l for symbolic link, or f for a regular file, etc.). 
 
@@ -1453,7 +1453,7 @@ Searching only for regular files named gcc:
 
 `$ find /usr -type f -name gcc`
 
-### Using Advanced find Options
+### <b>Using Advanced find Options</b>
 
 Another good use of find is being able to run commands on the files that match your search criteria. The -exec option is used for this purpose.
 
@@ -1473,7 +1473,7 @@ One can also use the -ok option, which behaves the same as -exec, except that fi
 </center>
 </div>
 
-### Finding Files Based on Time and Size
+### <b>Finding Files Based on Time and Size</b>
 
 It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size. It is easy to perform such searches.
 
@@ -1493,7 +1493,7 @@ For example, to find files greater than 10 MB in size and running a command on t
 
 `$ find / -size +10M -exec command {} ’;’`
 
-### Finding Directories and Creating Symbolic Links
+### <b>Finding Directories and Creating Symbolic Links</b>
 
 Find the init.d directory, starting from /, and then create a symbolic link from within your home directory to this directory.
 
@@ -1505,7 +1505,7 @@ Note that this SysVinit directory is no longer used much in systemd-based system
 
 Note you will get a lot of noise about trying to look at files and directories normal users are not allowed to examine. If you preface the find command with sudo these will not occur.
 
-### Package Management Systems on Linux
+### <b>Package Management Systems on Linux</b>
 
 The core parts of a Linux distribution and most of its add-on software are installed via the Package Management System. Each package contains the files and other instructions needed to make one software component work well and cooperate with the other components that comprise the entire system. Packages can depend on each other. For example, a package for a web-based application written in PHP can depend on the PHP package.
 
@@ -1513,7 +1513,7 @@ There are two broad families of package managers: those based on Debian and thos
 
 In this section, you will learn how to install, remove, or search for packages from the command line using these two package management systems.
 
-### Package Managers: Two Levels
+### <b>Package Managers: Two Levels</b>
 
 Both package management systems operate on two distinct levels: a low-level tool (such as dpkg or rpm) takes care of the details of unpacking individual packages, running scripts, getting the software installed correctly, while a high-level tool (such as apt-get, dnf, yum, or zypper) works with groups of packages, downloads packages from the vendor, and figures out dependencies.
 
@@ -1525,7 +1525,7 @@ Most of the time users need to work only with the high-level tool, which will ta
 </center>
 </div>
 
-### Working With Different Package Management Systems
+### <b>Working With Different Package Management Systems</b>
 
 The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include apt (or apt-get) and apt-cache.
 
@@ -1548,7 +1548,7 @@ To learn the basic packaging commands, take a look at these basic packaging comm
 </center>
 </div>
 
-### Installing and Removing Software Packages
+### <b>Installing and Removing Software Packages</b>
 
 Using the upper-level package management system appropriate for your Linux distribution, do the following:
 
@@ -1575,7 +1575,7 @@ or
 `student:/tmp> zypper install dump`
 `student:/tmp> zypper remove dump`
 
-### Chapter Summary
+### <b>Chapter Summary</b>
 
 ou have completed Chapter 7. Let’s summarize the key concepts we covered:
 
@@ -1598,7 +1598,7 @@ ou have completed Chapter 7. Let’s summarize the key concepts we covered:
 - You can use the dnf command-line package management utility for the RPM-based Red Hat Family Linux distributions.
 - The zypper package management system is based on RPM and used for openSUSE.
 
-### Linux Documentation Sources
+### <b>Linux Documentation Sources</b>
 
 Whether you are an inexperienced user or a veteran, you will not always know (or remember) the proper use of various Linux programs and utilities: what is the command to type, what options does it take, etc. You will need to consult help documentation regularly. Because Linux-based systems draw from a large variety of sources, there are numerous reservoirs of documentation and ways of getting help. Distributors consolidate this material and present it in a comprehensive and easy-to-use manner.
 
@@ -1615,7 +1615,7 @@ Important Linux documentation sources include:
 - The help command and --help option
 - Other documentation sources, e.g. Gentoo Handbook or Ubuntu Documentation.
 
-### The man pages
+### <b>The man pages</b>
 
 The man pages are the most often-used source of Linux documentation. They provide in-depth documentation about many programs and utilities, as well as other topics, including configuration files, and programming APIs for system calls, library routines, and the kernel. They are present on all Linux distributions and are always at your fingertips.
 
@@ -1627,7 +1627,7 @@ man pages are often converted to other formats, such as PDF documents and web pa
 
 Other sources of documentation include published books and many Internet sites.
 
-#### man
+#### <b>man</b>
 
 The man program searches, formats, and displays the information contained in the man page system. Because many topics have copious amounts of relevant information, output is piped through a pager program (such as less) to be viewed one page at a time. At the same time, the information is formatted for a good visual display.
 
@@ -1638,7 +1638,7 @@ A given topic may have multiple pages associated with it and there is a default 
 
 The default order is specified in /etc/man_db.conf and is roughly (but not exactly) in ascending numerical order by section.
 
-### Manual Chapters
+### <b>Manual Chapters</b>
 
 The man pages are divided into chapters numbered 1 through 9. In some cases, a letter is appended to the chapter number to identify a specific topic. For example, many pages describing part of the X Window API are in chapter 3X.
 
@@ -1648,7 +1648,7 @@ With the -a parameter, man will display all pages with the given name in all cha
 
 `$ man -a socket`
 
-### Working with man
+### <b>Working with man</b>
 
 Now, try to do the following:
 
@@ -1669,7 +1669,7 @@ Now, try to do the following:
 3. `student:/tmp> man 3 printf`
     (man printf will bring up the command-line utility (section 1) of the same name.)
     
-### The GNU Info System
+### <b>The GNU Info System</b>
 
 The next source of Linux documentation is the GNU Info System.
 
@@ -1677,7 +1677,7 @@ This is the GNU project's standard documentation format, which it prefers as an 
 
 Functionally, info resembles man in many ways. However, topics are connected using links (even though its design predates the World Wide Web). Information can be viewed through either a command line interface, a graphical help utility, printed or viewed online.
 
-### Using info from the Command Line
+### <b>Using info from the Command Line</b>
 
 Typing info with no arguments in a terminal window displays an index of available topics. You can browse through the topic list using the regular movement keys: arrows, Page Up, and Page Down.
 
@@ -1685,7 +1685,7 @@ You can view help for a particular topic by typing info <topic name>. The  syste
 
 Some useful keys are: q to quit, h for help, and Enter to select a menu item.
 
-### info Page Structure
+### <b>info Page Structure</b>
 
 The topic which you view in an info page is called a node. The table lists the basic keystrokes for moving between nodes.
 
@@ -1699,7 +1699,7 @@ Items function like browser links and are identified by an asterisk (*) at the b
 </center>
 </div>
 
-### Working with info
+### <b>Working with info</b>
 
 From the command line, bring up the info page for cpio. Bring up the tutorial.
 
@@ -1707,7 +1707,7 @@ From the command line, bring up the info page for cpio. Bring up the tutorial.
 
 Move the cursor down to the Tutorial node, and press Enter.
 
-### The --help Option
+### <b>The --help Option</b>
 
 Another important source of Linux documentation is use of the --help option.
 
@@ -1717,7 +1717,7 @@ Most commands have an available short description which can be viewed using the 
 
 The --help option is useful as a quick reference and it displays information faster than the man or info pages.
 
-### The help Command
+### <b>The help Command</b>
 
 When run within a bash command shell, some popular commands (such as echo and cd) actually run especially built-in bash versions of the commands rather than the usual binaries found on the file system, say under /bin or /usr/bin. It is more efficient to do so as execution is faster because fewer resources are used (we will discuss command shells later). One should note that there can be some (usually small) differences in the two versions of the command.
 
@@ -1725,7 +1725,7 @@ To view a synopsis of these built-in commands, you can simply type help as shown
 
 For these built-in commands, help performs the same basic function as the -h and --help arguments perform for standalone programs.
 
-### Working with Command Line help
+### <b>Working with Command Line help</b>
 
 List the available options for the mkdir command, in more than one way.
 
@@ -1735,7 +1735,7 @@ or
 
 `student:/tmp>$ man mkdir`
 
-### Other Documentation Sources
+### <b>Other Documentation Sources</b>
 
 In addition to the man pages, the GNU Info System, and the help command, there are other sources of Linux documentation, some examples of which include:
 
@@ -1749,7 +1749,7 @@ In addition to the man pages, the GNU Info System, and the help command, there a
 </center>
 </div>
 
-### Graphical Help Systems
+### <b>Graphical Help Systems</b>
 
 ll Linux desktop systems have a graphical help application. This application is usually displayed as a question-mark icon or an image of a ship’s life-preserver, and can also always be found within the menu system. These programs usually contain custom help for the desktop itself and some of its applications, and will sometimes also include graphically-rendered info and man pages.
 
@@ -1758,13 +1758,13 @@ If you do not want to spend time hunting for the right icon or menu item to laun
 - GNOME: `gnome-help` or `yelp`
 - KDE: `khelpcenter`
 
-### Package Documentation
+### <b>Package Documentation</b>
 
 Linux documentation is also available as part of the package management system. Usually, this documentation is directly pulled from the upstream source code, but it can also contain information about how the distribution packaged and set up the software.
 
 Such information is placed under the /usr/share/doc directory, grouped in subdirectories named after each package, perhaps including the version number in the name.
 
-### Online Resources
+### <b>Online Resources</b>
 
 There are many places to access online Linux documentation, and a little bit of searching will get you buried in it.
 
@@ -1780,7 +1780,7 @@ You can also find very helpful documentation for each distribution. Each distrib
 
 Moreover, you can use online search sites to locate helpful resources from all over the Internet, including blog posts, forum and mailing list posts, news articles, and so on.
 
-### Working with Graphical Help Systems
+### <b>Working with Graphical Help Systems</b>
 
 Find the graphical help system on your desktop and try to locate within it the man pages for printf. This may be difficult, so do not waste too much time before looking at the suggestions below. 
 
@@ -1800,7 +1800,7 @@ The same mechanism works to get info pages as well, as in:
 
 `student:/tmp> yelp info:cpio`
 
-### Chapter Summary
+### <b>Chapter Summary</b>
 
 You have completed Chapter 8. Let’s summarize the key concepts covered:
 
@@ -1813,7 +1813,7 @@ You have completed Chapter 8. Let’s summarize the key concepts covered:
 - You can type help at the command line to display a synopsis of built-in commands.
 - There are many other help resources both on your system and on the Internet.
 
-### What Is a Process?
+### <b>What Is a Process?</b>
 
 A process is simply an instance of one or more related tasks (threads) executing on your computer. It is not the same as a program or a command. A single command may actually start several processes simultaneously. Some processes are independent of each other and others are related. A failure of one process may or may not affect the others running on the system.
 
@@ -1825,7 +1825,7 @@ A process is simply an instance of one or more related tasks (threads) executing
 
 Processes use many system resources, such as memory, CPU (central processing unit) cycles, and peripheral devices, such as network cards, hard drives, printers and displays. The operating system (especially the kernel) is responsible for allocating a proper share of these resources to each process and ensuring overall optimized system utilization.
 
-### Process Types
+### <b>Process Types</b>
 
 A terminal window (one kind of command shell) is a process that runs as long as needed. It allows users to execute programs and access resources in an interactive environment. You can also run programs in the background, which means they become detached from the shell.
 
@@ -1837,7 +1837,7 @@ Processes can be of different types according to the task being performed. Here 
 </center>
 </div>
 
-### Process Scheduling and States
+### <b>Process Scheduling and States</b>
 
 A critical kernel function called the scheduler constantly shifts processes on and off the CPU, sharing time according to relative priority, how much time is needed and how much has already been granted to a task.
 
@@ -1853,7 +1853,7 @@ However, sometimes processes go into what is called a sleep state, generally whe
 
 There are some other less frequent process states, especially when a process is terminating. Sometimes, a child process completes, but its parent process has not asked about its state. Amusingly, such a process is said to be in a zombie state; it is not really alive, but still shows up in the system's list of processes.
 
-### Process and Thread IDs
+### <b>Process and Thread IDs</b>
 
 At any given time, there are always multiple processes being executed. The operating system keeps track of them by assigning each a unique process ID (PID) number. The PID is used to track process state, CPU usage, memory use, precisely where resources are located in memory, and other characteristics.
 
@@ -1867,7 +1867,7 @@ The table explains the PID types and their descriptions:
 </center>
 </div>
 
-### Terminating a Process
+### <b>Terminating a Process</b>
 
 At some point, one of your applications may stop working properly. How do you eliminate it?
 
@@ -1875,7 +1875,7 @@ To terminate a process, you can type kill -SIGKILL \<pid> or kill -9 \<pid>.
 
 Note, however, you can only kill your own processes; those belonging to another user are off limits, unless you are root.
 
-### User and Group IDs
+### <b>User and Group IDs</b>
 
 Many users can access a system simultaneously, and each user can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user.
 
@@ -1891,7 +1891,7 @@ Users can be categorized into various groups. Each group is identified by the Re
 
 Most of the time we ignore these details and just talk about the User ID (UID) and Group ID (GID).
 
-### More About Priorities
+### <b>More About Priorities</b>
 
 At any given time, many processes are running (i.e. in the run queue) on the system. However, a CPU can actually accommodate only one task at a time, just like a car can have only one driver at a time. Some processes are more important than others, so Linux allows you to set and manipulate process priority. Higher priority processes get preferential access to the CPU.
 
@@ -1899,7 +1899,7 @@ The priority for a process can be set by specifying a nice value, or niceness, f
 
 You can also assign a so-called real-time priority to time-sensitive tasks, such as controlling machines through a computer or collecting incoming data. This is just a very high priority and is not to be confused with what is called hard real-time which is conceptually different, and has more to do with making sure a job gets completed within a very well-defined time window.
 
-### Load Averages
+### <b>Load Averages</b>
 
 The load average is the average of the load number for a given period of time. It takes into account processes that are:
 
@@ -1911,7 +1911,7 @@ NOTE: Linux differs from other UNIX-like operating systems in that it includes t
 
 The load average can be viewed by running w, top or uptime. We will explain the numbers on the next page.
 
-### Interpreting Load Averages
+### <b>Interpreting Load Averages</b>
 
 The load average is displayed using three numbers (0.45, 0.17, and 0.12) in the below screenshot. Assuming our system is a single-CPU system, the three load average numbers are interpreted as follows:
 
@@ -1925,7 +1925,7 @@ If we had more than one CPU, say a quad-CPU system, we would divide the load ave
 
 Short-term increases are usually not a problem. A high peak you see is likely a burst of activity, not a new level. For example, at start up, many processes start and then activity settles down. If a high peak is seen in the 5 and 15 minute load averages, it may be cause for concern.
 
-### Background and Foreground Processes
+### <b>Background and Foreground Processes</b>
 
 Linux supports background and foreground job processing. A job in this context is just a command launched from a terminal window. Foreground jobs run directly from the shell, and when one foreground job is running, other jobs need to wait for shell access (at least in that terminal window if using the GUI) until it is completed. This is fine when jobs complete quickly. But this can have an adverse effect if the current job is going to take a long time (even several hours) to complete.
 
@@ -1933,7 +1933,7 @@ In such cases, you can run the job in the background and free the shell for othe
 
 You can either use CTRL-Z to suspend a foreground job or CTRL-C to terminate a foreground job and can always use the bg and fg commands to run a process in the background and foreground, respectively.
 
-### Managing Jobs
+### <b>Managing Jobs</b>
 
 The jobs utility displays all jobs running in background. The display shows the job ID, state, and command name, as shown here.
 
@@ -1941,7 +1941,7 @@ jobs -l provides the same information as jobs, and adds the PID of the backgroun
 
 The background jobs are connected to the terminal window, so, if you log off, the jobs utility will not show the ones started from that window.
 
-### Getting Uptime and Load Averages
+### <b>Getting Uptime and Load Averages</b>
 
 Ascertain how long your system has been up. 
 
@@ -1959,7 +1959,7 @@ A third method is to use w:
 
 `student:/tmp> w`
 
-### Background and Foreground Jobs
+### <b>Background and Foreground Jobs</b>
 
 We are going to launch a graphical program from a terminal window, so that one can no longer type in the window. gedit is an easy choice, but you can substitute any other program that does this.
 
@@ -1992,7 +1992,7 @@ We are going to launch a graphical program from a terminal window so that one ca
     `$ kill -9 19827`
     `$ jobs -l`
 
-### The ps Command (System V Style)
+### <b>The ps Command (System V Style)</b>
 
 ps provides information about currently running processes keyed by PID. If you want a repetitive update of this status, you can use top or other commonly installed variants (such as htop or atop) from the command line, or invoke your distribution's graphical system monitor application.
 
@@ -2006,7 +2006,7 @@ Without options, ps will display all processes running under the current shell. 
 </center>
 </div>
 
-### The ps Command (BSD Style)
+### <b>The ps Command (BSD Style)</b>
 
 ps has another style of option specification, which stems from the BSD variety of UNIX, where options are specified without preceding dashes. For example, the command ps aux displays all processes of all users. The command ps axo allows you to specify which attributes you want to view.
 
@@ -2018,11 +2018,11 @@ The screenshot shows a sample output of ps with the aux and axo qualifiers.
 </center>
 </div>
 
-### The Process Tree
+### <b>The Process Tree</b>
 
 pstree displays the processes running on the system in the form of a tree diagram showing the relationship between a process and its parent process and any other processes that it created. Repeated entries of a process are not displayed, and threads are displayed in curly braces.
 
-### top
+### <b>top</b>
 
 While a static view of what the system is doing is useful, monitoring the system performance live over time is also valuable. One option would be to run ps at regular intervals, say, every few seconds. A better alternative is to use top to get constant real-time updates (every two seconds by default), until you exit by typing q.top clearly highlights which processes are consuming the most CPU cycles and memory (using appropriate commands from within top).
 
